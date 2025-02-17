@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import InfoBoxes from './InfoBoxes';
 import FeatureSection from './FeatureSection';
-import "../../assets/styles/home.css";
+import "./home.css";
 
 const Home = () => {
   return (

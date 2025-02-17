@@ -1,5 +1,5 @@
 import Image from "react-bootstrap/Image";
-import "../../assets/styles/featureSection.css";
+import "./featureSection.css";
 
 function FeatureSection() {
   return (
