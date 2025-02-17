@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import '../../../assets/styles/header.css';
+import './header.css';
 import { MdOutlineEmail, MdOutlineLocationOn } from '../../../assets/icons/icons';
 
 function Header() {

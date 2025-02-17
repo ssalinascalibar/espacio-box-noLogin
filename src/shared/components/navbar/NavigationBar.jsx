@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Header from "../header/Header";
 import Image from "react-bootstrap/Image";
-import "../../../assets/styles/navigationBar.css";
+import "./navigationBar.css";
 
 const NavigationBar = () => {
   return (
