@@ -1,0 +1,18 @@
+:root {
+    --primary-color: #4598ac; /* verde vivo primario */
+    --secondary-color: #3f747b;
+    --accent-color: #37352d;
+
+    --background-primary-color: #d9dde2; /* fondo principal gris oscuro */
+    --background-secondary-color: #eff0f3; /* fondo alternativo gris/blanco claro */
+    --background-tertiary-color: #f0e9da; /* fondo alternativo beige */
+    
+    --text-primary: #4598ac; /* texto principal */
+    --text-secondary: #fcfcfc; /* texto alternativo blanco */
+    --text-tertiary: #f0e9da; /* texto alternativo beige */
+    --gray-light-color: #d9dde2;
+  
+    --border-color: #DDDDDD;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    
+  }

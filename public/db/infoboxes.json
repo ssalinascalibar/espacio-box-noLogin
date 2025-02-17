@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "icon": "MdVolunteerActivism",
+      "title": "Nuestros Servicios",
+      "text": "Queremos brindar un espacio de contención emocional a quienes lo requieran.",
+      "link": "Vísitanos"
+    },
+    {
+      "id": 2,
+      "icon": "MdOutlineBadge",
+      "title": "Nuestros Profesionales",
+      "text": "Profesionales capacitados e inscritos en la Superintendencia de Salud. Visítanos.",
+      "link": "Ver más"
+    },
+    {
+      "id": 3,
+      "icon": "MdDateRange",
+      "title": "¿Cómo Agendar?",
+      "text": "Invitamos a quienes trabajan con nosotros a formar parte de esta comunidad como una red de apoyo.",
+      "link": "Agendar"
+    },
+    {
+      "id": 4,
+      "icon": "MdOutlineLocationOn",
+      "title": "Ubicación",
+      "text": "Guardia Vieja #255, Of 1803 Providencia, Metro Los Leones.",
+      "link": "Ir Google maps"
+    }
+  ]

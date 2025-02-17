@@ -1,0 +1,66 @@
+.scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative; 
+    top: -60px; /* Ajusta la posición vertical para superponer las tarjetas sobre la sección hero */
+    z-index: 2;
+  }
+  
+  .scroll-container .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .scroll-container .card {
+    height: 100%;
+    background-color: var(--background-secondary-color);
+    color: var(--text-primary);
+    border: none;
+  }
+  
+  .scroll-container .card-body {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  
+  }
+  
+  .scroll-container .card-body {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  
+  }
+
+  .scroll-container .card-body svg {
+    font-size: 2.2em;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  /* .scroll-container .card-body .card-link {
+    margin-top: auto;
+    color: var(--text-secondary);
+
+  } */
+
+  .scroll-container .card-footer {
+    background-color: var(--primary-color);
+    border-top: none;
+  }
+
+  .scroll-container .card-footer .card-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
+
+
+
