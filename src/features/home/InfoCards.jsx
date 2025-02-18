@@ -18,7 +18,7 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-function InfoCards() {
+const InfoCards = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
