@@ -31,7 +31,7 @@ function InfoBoxes() {
 
   return (
     <div className="scroll-container">
-      <Row className="no-gutters">
+      <Row>
         {cards.map((card) => (
           <Col key={card.id} xs={9} md={3}>
             <Card>
