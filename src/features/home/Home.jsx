@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import InfoBoxes from './InfoBoxes';
+import InfoCards from './InfoCards';
 import FeatureSection from './FeatureSection';
 import "./home.css";
 
@@ -22,7 +22,7 @@ const Home = () => {
         </section>
         <section>
           <Container>
-            <InfoBoxes />
+            <InfoCards />
           </Container>
         </section>
         <section>

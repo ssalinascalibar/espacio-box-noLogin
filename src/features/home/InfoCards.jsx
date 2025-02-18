@@ -3,7 +3,7 @@ import { fetchData } from "../../services/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import "./infoBoxes.css";
+import "./infoCards.css";
 import {
   MdVolunteerActivism,
   MdOutlineBadge,
@@ -18,7 +18,7 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-function InfoBoxes() {
+function InfoCards() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -51,4 +51,4 @@ function InfoBoxes() {
   );
 }
 
-export default InfoBoxes;
+export default InfoCards;
