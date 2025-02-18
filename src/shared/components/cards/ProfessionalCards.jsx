@@ -3,7 +3,7 @@ import { fetchProfessionals } from "../../../services/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import "./ProfessionalCards.css";
+import "./professionalCards.css";
 
 const ProfessionalCards = () => {
   const [professionalCards, setProfessionalCards] = useState([]);
