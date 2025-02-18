@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import InfoCards from './InfoCards';
 import FeatureSection from './FeatureSection';
+import ProfessionalCards from '../../shared/components/cards/ProfessionalCards';
 import "./home.css";
 
 const Home = () => {
@@ -28,6 +29,11 @@ const Home = () => {
         <section>
           <Container>
             <FeatureSection />
+          </Container>
+        </section>
+        <section>
+          <Container>
+            <ProfessionalCards />
           </Container>
         </section>
       </main>
