@@ -25,7 +25,7 @@ const ProfessionalCards = () => {
             <Card>
               <Card.Body>
                 <Card.Title>{card.name}</Card.Title>
-                <Card.Title>{card.title}</Card.Title>
+                <Card.Subtitle className="mb-3 card-subtitle">{card.title}</Card.Subtitle>
                 <Card.Text>{card.text}</Card.Text>
               </Card.Body>
             </Card>

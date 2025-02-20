@@ -13,8 +13,8 @@
   
   .scroll-container-professionals .card {
     height: 100%;
-    background-color: var(--background-secondary-color);
-    color: var(--text-primary);
+    background-color: var(--primary-color);
+    color: var(--text-secondary);
     border: none;
   }
   
@@ -38,14 +38,13 @@
   
   }
 
-  .scroll-container-professionals .card-footer {
-    background-color: var(--primary-color);
-    border-top: none;
-  }
-
   .scroll-container-professionals .card-footer .card-link {
     text-decoration: none;
     color: var(--text-secondary);
+  }
+
+  .card .card-subtitle{
+    color: var(--background-primary-color);
   }
 
 
