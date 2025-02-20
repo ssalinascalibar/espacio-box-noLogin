@@ -27,16 +27,6 @@
     padding: 2rem;
   
   }
-  
-  .scroll-container-professionals .card-body {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-  
-  }
 
   .scroll-container-professionals .card-footer .card-link {
     text-decoration: none;
@@ -46,6 +36,27 @@
   .card .card-subtitle{
     color: var(--background-primary-color);
   }
+
+  /* Media query para desktop (pantallas desde 992px) */
+@media screen and (min-width: 992px) {
+ 
+    /* WebKit browsers (Chrome, Safari) */
+  .scroll-container-professionals::-webkit-scrollbar {
+    height: 12px; 
+  }
+
+  .scroll-container-professionals::-webkit-scrollbar-track {
+    background: var(--background-secondary-color); 
+    border-radius: 8px;
+  }
+
+  .scroll-container-professionals::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); 
+    border-radius: 8px;
+    border: 3px solid var(--background-secondary-color);
+  }
+  
+}
 
 
 
