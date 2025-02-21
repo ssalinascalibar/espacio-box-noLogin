@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import InfoCards from './InfoCards';
 import FeatureSection from './FeatureSection';
 import ProfessionalCards from '../../shared/components/cards/ProfessionalCards';
+import { ReserveBtn } from '../../shared/components/buttons/Buttons';
 import "./home.css";
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
               pacientes con comodidad sino también construir una comunidad de
               profesionales que puedan apoyarse entre sí.{" "}
             </p>
+            <ReserveBtn />
           </div>
           </Container>
         </section>
