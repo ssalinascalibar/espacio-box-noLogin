@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import './header.css';
 import { MdOutlineEmail, MdOutlineLocationOn } from '../../../assets/icons/icons';
 
-function Header() {
+export default function Header() {
   return (
     <>
         <header>
@@ -14,5 +14,3 @@ function Header() {
     </>
   )
 }
-
-export default Header

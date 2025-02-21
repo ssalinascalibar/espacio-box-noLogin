@@ -1,7 +1,7 @@
 import Image from "react-bootstrap/Image";
 import "./featureSection.css";
 
-function FeatureSection() {
+export default function FeatureSection() {
   return (
     <div className="features">
       <div className="features-content">
@@ -27,5 +27,3 @@ function FeatureSection() {
     </div>
   );
 }
-
-export default FeatureSection;

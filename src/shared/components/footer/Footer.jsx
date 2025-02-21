@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import { FaInstagram } from "../../../assets/icons/icons";
 import "./footer.css";
 
-const Footer = () => {
+export default function Footer() {
   // variable contiene el año en curso,
   const year = new Date().getFullYear();
 
@@ -41,5 +41,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

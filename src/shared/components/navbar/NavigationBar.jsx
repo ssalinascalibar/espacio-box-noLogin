@@ -5,7 +5,7 @@ import Header from "../header/Header";
 import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
-const NavigationBar = () => {
+export default function NavigationBar() {
   return (
     <>
       <Header />
@@ -37,5 +37,3 @@ const NavigationBar = () => {
     </>
   );
 };
-
-export default NavigationBar;

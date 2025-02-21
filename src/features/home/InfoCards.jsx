@@ -18,7 +18,7 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-const InfoCards = () => {
+export default function InfoCards() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -50,5 +50,3 @@ const InfoCards = () => {
     </div>
   );
 }
-
-export default InfoCards;

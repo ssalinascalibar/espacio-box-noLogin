@@ -5,7 +5,7 @@ import ProfessionalCards from '../../shared/components/cards/ProfessionalCards';
 import { ReserveBtn } from '../../shared/components/buttons/Buttons';
 import "./home.css";
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <main>
@@ -38,9 +38,11 @@ const Home = () => {
             <ProfessionalCards />
           </Container>
         </section>
+        <section>
+
+        </section>
       </main>
     </>
   );
 };
 
-export default Home;
