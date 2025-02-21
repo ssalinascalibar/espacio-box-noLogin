@@ -7,7 +7,6 @@ import "./professionalCards.css";
 
 const ProfessionalCards = () => {
   const [professionalCards, setProfessionalCards] = useState([]);
-  console.log(professionalCards)
 
   useEffect(() => {
     const getCards = async () => {
