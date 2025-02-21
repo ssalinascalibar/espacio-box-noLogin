@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import InfoCards from './InfoCards';
 import FeatureSection from './FeatureSection';
 import ProfessionalCards from '../../shared/components/cards/ProfessionalCards';
+import VideoSection from './VideoSection';
 import { ReserveBtn } from '../../shared/components/buttons/Buttons';
 import "./home.css";
 
@@ -39,7 +40,9 @@ export default function Home() {
           </Container>
         </section>
         <section>
-
+          <Container>
+            <VideoSection />
+          </Container>
         </section>
       </main>
     </>
