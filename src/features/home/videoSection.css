@@ -8,3 +8,7 @@
     top: 0;
     left: 0;
   }
+
+  .react-player__preview {
+    border-radius: 8px;
+  }
