@@ -5,7 +5,7 @@ footer {
     flex-direction: column;
     text-align: left;
     margin-top: 4rem;
-    padding: 2rem;
+    padding: 6rem 2rem 0rem 2rem;
 }
 
 footer svg {
