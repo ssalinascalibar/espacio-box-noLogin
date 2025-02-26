@@ -3,11 +3,21 @@ import { fetchProfessionals } from "../../../services/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import ProfessionalCardModal from "../modals/ProfessionalCardModal";
 import "./professionalCards.css";
 
 export default function ProfessionalCards() {
   const [professionalCards, setProfessionalCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleShow = (card) => {
+    setSelectedCard(card);
+  };
+
+  const handleClose = () => {
+    setSelectedCard(null);
+  };
 
   useEffect(() => {
     const getCards = async () => {
@@ -32,10 +42,18 @@ export default function ProfessionalCards() {
                 <Card.Subtitle className="mb-4 card-subtitle">{card.title}</Card.Subtitle>
                 <Card.Text className="text-multiline-truncate">{card.text}</Card.Text>
               </Card.Body>
-                <Button variant="primary">Ver más</Button>
+                <Button variant="primary" onClick={() => handleShow(card)}>Ver más</Button>
+                {/* <ProfessionalCardModal show={show} setShow={setShow}  /> */}
             </Card>
           </Col>
         ))}
+        {selectedCard && (
+        <ProfessionalCardModal 
+          show={selectedCard} 
+          handleClose={handleClose} 
+          card={selectedCard} 
+        />
+      )}
       </Row>
     </div>
     </>
