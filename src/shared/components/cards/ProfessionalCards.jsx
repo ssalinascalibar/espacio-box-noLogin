@@ -17,6 +17,9 @@ export default function ProfessionalCards() {
   }, []);
 
   return (
+    <>
+    <h2>Conoce a nuestros profesionales</h2>
+    <p>En Espaciobox, contamos con un equipo de profesionales de la salud altamente calificados, incluyendo psicólogos, nutricionistas y otros especialistas. Trabajamos con pasión y compromiso para brindarte el mejor acompañamiento en tu bienestar físico y emocional..</p>
     <div className="scroll-container-professionals">
       <Row>
         {professionalCards.map((card) => (
@@ -33,6 +36,7 @@ export default function ProfessionalCards() {
         ))}
       </Row>
     </div>
+        </>
   );
 }
 
