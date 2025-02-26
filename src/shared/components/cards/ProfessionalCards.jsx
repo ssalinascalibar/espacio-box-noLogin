@@ -3,6 +3,7 @@ import { fetchProfessionals } from "../../../services/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Button from 'react-bootstrap/Button'
 import "./professionalCards.css";
 
 export default function ProfessionalCards() {
@@ -25,18 +26,19 @@ export default function ProfessionalCards() {
         {professionalCards.map((card) => (
           <Col key={card.id} xs={10} md={3}>
             <Card>
-            <Card.Img variant="top" src={card.image} className="circular-img" />
+            <Card.Img variant="top" src={card.image} className="card-img-mask" />
               <Card.Body>
                 <Card.Title>{card.name}</Card.Title>
                 <Card.Subtitle className="mb-4 card-subtitle">{card.title}</Card.Subtitle>
-                <Card.Text>{card.text}</Card.Text>
+                <Card.Text className="text-multiline-truncate">{card.text}</Card.Text>
               </Card.Body>
+                <Button variant="primary">Ver más</Button>
             </Card>
           </Col>
         ))}
       </Row>
     </div>
-        </>
+    </>
   );
 }
 
