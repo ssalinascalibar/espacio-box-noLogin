@@ -19,17 +19,17 @@
   }
 
   .scroll-container-professionals .card .card-img-top{
-    height: 200px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .text-multiline-truncate {
+  /* .text-multiline-truncate {
     display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 5;
-            line-clamp: 5;
-            overflow: hidden;
-  }
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
+  } */
   
   .scroll-container-professionals .card-body {
     overflow: hidden; 
@@ -37,8 +37,7 @@
     white-space: normal; /* Permite que el texto se ajuste en varias líneas */
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 2rem 2rem 2rem;
-  
+    padding: 0.5rem 2rem 4rem 2rem;
   }
 
   .scroll-container-professionals .card-footer .card-link {
@@ -72,6 +71,10 @@
     background-color: var(--primary-color); 
     border-radius: 8px;
     border: 3px solid var(--background-secondary-color);
+  }
+
+  .scroll-container-professionals .card-body {
+    padding: 0.5rem 2rem 1rem 2rem;
   }
   
 }
