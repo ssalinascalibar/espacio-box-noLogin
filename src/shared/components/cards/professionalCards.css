@@ -37,6 +37,17 @@
     color: var(--background-primary-color);
   }
 
+  .circular-img {
+    -webkit-mask-image: linear-gradient(to top, transparent 5%, black 55%);
+  mask-image: linear-gradient(to top, transparent 5%, black 55%);
+    /* width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 1rem auto; */
+  }
+
   /* Media query para desktop (pantallas desde 992px) */
 @media screen and (min-width: 992px) {
  

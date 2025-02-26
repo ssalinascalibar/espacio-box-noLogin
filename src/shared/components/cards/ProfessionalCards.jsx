@@ -22,6 +22,7 @@ export default function ProfessionalCards() {
         {professionalCards.map((card) => (
           <Col key={card.id} xs={10} md={3}>
             <Card>
+            <Card.Img variant="top" src={card.image} className="circular-img" />
               <Card.Body>
                 <Card.Title>{card.name}</Card.Title>
                 <Card.Subtitle className="mb-4 card-subtitle">{card.title}</Card.Subtitle>
