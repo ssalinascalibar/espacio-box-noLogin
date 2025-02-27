@@ -7,12 +7,13 @@ import "./videoSection.css";
 export default function VideoSection() {
   return (
     <>
+    <div className="videoSection">
       <Row>
         <Col xs={12} md={6} lg={6}>
-          <h3>
-            Conoce nuestros espacios, contamos con 3 box disponibles, amoblados
-            para que puedan atender con comodidad a sus consultantes.
-          </h3>
+          <h2>
+          Te invitamos a descubrir nuestros espacios, diseñados para brindar confort y funcionalidad.
+          </h2>
+          <p>Contamos con 3 box amoblados, equipados con todo lo necesario para que puedas atender a tus pacientes con la máxima comodidad. Cada espacio ha sido pensado para ofrecer un ambiente acogedor y profesional, permitiéndote concentrarte en lo más importante: tu trabajo y el bienestar de quienes te visitan.</p>
         </Col>
         <Col xs={12} md={6} lg={6}>
           <div className="player-wrapper">
@@ -31,6 +32,7 @@ export default function VideoSection() {
           </div>
         </Col>
       </Row>
+      </div>
     </>
   );
 }
