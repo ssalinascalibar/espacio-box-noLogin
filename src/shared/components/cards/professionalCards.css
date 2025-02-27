@@ -37,12 +37,7 @@
     white-space: normal; /* Permite que el texto se ajuste en varias líneas */
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 2rem 4rem 2rem;
-  }
-
-  .scroll-container-professionals .card-footer .card-link {
-    text-decoration: none;
-    color: var(--text-secondary);
+    padding: 0.5rem 2rem 2rem 2rem;
   }
 
   .scroll-container-professionals .card .card-subtitle{

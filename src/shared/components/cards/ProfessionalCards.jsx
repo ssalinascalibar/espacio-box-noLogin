@@ -39,7 +39,7 @@ export default function ProfessionalCards() {
             <Card.Img variant="top" src={card.image} className="card-img-mask" />
               <Card.Body>
                 <Card.Title>{card.name}</Card.Title>
-                <Card.Subtitle className="mb-4 card-subtitle">{card.title}</Card.Subtitle>
+                <Card.Subtitle className="card-subtitle">{card.title}</Card.Subtitle>
                 {/* <Card.Text className="text-multiline-truncate">{card.text}</Card.Text> */}
               </Card.Body>
                 <Button variant="primary" onClick={() => handleShow(card)}>Ver más</Button>
