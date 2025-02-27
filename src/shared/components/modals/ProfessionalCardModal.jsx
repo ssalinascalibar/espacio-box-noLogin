@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from 'react-bootstrap/Image';
 import PropTypes from "prop-types";
+import "./professionalCardModal.css";
 
 export default function ProfessionalCardModal({ show, handleClose, card }) {
 
@@ -18,12 +19,12 @@ export default function ProfessionalCardModal({ show, handleClose, card }) {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose} >
+      <Modal show={show} onHide={handleClose} className="professionals-modal">
         <Modal.Header>
-          <Button onClick={handleClose}>X</Button>
+          <Button variant="secondary" onClick={handleClose}>X</Button>
         </Modal.Header>
         <Modal.Body>
-        <Image src={card.image} fluid />
+        <Image src={card.image} />
           <h2>{card.name}</h2>
           <h3>{card.title}</h3>
           <p>{card.text}</p>
