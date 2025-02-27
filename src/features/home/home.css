@@ -42,6 +42,10 @@
     width: 80%;
 }
 
+.style-boxes{
+    padding: 1rem;
+}
+
 /* Media query para desktop (pantallas desde 992px) */
 @media screen and (min-width: 992px) {
 

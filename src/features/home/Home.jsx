@@ -29,7 +29,7 @@ export default function Home() {
             <InfoCards />
           </Container>
         </section>
-        <section>
+        <section className="style-boxes">
           <Container>
             <FeatureSection />
           </Container>
@@ -39,7 +39,7 @@ export default function Home() {
             <ProfessionalCards />
           </Container>
         </section>
-        <section>
+        <section className="style-boxes">
           <Container>
             <VideoSection />
           </Container>
