@@ -18,6 +18,10 @@
     border: none;
   }
 
+  .scroll-container-professionals .card .card-body {
+    text-align: center;
+  }
+
   .scroll-container-professionals .card .card-subtitle{
     color: var(--background-primary-color);
   }
