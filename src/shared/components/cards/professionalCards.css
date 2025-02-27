@@ -1,6 +1,7 @@
 .scroll-container-professionals {
     overflow-x: auto;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    white-space: normal;
     padding: 1rem;
     margin:  1rem 0 4rem 0;
     border-radius: 8px;
@@ -13,6 +14,7 @@
   
   .scroll-container-professionals .card {
     /* height: 80vh; */
+    height: 100%;
     background-color: var(--primary-color);
     color: var(--text-secondary);
     border: none;
