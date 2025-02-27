@@ -12,41 +12,14 @@
   }
   
   .scroll-container-professionals .card {
-    height: 80vh;
+    /* height: 80vh; */
     background-color: var(--primary-color);
     color: var(--text-secondary);
     border: none;
   }
 
-  .scroll-container-professionals .card .card-img-top{
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* .text-multiline-truncate {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
-    overflow: hidden;
-  } */
-  
-  .scroll-container-professionals .card-body {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 2rem 2rem 2rem;
-  }
-
   .scroll-container-professionals .card .card-subtitle{
     color: var(--background-primary-color);
-  }
-
-  .scroll-container-professionals .card-img-mask {
-    -webkit-mask-image: linear-gradient(to top, transparent 5%, black 55%);
-    mask-image: linear-gradient(to top, transparent 5%, black 55%);
   }
 
   /* Media query para desktop (pantallas desde 992px) */

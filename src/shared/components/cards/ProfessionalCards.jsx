@@ -36,7 +36,7 @@ export default function ProfessionalCards() {
         {professionalCards.map((card) => (
           <Col key={card.id} xs={10} md={3}>
             <Card>
-            <Card.Img variant="top" src={card.image} className="card-img-mask" />
+            <Card.Img variant="top" src={card.image}/>
               <Card.Body>
                 <Card.Title>{card.name}</Card.Title>
                 <Card.Subtitle className="card-subtitle">{card.title}</Card.Subtitle>
