@@ -6,11 +6,6 @@
     flex-direction: column;
 }
 
-.features-image{
-    width: 100%;
-    height: 100%;
-}
-
 .features-image img{
     border-radius: 8px;
 
@@ -35,6 +30,10 @@
         color: var(--text-primary);
         font-size: 1.1em;
         
+    }
+
+    .features-image{
+        width: 70%;
     }
     
 }
