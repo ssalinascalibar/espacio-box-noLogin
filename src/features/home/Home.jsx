@@ -1,9 +1,9 @@
-import Container from 'react-bootstrap/Container';
-import InfoCards from './InfoCards';
-import FeatureSection from './FeatureSection';
-import ProfessionalCards from '../../shared/components/cards/ProfessionalCards';
-import VideoSection from './VideoSection';
-import { ReserveBtn } from '../../shared/components/buttons/Buttons';
+import Container from "react-bootstrap/Container";
+import InfoCards from "./InfoCards";
+import FeatureSection from "./FeatureSection";
+import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
+import VideoSection from "./VideoSection";
+import { ReserveBtn } from "../../shared/components/buttons/Buttons";
 import "./home.css";
 
 export default function Home() {
@@ -12,16 +12,16 @@ export default function Home() {
       <main>
         <section className="hero">
           <Container>
-          <div className="hero-text">
-            <h1>EspacioBox</h1>
-            <h2>solución en arriendo de espacios</h2>
-            <p>
-              En EspacioBox buscamos ser más que un espacio donde atender a sus
-              pacientes con comodidad sino también construir una comunidad de
-              profesionales que puedan apoyarse entre sí.{" "}
-            </p>
-            <ReserveBtn />
-          </div>
+            <div className="hero-text">
+              <h1>EspacioBox</h1>
+              <h2>solución en arriendo de espacios</h2>
+              <p>
+                En EspacioBox buscamos ser más que un espacio donde atender a
+                sus pacientes con comodidad sino también construir una comunidad
+                de profesionales que puedan apoyarse entre sí.{" "}
+              </p>
+              <ReserveBtn />
+            </div>
           </Container>
         </section>
         <section>
@@ -34,7 +34,7 @@ export default function Home() {
             <FeatureSection />
           </Container>
         </section>
-        <section>
+        <section className="style-boxes">
           <Container>
             <ProfessionalCards />
           </Container>
@@ -47,5 +47,4 @@ export default function Home() {
       </main>
     </>
   );
-};
-
+}

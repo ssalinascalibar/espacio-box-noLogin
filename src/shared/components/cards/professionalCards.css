@@ -1,9 +1,13 @@
+/* .professional-title {
+  padding: 0 1rem 0 1rem;
+} */
+
 .scroll-container-professionals {
     overflow-x: auto;
     /* white-space: nowrap; */
     white-space: normal;
-    padding: 1rem;
-    margin:  1rem 0 4rem 0;
+    padding: 1rem 1rem 1rem 0;
+    margin:  1rem 0 0 0;
     border-radius: 8px;
   }
   
@@ -49,6 +53,15 @@
 
   .scroll-container-professionals .card-body {
     padding: 0.5rem 2rem 1rem 2rem;
+  }
+
+  .scroll-container-professionals {
+    padding: 1rem 1rem 1rem 0;
+    
+  }
+
+  .professional-title {
+    width: 60%;
   }
   
 }

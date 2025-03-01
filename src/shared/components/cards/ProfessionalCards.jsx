@@ -29,8 +29,10 @@ export default function ProfessionalCards() {
 
   return (
     <>
-    <h2 className="px-3">Conoce a nuestros profesionales</h2>
-    <p className="px-3">En Espaciobox, contamos con un equipo de profesionales de la salud altamente calificados, incluyendo psicólogos, nutricionistas y otros especialistas.</p>
+    <div className="professional-title">
+    <h2>Conoce a nuestros profesionales</h2>
+    <p>En Espaciobox, contamos con un equipo de profesionales de la salud altamente calificados, incluyendo psicólogos, nutricionistas y otros especialistas.</p>
+    </div>
     <div className="scroll-container-professionals">
       <Row>
         {professionalCards.map((card) => (
