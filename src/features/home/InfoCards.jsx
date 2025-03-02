@@ -33,7 +33,7 @@ export default function InfoCards() {
     <div className="scroll-container">
       <Row>
         {cards.map((card) => (
-          <Col key={card.id} xs={9} md={3}>
+          <Col key={card.id} xs={9} md={5} lg={3}>
             <Card>
               <Card.Body>
                 {iconMap[card.icon]}

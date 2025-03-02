@@ -33,7 +33,7 @@
   .scroll-container .card-body {
     overflow: hidden; 
     text-overflow: ellipsis; 
-    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
+    white-space: normal;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -45,12 +45,6 @@
     margin-bottom: 1rem;
     color: var(--text-primary);
   }
-
-  /* .scroll-container .card-body .card-link {
-    margin-top: auto;
-    color: var(--text-secondary);
-
-  } */
 
   .scroll-container .card-footer {
     background-color: var(--primary-color);
