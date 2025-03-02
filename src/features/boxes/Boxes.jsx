@@ -10,7 +10,7 @@ export default function Boxes() {
 
   const images = [
     {
-      original: "https://picsum.photos/id/1018/1000/600/",
+      original: "/assets/img/featuresSection.jpg",
       thumbnail: "https://picsum.photos/id/1018/250/150/",
     },
     {
@@ -54,7 +54,9 @@ export default function Boxes() {
             </Row>
             <Row>
               <Col>
+              <div className="image-gallery-wrapper">
             <ImageGallery items={images} />
+            </div>
             </Col>
             </Row>
           </div>

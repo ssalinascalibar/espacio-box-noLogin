@@ -7,6 +7,39 @@
     margin-bottom: 2rem;
 }
 
+.image-gallery-wrapper {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-gallery {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-gallery-slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .image-gallery-wrapper {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #000;
+    }
+    .image-gallery-slide img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+}
+  
+
 @media screen and (min-width: 992px) {
     #boxes-content{
         padding: 2rem 0;
