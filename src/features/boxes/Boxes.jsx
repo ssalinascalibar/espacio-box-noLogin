@@ -20,6 +20,7 @@ export default function Boxes() {
     {
       original: "https://picsum.photos/id/1019/1000/600/",
       thumbnail: "https://picsum.photos/id/1019/250/150/",
+      
     },
   ];
   return (
@@ -55,7 +56,7 @@ export default function Boxes() {
             <Row>
               <Col>
               <div className="image-gallery-wrapper">
-            <ImageGallery items={images} />
+            <ImageGallery items={images} thumbnailPosition="left" />
             </div>
             </Col>
             </Row>
