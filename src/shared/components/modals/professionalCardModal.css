@@ -14,6 +14,7 @@
 
 .professionals-modal .modal-body p {
     text-align: justify;
+    padding: 0 2rem;
 }
 
 /* Media query para desktop (pantallas desde 992px) */
