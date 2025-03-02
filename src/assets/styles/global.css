@@ -1,5 +1,5 @@
 @import "./colors.css";
-
+@import "react-image-gallery/styles/css/image-gallery.css";
 
 * {
   margin: 0;

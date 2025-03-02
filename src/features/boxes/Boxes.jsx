@@ -2,12 +2,26 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./boxes.css";
-
+import ImageGallery from "react-image-gallery";
+// import stylesheet if you're not already using CSS @import
 
 
 export default function Boxes() {
 
-  
+  const images = [
+    {
+      original: "https://picsum.photos/id/1018/1000/600/",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+  ];
   return (
     <>
       <main>
@@ -40,7 +54,7 @@ export default function Boxes() {
             </Row>
             <Row>
               <Col>
-            
+            <ImageGallery items={images} />
             </Col>
             </Row>
           </div>
