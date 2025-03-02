@@ -36,7 +36,7 @@ export default function ProfessionalCards() {
     <div className="scroll-container-professionals">
       <Row>
         {professionalCards.map((card) => (
-          <Col key={card.id} xs={10} md={3}>
+          <Col key={card.id} xs={10} md={5} lg={3}>
             <Card>
             <Card.Img variant="top" src={card.image}/>
               <Card.Body>
