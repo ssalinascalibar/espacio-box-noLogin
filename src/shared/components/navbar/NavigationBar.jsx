@@ -24,10 +24,10 @@ export default function NavigationBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="#link">Nosotros</Nav.Link>
               <Nav.Link href="#link">Agendar</Nav.Link>
-              <Nav.Link href="#link">Box</Nav.Link>
+              <Nav.Link href="/boxes">Box</Nav.Link>
               <Nav.Link href="#link">Profesionales</Nav.Link>
               <Nav.Link href="#link">Contacto</Nav.Link>
             </Nav>
