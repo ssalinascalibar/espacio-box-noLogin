@@ -54,7 +54,7 @@ export default function Boxes() {
             </Row>
             <Row>
               <Col>
-            <ImageGallery items={images} />
+            {/* <ImageGallery items={images} /> */}
             </Col>
             </Row>
           </div>
