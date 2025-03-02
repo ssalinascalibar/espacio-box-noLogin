@@ -6,3 +6,9 @@
 #boxes-content h2{
     margin-bottom: 2rem;
 }
+
+@media screen and (min-width: 992px) {
+    #boxes-content{
+        padding: 2rem 0;
+    }
+}
