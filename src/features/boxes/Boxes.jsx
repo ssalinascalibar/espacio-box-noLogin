@@ -42,13 +42,13 @@ export default function Boxes() {
           <div id="boxes-content">
             <Row>
               <Col xs={12} lg={6}>
-                <h2>Bienvenidos a nuestra comunidad de profesionales</h2>
-                <p>
+                <h2  style={{textAlign: "center"}}>Bienvenidos a nuestra comunidad de profesionales</h2>
+                <p style={{textAlign: "justify"}}>
                   En EspacioBox buscamos ser más que un espacio donde atender a
                   sus pacientes con comodidad sino también construir una
                   comunidad de profesionales que puedan apoyarse entre sí.
                 </p>
-                <p>
+                <p  style={{textAlign: "justify"}}>
                   Sabemos que el trabajo independiente puede ser solitario y
                   contar con redes de apoyo es fundamental para brindar un buen
                   servicio centrado en la ética para todos nuestros
@@ -56,7 +56,7 @@ export default function Boxes() {
                   terapeuta o especialista como parte central de nuestro
                   trabajo.
                 </p>
-                <p>
+                <p  style={{textAlign: "justify"}}>
                   Invitamos a todos quienes trabajan con nosotros a formar parte
                   de esta comunidad como una red de apoyo, autocuidado y
                   derivación.
