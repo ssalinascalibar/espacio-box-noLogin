@@ -1,27 +1,25 @@
-#boxes-content {
+#boxes-content{
     margin: 2rem 0 1rem 0;
     padding: 2rem;
 }
 
-#boxes-content h2 {
+#boxes-content h2{
     margin-bottom: 2rem;
 }
 
+#image-gallery-wrapper{
+    margin: 1rem 0 0 0;
+}
 
 @media screen and (min-width: 992px) {
-    #boxes-content {
+    #boxes-content{
         padding: 2rem;
     }
 
-   
-
-    .image-gallery-wrapper .image-gallery-slide .image-gallery-image{
+    #image-gallery-wrapper{
+        width: 36vw;
+        margin: 0 auto 0 auto;
+        
+    }
     
-        height: 550px;
-    }
-
-    .image-gallery-wrapper .image-gallery-content 
-    .image-gallery-slide .image-gallery-image {
-        background-color: rgba(0, 0, 0, 0.7);
-    }
 }

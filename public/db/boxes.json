@@ -1,0 +1,53 @@
+[
+    {
+      "id": 0,
+      "original": "/assets/img/espacioBox-galeria-0.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-0.jpg"
+    },
+    {
+      "id": 1,
+      "original": "/assets/img/espacioBox-galeria-1.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-1.jpg"
+    },
+    {
+      "id": 2,
+      "original": "/assets/img/espacioBox-galeria-2.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-2.jpg"
+    },
+    {
+      "id": 3,
+      "original": "/assets/img/espacioBox-galeria-3.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-3.jpg"
+    },
+    {
+      "id": 4,
+      "original": "/assets/img/espacioBox-galeria-4.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-4.jpg"
+    },
+    {
+      "id": 5,
+      "original": "/assets/img/espacioBox-galeria-5.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-5.jpg"
+    },
+    {
+      "id": 6,
+      "original": "/assets/img/espacioBox-galeria-6.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-6.jpg"
+    },
+    {
+      "id": 7,
+      "original": "/assets/img/espacioBox-galeria-7.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-7.jpg"
+    },
+    {
+      "id": 8,
+      "original": "/assets/img/espacioBox-galeria-8.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-8.jpg"
+    },
+    {
+      "id": 9,
+      "original": "/assets/img/espacioBox-galeria-9.jpg",
+      "thumbnail": "/assets/img/espacioBox-galeria-9.jpg"
+    }
+    
+  ]
