@@ -1,25 +1,43 @@
-#boxes-content{
+#boxes-content {
     margin: 2rem 0 1rem 0;
     padding: 2rem;
 }
 
-#boxes-content h2{
+#boxes-content h2 {
     margin-bottom: 2rem;
 }
 
-#image-gallery-wrapper{
+.image-gallery {
     margin: 1rem 0 0 0;
 }
 
+.image-gallery-thumbnail img {
+    height: 65px;
+    object-fit: cover;
+}
+
+.fullscreen .image-gallery-description {
+    font-size: 3em;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+}
+
 @media screen and (min-width: 992px) {
-    #boxes-content{
+    #boxes-content {
         padding: 2rem;
     }
 
-    #image-gallery-wrapper{
-        width: 36vw;
+    .image-gallery {
+        width: 25vw;
         margin: 0 auto 0 auto;
-        
+
     }
-    
+
+    .image-gallery-thumbnail img {
+        height: 80px;
+    }
+
 }
