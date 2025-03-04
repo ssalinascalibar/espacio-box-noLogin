@@ -7,25 +7,24 @@
   color: var(--secondary-color);
 }
 
-.player-wrapper {
+/* .player-wrapper {
   position: relative;
   padding-top: 56.25%;
   margin-top: 1rem;
-  /* Player ratio: 100 / (1280 / 720) */
-}
+} */
 
-.react-player {
+/* .react-player {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
-.react-player__preview {
+/* .react-player__preview {
   border-radius: 8px;
-}
+} */
 
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
   .player-wrapper {
     margin-top: 0;
   }
-}
+} */

@@ -3,7 +3,7 @@ import "./featureSection.css";
 
 export default function FeatureSection() {
   return (
-    <div className="features">
+    <div className="features backgroundSection">
       <div className="features-content">
         <h2>
           Ven a conocer EspacioBox Servicio de arriendo de box por horas y

@@ -7,7 +7,7 @@ import "./videoSection.css";
 export default function VideoSection() {
   return (
     <>
-    <div className="videoSection">
+    <div className="videoSection backgroundSection">
       <Row>
         <Col xs={12} md={6} lg={5}>
           <h2>

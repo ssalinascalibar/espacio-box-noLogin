@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./boxes.css";
+import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 // import stylesheet if you're not already using CSS @import
@@ -19,6 +20,33 @@ export default function Boxes() {
     };
     getBoxes();
   }, []);
+
+  const videoBoxes = [
+    {
+      id: 0,
+      title: "Espacio Box",
+      url: "/assets/videos/video-espaciobox.mp4",
+      thumb: "/assets/img/espacioBox-galeria-7.jpg",
+    },
+    {
+      id: 1,
+      title: "Box 1",
+      url: "/assets/videos/video-box-1.mp4",
+      thumb: "/assets/img/espacioBox-galeria-9.jpg",
+    },
+    {
+      id: 2,
+      title: "Box 2",
+      url: "/assets/videos/video-box-2.mp4",
+      thumb: "/assets/img/espacioBox-galeria-2.jpg",
+    },
+    {
+      id: 3,
+      title: "Box 3",
+      url: "/assets/videos/video-box-3.mp4",
+      thumb: "/assets/img/espacioBox-galeria-8.jpg",
+    },
+  ];
 
   // const images = [
   //   {
@@ -39,7 +67,7 @@ export default function Boxes() {
     <>
       <main>
         <Container>
-          <div id="boxes-content">
+          <div id="boxes-gallery" className="backgroundSection">
             <Row>
               <Col xs={12} lg={6}>
                 <h2 style={{ textAlign: "left" }}>
@@ -58,18 +86,39 @@ export default function Boxes() {
                   terapeuta o especialista como parte central de nuestro
                   trabajo.
                 </p>
-                <p style={{ textAlign: "justify" }}>
-                  Invitamos a todos quienes trabajan con nosotros a formar parte
-                  de esta comunidad como una red de apoyo, autocuidado y
-                  derivación.
-                </p>
               </Col>
               <Col xs={12} lg={6}>
-                <ImageGallery items={boxes} showBullets showIndex description={"jjjj"}/>
+                <ImageGallery items={boxes} showBullets showIndex />
               </Col>
             </Row>
+          </div>
+          <div id="boxes-video" className="backgroundSection">
+            <h2>Nuestras instalaciones</h2>
+            <p>
+              Invitamos a todos quienes trabajan con nosotros a formar parte de
+              esta comunidad como una red de apoyo, autocuidado y derivación.
+            </p>
             <Row>
-              <Col></Col>
+              {videoBoxes?.map((videoBox, i) => (
+                <Col xs={6} lg={3} key={i}>
+                  <div className="player-wrapper">
+                    <ReactPlayer
+                      className="react-player"
+                      url={videoBox.url}
+                      loop={true}
+                      playing={false}
+                      muted={false}
+                      controls={true}
+                      volume={1}
+                      light={videoBox.thumb}
+                      width="100%"
+                      height="100%"
+                      type="video/mp4"
+                    />
+                  </div>
+                  <h5>{videoBox.title}</h5>
+                </Col>
+              ))}
             </Row>
           </div>
         </Container>
