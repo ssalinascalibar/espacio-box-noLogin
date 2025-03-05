@@ -32,7 +32,13 @@ export default function Footer() {
         </div>
         <hr />
         <div className="footer-copyright">
-          <FaInstagram />
+          <a href="https://www.instagram.com/espaciobox_/#"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <FaInstagram />
+          </a>
           <p>
             &copy; {year} <b>EspacioBox</b>. Todos los derechos reservados.
           </p>
