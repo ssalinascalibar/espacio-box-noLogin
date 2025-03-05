@@ -21,10 +21,6 @@
         
     }
 
-    .features-content h2{
-        margin-bottom: 2rem;
-        
-    }
     .features-content p{
         color: var(--text-primary);
         font-size: 1.1em;
