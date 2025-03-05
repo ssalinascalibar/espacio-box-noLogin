@@ -35,7 +35,6 @@ export default function Footer() {
           <a href="https://www.instagram.com/espaciobox_/#"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ textDecoration: "none", color: "inherit" }}
           >
             <FaInstagram />
           </a>
