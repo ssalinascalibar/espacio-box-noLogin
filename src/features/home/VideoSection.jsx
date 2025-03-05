@@ -9,7 +9,7 @@ export default function VideoSection() {
     <>
     <div className="videoSection backgroundSection">
       <Row>
-        <Col xs={12} md={6} lg={5}>
+        <Col xs={12} md={12} xl={5}>
           <h2>
           Te invitamos a descubrir nuestros espacios, diseñados para brindar confort y funcionalidad.
           </h2>
@@ -21,7 +21,7 @@ export default function VideoSection() {
             <li><MdCheckCircle />Baño privado</li>
           </ul>
         </Col>
-        <Col xs={12} md={6} lg={7}>
+        <Col xs={12} md={12} xl={7}>
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player"
