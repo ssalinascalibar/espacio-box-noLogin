@@ -9,7 +9,6 @@ footer {
 }
 
 .footer-copyright a{
-    text-decoration: none;
     color: var(--text-tertiary);
 }
 

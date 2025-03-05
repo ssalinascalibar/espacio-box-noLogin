@@ -17,6 +17,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 
 .backgroundSection {
   background-color: rgba(255, 255, 255, 0.5);
