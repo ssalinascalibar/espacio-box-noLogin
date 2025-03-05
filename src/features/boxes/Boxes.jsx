@@ -100,7 +100,7 @@ export default function Boxes() {
             </p>
             <Row>
               {videoBoxes?.map((videoBox, i) => (
-                <Col xs={6} lg={3} key={i}>
+                <Col xs={12} lg={6} key={i}>
                   <div className="player-wrapper">
                     <ReactPlayer
                       className="react-player"

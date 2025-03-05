@@ -27,6 +27,7 @@
 #boxes-video h5 {
     font-size: 1em;
     padding-top: 0.2rem;
+    color: var(--accent-color);
 }
 
 #boxes-video h2 {
@@ -59,6 +60,10 @@
 
     #boxes-video p {
         width: 50%;
+    }
+
+    #boxes-video .player-wrapper {
+        margin-top: 1rem;
     }
 
 }
