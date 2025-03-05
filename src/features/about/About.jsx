@@ -8,10 +8,10 @@ export default function About() {
       <Container>
         <div className="backgroundSection">
           <Row>
-            <Col>
+            <Col lg={6}>
               <h2>Bienvenidos a nuestra comunidad de profesionales</h2>
             </Col>
-            <Col>
+            <Col lg={6}>
               <p>
                 En EspacioBox buscamos ser más que un espacio donde atender a
                 sus pacientes con comodidad sino también construir una comunidad
