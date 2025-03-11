@@ -1,9 +1,32 @@
+import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./contact.css";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí puedes manejar el envío del formulario, por ejemplo, enviarlo a un servidor
+    console.log("Form data submitted:", formData);
+  };
+
   return (
     <main>
       <Container>
@@ -24,16 +47,57 @@ export default function Contact() {
             </Col>
           </Row>
           <div id="contact">
-          <Row>
-            <Col lg={6}>
+            <Row>
+              <Col lg={6}>
+                <h3>Contáctanos</h3>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group controlId="formName" className="mb-3">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Ingresa tu nombre"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formEmail" className="mb-3">
+                    <Form.Label>Correo Electrónico</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Ingresa tu correo electrónico"
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formMessage" className="mb-3">
+                    <Form.Label>Mensaje</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={3}
+                      placeholder="Ingresa tu mensaje"
+                    />
+                  </Form.Group>
+                  <Button variant="success" type="submit">
+                    Enviar
+                  </Button>
+                </Form>
+              </Col>
+              <Col lg={6}>
+              <div id="contact-text">
                 <h3>En EspacioBox queremos ayudarte</h3>
-                <p>Buscamos ser más que un espacio donde atender a sus pacientes con comodidad sino también construir una comunidad de profesionales que puedan apoyarse entre sí.</p>
-            </Col>
-            <Col lg={6}>
-                <h3>Buscamos ser más que un espacio donde atender a sus pacientes con comodidad sino también construir una comunidad de profesionales que puedan apoyarse entre sí.</h3>
-                <p>Invitamos a todos quienes trabajan con nosotros a formar parte de esta comunidad como una red de apoyo, autocuidado y derivación.</p>
-            </Col>
-          </Row>
+                <p>
+                  Buscamos ser más que un espacio donde atender a sus pacientes
+                  con comodidad sino también construir una comunidad de
+                  profesionales que puedan apoyarse entre sí.
+                </p>
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
       </Container>
