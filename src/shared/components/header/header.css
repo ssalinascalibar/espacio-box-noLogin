@@ -5,6 +5,10 @@ header{
     padding: 1rem 0;
 }
 
+header a {
+    color: var(--text-secondary);
+}
+
 header .container {
     display: flex;
     flex-direction: column;

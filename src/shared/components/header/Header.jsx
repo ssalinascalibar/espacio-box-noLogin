@@ -7,7 +7,12 @@ export default function Header() {
     <>
         <header>
           <Container>
-            <p className='contacto'><MdOutlineEmail />contacto.espaciobox@gmail.com</p>
+          <a href="mailto:contacto.espaciobox@gmail.com">
+    <p className="contacto">
+        <MdOutlineEmail /> contacto.espaciobox@gmail.com
+    </p>
+</a>
+            {/* <p className='contacto'><MdOutlineEmail />contacto.espaciobox@gmail.com</p> */}
             <p className='ubicacion'><MdOutlineLocationOn />Guardia Vieja 255, Of.1803 Providencia - Metro los Leones</p>
           </Container>
         </header>
