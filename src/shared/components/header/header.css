@@ -1,11 +1,10 @@
 header{
     background-color: var(--primary-color);
-    color: var(--text-secondary);
     font-size: 0.8em;
     padding: 1rem 0;
 }
 
-header a {
+header, header a {
     color: var(--text-secondary);
 }
 
