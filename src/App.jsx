@@ -5,6 +5,7 @@ import Boxes from './features/boxes/Boxes';
 import Contact from './features/contact/Contact';
 import NavigationBar from './shared/components/navbar/NavigationBar';
 import Footer from './shared/components/footer/Footer';
+import WhatsappButton from './shared/components/buttons/WhatsappButton';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Route path="/nosotros" element={<About/>} />
       <Route path="/contacto" element={<Contact/>} />
     </Routes>
+    <WhatsappButton />
     <Footer />  
     </>
   )
