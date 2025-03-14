@@ -31,6 +31,9 @@ export default function NavigationBar() {
               <Nav.Link href="#link">Profesionales</Nav.Link>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
             </Nav>
+            <Nav className="ms-auto">
+              <Nav.Link href="/login">Admin</Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
