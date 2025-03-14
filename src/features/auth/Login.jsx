@@ -35,7 +35,7 @@ export default function Login() {
     e.preventDefault();
 
     const enabledUser = users.find(
-      (user) => user.email === registeredUser.email
+      (user) => user.email === registeredUser.email && user.password === registeredUser.password
     );
 
     const validateCorreo = !users.email === !registeredUser.email;
@@ -51,13 +51,13 @@ export default function Login() {
           registeredUser.email?.slice(1) +
           " a tu perfil"
       );
-      navigate(`/`);
+      navigate(`/admin`);
       setRegisteredUser("");
     } else if (validateCorreo) {
       alert("debes ingresar un correo");
     } else {
       alert("No tienes acceso");
-      setError("Correo o contraseña incorrectos");
+      setError("*Correo o contraseña incorrectos");
     }
   };
 
@@ -92,7 +92,7 @@ export default function Login() {
                 autoComplete="new-password"
               />
             </Form.Group>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p style={{ color: "#fff" }}>{error}</p>}
             <Button variant="primary" type="submit" size="lg">
               Iniciar Sesión
             </Button>

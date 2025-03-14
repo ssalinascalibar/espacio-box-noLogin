@@ -6,11 +6,12 @@ import Contact from './features/contact/Contact';
 import NavigationBar from './shared/components/navbar/NavigationBar';
 import Footer from './shared/components/footer/Footer';
 import Login from './features/auth/Login';
+import AdminPanel from './features/adminPanel/AdminPanel';
 import WhatsappButton from './shared/components/buttons/WhatsappButton';
 
 function App() {
   const location = useLocation();
-  const isLoginRoute = location.pathname === '/login';
+  const isLoginRoute = location.pathname === '/login' || location.pathname === '/admin';
 
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
       <Route path="/boxes" element={<Boxes/>} />
       <Route path="/nosotros" element={<About/>} />
       <Route path="/contacto" element={<Contact/>} />
+      <Route path="/admin" element={<AdminPanel/>} />
     </Routes>
     {!isLoginRoute && <WhatsappButton />}
     {!isLoginRoute && <Footer />} 
