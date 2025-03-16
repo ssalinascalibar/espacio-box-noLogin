@@ -23,6 +23,7 @@ export default function AdminPanel() {
   return (
     <Container>
       <div id="professionals-table">
+        <h2>Tabla de profesionales</h2>
         <Table striped responsive>
           <thead>
             <tr>
