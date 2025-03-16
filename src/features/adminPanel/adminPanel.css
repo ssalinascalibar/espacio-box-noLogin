@@ -13,7 +13,7 @@
 
 #professionals-table th,
 #professionals-table td {
-    background-color: var(--background-secondary-color);
+    background-color: #fff;
     border-bottom: 1px solid var(--background-primary-color);
 }
 
