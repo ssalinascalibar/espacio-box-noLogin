@@ -60,7 +60,7 @@ export default function AdminPanel() {
                 </td>
               </tr>
             ))}
-            <CreateProfessionalModal  show={show} handleClose={handleClose}/>
+            <CreateProfessionalModal show={show} handleClose={handleClose}/>
           </tbody>
         </Table>
       </div>
