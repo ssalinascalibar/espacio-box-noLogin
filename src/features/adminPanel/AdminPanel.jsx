@@ -7,10 +7,16 @@ import {
   FaRegTrashAlt,
 } from "../../assets/icons/icons";
 import { fetchProfessionals } from "../../services/api";
+import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 import "./adminPanel.css";
 
 export default function AdminPanel() {
   const [professionals, setProfessionals] = useState([]);
+  const [show, setShow] = useState(false);
+  console.log(show)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -47,13 +53,14 @@ export default function AdminPanel() {
                 <td>{p.image}</td>
                 <td>
                   <div id="actions">
-                    <MdAddCircleOutline />
+                    <MdAddCircleOutline onClick={handleShow} />
                     <FaRegEdit />
                     <FaRegTrashAlt />
                   </div>
                 </td>
               </tr>
             ))}
+            <CreateProfessionalModal  show={show} handleClose={handleClose}/>
           </tbody>
         </Table>
       </div>
