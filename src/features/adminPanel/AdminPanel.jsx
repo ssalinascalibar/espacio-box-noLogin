@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import {
   FaRegEdit,
-  MdAddCircleOutline,
+  // MdAddCircleOutline,
   FaRegTrashAlt,
 } from "../../assets/icons/icons";
 import { fetchProfessionals } from "../../services/api";
@@ -29,6 +30,9 @@ export default function AdminPanel() {
     <Container>
       <div id="professionals-table">
         <h2>Tabla de profesionales</h2>
+        <Button variant="success" onClick={handleShow} className="mb-4">
+            Agregar profesional
+          </Button>
         <Table striped responsive>
           <thead>
             <tr>
@@ -66,7 +70,7 @@ export default function AdminPanel() {
                 <td>{p.image}</td>
                 <td>
                   <div id="actions">
-                    <MdAddCircleOutline onClick={handleShow} />
+                    {/* <MdAddCircleOutline /> */}
                     <FaRegEdit />
                     <FaRegTrashAlt />
                   </div>
