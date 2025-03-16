@@ -28,7 +28,6 @@ export default function Login() {
       ...registeredUser,
       [e.target.name]: e.target.value.toLowerCase(),
     });
-    console.log(registeredUser);
   };
 
   const handleSubmit = async (e) => {
@@ -43,8 +42,6 @@ export default function Login() {
     if (enabledUser) {
       // setisAuth(true);
       // setUserLogged(enabledUser)
-      // console.log(userLogged)
-      // console.log(isAuth);
       alert(
         "Bienvenido/a " +
           registeredUser.email?.charAt(0).toUpperCase() +

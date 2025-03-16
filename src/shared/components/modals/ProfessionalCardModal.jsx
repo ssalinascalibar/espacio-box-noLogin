@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Image from 'react-bootstrap/Image';
@@ -25,7 +26,7 @@ export default function ProfessionalCardModal({ show, handleClose, card }) {
         </Modal.Header>
         <Modal.Body>
         <Image src={card.image} />
-          <h2>{card.name}</h2>
+          <h2>{card.name} {card.paternal_surname}</h2>
           <h3>{card.title}</h3>
           <p>{card.text}</p>
         </Modal.Body>

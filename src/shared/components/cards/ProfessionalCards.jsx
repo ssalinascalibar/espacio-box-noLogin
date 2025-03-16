@@ -41,7 +41,7 @@ export default function ProfessionalCards() {
                 <Card>
                 <Card.Img variant="top" src={card.image}/>
                   <Card.Body>
-                    <Card.Title>{card.name}</Card.Title>
+                    <Card.Title>{card.name} {card.paternal_surname}</Card.Title>
                     <Card.Subtitle className="card-subtitle">{card.title}</Card.Subtitle>
                     {/* <Card.Text className="text-multiline-truncate">{card.text}</Card.Text> */}
                   </Card.Body>

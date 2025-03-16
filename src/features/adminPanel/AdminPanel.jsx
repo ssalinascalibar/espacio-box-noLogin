@@ -13,7 +13,6 @@ import "./adminPanel.css";
 export default function AdminPanel() {
   const [professionals, setProfessionals] = useState([]);
   const [show, setShow] = useState(false);
-  console.log(show)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,8 +34,15 @@ export default function AdminPanel() {
             <tr>
               <th>Id</th>
               <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apellido materno</th>
+              <th>Rut</th>
+              <th>Fono</th>
+              <th>Email</th>
               <th>Título</th>
               <th>Descripción</th>
+              <th>Valor hora</th>
+              <th>Clave acceso</th>
               <th>Imagen</th>
               <th>Acciones</th>
             </tr>
@@ -46,10 +52,17 @@ export default function AdminPanel() {
               <tr key={i}>
                 <td>{p.id}</td>
                 <td>{p.name}</td>
+                <td>{p.paternal_surname}</td>
+                <td>{p.maternal_surname}</td>
+                <td>{p.rut}</td>
+                <td>{p.phone}</td>
+                <td>{p.email}</td>
                 <td>{p.title}</td>
                 <td>
                   <div className="custom-cell-content">{p.text}</div>
                 </td>
+                <td>{p.hourly_rate}</td>
+                <td>{p.password}</td>
                 <td>{p.image}</td>
                 <td>
                   <div id="actions">
@@ -60,7 +73,7 @@ export default function AdminPanel() {
                 </td>
               </tr>
             ))}
-            <CreateProfessionalModal show={show} handleClose={handleClose}/>
+            <CreateProfessionalModal show={show} handleClose={handleClose} professionals={professionals} setProfessionals={setProfessionals}/>
           </tbody>
         </Table>
       </div>
