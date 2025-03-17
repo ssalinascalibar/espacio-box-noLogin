@@ -28,12 +28,14 @@ export default function AdminPanel() {
 
   return (
     <Container>
-      <div id="professionals-table">
+      <div id="table-title">
         <h2>Tabla de profesionales</h2>
         <Button variant="success" onClick={handleShow} className="mb-4">
             Agregar profesional
           </Button>
-        <Table striped responsive>
+      </div>
+      <div id="professionals-table">
+        <Table striped>
           <thead>
             <tr>
               <th>Id</th>

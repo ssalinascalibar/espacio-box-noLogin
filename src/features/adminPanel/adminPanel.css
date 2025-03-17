@@ -1,5 +1,17 @@
+#table-title{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
 #professionals-table {
-    margin: 2rem 1rem;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#professionals-table thead {
+    position: sticky;
+    top: 0;
 }
 
 #professionals-table svg {
@@ -40,6 +52,16 @@
 
 
 @media screen and (min-width: 992px) {
+
+    #table-title{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #professionals-table {
+        max-height: 85vh;
+    }
+
     #professionals-table svg {
         font-size: 1.3em;
         margin-right: 0.8rem;
@@ -49,7 +71,7 @@
         font-size: 1.1em;
     }
 
-    
+
     .custom-cell-content {
         max-height: 400px;
         overflow-y: auto;
