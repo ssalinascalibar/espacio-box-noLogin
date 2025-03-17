@@ -20,28 +20,19 @@
 }
 
 #professionals-table th {
+    background-color: var(--primary-color);
     color: var(--text-secondary);
-}
-
-#professionals-table th,
-#professionals-table td {
-    background-color: #fff;
-    border-bottom: 1px solid var(--background-primary-color);
+    padding: 0 2rem;
 }
 
 #professionals-table td {
     color: #717171;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
 }
 
 #actions {
     display: flex;
 }
-
-#professionals-table th {
-    background-color: var(--primary-color);
-}
-
 
 .custom-cell-content {
     max-height: 150px;
