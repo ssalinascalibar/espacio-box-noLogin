@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 export default function CreateProfessionalModal({ show, handleClose, professionals, setProfessionals }) {
 
     const [newProfessional, setNewProfessional] = useState({});
@@ -19,6 +19,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
   const handleChange = async (e) => {
     setNewProfessional({
       ...newProfessional,
+      id: professionals.length + 1,
       [e.target.name]: e.target.value.toLowerCase(),
     });
   };
@@ -45,99 +46,102 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
           <Form onSubmit={handleSubmit}>
             <h4>Agregar nuevo profesional</h4>
             <Form.Group controlId="rut" className="mb-4">
-              {/* <Form.Label>Correo Electrónico</Form.Label> */}
               <Form.Control
                 type="text"
                 name="rut"
-                // value={registeredUser.email || ""}
+                value={newProfessional.rut || ""}
                 onChange={handleChange}
                 placeholder="Rut"
                 autoComplete="new-rut"
               />
             </Form.Group>
             <Form.Group controlId="name" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="name"
                 name="name"
-                // value={registeredUser.password || ""}
+                value={newProfessional.name || ""}
                 onChange={handleChange}
                 placeholder="Nombre"
                 autoComplete="new-name"
               />
             </Form.Group>
             <Form.Group controlId="paternal_surname" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="paternal_surname"
                 name="paternal_surname"
-                // value={registeredUser.password || ""}
+                value={newProfessional.paternal_surname || ""}
                 onChange={handleChange}
                 placeholder="Apellido paterno"
                 autoComplete="new-paternal_surname"
               />
             </Form.Group>
             <Form.Group controlId="maternal_surname" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="maternal_surname"
                 name="maternal_surname"
-                // value={registeredUser.password || ""}
+                value={newProfessional.maternal_surname || ""}
                 onChange={handleChange}
                 placeholder="Apellido materno"
                 autoComplete="new-maternal_surname"
               />
             </Form.Group>
             <Form.Group controlId="phone" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="phone"
                 name="phone"
-                // value={registeredUser.password || ""}
+                value={newProfessional.phone || ""}
                 onChange={handleChange}
                 placeholder="Celular"
                 autoComplete="new-phone"
               />
             </Form.Group>
             <Form.Group controlId="email" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="email"
                 name="email"
-                // value={registeredUser.password || ""}
+                value={newProfessional.email || ""}
                 onChange={handleChange}
-                placeholder="Correo"
+                placeholder="@tucorreo"
                 autoComplete="new-email"
               />
             </Form.Group>
             <Form.Group controlId="title" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="title"
                 name="title"
-                // value={registeredUser.password || ""}
+                value={newProfessional.title || ""}
                 onChange={handleChange}
                 placeholder="Profesional"
                 autoComplete="new-title"
               />
             </Form.Group>
+            <Form.Group controlId="text" className="mb-4">
+              <Form.Control
+              as="textarea"
+                rows={6}
+                type="text"
+                name="text"
+                value={newProfessional.text || ""}
+                onChange={handleChange}
+                placeholder="Descripción"
+                autoComplete="new-text"
+              />
+            </Form.Group>
             <Form.Group controlId="hourly_rate" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="number"
                 name="hourly_rate"
-                // value={registeredUser.password || ""}
+                value={newProfessional.hourly_rate || ""}
                 onChange={handleChange}
                 placeholder="Valor hora"
                 autoComplete="new-hourly_rate"
               />
             </Form.Group>
             <Form.Group controlId="password" className="mb-4">
-              {/* <Form.Label>Contraseña</Form.Label> */}
               <Form.Control
                 type="password"
                 name="password"
-                // value={registeredUser.password || ""}
+                value={newProfessional.password || ""}
                 onChange={handleChange}
                 placeholder="Clave acceso"
                 autoComplete="new-password"
@@ -153,9 +157,6 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
