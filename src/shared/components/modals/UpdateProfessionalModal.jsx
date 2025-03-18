@@ -1,32 +1,33 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 
-export default function CreateProfessionalModal({ show, handleClose, professionals, setProfessionals }) {
+export default function UpdateProfessionalModal({ show, handleClose, professionals, setProfessionals, selectedProfessional, setSelectedProfessional }) {
 
-    const [newProfessional, setNewProfessional] = useState({});
-  
-    CreateProfessionalModal.propTypes = {
+    UpdateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
   };
 
   const handleChange = async (e) => {
-    setNewProfessional({
-      ...newProfessional,
-      id: professionals.length + 1,
+    setSelectedProfessional({
+      ...selectedProfessional,
       [e.target.name]: e.target.value.toLowerCase(),
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-      setProfessionals([...professionals, newProfessional]);
-      alert('Nuevo profesional agregado')
-      setNewProfessional('');
+
+  const updatedProfessionals = professionals.map((prof) =>
+    prof.id === selectedProfessional.id ? selectedProfessional : prof
+  );
+
+  setProfessionals(updatedProfessionals);
+  alert("Profesional editado");
+  setSelectedProfessional('');
   
   }
 
@@ -40,12 +41,12 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <h4>Agregar nuevo profesional</h4>
+            <h4>Editar profesional</h4>
             <Form.Group controlId="rut" className="mb-4">
               <Form.Control
                 type="text"
                 name="rut"
-                value={newProfessional.rut || ""}
+                value={selectedProfessional.rut || ""}
                 onChange={handleChange}
                 placeholder="Rut"
                 autoComplete="new-rut"
@@ -55,7 +56,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="name"
                 name="name"
-                value={newProfessional.name || ""}
+                value={selectedProfessional.name || ""}
                 onChange={handleChange}
                 placeholder="Nombre"
                 autoComplete="new-name"
@@ -65,7 +66,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="paternal_surname"
                 name="paternal_surname"
-                value={newProfessional.paternal_surname || ""}
+                value={selectedProfessional.paternal_surname || ""}
                 onChange={handleChange}
                 placeholder="Apellido paterno"
                 autoComplete="new-paternal_surname"
@@ -75,7 +76,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="maternal_surname"
                 name="maternal_surname"
-                value={newProfessional.maternal_surname || ""}
+                value={selectedProfessional.maternal_surname || ""}
                 onChange={handleChange}
                 placeholder="Apellido materno"
                 autoComplete="new-maternal_surname"
@@ -85,7 +86,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="phone"
                 name="phone"
-                value={newProfessional.phone || ""}
+                value={selectedProfessional.phone || ""}
                 onChange={handleChange}
                 placeholder="Celular"
                 autoComplete="new-phone"
@@ -95,7 +96,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="email"
                 name="email"
-                value={newProfessional.email || ""}
+                value={selectedProfessional.email || ""}
                 onChange={handleChange}
                 placeholder="@tucorreo"
                 autoComplete="new-email"
@@ -105,7 +106,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="title"
                 name="title"
-                value={newProfessional.title || ""}
+                value={selectedProfessional.title || ""}
                 onChange={handleChange}
                 placeholder="Profesional"
                 autoComplete="new-title"
@@ -117,7 +118,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
                 rows={6}
                 type="text"
                 name="text"
-                value={newProfessional.text || ""}
+                value={selectedProfessional.text || ""}
                 onChange={handleChange}
                 placeholder="Descripción"
                 autoComplete="new-text"
@@ -127,7 +128,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="number"
                 name="hourly_rate"
-                value={newProfessional.hourly_rate || ""}
+                value={selectedProfessional.hourly_rate || ""}
                 onChange={handleChange}
                 placeholder="Valor hora"
                 autoComplete="new-hourly_rate"
@@ -137,7 +138,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               <Form.Control
                 type="password"
                 name="password"
-                value={newProfessional.password || ""}
+                value={selectedProfessional.password || ""}
                 onChange={handleChange}
                 placeholder="Clave acceso"
                 autoComplete="new-password"
@@ -145,7 +146,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             {/* {error && <p style={{ color: "#fff" }}>{error}</p>} */}
             <Button variant="success" type="submit">
-              Agregar
+              Editar
             </Button>
           </Form>
         </Modal.Body>
