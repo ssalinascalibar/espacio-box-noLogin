@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import CloseButton from 'react-bootstrap/CloseButton';
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 
@@ -35,9 +36,8 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Button variant="secondary" onClick={handleClose}>
-            X
-          </Button>
+          <CloseButton onClick={handleClose}>
+          </CloseButton>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -152,7 +152,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Cerrar
+            Cancelar
           </Button>
         </Modal.Footer>
       </Modal>
