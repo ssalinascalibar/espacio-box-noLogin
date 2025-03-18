@@ -152,7 +152,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Cancelar
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>

@@ -24,7 +24,6 @@ export default function AdminPanel() {
   const handleCloseCreateModal = () => setShowCreateModal(false);
   const handleShowCreateModal = () => setShowCreateModal(true);
 
-
   useEffect(() => {
     const getUsers = async () => {
       const data = await fetchProfessionals();
@@ -34,7 +33,7 @@ export default function AdminPanel() {
   }, []);
 
   const deleteProfessional = async (id) => {
-    try { 
+    try {
       setProfessionals(
         professionals.filter((p) => {
           return p.id !== id;
@@ -55,9 +54,13 @@ export default function AdminPanel() {
     <Container>
       <div id="table-title">
         <h2>Tabla de profesionales</h2>
-        <Button variant="success" onClick={handleShowCreateModal} className="mb-4">
-            Agregar profesional
-          </Button>
+        <Button
+          variant="success"
+          onClick={handleShowCreateModal}
+          className="mb-4"
+        >
+          Agregar profesional
+        </Button>
       </div>
       <div id="professionals-table">
         <Table striped>
@@ -94,18 +97,35 @@ export default function AdminPanel() {
                 </td>
                 <td>{p.hourly_rate}</td>
                 <td>{p.password}</td>
-                <td>{p.image}</td>
+                <td><img src={p.image} alt="Imagen" className="responsive-image" /></td>
                 <td>
                   <div id="actions">
                     {/* <MdAddCircleOutline /> */}
-                    <FaRegEdit onClick={() => {selectProfessional(p); handleShowUpdateModal()}}/>
-                    <FaRegTrashAlt onClick={() => deleteProfessional(p.id)}/>
+                    <FaRegEdit
+                      onClick={() => {
+                        selectProfessional(p);
+                        handleShowUpdateModal();
+                      }}
+                    />
+                    <FaRegTrashAlt onClick={() => deleteProfessional(p.id)} />
                   </div>
                 </td>
               </tr>
             ))}
-            <CreateProfessionalModal show={showCreateModal} handleClose={handleCloseCreateModal} professionals={professionals} setProfessionals={setProfessionals}/>
-            <UpdateProfessionalModal show={showUpdateModal} handleClose={handleCloseUpdateModal} professionals={professionals} setProfessionals={setProfessionals} selectedProfessional={selectedProfessional} setSelectedProfessional={setSelectedProfessional}/>
+            <CreateProfessionalModal
+              show={showCreateModal}
+              handleClose={handleCloseCreateModal}
+              professionals={professionals}
+              setProfessionals={setProfessionals}
+            />
+            <UpdateProfessionalModal
+              show={showUpdateModal}
+              handleClose={handleCloseUpdateModal}
+              professionals={professionals}
+              setProfessionals={setProfessionals}
+              selectedProfessional={selectedProfessional}
+              setSelectedProfessional={setSelectedProfessional}
+            />
           </tbody>
         </Table>
       </div>
