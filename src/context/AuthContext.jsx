@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({});
 
@@ -6,9 +7,11 @@ const AuthContextProvider = ({ children }) => {
     
   const [isAuth, setIsAuth] = useState(false);
   console.log(isAuth)
+  const navigate = useNavigate();
 
   const logOut = () => {
     setIsAuth(false);
+    navigate("/")
   };
 
 /* esta opción es para persistir al admin logeado*/

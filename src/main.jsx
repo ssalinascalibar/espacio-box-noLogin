@@ -9,10 +9,10 @@ import "./assets/styles/global.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthContextProvider>
     <BrowserRouter>
+    <AuthContextProvider>
       <App />
-    </BrowserRouter>
     </AuthContextProvider>
+    </BrowserRouter>
   </StrictMode>
 );
