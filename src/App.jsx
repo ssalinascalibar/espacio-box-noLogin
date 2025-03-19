@@ -11,7 +11,9 @@ import WhatsappButton from './shared/components/buttons/WhatsappButton';
 
 function App() {
   const location = useLocation();
-  const isLoginRoute = location.pathname === '/login' || location.pathname === '/admin';
+  const isLoginRoute = location.pathname === '/login';
+  const isAdminRoute = location.pathname === '/admin';
+  // const isLoginRoute = location.pathname === '/login' || location.pathname === '/admin';
 
   return (
     <>
@@ -24,7 +26,7 @@ function App() {
       <Route path="/contacto" element={<Contact/>} />
       <Route path="/admin" element={<AdminPanel/>} />
     </Routes>
-    {!isLoginRoute && <WhatsappButton />}
+    {!isLoginRoute && !isAdminRoute && <WhatsappButton />}
     {!isLoginRoute && <Footer />} 
     </>
   )
