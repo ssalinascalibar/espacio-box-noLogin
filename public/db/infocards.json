@@ -4,27 +4,31 @@
       "icon": "MdVolunteerActivism",
       "title": "Nuestros Servicios",
       "text": "Queremos brindar un espacio de contención emocional a quienes lo requieran.",
-      "link": "Vísitanos"
+      "link_text": "Vísitanos",
+      "link": ""
     },
     {
       "id": 2,
       "icon": "MdOutlineBadge",
       "title": "Nuestros Profesionales",
       "text": "Profesionales capacitados e inscritos en la Superintendencia de Salud. Visítanos.",
-      "link": "Ver más"
+      "link_text": "Ver más",
+      "link": ""
     },
     {
       "id": 3,
       "icon": "MdDateRange",
       "title": "¿Cómo Agendar?",
       "text": "Invitamos a quienes trabajan con nosotros a formar parte de esta comunidad como una red de apoyo.",
-      "link": "Agendar"
+      "link_text": "Agendar",
+      "link": "https://espaciobox.com/public/Arriendo"
     },
     {
       "id": 4,
       "icon": "MdOutlineLocationOn",
       "title": "Ubicación",
       "text": "Guardia Vieja #255, Of 1803 Providencia, Metro Los Leones.",
-      "link": "Ir Google maps"
+      "link_text": "Ir Google maps",
+      "link": "https://maps.app.goo.gl/ypGUB89ns1bEr2LY7"
     }
   ]

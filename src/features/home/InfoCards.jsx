@@ -41,7 +41,7 @@ export default function InfoCards() {
                 <Card.Text>{card.text}</Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Card.Link href="#">{card.link}</Card.Link>
+                <Card.Link href={card.link} target="_blank" rel="noopener noreferrer">{card.link_text}</Card.Link>
               </Card.Footer>
             </Card>
           </Col>
