@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router'; 
+import { Routes, Route, useLocation } from 'react-router-dom'; 
 import Home from './features/home/Home';
 import About from './features/about/About';
 import Boxes from './features/boxes/Boxes';

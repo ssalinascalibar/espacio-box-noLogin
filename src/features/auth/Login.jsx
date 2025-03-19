@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useState, useEffect, useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../../services/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -9,6 +10,7 @@ import Col from "react-bootstrap/Col";
 import "./login.css";
 
 export default function Login() {
+  const { setIsAuth } = useContext(AuthContext);
   const [registeredUser, setRegisteredUser] = useState({});
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
@@ -40,7 +42,7 @@ export default function Login() {
     const validateCorreo = !users.email === !registeredUser.email;
 
     if (enabledUser) {
-      // setisAuth(true);
+      setIsAuth(true);
       // setUserLogged(enabledUser)
       alert(
         "Bienvenido/a " +

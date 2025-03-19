@@ -4,11 +4,22 @@ const AuthContext = createContext({});
 
 const AuthContextProvider = ({ children }) => {
     
-  const [isAuth, setisAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  console.log(isAuth)
 
   const logOut = () => {
-    setisAuth(false);
+    setIsAuth(false);
   };
+
+/* esta opción es para persistir al admin logeado*/
+  // const [isAuth, setIsAuth] = useState(() => {
+  //   const storedAuth = localStorage.getItem("isAuth");
+  //   return storedAuth === "true";
+  // });
+
+  // useEffect(() => {
+  //   localStorage.setItem("isAuth", isAuth);
+  // }, [isAuth]);
 
   // const PrivateRoutes = ({ auth: {isAuth}, children }) => {
   //   // let auth = {'token':false}
@@ -22,7 +33,7 @@ const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         isAuth,
-        setisAuth,
+        setIsAuth,
         logOut,
       }}
     >

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from 'react-router-dom';
 import AuthContext from "../../../context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -8,7 +9,7 @@ import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth, logOut } = useContext(AuthContext);
   console.log(isAuth);
 
   return (
@@ -28,19 +29,19 @@ export default function NavigationBar() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/nosotros">Nosotros</Nav.Link>
-              <Nav.Link href="#link">Agendar</Nav.Link>
-              <Nav.Link href="/boxes">Box</Nav.Link>
-              <Nav.Link href="#link">Profesionales</Nav.Link>
-              <Nav.Link href="/contacto">Contacto</Nav.Link>
+            <Nav className="me-auto menu-nav">
+              <Link to="/">Home</Link>
+              <Link to="/nosotros">Nosotros</Link>
+              <Link to="#link">Agendar</Link>
+              <Link to="/boxes">Box</Link>
+              <Link to="#link">Profesionales</Link>
+              <Link to="/contacto">Contacto</Link>
             </Nav>
             <Nav className="ms-auto">
               {isAuth ? (
-                <Nav.Link href="/">Cerrar sesión</Nav.Link>
+                <Nav.Link onClick={logOut}>Cerrar sesión</Nav.Link>
               ) : (
-                <Nav.Link href="/login">Iniciar sesión</Nav.Link>
+                <Link to="/login">Iniciar sesión</Link>
               )}
             </Nav>
           </Navbar.Collapse>
