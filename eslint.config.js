@@ -33,6 +33,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      "react/prop-types": "off" /* se agrega esta regla para evitar especificar las props de algunas variables (eslint)*/ 
     },
   },
 ]
