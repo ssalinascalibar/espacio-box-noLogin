@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,6 +8,9 @@ import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
+  const { isAuth } = useContext(AuthContext);
+  console.log(isAuth);
+
   return (
     <>
       <Header />
@@ -32,11 +37,15 @@ export default function NavigationBar() {
               <Nav.Link href="/contacto">Contacto</Nav.Link>
             </Nav>
             <Nav className="ms-auto">
-              <Nav.Link href="/login">Iniciar sesión</Nav.Link>
+              {isAuth ? (
+                <Nav.Link href="/">Cerrar sesión</Nav.Link>
+              ) : (
+                <Nav.Link href="/login">Iniciar sesión</Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
   );
-};
+}
