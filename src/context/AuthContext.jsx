@@ -1,8 +1,11 @@
 import { createContext, useState } from "react";
 
 const AuthContext = createContext({});
+
 const AuthContextProvider = ({ children }) => {
-  const [isAuth, setisAuth] = useState(false);
+  
+    const [isAuth, setisAuth] = useState(false);
+    console.log(isAuth)
   
 
   const logOut = () => {
