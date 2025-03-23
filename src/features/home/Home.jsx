@@ -14,11 +14,13 @@ export default function Home() {
           <Container>
             <div className="hero-text">
               <h1>EspacioBox</h1>
-              <h2>solución en arriendo de espacios</h2>
+              <h2>Servicio de arriendo de box </h2>
               <p>
-                En EspacioBox buscamos ser más que un espacio donde atender a
-                sus pacientes con comodidad sino también construir una comunidad
-                de profesionales que puedan apoyarse entre sí.{" "}
+                Bienvenidos a EspacioBox, un lugar construido para generar una
+                comunidad de profesionales que puedan trabajar en un espacio
+                privado, cómodo, acogedor y con una excelente ubicación,
+                favoreciendo la calidad de vida tanto de sus consultantes como
+                de ustedes.
               </p>
               <ReserveBtn />
             </div>
@@ -29,7 +31,7 @@ export default function Home() {
             <InfoCards />
           </Container>
         </section>
-        <section >
+        <section>
           <Container>
             <FeatureSection />
           </Container>
