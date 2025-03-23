@@ -3,7 +3,7 @@
       "id": 1,
       "icon": "MdVolunteerActivism",
       "title": "Nuestros Servicios",
-      "text": "Queremos brindar un espacio de contención emocional a quienes lo requieran.",
+      "text": "Servicio de arriendo de box de atención para profesionales por horas y por jornadas.",
       "link_text": "Vísitanos",
       "link": ""
     },
@@ -11,7 +11,7 @@
       "id": 2,
       "icon": "MdOutlineBadge",
       "title": "Nuestros Profesionales",
-      "text": "Profesionales capacitados e inscritos en la Superintendencia de Salud. Visítanos.",
+      "text": "Trabajamos con profesionales certificados e inscritos en la superintendencia de salud.",
       "link_text": "Ver más",
       "link": ""
     },
@@ -19,7 +19,7 @@
       "id": 3,
       "icon": "MdDateRange",
       "title": "¿Cómo Agendar?",
-      "text": "Invitamos a quienes trabajan con nosotros a formar parte de esta comunidad como una red de apoyo.",
+      "text": "Accede a nuestro calendario para agendar con mayor facilidad.",
       "link_text": "Agendar",
       "link": "https://espaciobox.com/public/Arriendo"
     },
