@@ -33,7 +33,7 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <FeatureSection />
+            <VideoSection />
           </Container>
         </section>
         <section>
@@ -43,7 +43,7 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <VideoSection />
+            <FeatureSection />
           </Container>
         </section>
       </main>
