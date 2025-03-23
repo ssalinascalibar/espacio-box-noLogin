@@ -8,6 +8,7 @@ export default function WhatsappButton() {
   return (
     <div className="whatsapp-button" onClick={handleClick}>
       <img src="assets/img/whatsapp-icon.png" alt="WhatsApp" />
+      <p className="whatsapp-text">Ir al chat</p>
     </div>
   )
 }
