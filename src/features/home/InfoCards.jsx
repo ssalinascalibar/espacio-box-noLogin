@@ -3,6 +3,7 @@ import { fetchData } from "../../services/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { Link } from 'react-router-dom';
 import "./infoCards.css";
 import {
   MdVolunteerActivism,
@@ -41,7 +42,7 @@ export default function InfoCards() {
                 <Card.Text>{card.text}</Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Card.Link href={card.link} target="_blank" rel="noopener noreferrer">{card.link_text}</Card.Link>
+                <Link to={card.link} target={card.title !== "Nuestros Servicios" && card.title !== "Nuestros Profesionales" ? "_blank" : undefined} rel="noopener noreferrer">{card.link_text}</Link>
               </Card.Footer>
             </Card>
           </Col>

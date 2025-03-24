@@ -29,16 +29,6 @@
     padding: 2rem;
   
   }
-  
-  .scroll-container .card-body {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-  
-  }
 
   .scroll-container .card-body svg {
     font-size: 2.2em;
@@ -51,7 +41,7 @@
     border-top: none;
   }
 
-  .scroll-container .card-footer .card-link {
+  .scroll-container .card-footer a {
     text-decoration: none;
     color: var(--text-secondary);
   }
