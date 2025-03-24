@@ -17,7 +17,7 @@ export default function NavigationBar() {
       <Header />
       <Navbar expand="lg" sticky="top">
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand as={Link} to="/">
             <Image
               src="/assets/img/logo-transparente.png"
               alt="EspacioBox Logo"
