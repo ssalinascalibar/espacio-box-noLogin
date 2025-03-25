@@ -42,3 +42,10 @@
     
 }
 
+@media screen and (min-width: 992px) {
+    #calendar #calendar-footer .btn{
+        width: 10%;
+        
+    }
+
+}
