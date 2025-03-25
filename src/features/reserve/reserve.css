@@ -1,3 +1,7 @@
+#reserve-table h2{
+    margin-bottom: 1rem;
+}
+
 .hover-td:hover {
     background-color: var(--primary-color);
     color: var(--text-secondary);
@@ -6,3 +10,9 @@
 .bold-td{
     font-weight: 700;
 }
+
+#reserve-table #reserve-footer{
+    text-align: right;
+    
+}
+

@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import "./reserve.css"
 
 export default function Reserve() {
@@ -14,8 +15,10 @@ export default function Reserve() {
   ];
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
   return (
-    <main>
       <Container>
+        <div className="backgroundSection">
+            <div id="reserve-table">
+        <h2>Agenda</h2>
         <Table striped responsive>
           <thead>
             <tr >
@@ -38,7 +41,11 @@ export default function Reserve() {
             ))}
           </tbody>
         </Table>
+        <div id="reserve-footer">
+          <Button variant="success" className="mt-2">Reservar</Button>
+          </div>
+        </div>
+      </div>
       </Container>
-    </main>
   );
 }
