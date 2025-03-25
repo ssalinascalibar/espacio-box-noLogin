@@ -7,6 +7,7 @@ import NavigationBar from './shared/components/navbar/NavigationBar';
 import Footer from './shared/components/footer/Footer';
 import Login from './features/auth/Login';
 import AdminPanel from './features/adminPanel/AdminPanel';
+import Reserve from './features/reserve/Reserve';
 import WhatsappButton from './shared/components/buttons/WhatsappButton';
 import PrivateRoutes from './features/auth/PrivateRoutes';
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/boxes" element={<Boxes/>} />
       <Route path="/nosotros" element={<About/>} />
+      <Route path="/agendar" element={<Reserve/>} />
       <Route path="/contacto" element={<Contact/>} />
       <Route element={<PrivateRoutes/>}>
         <Route path="/admin" element={<AdminPanel/>} />

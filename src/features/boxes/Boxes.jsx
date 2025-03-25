@@ -7,11 +7,9 @@ import "./boxes.css";
 import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-// import stylesheet if you're not already using CSS @import
 
 export default function Boxes() {
   const [boxes, setBoxes] = useState([]);
-  console.log(boxes);
 
   useEffect(() => {
     const getBoxes = async () => {
@@ -48,21 +46,6 @@ export default function Boxes() {
     },
   ];
 
-  // const images = [
-  //   {
-  //     original: "/assets/img/featuresSection.jpg",
-  //     thumbnail: "/assets/img/featuresSection.jpg",
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1015/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1015/250/150/",
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1019/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1019/250/150/",
-
-  //   },
-  // ];
   return (
     <>
       <main>

@@ -1,0 +1,8 @@
+.hover-td:hover {
+    background-color: var(--primary-color);
+    color: var(--text-secondary);
+}
+
+.bold-td{
+    font-weight: 700;
+}
