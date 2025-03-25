@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Container from "react-bootstrap/Container";
 import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
@@ -7,6 +8,7 @@ import { ReserveBtn } from "../../shared/components/buttons/Buttons";
 import "./home.css";
 
 export default function Home() {
+  const professionalsRef = useRef(null);
   return (
     <>
       <main>
@@ -28,7 +30,7 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <InfoCards />
+            <InfoCards professionalsRef={professionalsRef}/>
           </Container>
         </section>
         <section>
@@ -36,7 +38,7 @@ export default function Home() {
             <VideoSection />
           </Container>
         </section>
-        <section>
+        <section ref={professionalsRef} id="professionals-section">
           <Container>
             <ProfessionalCards />
           </Container>

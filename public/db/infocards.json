@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": 0,
       "icon": "MdVolunteerActivism",
       "title": "Nuestros Servicios",
       "text": "Servicio de arriendo de box de atención para profesionales por horas y por jornadas.",
@@ -8,7 +8,7 @@
       "link": "/boxes"
     },
     {
-      "id": 2,
+      "id": 1,
       "icon": "MdOutlineBadge",
       "title": "Nuestros Profesionales",
       "text": "Trabajamos con profesionales certificados e inscritos en la superintendencia de salud.",
@@ -16,7 +16,7 @@
       "link": ""
     },
     {
-      "id": 3,
+      "id": 2,
       "icon": "MdDateRange",
       "title": "¿Cómo Agendar?",
       "text": "Accede a nuestro calendario para agendar con mayor facilidad.",
@@ -24,7 +24,7 @@
       "link": "https://espaciobox.com/public/Arriendo"
     },
     {
-      "id": 4,
+      "id": 3,
       "icon": "MdOutlineLocationOn",
       "title": "Ubicación",
       "text": "Guardia Vieja #255, Of 1803 Providencia, Metro Los Leones.",

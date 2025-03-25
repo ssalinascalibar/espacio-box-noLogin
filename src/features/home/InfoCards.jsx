@@ -19,7 +19,7 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-export default function InfoCards() {
+export default function InfoCards({professionalsRef}) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -42,7 +42,13 @@ export default function InfoCards() {
                 <Card.Text>{card.text}</Card.Text>
               </Card.Body>
               <Card.Footer>
+                {card.link !== "" ? (
                 <Link to={card.link} target={card.title !== "Nuestros Servicios" && card.title !== "Nuestros Profesionales" ? "_blank" : undefined} rel="noopener noreferrer">{card.link_text}</Link>
+                ) : (
+                <Link onClick={() => professionalsRef.current?.scrollIntoView() }>
+                  Ver más
+                </Link>
+                )}
               </Card.Footer>
             </Card>
           </Col>
