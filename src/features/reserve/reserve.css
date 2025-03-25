@@ -1,5 +1,25 @@
-#reserve-table h2{
-    margin-bottom: 1rem;
+#calendar h2{
+    margin: 1rem 0;
+}
+
+#calendar #navigation-calendar{
+    display: flex;
+    margin: 1rem 0 2rem 0;
+    align-items: center;
+}
+
+#calendar #navigation-calendar h5{
+    margin: 0 1rem 0 1rem;
+}
+
+#calendar #navigation-calendar svg{
+    font-size: 1.2em;
+}
+
+#calendar #navigation-calendar .navigation-button{
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem;
 }
 
 .hover-td:hover {
@@ -11,8 +31,14 @@
     font-weight: 700;
 }
 
-#reserve-table #reserve-footer{
+#calendar #calendar-footer{
+    margin-top: 1rem;
     text-align: right;
+    
+}
+
+#calendar #calendar-footer .btn{
+    width: 100%;
     
 }
 

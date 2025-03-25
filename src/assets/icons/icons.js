@@ -9,7 +9,7 @@ import {
   MdAddCircleOutline
 } from "react-icons/md";
 // iconos Font Awesome
-import { FaInstagram, FaRegTrashAlt, FaRegEdit } from "react-icons/fa";
+import { FaInstagram, FaRegTrashAlt, FaRegEdit, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Exportar solo los iconos necesarios
 export {
@@ -22,5 +22,7 @@ export {
   MdCheckCircle,
   FaRegTrashAlt,
   MdAddCircleOutline,
-  FaRegEdit
+  FaRegEdit,
+  FaArrowLeft,
+  FaArrowRight
 };
