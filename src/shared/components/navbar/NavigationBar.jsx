@@ -10,7 +10,6 @@ import "./navigationBar.css";
 
 export default function NavigationBar() {
   const { isAuth, logOut } = useContext(AuthContext);
-  console.log(isAuth);
 
   return (
     <>

@@ -8,6 +8,7 @@ import Footer from './shared/components/footer/Footer';
 import Login from './features/auth/Login';
 import AdminPanel from './features/adminPanel/AdminPanel';
 import WhatsappButton from './shared/components/buttons/WhatsappButton';
+import PrivateRoutes from './features/auth/PrivateRoutes';
 
 function App() {
   const location = useLocation();
@@ -24,7 +25,9 @@ function App() {
       <Route path="/boxes" element={<Boxes/>} />
       <Route path="/nosotros" element={<About/>} />
       <Route path="/contacto" element={<Contact/>} />
-      <Route path="/admin" element={<AdminPanel/>} />
+      <Route element={<PrivateRoutes/>}>
+        <Route path="/admin" element={<AdminPanel/>} />
+      </Route>
     </Routes>
     {!isLoginRoute && !isAdminRoute && <WhatsappButton />}
     {!isLoginRoute && <Footer />} 

@@ -20,7 +20,6 @@ const iconMap = {
 };
 
 export default function InfoCards({ professionalsRef }) {
-  console.log(professionalsRef)
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
