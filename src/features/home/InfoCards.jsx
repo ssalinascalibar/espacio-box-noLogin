@@ -19,7 +19,8 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-export default function InfoCards({professionalsRef}) {
+export default function InfoCards({ professionalsRef }) {
+  console.log(professionalsRef)
   const [cards, setCards] = useState([]);
 
   useEffect(() => {

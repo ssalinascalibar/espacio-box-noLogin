@@ -34,7 +34,6 @@ export default function NavigationBar() {
               <Link to="/nosotros">Nosotros</Link>
               <Link to="https://espaciobox.com/public/Arriendo" target="_blank" rel="noopener noreferrer">Agendar</Link>
               <Link to="/boxes">Box</Link>
-              <Link to="#link">Profesionales</Link>
               <Link to="/contacto">Contacto</Link>
             </Nav>
             <Nav className="ms-auto">
