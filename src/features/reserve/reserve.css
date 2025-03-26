@@ -1,3 +1,31 @@
+#boxes {
+    display: flex;
+    gap: 10px;
+}
+
+#boxes .boxes-img {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#boxes .boxes-img img {
+    border-radius: 8px;
+}
+
+#boxes .boxes-img h5 {
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}
+
+.boxes-img img:hover {
+    border: 2px solid var(--primary-color);
+}
+
+#calendar{
+    margin: 1.5rem 0 0 0;
+}
+
 #calendar h2{
     margin: 1rem 0;
 }
@@ -5,7 +33,7 @@
 #calendar #calendar-options{
     display: flex;
     flex-direction: column;
-    margin: 2rem 0 1rem 0;
+    margin: 1.5rem 0;
 }
 
 #calendar #navigation-calendar{
@@ -53,10 +81,22 @@
         width: 10%;
         
     }
+
+    #calendar #calendar-options {
+        margin: 2rem 0 2rem 0;
+    }
     .radio-group {
         display: flex;
-        gap: 2rem; /* Espaciado entre los elementos */
-      }
+        gap: 2rem;
+    }
+
+    #boxes .boxes-img {
+        width: 20%;
+    }
+
+    #boxes .boxes-img h5 {
+        font-size: 1.2em;
+    }
 
     
 

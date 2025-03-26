@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
 import { FaArrowLeft, FaArrowRight } from "../../assets/icons/icons";
 import "./reserve.css";
 
@@ -20,6 +21,21 @@ export default function Reserve() {
   return (
     <Container>
       <div className="backgroundSection">
+        <h4>Selecciona un box</h4>
+        <div id="boxes">
+          <div className="boxes-img">
+          <Image src="/assets/img/featuresSection.jpg" fluid />
+            <h5>Box 1</h5>
+          </div>
+          <div className="boxes-img">
+          <Image src="/assets/img/featuresSection.jpg" fluid />
+            <h5>Box 2</h5>
+          </div>
+          <div className="boxes-img">
+          <Image src="/assets/img/featuresSection.jpg" fluid />
+            <h5>Box 3</h5>
+          </div>
+        </div>
         <div id="calendar">
           <h2>Agenda</h2>
           <div id="calendar-options">
