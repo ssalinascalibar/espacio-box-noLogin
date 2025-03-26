@@ -31,7 +31,7 @@ export default function NavigationBar() {
             <Nav className="me-auto menu-nav">
               <Link to="/">Home</Link>
               <Link to="/nosotros">Nosotros</Link>
-              <Link to="https://espaciobox.com/public/Arriendo" target="_blank" rel="noopener noreferrer">Agendar</Link>
+              <Link to="/agendar">Agendar</Link>
               <Link to="/boxes">Box</Link>
               <Link to="/contacto">Contacto</Link>
             </Nav>
