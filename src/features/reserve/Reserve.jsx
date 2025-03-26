@@ -1,7 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { FaArrowLeft, FaArrowRight } from "../../assets/icons/icons"
+import Form from "react-bootstrap/Form";
+import { FaArrowLeft, FaArrowRight } from "../../assets/icons/icons";
 import "./reserve.css";
 
 export default function Reserve() {
@@ -21,11 +22,48 @@ export default function Reserve() {
       <div className="backgroundSection">
         <div id="calendar">
           <h2>Agenda</h2>
-            <h4>Selecciona una hora en el calendario</h4>
+          <div id="calendar-options">
+            <h5>Tipo de reserva</h5>
+            <Form>
+            <div className="radio-group">
+              <Form.Check
+                type="radio"
+                label="Por hora"
+                name="options"
+                value="opcion1"
+              />
+              <Form.Check
+                type="radio"
+                label="Jornada AM"
+                name="options"
+                value="opcion2"
+              />
+              <Form.Check
+                type="radio"
+                label="Jornada PM"
+                name="options"
+                value="opcion3"
+              />
+              <Form.Check
+                type="radio"
+                label="Día completo"
+                name="options"
+                value="opcion3"
+              />
+              </div>
+            </Form>
+          </div>
+          <h4>Selecciona una hora en el calendario</h4>
           <div id="navigation-calendar">
-            <button className="navigation-button"><FaArrowLeft /></button>
-            <button className="navigation-button"><h5>Hoy</h5></button>
-            <button className="navigation-button"><FaArrowRight /></button>
+            <button className="navigation-button">
+              <FaArrowLeft />
+            </button>
+            <button className="navigation-button">
+              <h5>Hoy</h5>
+            </button>
+            <button className="navigation-button">
+              <FaArrowRight />
+            </button>
           </div>
           <Table striped responsive>
             <thead>

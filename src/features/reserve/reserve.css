@@ -2,6 +2,12 @@
     margin: 1rem 0;
 }
 
+#calendar #calendar-options{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 1rem 0;
+}
+
 #calendar #navigation-calendar{
     display: flex;
     margin: 1rem 0 2rem 0;
@@ -47,5 +53,11 @@
         width: 10%;
         
     }
+    .radio-group {
+        display: flex;
+        gap: 2rem; /* Espaciado entre los elementos */
+      }
+
+    
 
 }
