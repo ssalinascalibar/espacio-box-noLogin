@@ -73,6 +73,7 @@ export default function Boxes() {
                   terapeuta o especialista como parte central de nuestro
                   trabajo.
                 </p>
+                <h4>Ver galería</h4>
                 <div id="gallery-show-btn">
                   <GalleryShowBtn boxes={boxes} filterBoxes={filterBoxes} setFilterBoxes={setFilterBoxes} />
                 </div>

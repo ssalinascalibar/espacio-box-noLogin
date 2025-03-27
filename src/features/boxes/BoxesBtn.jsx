@@ -36,8 +36,7 @@ export function GalleryShowBtn({ boxes, setFilterBoxes }) {
     return (
       <>
         {buttons.map((b, i) => (
-          <Button variant="info"
-            className="projects-btn"
+          <Button variant="primary"
             key={i}
             value={b.value}
             onClick={handleButton}
