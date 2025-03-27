@@ -3,13 +3,17 @@ import { fetchBoxes } from "../../services/api";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+// import Button from 'react-bootstrap/Button';
 import "./boxes.css";
 import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
+import { GalleryShowBtn } from "./BoxesBtn";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function Boxes() {
   const [boxes, setBoxes] = useState([]);
+  const [filterBoxes, setFilterBoxes] = useState([]);
+  console.log(filterBoxes)
 
   useEffect(() => {
     const getBoxes = async () => {
@@ -69,10 +73,13 @@ export default function Boxes() {
                   terapeuta o especialista como parte central de nuestro
                   trabajo.
                 </p>
+                <div id="gallery-show-btn">
+                  <GalleryShowBtn boxes={boxes} filterBoxes={filterBoxes} setFilterBoxes={setFilterBoxes} />
+                </div>
               </Col>
               <Col xs={12} lg={6} className="d-lg-flex justify-content-lg-center">
               <div className="gallery">
-                <ImageGallery items={boxes} showBullets showIndex />
+                <ImageGallery items={filterBoxes.length > 0 ? filterBoxes : boxes} showBullets showIndex />
                 </div>
               </Col>
             </Row>
