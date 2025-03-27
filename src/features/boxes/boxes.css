@@ -32,11 +32,8 @@
 
 
 @media screen and (min-width: 992px) {
-   
-    .image-gallery {
-        width: 25vw;
-        margin: 0 auto 0 auto;
-
+    .gallery {
+        max-width: 50%;
     }
 
     .image-gallery-thumbnail img {
@@ -54,5 +51,6 @@
     #boxes-video .player-wrapper {
         margin-top: 1rem;
     }
+    
 
 }

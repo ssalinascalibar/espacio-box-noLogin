@@ -70,8 +70,10 @@ export default function Boxes() {
                   trabajo.
                 </p>
               </Col>
-              <Col xs={12} lg={6}>
+              <Col xs={12} lg={6} className="d-lg-flex justify-content-lg-center">
+              <div className="gallery">
                 <ImageGallery items={boxes} showBullets showIndex />
+                </div>
               </Col>
             </Row>
           </div>
