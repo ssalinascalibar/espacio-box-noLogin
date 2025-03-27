@@ -55,6 +55,15 @@
   },
   {
     "id": 6,
+    "original": "/assets/img/espacioBox-galeria-11.jpg",
+    "thumbnail": "/assets/img/espacioBox-galeria-11.jpg",
+    "description": "Box 1",
+    "thumbnailTitle": "",
+    "thumbnailLabel": "",
+    "originalTitle": "Box 1"
+  },
+  {
+    "id": 7,
     "original": "/assets/img/espacioBox-galeria-2.jpg",
     "thumbnail": "/assets/img/espacioBox-galeria-2.jpg",
     "description": "Box 2",
@@ -63,7 +72,25 @@
     "originalTitle": "Box 2"
   },
   {
-    "id": 7,
+    "id": 8,
+    "original": "/assets/img/espacioBox-galeria-10.jpg",
+    "thumbnail": "/assets/img/espacioBox-galeria-10.jpg",
+    "description": "Box 2",
+    "thumbnailTitle": "",
+    "thumbnailLabel": "",
+    "originalTitle": "Box 2"
+  },
+  {
+    "id": 9,
+    "original": "/assets/img/espacioBox-galeria-12.jpg",
+    "thumbnail": "/assets/img/espacioBox-galeria-12.jpg",
+    "description": "Box 2",
+    "thumbnailTitle": "",
+    "thumbnailLabel": "",
+    "originalTitle": "Box 2"
+  },
+  {
+    "id": 10,
     "original": "/assets/img/espacioBox-galeria-3.jpg",
     "thumbnail": "/assets/img/espacioBox-galeria-3.jpg",
     "description": "Box 3",
@@ -72,7 +99,7 @@
     "originalTitle": "Box 3"
   },
   {
-    "id": 8,
+    "id": 11,
     "original": "/assets/img/espacioBox-galeria-4.jpg",
     "thumbnail": "/assets/img/espacioBox-galeria-4.jpg",
     "description": "Box 3",
@@ -81,7 +108,7 @@
     "originalTitle": "Box 3"
   },
   {
-    "id": 9,
+    "id": 12,
     "original": "/assets/img/espacioBox-galeria-8.jpg",
     "thumbnail": "/assets/img/espacioBox-galeria-8.jpg",
     "description": "Box 3",
