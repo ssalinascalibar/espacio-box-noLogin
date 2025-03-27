@@ -24,15 +24,15 @@ export default function Reserve() {
         <h4>Selecciona un box</h4>
         <div id="boxes">
           <div className="boxes-img">
-          <Image src="/assets/img/featuresSection.jpg" fluid />
+          <Image src="/assets/img/box1-agendar.jpg" fluid />
             <h5>Box 1</h5>
           </div>
           <div className="boxes-img">
-          <Image src="/assets/img/featuresSection.jpg" fluid />
+          <Image src="/assets/img/box2-agendar.jpg" fluid />
             <h5>Box 2</h5>
           </div>
           <div className="boxes-img">
-          <Image src="/assets/img/featuresSection.jpg" fluid />
+          <Image src="/assets/img/box3-agendar.jpg" fluid />
             <h5>Box 3</h5>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function Reserve() {
                 type="radio"
                 label="Día completo"
                 name="options"
-                value="opcion3"
+                value="opcion4"
               />
               </div>
             </Form>
