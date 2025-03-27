@@ -1,9 +1,10 @@
 import Button from "react-bootstrap/Button";
+import { Link } from 'react-router-dom';
 
 export function ReserveBtn() {
   return (
-    <Button href="https://espaciobox.com/public/Arriendo" target="_blank" rel="noopener noreferrer" variant="primary" size="lg">
-      Agendar Box
+    <Button variant="primary" size="lg">
+      <Link to="/agendar" style={{ textDecoration: "none", color: "inherit" }}>Agendar Box</Link>
     </Button>
   );
 }
