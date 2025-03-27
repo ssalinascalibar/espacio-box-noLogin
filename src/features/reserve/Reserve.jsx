@@ -46,25 +46,29 @@ export default function Reserve() {
                 type="radio"
                 label="Por hora"
                 name="options"
-                value="opcion1"
+                value="option1"
+                id="option1"
               />
               <Form.Check
                 type="radio"
                 label="Jornada AM"
                 name="options"
-                value="opcion2"
+                value="option2"
+                id="option2"
               />
               <Form.Check
                 type="radio"
                 label="Jornada PM"
                 name="options"
-                value="opcion3"
+                value="option3"
+                id="option3"
               />
               <Form.Check
                 type="radio"
                 label="Día completo"
                 name="options"
-                value="opcion4"
+                value="option4"
+                id="option4"
               />
               </div>
             </Form>
