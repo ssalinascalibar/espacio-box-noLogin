@@ -25,7 +25,7 @@ a {
 .backgroundSection {
   background-color:#fff;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 2rem 1rem;
   margin: 1rem 0;
 }
 
@@ -51,5 +51,9 @@ a {
   /*React player*/
   .player-wrapper {
     margin-top: 0;
+  }
+
+  .backgroundSection {
+    padding: 2rem ;
   }
 }

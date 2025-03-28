@@ -2,7 +2,7 @@
     background-color:#fff;
     /* background-color: rgba(255, 255, 255, 0.5); */
     border-radius: 8px;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0;
     margin: 1rem 0;
   }
 
@@ -59,11 +59,7 @@
 
 
 @media screen and (min-width: 992px) {
-
-    #background-admin {
-        padding: 1rem 1rem;
-      }
-
+    
     #table-title{
         flex-direction: row;
         justify-content: space-between;
