@@ -1,5 +1,6 @@
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
+import "./adminPanel.css";
 
 export default function AdminReservations({ professionals, setProfessionals }) {
   const addPayment = (id) => {

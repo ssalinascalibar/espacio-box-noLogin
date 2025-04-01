@@ -5,10 +5,9 @@ import {
   FaRegEdit,
   FaRegTrashAlt,
 } from "../../assets/icons/icons";
-// import { fetchProfessionals } from "../../services/api";
 import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
-import "./adminProfessionals.css";
+import "./adminPanel.css";
 
 export default function AdminProfessionals({ professionals, setProfessionals }) {
   
@@ -21,14 +20,6 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
   const handleShowUpdateModal = () => setShowUpdateModal(true);
   const handleCloseCreateModal = () => setShowCreateModal(false);
   const handleShowCreateModal = () => setShowCreateModal(true);
-
-  // useEffect(() => {
-  //   const getUsers = async () => {
-  //     const data = await fetchProfessionals();
-  //     setProfessionals(data);
-  //   };
-  //   getUsers();
-  // }, []);
 
   const deleteProfessional = async (id) => {
     try {
