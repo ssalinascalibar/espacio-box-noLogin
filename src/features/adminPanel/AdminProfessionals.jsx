@@ -49,7 +49,7 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
           Agregar profesional
         </Button>
       </div>
-      <div id="professionals-table">
+      <div id="admin-table">
         <Table striped>
           <thead>
             <tr>

@@ -13,28 +13,28 @@
     text-align: center;
 }
 
-#professionals-table {
+#admin-table {
     max-height: 80vh;
     overflow-y: auto;
 }
 
-#professionals-table thead {
+#admin-table thead {
     position: sticky;
     top: 0;
 }
 
-#professionals-table svg {
+#admin-table svg {
     font-size: 1.3em;
     margin-right: 0.4rem;
 }
 
-#professionals-table th {
+#admin-table th {
     background-color: var(--primary-color);
     color: var(--text-secondary);
     padding: 0 2rem;
 }
 
-#professionals-table td {
+#admin-table td {
     color: #717171;
     padding: 1rem 2rem;
 }
@@ -49,10 +49,17 @@
     width: 70vw;
 }
 
-#professionals-table .responsive-image {
+#admin-table .responsive-image {
     width: 100px;
     height: auto;
     border-radius: 8px; 
+  }
+
+  #filter-reservations {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin: 2rem 0;
   }
   
 
@@ -65,16 +72,16 @@
         justify-content: space-between;
     }
 
-    #professionals-table {
+    #admin-table {
         max-height: 85vh;
     }
 
-    #professionals-table svg {
+    #admin-table svg {
         font-size: 1.3em;
         margin-right: 0.8rem;
     }
 
-    #professionals-table th {
+    #admin-table th {
         font-size: 1.1em;
     }
 
@@ -83,6 +90,11 @@
         max-height: 400px;
         overflow-y: auto;
         width: 40vw;
+    }
+
+    #filter-reservations {
+        display: flex;
+        flex-direction: row;
     }
 
 
