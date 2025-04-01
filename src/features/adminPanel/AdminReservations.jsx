@@ -65,8 +65,8 @@ export default function AdminReservations({ professionals, setProfessionals }) {
                 <td>
                   {p.name} {p.paternal_surname} {p.maternal_surname}
                 </td>
-                <td>Fecha</td>
-                <td>17:00hrs</td>
+                <td><Form.Control type="date" /></td>
+                <td><Form.Control type="time" /></td>
                 <td>{p.hourly_rate}</td>
                 <td>
                   <Form.Check
