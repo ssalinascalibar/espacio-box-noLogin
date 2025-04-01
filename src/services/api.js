@@ -40,9 +40,9 @@ export const fetchBoxes = async () => {
     }
   };
 
-export const fetchUsers = async () => {
+export const fetchAdmin = async () => {
     try {
-      const response = await fetch('db/users.json');
+      const response = await fetch('db/admin.json');
       if (!response.ok) {
         throw new Error('Error al obtener los datos');
       }

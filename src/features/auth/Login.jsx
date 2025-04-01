@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { fetchUsers } from "../../services/api";
+import { fetchAdmin } from "../../services/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -12,17 +12,17 @@ import "./login.css";
 export default function Login() {
   const { setIsAuth } = useContext(AuthContext);
   const [registeredUser, setRegisteredUser] = useState({});
-  const [users, setUsers] = useState([]);
+  const [adminUsers, setAdminUsers] = useState([]);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getUsers = async () => {
-      const data = await fetchUsers();
-      setUsers(data);
+    const getAdminUsers = async () => {
+      const data = await fetchAdmin();
+      setAdminUsers(data);
     };
-    getUsers();
+    getAdminUsers();
   }, []);
 
   const handleChange = async (e) => {
@@ -35,11 +35,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const enabledUser = users.find(
+    const enabledUser = adminUsers.find(
       (user) => user.email === registeredUser.email && user.password === registeredUser.password
     );
 
-    const validateCorreo = !users.email === !registeredUser.email;
+    const validateCorreo = !adminUsers.email === !registeredUser.email;
 
     if (enabledUser) {
       setIsAuth(true);
