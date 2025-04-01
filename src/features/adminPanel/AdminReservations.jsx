@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 
 
-export default function AdminReservations() {
+export default function AdminReservations({ professionals }) {
 
 
   return (
     <div id="background-admin">
       <div id="table-title">
-        <h2>Tabla de profesionales</h2>
+        <h2>Reservas</h2>
       </div>
       <div id="professionals-table">
         <Table striped>
@@ -28,20 +26,12 @@ export default function AdminReservations() {
             {professionals.map((p, i) => (
               <tr key={i}>
                 <td>{p.id}</td>
-                <td>{p.name}</td>
-                <td>{p.paternal_surname}</td>
-                <td>{p.maternal_surname}</td>
-                <td>{p.rut}</td>
-                <td>{p.phone}</td>
-                <td>{p.email}</td>
-                <td>{p.title}</td>
-                <td>
-                  <div className="custom-cell-content">{p.text}</div>
-                </td>
+                <td>Sala 1</td>
+                <td>{p.name} {p.paternal_surname} {p.maternal_surname}</td>
+                <td>Fecha</td>
+                <td>17:00hrs</td>
                 <td>{p.hourly_rate}</td>
-                <td>{p.password}</td>
-                <td>
-                </td>
+                <td>{p.ispayed}</td>
               </tr>
             ))}
           </tbody>

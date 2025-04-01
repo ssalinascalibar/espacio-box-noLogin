@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import {
   FaRegEdit,
-  // MdAddCircleOutline,
   FaRegTrashAlt,
 } from "../../assets/icons/icons";
-import { fetchProfessionals } from "../../services/api";
+// import { fetchProfessionals } from "../../services/api";
 import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
 import "./adminProfessionals.css";
 
-export default function AdminProfessionals() {
-  const [professionals, setProfessionals] = useState([]);
+export default function AdminProfessionals({ professionals, setProfessionals }) {
+  
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
 
@@ -23,13 +22,13 @@ export default function AdminProfessionals() {
   const handleCloseCreateModal = () => setShowCreateModal(false);
   const handleShowCreateModal = () => setShowCreateModal(true);
 
-  useEffect(() => {
-    const getUsers = async () => {
-      const data = await fetchProfessionals();
-      setProfessionals(data);
-    };
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     const data = await fetchProfessionals();
+  //     setProfessionals(data);
+  //   };
+  //   getUsers();
+  // }, []);
 
   const deleteProfessional = async (id) => {
     try {
