@@ -2,7 +2,6 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 
 export default function AdminReservations({ professionals, setProfessionals }) {
-    
   const addPayment = (id) => {
     const index = professionals.findIndex(
       (professional) => professional.id === id
@@ -33,7 +32,14 @@ export default function AdminReservations({ professionals, setProfessionals }) {
             {professionals.map((p, i) => (
               <tr key={i}>
                 <td>{p.id}</td>
-                <td>Sala 1</td>
+                <td>
+                  <Form.Select aria-label="Default select example">
+                    <option>Salas</option>
+                    <option value="1">Sala 1</option>
+                    <option value="2">Sala 2</option>
+                    <option value="3">Sala 3</option>
+                  </Form.Select>
+                </td>
                 <td>
                   {p.name} {p.paternal_surname} {p.maternal_surname}
                 </td>
