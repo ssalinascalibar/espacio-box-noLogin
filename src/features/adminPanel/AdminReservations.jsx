@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import "./adminPanel.css";
 
 export default function AdminReservations({ professionals, setProfessionals }) {
-  const [selectedUser, setSelectedUser] = useState({});
+  const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredProfessionals, setFilteredProfessionals] = useState([]);
 
@@ -18,18 +18,22 @@ export default function AdminReservations({ professionals, setProfessionals }) {
   };
 
   const handleFilter = () => {
-    let filtered = professionals;
-
-    if (selectedRoom) {
-      filtered = filtered.filter((p) => p.room === selectedRoom);
-    } else {
-
-    if (selectedUser) {
-      filtered = filtered.filter((p) => p.name === selectedUser);
+    if (!selectedUser) {
+      alert("No hay selección");
+      return;
     }
-}
+
+    const filtered = professionals.filter(
+      (p) => p.name + p.paternal_surname === selectedUser
+    );
 
     setFilteredProfessionals(filtered);
+  };
+
+  const clean = () => {
+    setFilteredProfessionals(professionals);
+    setSelectedUser("");
+    setSelectedRoom("");
   };
 
   useEffect(() => {
@@ -39,21 +43,34 @@ export default function AdminReservations({ professionals, setProfessionals }) {
   return (
     <div id="background-admin">
       <div id="filter-reservations">
-        <Form.Select aria-label="Filtrar por sala" value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)}>
+        <Form.Select
+          aria-label="Filtrar por sala"
+          value={selectedRoom}
+          onChange={(e) => setSelectedRoom(e.target.value)}
+        >
           <option>Filtrar por sala</option>
           <option value="1">Sala 1</option>
           <option value="2">Sala 2</option>
           <option value="3">Sala 3</option>
         </Form.Select>
-        <Form.Select aria-label="Filtrar por sala" value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+        <Form.Select
+          aria-label="Filtrar por sala"
+          value={selectedUser}
+          onChange={(e) => setSelectedUser(e.target.value)}
+        >
           <option>Filtrar por usuario</option>
           {professionals.map((p, i) => (
-            <option key={i} value={p.name}>{p.name} {p.paternal_surname}</option>
+            <option key={i} value={p.name + p.paternal_surname}>
+              {p.name} {p.paternal_surname}
+            </option>
           ))}
         </Form.Select>
       </div>
       <div id="table-title">
         <h2>Reservas</h2>
+        <Button variant="primary" className="mb-4" onClick={clean}>
+          Limpiar
+        </Button>
         <Button variant="primary" className="mb-4" onClick={handleFilter}>
           Filtrar
         </Button>
@@ -86,8 +103,12 @@ export default function AdminReservations({ professionals, setProfessionals }) {
                 <td>
                   {p.name} {p.paternal_surname} {p.maternal_surname}
                 </td>
-                <td><Form.Control type="date" /></td>
-                <td><Form.Control type="time" /></td>
+                <td>
+                  <Form.Control type="date" />
+                </td>
+                <td>
+                  <Form.Control type="time" />
+                </td>
                 <td>{p.hourly_rate}</td>
                 <td>
                   <Form.Check
