@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,6 +6,8 @@ import "./adminPanel.css";
 
 export default function AdminReservations({ professionals, setProfessionals }) {
   const [selectedUser, setSelectedUser] = useState({});
+  const [selectedRoom, setSelectedRoom] = useState("");
+  const [filteredProfessionals, setFilteredProfessionals] = useState([]);
 
   const addPayment = (id) => {
     const index = professionals.findIndex(
@@ -15,10 +17,29 @@ export default function AdminReservations({ professionals, setProfessionals }) {
     setProfessionals([...professionals]);
   };
 
+  const handleFilter = () => {
+    let filtered = professionals;
+
+    if (selectedRoom) {
+      filtered = filtered.filter((p) => p.room === selectedRoom);
+    } else {
+
+    if (selectedUser) {
+      filtered = filtered.filter((p) => p.name === selectedUser);
+    }
+}
+
+    setFilteredProfessionals(filtered);
+  };
+
+  useEffect(() => {
+    setFilteredProfessionals(professionals);
+  }, [professionals]);
+
   return (
     <div id="background-admin">
       <div id="filter-reservations">
-        <Form.Select aria-label="Filtrar por sala">
+        <Form.Select aria-label="Filtrar por sala" value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)}>
           <option>Filtrar por sala</option>
           <option value="1">Sala 1</option>
           <option value="2">Sala 2</option>
@@ -33,7 +54,7 @@ export default function AdminReservations({ professionals, setProfessionals }) {
       </div>
       <div id="table-title">
         <h2>Reservas</h2>
-        <Button variant="primary" className="mb-4">
+        <Button variant="primary" className="mb-4" onClick={handleFilter}>
           Filtrar
         </Button>
       </div>
@@ -51,7 +72,7 @@ export default function AdminReservations({ professionals, setProfessionals }) {
             </tr>
           </thead>
           <tbody>
-            {professionals.map((p, i) => (
+            {filteredProfessionals?.map((p, i) => (
               <tr key={i}>
                 <td>{p.id}</td>
                 <td>
