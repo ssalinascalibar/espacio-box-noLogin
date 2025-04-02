@@ -68,12 +68,14 @@ export default function AdminReservations({ professionals, setProfessionals }) {
       </div>
       <div id="table-title">
         <h2>Reservas</h2>
-        <Button variant="primary" className="mb-4" onClick={clean}>
-          Limpiar
-        </Button>
-        <Button variant="primary" className="mb-4" onClick={handleFilter}>
-          Filtrar
-        </Button>
+        <div id="table-title-btn">
+          <Button variant="secondary" className="mb-4" onClick={clean}>
+            Limpiar
+          </Button>
+          <Button variant="primary" className="mb-4" onClick={handleFilter}>
+            Filtrar
+          </Button>
+        </div>
       </div>
       <div id="admin-table">
         <Table striped>
