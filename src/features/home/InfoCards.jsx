@@ -43,7 +43,7 @@ export default function InfoCards({ professionalsRef }) {
               </Card.Body>
               <Card.Footer>
                 {card.link !== "" ? (
-                <Link to={card.link} target={card.title !== "Nuestros Servicios" && card.title !== "Nuestros Profesionales" ? "_blank" : undefined} rel="noopener noreferrer">{card.link_text}</Link>
+                <Link to={card.link} target={card.title !== "Nuestros Servicios" && card.title !== "Nuestros Profesionales" && card.title !== "¿Cómo Agendar?" ? "_blank" : undefined} rel="noopener noreferrer">{card.link_text}</Link>
                 ) : (
                 <Link onClick={() => professionalsRef.current?.scrollIntoView() }>
                   Ver más
