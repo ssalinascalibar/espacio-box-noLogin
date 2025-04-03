@@ -11,8 +11,8 @@ import "./login.css";
 
 export default function UserLogin() {
 
-  const { setIsAuthUser } = useContext(AuthContext);
-  const [registeredUser, setRegisteredUser] = useState({});
+  const { setIsAuthUser, registeredUser, setRegisteredUser } = useContext(AuthContext);
+  // const [registeredUser, setRegisteredUser] = useState({});
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
@@ -48,7 +48,6 @@ export default function UserLogin() {
       setIsAuthUser(true);
       alert("Bienvenido/a " + registeredUser.email);
       navigate(`/agendar`);
-      setRegisteredUser("");
     } else if (validateCorreo) {
       alert("debes ingresar un correo");
     } else {

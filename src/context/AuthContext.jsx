@@ -7,6 +7,8 @@ const AuthContextProvider = ({ children }) => {
     
   const [isAuth, setIsAuth] = useState(false);
   const [isAuthUser, setIsAuthUser] = useState(false);
+  const [registeredUser, setRegisteredUser] = useState({});
+  console.log(registeredUser)
 
   const navigate = useNavigate();
 
@@ -17,6 +19,7 @@ const AuthContextProvider = ({ children }) => {
 
   const logOutUser = () => {
     setIsAuthUser(false);
+    setRegisteredUser("");
     navigate("/")
   };
 
@@ -46,7 +49,9 @@ const AuthContextProvider = ({ children }) => {
         logOut,
         isAuthUser,
         setIsAuthUser,
-        logOutUser
+        logOutUser,
+        registeredUser,
+        setRegisteredUser
       }}
     >
       {children}

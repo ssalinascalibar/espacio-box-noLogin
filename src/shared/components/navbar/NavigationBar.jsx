@@ -10,8 +10,10 @@ import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
-  const { isAuth, logOut } = useContext(AuthContext);
+  const { isAuth, logOut, registeredUser, isAuthUser, logOutUser } =
+    useContext(AuthContext);
   console.log(isAuth);
+  console.log("registeredUser:", registeredUser);
 
   return (
     <>
@@ -44,6 +46,27 @@ export default function NavigationBar() {
                 <Link to="/login">Acceso Admin</Link>
               )}
             </Nav> */}
+            {isAuthUser && registeredUser ? (
+              <NavDropdown
+                title={registeredUser.email || "Usuario"}
+                id="basic-nav-dropdown"
+                align={{ lg: "end" }}
+                className="me-lg-3 mb-lg-0 mb-3"
+              >
+                <NavDropdown.Item as="div">
+                  {isAuthUser ? (
+                    <Nav.Link onClick={logOutUser}>Logout Usuario</Nav.Link>
+                  ) : (
+                    <Link to="/login">Acceso Admin</Link>
+                  )}
+                </NavDropdown.Item>
+                {isAuthUser && (
+                  <NavDropdown.Item as={Link} to="/agendar">
+                    Mis reservas
+                  </NavDropdown.Item>
+                )}
+              </NavDropdown>
+            ) : null}
             <NavDropdown
               title="Admin"
               id="basic-nav-dropdown"
