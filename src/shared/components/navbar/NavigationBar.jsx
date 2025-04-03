@@ -47,8 +47,7 @@ export default function NavigationBar() {
             <NavDropdown
               title="Admin"
               id="basic-nav-dropdown"
-              align="end"
-              menualign="end"
+              align={{ lg: "end" }}
             >
               <NavDropdown.Item as="div">
                 {isAuth ? (
