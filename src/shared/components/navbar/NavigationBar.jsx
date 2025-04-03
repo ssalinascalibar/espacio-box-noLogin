@@ -1,15 +1,17 @@
 import { useContext } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import Header from "../header/Header";
 import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
   const { isAuth, logOut } = useContext(AuthContext);
+  console.log(isAuth);
 
   return (
     <>
@@ -35,13 +37,32 @@ export default function NavigationBar() {
               <Link to="/boxes">Box</Link>
               <Link to="/contacto">Contacto</Link>
             </Nav>
-            <Nav className="ms-auto">
+            {/* <Nav className="ms-auto">
               {isAuth ? (
                 <Nav.Link onClick={logOut}>Logout Admin</Nav.Link>
               ) : (
                 <Link to="/login">Acceso Admin</Link>
               )}
-            </Nav>
+            </Nav> */}
+            <NavDropdown
+              title="Admin"
+              id="basic-nav-dropdown"
+              align="end"
+              menualign="end"
+            >
+              <NavDropdown.Item as="div">
+                {isAuth ? (
+                  <Nav.Link onClick={logOut}>Logout Admin</Nav.Link>
+                ) : (
+                  <Link to="/login">Acceso Admin</Link>
+                )}
+              </NavDropdown.Item>
+              {isAuth && (
+                <NavDropdown.Item as={Link} to="/admin">
+                  Panel Admin
+                </NavDropdown.Item>
+              )}
+            </NavDropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>
