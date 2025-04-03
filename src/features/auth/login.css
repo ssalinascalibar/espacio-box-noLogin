@@ -21,6 +21,10 @@
     z-index: 1;
 }
 
+.login-background a{
+    color: var(--text-secondary);
+}
+
 .login-container {
     position: relative;
     z-index: 2;
@@ -45,6 +49,7 @@
 
 .login-form .btn {
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 992px) {
