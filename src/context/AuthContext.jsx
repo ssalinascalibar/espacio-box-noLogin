@@ -6,11 +6,17 @@ const AuthContext = createContext({});
 const AuthContextProvider = ({ children }) => {
     
   const [isAuth, setIsAuth] = useState(false);
+  const [isAuthUser, setIsAuthUser] = useState(false);
 
   const navigate = useNavigate();
 
   const logOut = () => {
     setIsAuth(false);
+    navigate("/")
+  };
+
+  const logOutUser = () => {
+    setIsAuthUser(false);
     navigate("/")
   };
 
@@ -38,6 +44,9 @@ const AuthContextProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         logOut,
+        isAuthUser,
+        setIsAuthUser,
+        logOutUser
       }}
     >
       {children}

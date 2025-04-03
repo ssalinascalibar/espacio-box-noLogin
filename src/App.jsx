@@ -6,10 +6,11 @@ import Contact from './features/contact/Contact';
 import NavigationBar from './shared/components/navbar/NavigationBar';
 import Footer from './shared/components/footer/Footer';
 import Login from './features/auth/Login';
+import UserLogin from './features/auth/UserLogin';
+import { AuthAdminRoutes, AuthUserRoutes } from './features/auth/PrivateRoutes';
 import AdminPanel from './features/adminPanel/AdminPanel';
 import Reserve from './features/reserve/Reserve';
 import WhatsappButton from './shared/components/buttons/WhatsappButton';
-import PrivateRoutes from './features/auth/PrivateRoutes';
 
 function App() {
   const location = useLocation();
@@ -21,13 +22,16 @@ function App() {
     <>
     {!isLoginRoute && <NavigationBar />}
     <Routes>
+      <Route path="/userlogin" element={<UserLogin/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/" element={<Home/>} />
       <Route path="/boxes" element={<Boxes/>} />
       <Route path="/nosotros" element={<About/>} />
-      <Route path="/agendar" element={<Reserve/>} />
       <Route path="/contacto" element={<Contact/>} />
-      <Route element={<PrivateRoutes/>}>
+      <Route element={<AuthUserRoutes/>}>
+        <Route path="/agendar" element={<Reserve/>} />
+      </Route>
+      <Route element={<AuthAdminRoutes/>}>
         <Route path="/admin" element={<AdminPanel/>} />
       </Route>
     </Routes>

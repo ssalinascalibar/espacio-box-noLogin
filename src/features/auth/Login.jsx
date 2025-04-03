@@ -90,7 +90,7 @@ export default function Login() {
             </Form.Group>
             {error && <p style={{ color: "#fff" }}>{error}</p>}
             <Button variant="primary" type="submit" size="lg">
-              Acceso panel
+              Acceso Panel
             </Button>
           </Form>
           </div>
