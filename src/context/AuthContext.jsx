@@ -6,7 +6,7 @@ const AuthContext = createContext({});
 const AuthContextProvider = ({ children }) => {
     
   const [isAuth, setIsAuth] = useState(false);
-  console.log(isAuth)
+
   const navigate = useNavigate();
 
   const logOut = () => {

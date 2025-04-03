@@ -45,10 +45,7 @@ export default function Login() {
       setIsAuth(true);
       // setUserLogged(enabledUser)
       alert(
-        "Bienvenido/a " +
-          registeredUser.email?.charAt(0).toUpperCase() +
-          registeredUser.email?.slice(1) +
-          " a tu perfil"
+        "Bienvenido/a al panel de control"
       );
       navigate(`/admin`);
       setRegisteredUser("");
@@ -68,7 +65,7 @@ export default function Login() {
         <div className="login-form">
           <Form onSubmit={handleSubmit}>
             <h2>EspacioBox</h2>
-            <h4>Iniciar Sesión</h4>
+            <h4>Ingresar como administrador</h4>
             <Form.Group controlId="email" className="mb-4">
               {/* <Form.Label>Correo Electrónico</Form.Label> */}
               <Form.Control
@@ -93,7 +90,7 @@ export default function Login() {
             </Form.Group>
             {error && <p style={{ color: "#fff" }}>{error}</p>}
             <Button variant="primary" type="submit" size="lg">
-              Iniciar Sesión
+              Acceso panel
             </Button>
           </Form>
           </div>

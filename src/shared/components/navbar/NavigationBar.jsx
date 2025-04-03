@@ -37,9 +37,9 @@ export default function NavigationBar() {
             </Nav>
             <Nav className="ms-auto">
               {isAuth ? (
-                <Nav.Link onClick={logOut}>Cerrar sesión</Nav.Link>
+                <Nav.Link onClick={logOut}>Salir del panel</Nav.Link>
               ) : (
-                <Link to="/login">Iniciar sesión</Link>
+                <Link to="/login">Panel de control</Link>
               )}
             </Nav>
           </Navbar.Collapse>
