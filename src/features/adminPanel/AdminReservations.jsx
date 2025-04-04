@@ -44,6 +44,8 @@ export default function AdminReservations({ professionals, setProfessionals }) {
     <div id="background-admin">
       <div id="filter-reservations">
         <Form.Select
+          id="filter-room"
+          name="filterRoom"
           aria-label="Filtrar por sala"
           value={selectedRoom}
           onChange={(e) => setSelectedRoom(e.target.value)}
@@ -54,7 +56,9 @@ export default function AdminReservations({ professionals, setProfessionals }) {
           <option value="3">Sala 3</option>
         </Form.Select>
         <Form.Select
-          aria-label="Filtrar por sala"
+          id="filter-user"
+          name="filterUser"
+          aria-label="Filtrar por usuario"
           value={selectedUser}
           onChange={(e) => setSelectedUser(e.target.value)}
         >
@@ -95,7 +99,7 @@ export default function AdminReservations({ professionals, setProfessionals }) {
               <tr key={i}>
                 <td>{p.id}</td>
                 <td>
-                  <Form.Select aria-label="Seleccionar sala">
+                  <Form.Select aria-label="Seleccionar sala tabla" id={`row-sala-${p.id}`} name={`rowSala${p.id}`}>
                     <option>Salas</option>
                     <option value="1">Sala 1</option>
                     <option value="2">Sala 2</option>
@@ -115,6 +119,8 @@ export default function AdminReservations({ professionals, setProfessionals }) {
                 <td>
                   <Form.Check
                     type="checkbox"
+                    id={`payment-${p.id}`}
+                    name={`payment-${p.id}`}
                     checked={p.ispayed}
                     onChange={() => addPayment(p.id)}
                   />
