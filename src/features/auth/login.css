@@ -39,11 +39,17 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: var(--text-secondary);
+    text-align: center;
     
 }
 
+.login-form svg {
+    font-size: 3em;
+    margin-bottom: 1rem;
+}
 
-.login-form h3{
+
+.login-form h3, h4{
     margin-bottom: 1rem;
 }
 
@@ -55,5 +61,9 @@
 @media screen and (min-width: 992px) {
     .login-background {
         padding: 0 30rem;
+    }
+
+    .login-form svg {
+        font-size: 4em;
     }
   }
