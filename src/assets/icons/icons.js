@@ -6,10 +6,18 @@ import {
   MdOutlineBadge,
   MdVolunteerActivism,
   MdCheckCircle,
-  MdAddCircleOutline
+  MdAddCircleOutline,
 } from "react-icons/md";
 // iconos Font Awesome
-import { FaInstagram, FaRegTrashAlt, FaRegEdit, FaArrowLeft, FaArrowRight, FaUserCircle } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaRegTrashAlt,
+  FaRegEdit,
+  FaArrowLeft,
+  FaArrowRight,
+  FaUserCircle,
+  FaUserCog,
+} from "react-icons/fa";
 
 // Exportar solo los iconos necesarios
 export {
@@ -25,5 +33,6 @@ export {
   FaRegEdit,
   FaArrowLeft,
   FaArrowRight,
-  FaUserCircle
+  FaUserCircle,
+  FaUserCog,
 };

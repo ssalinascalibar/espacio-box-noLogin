@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { fetchAdmin } from "../../services/api";
+import { FaUserCog } from "../../assets/icons/icons"
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -64,6 +65,7 @@ export default function Login() {
       <Row>
         <Col>
         <div className="login-form">
+          <FaUserCog />
           <Form onSubmit={handleSubmit}>
             <h2>EspacioBox</h2>
             <h4>Ingresar como administrador</h4>
