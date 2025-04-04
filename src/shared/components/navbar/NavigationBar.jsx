@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FaUserCog, FaUserCircle } from "../../../assets/icons/icons"
 import AuthContext from "../../../context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -48,7 +49,12 @@ export default function NavigationBar() {
             </Nav> */}
             {isAuthUser && registeredUser ? (
               <NavDropdown
-                title={registeredUser.email || "Usuario"}
+                title={
+                  <>
+                  <FaUserCircle />
+                  {registeredUser.email || "Usuario"}
+                  </>
+                }
                 id="basic-nav-dropdown"
                 align={{ lg: "end" }}
                 className="me-lg-3 mb-lg-0 mb-3"
@@ -57,7 +63,7 @@ export default function NavigationBar() {
                   {isAuthUser ? (
                     <Nav.Link onClick={logOutUser}>Logout Usuario</Nav.Link>
                   ) : (
-                    <Link to="/login">Acceso Admin</Link>
+                    <Link to="/userlogin">Acceso Usuario</Link>
                   )}
                 </NavDropdown.Item>
                 {isAuthUser && (
@@ -67,8 +73,14 @@ export default function NavigationBar() {
                 )}
               </NavDropdown>
             ) : null}
+            {!isAuthUser && (
             <NavDropdown
-              title="Admin"
+              title={
+                <>
+                <FaUserCog />
+                {"Admin"}
+                </>
+              }
               id="basic-nav-dropdown"
               align={{ lg: "end" }}
             >
@@ -85,6 +97,7 @@ export default function NavigationBar() {
                 </NavDropdown.Item>
               )}
             </NavDropdown>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
