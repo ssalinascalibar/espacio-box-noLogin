@@ -8,7 +8,6 @@ const AuthContextProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [isAuthUser, setIsAuthUser] = useState(false);
   const [registeredUser, setRegisteredUser] = useState({});
-  console.log(registeredUser)
 
   const navigate = useNavigate();
 

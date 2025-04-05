@@ -11,6 +11,7 @@ import { AuthAdminRoutes, AuthUserRoutes } from './features/auth/PrivateRoutes';
 import AdminPanel from './features/adminPanel/AdminPanel';
 import Reserve from './features/reserve/Reserve';
 import WhatsappButton from './shared/components/buttons/WhatsappButton';
+import { UserContextProvider } from './context/UserContext';
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
     {!isLoginRoute && <NavigationBar />}
+    <UserContextProvider>
     <Routes>
       <Route path="/userlogin" element={<UserLogin/>} />
       <Route path="/login" element={<Login/>} />
@@ -35,6 +37,7 @@ function App() {
         <Route path="/admin" element={<AdminPanel/>} />
       </Route>
     </Routes>
+    </UserContextProvider>
     {!isLoginRoute && !isAdminRoute && <WhatsappButton />}
     {!isLoginRoute && <Footer />} 
     </>

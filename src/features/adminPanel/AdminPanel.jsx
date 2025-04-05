@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { fetchProfessionals } from "../../services/api";
+import { useState, useContext } from "react";
+import UserContext from "../../context/UserContext";
 import AdminProfessionals from "./AdminProfessionals";
 import { Container } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
@@ -7,16 +7,9 @@ import Tabs from "react-bootstrap/Tabs";
 import AdminReservations from "./AdminReservations";
 
 export default function AdminPanel() {
-  const [key, setKey] = useState("professionals-table");
-  const [professionals, setProfessionals] = useState([]);
 
-  useEffect(() => {
-      const getUsers = async () => {
-        const data = await fetchProfessionals();
-        setProfessionals(data);
-      };
-      getUsers();
-    }, []);
+  const { professionals, setProfessionals } = useContext(UserContext);
+  const [key, setKey] = useState("professionals-table");
 
   return (
     <Container>

@@ -11,10 +11,7 @@ import Image from "react-bootstrap/Image";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
-  const { isAuth, logOut, registeredUser, isAuthUser, logOutUser } =
-    useContext(AuthContext);
-  console.log(isAuth);
-  console.log("registeredUser:", registeredUser);
+  const { isAuth, logOut, registeredUser, isAuthUser, logOutUser } = useContext(AuthContext);
 
   return (
     <>
