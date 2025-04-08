@@ -21,7 +21,7 @@ export default function CreateProfessionalModal({
   };
 
   const handleChange = async (e) => {
-    const newId = professionals.length > 0
+    const newId = professionals && professionals.length > 0
     ? Math.max(...professionals.map((p) => p.id)) + 1 
     : 1;
     
@@ -45,9 +45,15 @@ export default function CreateProfessionalModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!newProfessional.name || !newProfessional.paternal_surname || !newProfessional.title) {
+      alert("Por favor, completa los campos obligatorios: Nombre, Apellido Paterno y Título.");
+      return; // Detener el envío del formulario
+    }
+
     setProfessionals([...professionals, newProfessional]);
     alert("Nuevo profesional agregado");
-    setNewProfessional("");
+    setNewProfessional({});
     setImage(null);
     handleClose();
   };
