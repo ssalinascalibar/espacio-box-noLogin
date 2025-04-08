@@ -5,9 +5,7 @@ const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
   const [professionals, setProfessionals] = useState([]);
-  console.log('professionales', professionals);
   const prevProfessionalsRef = useRef();
-  console.log('profesionales previos', prevProfessionalsRef.current);
 
   useEffect(() => {
     const getUsers = async () => {
