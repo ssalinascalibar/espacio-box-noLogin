@@ -23,9 +23,8 @@ export default function CreateProfessionalModal({
   const handleChange = async (e) => {
     const newId = professionals.length > 0
     ? Math.max(...professionals.map((p) => p.id)) + 1 
-    : 1; // Si no hay profesionales, el ID inicial será 1
+    : 1;
     
-    console.log(newId) 
     setNewProfessional({
       ...newProfessional,
       id: newId,

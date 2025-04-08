@@ -7,31 +7,23 @@ import {
 } from "../../assets/icons/icons";
 import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
+import DeleteProfessionalModal from "../../shared/components/modals/DeleteProfessionalModal";
 import "./adminPanel.css";
 
 export default function AdminProfessionals({ professionals, setProfessionals }) {
   
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const [selectedProfessional, setSelectedProfessional] = useState({});
-
+  
   const handleCloseUpdateModal = () => setShowUpdateModal(false);
   const handleShowUpdateModal = () => setShowUpdateModal(true);
   const handleCloseCreateModal = () => setShowCreateModal(false);
   const handleShowCreateModal = () => setShowCreateModal(true);
-
-  const deleteProfessional = async (id) => {
-    try {
-      setProfessionals(
-        professionals.filter((p) => {
-          return p.id !== id;
-        })
-      );
-    } catch (error) {
-      console.error("Error al eliminar el profesional:", error.message);
-    }
-  };
+  const handleShowDeleteModal = () => setShowDeleteModal(true);
+  const handleCloseDeleteModal = () => setShowDeleteModal(false);
 
   const selectProfessional = async (selection) => {
     setSelectedProfessional(selection);
@@ -100,7 +92,12 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
                         handleShowUpdateModal();
                       }}
                     />
-                    <FaRegTrashAlt onClick={() => deleteProfessional(p.id)} />
+                    <FaRegTrashAlt 
+                      onClick={() => {
+                        selectProfessional(p);
+                        handleShowDeleteModal();
+                      }}
+                    />
                   </div>
                 </td>
               </tr>
@@ -119,6 +116,13 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
               selectedProfessional={selectedProfessional}
               setSelectedProfessional={setSelectedProfessional}
             />
+            <DeleteProfessionalModal 
+              show={showDeleteModal}
+              handleClose={handleCloseDeleteModal}
+              professionals={professionals}
+              setProfessionals={setProfessionals}
+              selectedProfessional={selectedProfessional}
+              />
           </tbody>
         </Table>
       </div>
