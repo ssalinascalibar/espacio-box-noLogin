@@ -136,7 +136,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             <Form.Group controlId="password" className="mb-4">
               <Form.Control
-                type="password"
+                type="text"
                 name="password"
                 value={selectedProfessional.password || ""}
                 onChange={handleChange}
@@ -146,7 +146,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             {/* {error && <p style={{ color: "#fff" }}>{error}</p>} */}
             <Button variant="success" type="submit">
-              Editar
+              Guardar
             </Button>
           </Form>
         </Modal.Body>
