@@ -1,41 +1,63 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import CloseButton from 'react-bootstrap/CloseButton';
+import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
 import PropTypes from "prop-types";
 
-export default function CreateProfessionalModal({ show, handleClose, professionals, setProfessionals }) {
-
-    const [newProfessional, setNewProfessional] = useState({});
+export default function CreateProfessionalModal({
+  show,
+  handleClose,
+  professionals,
+  setProfessionals,
+}) {
   
-    CreateProfessionalModal.propTypes = {
+  const [newProfessional, setNewProfessional] = useState({});
+  const [image, setImage] = useState(null);
+
+  CreateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
   };
 
   const handleChange = async (e) => {
+    const newId = professionals.length > 0
+    ? Math.max(...professionals.map((p) => p.id)) + 1 
+    : 1; // Si no hay profesionales, el ID inicial será 1
+    
+    console.log(newId) 
     setNewProfessional({
       ...newProfessional,
-      id: professionals.length + 1,
+      id: newId,
       [e.target.name]: e.target.value.toLowerCase(),
     });
   };
 
-  const handleSubmit = e => {
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setNewProfessional({
+        ...newProfessional,
+        image: URL.createObjectURL(file),
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-      setProfessionals([...professionals, newProfessional]);
-      alert('Nuevo profesional agregado')
-      setNewProfessional('');
-  
-  }
+    setProfessionals([...professionals, newProfessional]);
+    alert("Nuevo profesional agregado");
+    setNewProfessional("");
+    setImage(null);
+    handleClose();
+  };
 
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <CloseButton onClick={handleClose}>
-          </CloseButton>
+          <CloseButton onClick={handleClose}></CloseButton>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -112,7 +134,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             <Form.Group controlId="text" className="mb-4">
               <Form.Control
-              as="textarea"
+                as="textarea"
                 rows={6}
                 type="text"
                 name="text"
@@ -134,7 +156,7 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             <Form.Group controlId="password" className="mb-4">
               <Form.Control
-                type="password"
+                type="text"
                 name="password"
                 value={newProfessional.password || ""}
                 onChange={handleChange}
@@ -143,6 +165,27 @@ export default function CreateProfessionalModal({ show, handleClose, professiona
               />
             </Form.Group>
             {/* {error && <p style={{ color: "#fff" }}>{error}</p>} */}
+            <Form.Group controlId="image" className="mb-4">
+              <Form.Label>Subir imagen</Form.Label>
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+              />
+              <Form.Text className="text-muted">
+                Tamaño de imagen 600x800px para una correcta visualización
+              </Form.Text>
+              {image && (
+                <div className="mt-3">
+                  <p>Previsualización:</p>
+                  <img
+                    src={URL.createObjectURL(image)}
+                    alt="Previsualización"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                  />
+                </div>
+              )}
+            </Form.Group>
             <Button variant="success" type="submit">
               Agregar
             </Button>

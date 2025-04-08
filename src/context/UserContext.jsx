@@ -18,8 +18,6 @@ const UserContextProvider = ({ children }) => {
         prevProfessionalsRef.current = data; 
       }
     };
-
-    // Llamar a la función para obtener usuarios
     getUsers();
   }, []);
   
