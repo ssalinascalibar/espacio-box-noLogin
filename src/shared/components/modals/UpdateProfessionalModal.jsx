@@ -28,6 +28,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
   setProfessionals(updatedProfessionals);
   alert("Profesional editado");
   setSelectedProfessional('');
+  handleClose();
   
   }
 
