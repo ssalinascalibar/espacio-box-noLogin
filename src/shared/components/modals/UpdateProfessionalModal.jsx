@@ -1,10 +1,14 @@
+import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CloseButton from 'react-bootstrap/CloseButton';
 import Form from "react-bootstrap/Form";
+import Alert from 'react-bootstrap/Alert';
 import PropTypes from "prop-types";
 
 export default function UpdateProfessionalModal({ show, handleClose, professionals, setProfessionals, selectedProfessional, setSelectedProfessional }) {
+  
+  const [showAlert, setShowAlert] = useState(false);
 
     UpdateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
@@ -26,9 +30,13 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
   );
 
   setProfessionals(updatedProfessionals);
-  alert("Profesional editado");
-  setSelectedProfessional('');
-  handleClose();
+  setShowAlert(true);
+
+  setTimeout(() => {
+    setShowAlert(false); 
+    setSelectedProfessional(""); 
+    handleClose(); 
+  }, 3000);
   
   }
 
@@ -40,6 +48,11 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
           </CloseButton>
         </Modal.Header>
         <Modal.Body>
+        {showAlert && (
+            <Alert variant="success" className="mb-4">
+              Profesional editado exitosamente.
+            </Alert>
+          )}
           <Form onSubmit={handleSubmit}>
             <h4>Editar profesional</h4>
             <Form.Group controlId="rut" className="mb-4">
@@ -150,6 +163,11 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
             </Button>
           </Form>
         </Modal.Body>
+        {showAlert && (
+            <Alert variant="success" className="mb-4">
+              Profesional editado exitosamente.
+            </Alert>
+          )}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
