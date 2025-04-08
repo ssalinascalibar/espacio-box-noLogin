@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 import PropTypes from "prop-types";
 
 export default function CreateProfessionalModal({
@@ -12,10 +12,10 @@ export default function CreateProfessionalModal({
   professionals,
   setProfessionals,
 }) {
-  
   const [newProfessional, setNewProfessional] = useState({});
   const [image, setImage] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
+  const [showAlertWarning, setShowAlertWarning] = useState(false);
 
   CreateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
@@ -23,10 +23,11 @@ export default function CreateProfessionalModal({
   };
 
   const handleChange = async (e) => {
-    const newId = professionals && professionals.length > 0
-    ? Math.max(...professionals.map((p) => p.id)) + 1 
-    : 1;
-    
+    const newId =
+      professionals && professionals.length > 0
+        ? Math.max(...professionals.map((p) => p.id)) + 1
+        : 1;
+
     setNewProfessional({
       ...newProfessional,
       id: newId,
@@ -48,20 +49,26 @@ export default function CreateProfessionalModal({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!newProfessional.name || !newProfessional.paternal_surname || !newProfessional.title) {
-      alert("Por favor, completa los campos obligatorios: Nombre, Apellido Paterno y Título.");
+    if (
+      !newProfessional.name ||
+      !newProfessional.paternal_surname ||
+      !newProfessional.title
+    ) {
+      setShowAlertWarning(true);
+      setTimeout(() => {
+        setShowAlertWarning(false);
+      }, 5000);
       return; // Detener el envío del formulario
     }
 
     setProfessionals([...professionals, newProfessional]);
     setShowAlert(true);
-    // alert("Nuevo profesional agregado");
     setTimeout(() => {
-    setShowAlert(false);   
-    setNewProfessional({});
-    setImage(null);
-    handleClose();
-  }, 2000);
+      setShowAlert(false);
+      setNewProfessional({});
+      setImage(null);
+      handleClose();
+    }, 2000);
   };
 
   return (
@@ -71,9 +78,15 @@ export default function CreateProfessionalModal({
           <CloseButton onClick={handleClose}></CloseButton>
         </Modal.Header>
         <Modal.Body>
-        {showAlert && (
+          {showAlert && (
             <Alert variant="success" className="mb-4">
               Nuevo profesional agregado exitosamente.
+            </Alert>
+          )}
+          {showAlertWarning && (
+            <Alert variant="warning" className="mb-4">
+              Por favor, completa los campos obligatorios: Nombre, Apellido
+              Paterno y Título.
             </Alert>
           )}
           <Form onSubmit={handleSubmit}>
@@ -208,10 +221,16 @@ export default function CreateProfessionalModal({
           </Form>
         </Modal.Body>
         {showAlert && (
-            <Alert variant="success" className="mb-4">
-              Nuevo profesional agregado exitosamente.
-            </Alert>
-          )}
+          <Alert variant="success" className="mb-4">
+            Nuevo profesional agregado exitosamente.
+          </Alert>
+        )}
+        {showAlertWarning && (
+          <Alert variant="warning" className="mb-4">
+            Por favor, completa los campos obligatorios: Nombre, Apellido
+            Paterno y Título.
+          </Alert>
+        )}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
