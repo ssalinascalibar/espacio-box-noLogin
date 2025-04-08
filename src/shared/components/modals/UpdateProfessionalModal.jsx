@@ -36,7 +36,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
     setShowAlert(false); 
     setSelectedProfessional(""); 
     handleClose(); 
-  }, 3000);
+  }, 2000);
   
   }
 

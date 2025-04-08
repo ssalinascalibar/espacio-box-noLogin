@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
+import Alert from 'react-bootstrap/Alert';
 import PropTypes from "prop-types";
 
 export default function CreateProfessionalModal({
@@ -14,6 +15,7 @@ export default function CreateProfessionalModal({
   
   const [newProfessional, setNewProfessional] = useState({});
   const [image, setImage] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
 
   CreateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
@@ -52,10 +54,14 @@ export default function CreateProfessionalModal({
     }
 
     setProfessionals([...professionals, newProfessional]);
-    alert("Nuevo profesional agregado");
+    setShowAlert(true);
+    // alert("Nuevo profesional agregado");
+    setTimeout(() => {
+    setShowAlert(false);   
     setNewProfessional({});
     setImage(null);
     handleClose();
+  }, 2000);
   };
 
   return (
@@ -65,6 +71,11 @@ export default function CreateProfessionalModal({
           <CloseButton onClick={handleClose}></CloseButton>
         </Modal.Header>
         <Modal.Body>
+        {showAlert && (
+            <Alert variant="success" className="mb-4">
+              Nuevo profesional agregado exitosamente.
+            </Alert>
+          )}
           <Form onSubmit={handleSubmit}>
             <h4>Agregar nuevo profesional</h4>
             <Form.Group controlId="rut" className="mb-4">
@@ -196,6 +207,11 @@ export default function CreateProfessionalModal({
             </Button>
           </Form>
         </Modal.Body>
+        {showAlert && (
+            <Alert variant="success" className="mb-4">
+              Nuevo profesional agregado exitosamente.
+            </Alert>
+          )}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
