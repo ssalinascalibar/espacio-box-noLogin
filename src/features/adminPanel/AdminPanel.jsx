@@ -13,7 +13,7 @@ export default function AdminPanel() {
 
   return (
     <Container>
-      <div className="backgroundSection">
+      <div className="backgroundSection tabs-wrapper">
         <Tabs
           id="controlled-tab-example"
           activeKey={key}

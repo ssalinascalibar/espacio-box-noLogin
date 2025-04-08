@@ -67,6 +67,14 @@
     gap:10px;
     margin: 2rem 0;
   }
+
+  .tabs-wrapper .nav-link {
+    color: var(--gray-dark-color); /* Color de los tabs */
+  }
+
+  .tabs-wrapper .nav-link.active {
+    color: var(--text-primary); /* Color del tab activo */
+  }
   
 
 
