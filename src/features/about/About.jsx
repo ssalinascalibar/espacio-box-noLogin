@@ -13,7 +13,7 @@ export default function About() {
           <div className="backgroundSection">
             <Row>
               <Col lg={7} className="col-style-about">
-                <h2>Bienvenidos a nuestra comunidad de profesionales</h2>
+                <h2 className="section-titles">Bienvenidos a nuestra comunidad de profesionales</h2>
                 <article>
                   <p>
                     En EspacioBox buscamos ser más que un espacio donde atender

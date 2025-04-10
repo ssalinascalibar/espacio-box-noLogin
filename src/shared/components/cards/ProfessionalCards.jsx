@@ -23,7 +23,7 @@ export default function ProfessionalCards() {
     <>
       <div className="backgroundSection">
         <div className="professional-title">
-          <h2>Conoce a nuestros profesionales</h2>
+          <h2 className="section-titles">Conoce a nuestros profesionales</h2>
           <p>
             En Espaciobox, contamos con un equipo de profesionales de la salud
             altamente calificados, incluyendo psicólogos, nutricionistas y otros

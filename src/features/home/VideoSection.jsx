@@ -10,7 +10,7 @@ export default function VideoSection() {
       <div className="videoSection backgroundSection">
         <Row>
           <Col xs={12} md={12} xl={6} className="col-style-videoSection">
-            <h2>
+            <h2 className="section-titles">
               Te invitamos a descubrir nuestros espacios, diseñados para brindar
               confort y funcionalidad.
             </h2>

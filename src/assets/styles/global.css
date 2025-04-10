@@ -29,6 +29,10 @@ a {
   margin: 1rem 0 4rem 0;
 }
 
+.section-titles {
+  margin: 0 0 1.5rem 0;
+}
+
 .fluid-image img{
   border-radius: 8px;
 

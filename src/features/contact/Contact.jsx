@@ -33,7 +33,7 @@ export default function Contact() {
         <div className="backgroundSection">
           <Row>
             <Col>
-              <h2>Nuestra Ubicación</h2>
+              <h2 className="section-titles">Nuestra Ubicación</h2>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3329.951108172711!2d-70.61011!3d-33.424519!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf65ed610889%3A0x5e1c3a2ae09bffe7!2sGuardia%20Vieja%20255%2C%207510186%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1741215291211!5m2!1ses!2scl"
                 width="100%"
@@ -89,7 +89,7 @@ export default function Contact() {
               </Col>
               <Col lg={6}>
               <div id="contact-text">
-                <h3>En EspacioBox queremos ayudarte</h3>
+                <h3 className="section-titles">En EspacioBox queremos ayudarte</h3>
                 <p>
                   Buscamos ser más que un espacio donde atender a sus pacientes
                   con comodidad sino también construir una comunidad de

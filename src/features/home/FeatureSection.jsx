@@ -5,7 +5,7 @@ export default function FeatureSection() {
   return (
     <div className="features backgroundSection">
       <div className="features-content">
-        <h2>
+        <h2 className="section-titles">
           Ven a conocer EspacioBox Servicio de arriendo de box por horas y
           jornadas para profesionales.
         </h2>

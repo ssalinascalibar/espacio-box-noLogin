@@ -56,7 +56,7 @@ export default function Boxes() {
           <div id="boxes-gallery" className="backgroundSection">
             <Row>
               <Col xs={12} lg={6}>
-                <h2 style={{ textAlign: "left" }}>
+                <h2 style={{ textAlign: "left" }} className="section-titles">
                   Bienvenidos a nuestra comunidad de profesionales
                 </h2>
                 <p style={{ textAlign: "justify" }}>
@@ -85,7 +85,7 @@ export default function Boxes() {
             </Row>
           </div>
           <div id="boxes-video" className="backgroundSection">
-            <h2>Nuestras instalaciones</h2>
+            <h2 className="section-titles">Nuestras instalaciones</h2>
             <p>
               Invitamos a todos quienes trabajan con nosotros a formar parte de
               esta comunidad como una red de apoyo, autocuidado y derivación.
