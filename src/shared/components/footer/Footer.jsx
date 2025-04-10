@@ -11,14 +11,14 @@ export default function Footer() {
       <Container>
         <div className="footer-content">
           <div className="footer-info">
-            <h3>Profesionales</h3>
+            <h3>Servicios</h3>
             <ul>
-              <li>Camila Unda</li>
-              <li>Rodrigo Ramos</li>
-              <li>Silvia Pedreros</li>
-              <li>Matías Bunster</li>
-              <li>María Ignacia Muster</li>
-              <li>Emilia Espina</li>
+              <li>Psicología Clínica Adultos</li>
+              <li>Psicoterapia Psicoanalítica</li>
+              <li>Evaluaciones Psicológicas y Neuropsicológicas</li>
+              <li>Nutrición Clínica Integral</li>
+              <li>Nutrición Deportiva y Alimentación Vegetariana/Vegana</li>
+              <li>Atención en Trastornos del Ánimo y Ansiedad</li>
             </ul>
           </div>
           <div className="footer-info">
