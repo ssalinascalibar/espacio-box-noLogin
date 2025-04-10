@@ -5,10 +5,10 @@
     flex-direction: column;
 }
 
-.features-image img{
+/* .features-image img{
     border-radius: 8px;
 
-}
+} */
 
 /* Media query para desktop (pantallas desde 992px) */
 @media screen and (min-width: 992px) {
@@ -27,7 +27,7 @@
         
     }
 
-    .features-image{
+    /* .features-image{
         width: 100%;
-    }    
+    }     */
 }

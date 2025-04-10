@@ -29,6 +29,11 @@ a {
   margin: 1rem 0 4rem 0;
 }
 
+.fluid-image img{
+  border-radius: 8px;
+
+}
+
 
 
 /* React player*/
@@ -49,7 +54,13 @@ a {
   border-radius: 8px;
 }
 
+
 @media screen and (min-width: 992px) {
+
+  .fluid-image{
+    width: 100%;
+  }
+   
   /*React player*/
   .player-wrapper {
     margin-top: 0;

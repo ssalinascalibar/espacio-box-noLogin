@@ -21,7 +21,7 @@ export default function FeatureSection() {
           comunidad como una red de apoyo, autocuidado y derivación.
         </p>
       </div>
-      <div className="features-image">
+      <div className="fluid-image">
         <Image src="/assets/img/featuresSection.jpg" fluid />
       </div>
     </div>

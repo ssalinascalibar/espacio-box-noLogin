@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 
 export default function About() {
   return (
@@ -9,10 +10,8 @@ export default function About() {
         <section>
           <div className="backgroundSection">
             <Row>
-              <Col lg={6}>
+              <Col lg={7}>
                 <h2>Bienvenidos a nuestra comunidad de profesionales</h2>
-              </Col>
-              <Col lg={6}>
                 <article>
                   <p>
                     En EspacioBox buscamos ser más que un espacio donde atender
@@ -34,6 +33,14 @@ export default function About() {
                   </p>
                 </article>
               </Col>
+              <Col lg={5}>
+                <div className="fluid-image">
+                <Image src="/assets/img/about.jpg" fluid />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+
             </Row>
           </div>
         </section>
