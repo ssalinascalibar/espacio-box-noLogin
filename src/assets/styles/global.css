@@ -26,8 +26,10 @@ a {
   background-color:#fff;
   border-radius: 8px;
   padding: 2rem 1rem;
-  margin: 1rem 0;
+  margin: 1rem 0 4rem 0;
 }
+
+
 
 /* React player*/
 .player-wrapper {
