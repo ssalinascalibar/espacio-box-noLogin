@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import "./about.css";
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
         <section>
           <div className="backgroundSection">
             <Row>
-              <Col lg={7}>
+              <Col lg={7} className="col-style-about">
                 <h2>Bienvenidos a nuestra comunidad de profesionales</h2>
                 <article>
                   <p>
@@ -40,7 +41,7 @@ export default function About() {
               </Col>
             </Row>
             <Row>
-
+            
             </Row>
           </div>
         </section>
