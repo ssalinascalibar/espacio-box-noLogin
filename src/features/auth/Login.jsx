@@ -53,7 +53,7 @@ export default function Login() {
       }, 2000);
       setRegisteredUser("");
     } else if (validateCorreo) {
-      setError("Debes ingresar un correo");
+      setError("Debes ingresar un correo válido");
     } else {
       setError("* Correo o contraseña incorrectos");
     }

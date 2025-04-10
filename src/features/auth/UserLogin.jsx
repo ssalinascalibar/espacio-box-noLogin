@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Alert from 'react-bootstrap/Alert';
 import "./login.css";
 
 export default function UserLogin() {
@@ -16,6 +17,7 @@ export default function UserLogin() {
   // const [registeredUser, setRegisteredUser] = useState({});
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -47,13 +49,14 @@ export default function UserLogin() {
 
     if (enabledUser) {
       setIsAuthUser(true);
-      alert("Bienvenido/a " + registeredUser.email);
-      navigate(`/agendar`);
+      setSuccessMessage("Bienvenido/a " + registeredUser.email);
+      setTimeout(() => {
+        navigate(`/agendar`);
+      }, 2000);
     } else if (validateCorreo) {
-      alert("debes ingresar un correo");
+      setError("Debes ingresar un correo válido");
     } else {
-      alert("No tienes acceso");
-      setError("*Correo o contraseña incorrectos");
+      setError("* Correo o contraseña incorrectos");
     }
   };
 
@@ -67,6 +70,16 @@ export default function UserLogin() {
               <Form onSubmit={handleSubmit}>
                 <h2>EspacioBox</h2>
                 <h4>Ingresar como Usuario</h4>
+                {successMessage && (
+                  <Alert variant="success" className="mb-4">
+                    {successMessage}
+                  </Alert>
+                )}
+                {error && (
+                  <Alert variant="danger" className="mb-4">
+                    {error}
+                  </Alert>
+                )}
                 <Form.Group controlId="email" className="mb-4">
                   {/* <Form.Label>Correo Electrónico</Form.Label> */}
                   <Form.Control
