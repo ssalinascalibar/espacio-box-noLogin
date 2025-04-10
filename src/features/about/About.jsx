@@ -37,7 +37,7 @@ export default function About() {
               </Col>
               <Col lg={5}>
                 <div className="fluid-image">
-                <Image src="/assets/img/about.jpg" fluid />
+                  <Image src="/assets/img/about.jpg" fluid />
                 </div>
               </Col>
             </Row>
