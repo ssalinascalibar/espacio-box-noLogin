@@ -1,16 +1,22 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import CloseButton from 'react-bootstrap/CloseButton';
+import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 import PropTypes from "prop-types";
 
-export default function UpdateProfessionalModal({ show, handleClose, professionals, setProfessionals, selectedProfessional, setSelectedProfessional }) {
-  
+export default function UpdateProfessionalModal({
+  show,
+  handleClose,
+  professionals,
+  setProfessionals,
+  selectedProfessional,
+  setSelectedProfessional,
+}) {
   const [showAlert, setShowAlert] = useState(false);
 
-    UpdateProfessionalModal.propTypes = {
+  UpdateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired,
   };
@@ -22,33 +28,41 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
     });
   };
 
-  const handleSubmit = e => {
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedProfessional({
+        ...selectedProfessional,
+        image: URL.createObjectURL(file), 
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-  const updatedProfessionals = professionals.map((prof) =>
-    prof.id === selectedProfessional.id ? selectedProfessional : prof
-  );
+    const updatedProfessionals = professionals.map((prof) =>
+      prof.id === selectedProfessional.id ? selectedProfessional : prof
+    );
 
-  setProfessionals(updatedProfessionals);
-  setShowAlert(true);
+    setProfessionals(updatedProfessionals);
+    setShowAlert(true);
 
-  setTimeout(() => {
-    setShowAlert(false); 
-    setSelectedProfessional(""); 
-    handleClose(); 
-  }, 2000);
-  
-  }
+    setTimeout(() => {
+      setShowAlert(false);
+      setSelectedProfessional("");
+      handleClose();
+    }, 2000);
+  };
 
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <CloseButton onClick={handleClose}>
-          </CloseButton>
+          <CloseButton onClick={handleClose}></CloseButton>
         </Modal.Header>
         <Modal.Body>
-        {showAlert && (
+          {showAlert && (
             <Alert variant="success" className="mb-4">
               Profesional editado exitosamente.
             </Alert>
@@ -97,12 +111,12 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
             </Form.Group>
             <Form.Group controlId="phone" className="mb-4">
               <Form.Control
-                type="phone"
+                type="tel"
                 name="phone"
                 value={selectedProfessional.phone || ""}
                 onChange={handleChange}
                 placeholder="Celular"
-                autoComplete="new-phone"
+                autoComplete="tel"
               />
             </Form.Group>
             <Form.Group controlId="email" className="mb-4">
@@ -112,7 +126,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
                 value={selectedProfessional.email || ""}
                 onChange={handleChange}
                 placeholder="@tucorreo"
-                autoComplete="new-email"
+                autoComplete="email"
               />
             </Form.Group>
             <Form.Group controlId="title" className="mb-4">
@@ -122,19 +136,19 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
                 value={selectedProfessional.title || ""}
                 onChange={handleChange}
                 placeholder="Profesional"
-                autoComplete="new-title"
+                autoComplete="off"
               />
             </Form.Group>
             <Form.Group controlId="text" className="mb-4">
               <Form.Control
-              as="textarea"
+                as="textarea"
                 rows={6}
                 type="text"
                 name="text"
                 value={selectedProfessional.text || ""}
                 onChange={handleChange}
                 placeholder="Descripción"
-                autoComplete="new-text"
+                autoComplete="off"
               />
             </Form.Group>
             <Form.Group controlId="hourly_rate" className="mb-4">
@@ -144,7 +158,7 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
                 value={selectedProfessional.hourly_rate || ""}
                 onChange={handleChange}
                 placeholder="Valor hora"
-                autoComplete="new-hourly_rate"
+                autoComplete="off"
               />
             </Form.Group>
             <Form.Group controlId="password" className="mb-4">
@@ -158,16 +172,36 @@ export default function UpdateProfessionalModal({ show, handleClose, professiona
               />
             </Form.Group>
             {/* {error && <p style={{ color: "#fff" }}>{error}</p>} */}
+            <Form.Group controlId="image" className="mb-4">
+              <Form.Label>Imagen actual</Form.Label>
+              {selectedProfessional.image && (
+                <div className="mb-3">
+                  <img
+                    src={selectedProfessional.image}
+                    alt="Previsualización"
+                    style={{ maxWidth: "50%", height: "auto", borderRadius: "8px", margin: "0 auto", display: "block" }}
+                  />
+                </div>
+              )}
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+              />
+              <Form.Text className="text-muted">
+                Selecciona una nueva imagen para reemplazar la actual.
+              </Form.Text>
+            </Form.Group>
             <Button variant="success" type="submit">
               Guardar
             </Button>
           </Form>
         </Modal.Body>
         {showAlert && (
-            <Alert variant="success" className="mb-4">
-              Profesional editado exitosamente.
-            </Alert>
-          )}
+          <Alert variant="success" className="mb-4">
+            Profesional editado exitosamente.
+          </Alert>
+        )}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
