@@ -7,6 +7,7 @@ import {
   MdVolunteerActivism,
   MdCheckCircle,
   MdAddCircleOutline,
+  MdSearch
 } from "react-icons/md";
 // iconos Font Awesome
 import {
@@ -17,7 +18,10 @@ import {
   FaArrowRight,
   FaUserCircle,
   FaUserCog,
+  FaHandHoldingHeart
 } from "react-icons/fa";
+
+import { GiArrowScope } from "react-icons/gi";
 
 // Exportar solo los iconos necesarios
 export {
@@ -35,4 +39,7 @@ export {
   FaArrowRight,
   FaUserCircle,
   FaUserCog,
+  MdSearch,
+  FaHandHoldingHeart,
+  GiArrowScope
 };

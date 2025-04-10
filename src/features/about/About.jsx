@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import { MdSearch, FaHandHoldingHeart, GiArrowScope } from "../../assets/icons/icons";
 import "./about.css";
 
 export default function About() {
@@ -41,7 +42,27 @@ export default function About() {
               </Col>
             </Row>
             <Row>
-            
+              <Col lg={4}>
+                <div className="values-about">
+                  <MdSearch />
+                  <h5>Visión</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                </div>
+              </Col>
+              <Col lg={4}>
+                <div className="values-about">
+                  <FaHandHoldingHeart />
+                  <h5>Valores</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                </div>
+              </Col>
+              <Col lg={4}>
+                <div className="values-about">
+                  <GiArrowScope />
+                  <h5>Misión</h5>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                </div>
+              </Col>
             </Row>
           </div>
         </section>
