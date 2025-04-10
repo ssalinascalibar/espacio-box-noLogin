@@ -19,6 +19,8 @@
 }
 
 .col-style-about {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
 }
 
@@ -30,6 +32,7 @@
   }
 
   .col-style-about {
-    padding: 4rem;
+    padding: 0rem 4rem 0 1rem;
+    justify-content: center;
   }
 }

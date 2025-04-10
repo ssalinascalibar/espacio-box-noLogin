@@ -42,21 +42,21 @@ export default function About() {
               </Col>
             </Row>
             <Row>
-              <Col lg={4}>
+              <Col md={4} lg={4}>
                 <div className="values-about">
                   <MdSearch />
                   <h5>Visión</h5>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
                 </div>
               </Col>
-              <Col lg={4}>
+              <Col md={4} lg={4}>
                 <div className="values-about">
                   <FaHandHoldingHeart />
                   <h5>Valores</h5>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
                 </div>
               </Col>
-              <Col lg={4}>
+              <Col md={4} lg={4}>
                 <div className="values-about">
                   <GiArrowScope />
                   <h5>Misión</h5>
