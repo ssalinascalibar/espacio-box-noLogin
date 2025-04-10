@@ -27,7 +27,7 @@ export function GalleryShowBtn({ boxes, setFilterBoxes }) {
   
     const handleButton = (e) => {
       let typeProject = e.target.value;
-      console.log(typeProject)
+      
       typeProject !== "all"
         ? setFilterBoxes(boxes.filter((b) => b.originalTitle === typeProject))
         : setFilterBoxes(boxes);

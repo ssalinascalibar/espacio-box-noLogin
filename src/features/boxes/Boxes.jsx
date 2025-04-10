@@ -13,7 +13,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 export default function Boxes() {
   const [boxes, setBoxes] = useState([]);
   const [filterBoxes, setFilterBoxes] = useState([]);
-  console.log(filterBoxes)
 
   useEffect(() => {
     const getBoxes = async () => {

@@ -6,3 +6,10 @@
 .videoSection ul li {
   color: var(--secondary-color);
 }
+
+@media screen and (min-width: 992px) {
+
+  .col-style-videoSection{
+    padding: 0 4rem 0 1rem;
+  }
+}
