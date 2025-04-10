@@ -64,7 +64,8 @@ export default function UserLogin() {
     <div className="login-background">
       <Container className="login-container">
         <Row>
-          <Col>
+        <Col md={2} lg={3}></Col>
+          <Col xs={12} md={8} lg={6}>
             <div className="login-form">
             <FaUserCircle />
               <Form onSubmit={handleSubmit}>
@@ -109,6 +110,7 @@ export default function UserLogin() {
               </Form>
             </div>
           </Col>
+          <Col md={2} lg={3}></Col>
         </Row>
       </Container>
     </div>

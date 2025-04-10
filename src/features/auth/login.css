@@ -59,9 +59,9 @@
 }
 
 @media screen and (min-width: 992px) {
-    .login-background {
+    /* .login-background {
         padding: 0 30rem;
-    }
+    } */
 
     .login-form svg {
         font-size: 4em;
