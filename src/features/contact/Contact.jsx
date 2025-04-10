@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 import "./contact.css";
 
 export default function Contact() {
@@ -87,7 +88,7 @@ export default function Contact() {
                   </Button>
                 </Form>
               </Col>
-              <Col lg={6}>
+              <Col lg={6} className="col-style-contact">
               <div id="contact-text">
                 <h3 className="section-titles">En EspacioBox queremos ayudarte</h3>
                 <p>
@@ -95,6 +96,9 @@ export default function Contact() {
                   con comodidad sino también construir una comunidad de
                   profesionales que puedan apoyarse entre sí.
                 </p>
+                <div className="fluid-image-contact">
+                  <Image src="/assets/img/contacto.png" fluid />
+                </div>
                 </div>
               </Col>
             </Row>
