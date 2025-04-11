@@ -14,6 +14,8 @@ export default function Contact() {
     message: "",
   });
 
+  console.log(formData)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,8 +26,15 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario, por ejemplo, enviarlo a un servidor
-    console.log("Form data submitted:", formData);
+
+    const mailtoLink = `mailto:sf.salinascalibar@gmail.com?subject=Contacto desde EspacioBox.com&body=Nombre: ${formData.name}%0AEmail: ${formData.email}%0AMensaje: ${formData.message}`;
+    // Abre el cliente de correo predeterminado
+    window.location.href = mailtoLink;
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
@@ -60,6 +69,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Ingresa tu nombre"
+                      required
                     />
                   </Form.Group>
                   <Form.Group controlId="formEmail" className="mb-3">
@@ -70,6 +80,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Ingresa tu correo electrónico"
+                      required
                     />
                   </Form.Group>
                   <Form.Group controlId="formMessage" className="mb-3">
@@ -81,6 +92,7 @@ export default function Contact() {
                       onChange={handleChange}
                       rows={3}
                       placeholder="Ingresa tu mensaje"
+                      required
                     />
                   </Form.Group>
                   <Button variant="success" type="submit">
