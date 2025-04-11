@@ -26,3 +26,7 @@ admin@gmail.com
 
 seba@gmail.com
 123456
+
+## CRUD usuarios (profesionales)
+
+- Las imagenes de usuarios nuevos deben medir 800x600px, optimizado para web.
