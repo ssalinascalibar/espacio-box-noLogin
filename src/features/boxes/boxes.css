@@ -9,7 +9,7 @@
 #show-title-gallery {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin: 2rem 0 0.5rem 0;
 }
 
 #show-title-gallery h4 {
