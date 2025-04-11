@@ -56,11 +56,11 @@ export default function CreateProfessionalModal({
       setTimeout(() => {
         setShowAlertWarning(false);
       }, 5000);
-      return; // Detener el envío del formulario
+      return; 
     }
 
     if (!newProfessional.image) {
-      newProfessional.image = "/assets/img/user.jpg"; // ruta relativa desde public/
+      newProfessional.image = "/assets/img/user.jpg";
     }
 
     setProfessionals([...professionals, newProfessional]);
@@ -72,6 +72,11 @@ export default function CreateProfessionalModal({
       handleClose();
     }, 2000);
   };
+
+  const handleCleanNewProfessional = () => {
+    setNewProfessional({});
+    setImage(null);
+  }
 
   return (
     <>
@@ -159,7 +164,7 @@ export default function CreateProfessionalModal({
                 name="title"
                 value={newProfessional.title || ""}
                 onChange={handleChange}
-                placeholder="Título profesional"
+                placeholder="Título del profesional"
                 autoComplete="new-title"
               />
             </Form.Group>
@@ -234,7 +239,7 @@ export default function CreateProfessionalModal({
           </Alert>
         )}
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={() => { handleClose(); handleCleanNewProfessional(); }}>
             Cerrar
           </Button>
         </Modal.Footer>
