@@ -6,6 +6,21 @@
     margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
+#show-title-gallery {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+#show-title-gallery h4 {
+    margin: 0;
+}
+
+#show-title-gallery svg {
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+}
+
 
 .image-gallery {
     margin: 1rem 0 0 0;
@@ -41,8 +56,13 @@
 
 
 @media screen and (min-width: 992px) {
-    #boxes-gallery h4{
-        margin-top: 2rem;
+
+    #show-title-gallery {
+        margin-top: 3rem;
+    }
+
+    #show-title-gallery {
+        margin-bottom: 0.5rem;
     }
     
     .gallery {

@@ -18,7 +18,8 @@ import {
   FaArrowRight,
   FaUserCircle,
   FaUserCog,
-  FaHandHoldingHeart
+  FaHandHoldingHeart,
+  FaImages
 } from "react-icons/fa";
 
 import { GiArrowScope } from "react-icons/gi";
@@ -41,5 +42,6 @@ export {
   FaUserCog,
   MdSearch,
   FaHandHoldingHeart,
-  GiArrowScope
+  GiArrowScope,
+  FaImages
 };

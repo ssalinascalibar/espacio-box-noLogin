@@ -8,6 +8,7 @@ import "./boxes.css";
 import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
 import { GalleryShowBtn } from "./BoxesBtn";
+import { FaImages } from "../../assets/icons/icons";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function Boxes() {
@@ -72,7 +73,10 @@ export default function Boxes() {
                   terapeuta o especialista como parte central de nuestro
                   trabajo.
                 </p>
-                <h4>Ver galería</h4>
+                <div id="show-title-gallery">
+                  <FaImages />
+                  <h4>Ver galería</h4>
+                </div>
                 <div id="gallery-show-btn">
                   <GalleryShowBtn boxes={boxes} filterBoxes={filterBoxes} setFilterBoxes={setFilterBoxes} />
                 </div>
