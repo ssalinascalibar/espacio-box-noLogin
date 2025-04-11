@@ -27,7 +27,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const mailtoLink = `mailto:sf.salinascalibar@gmail.com?subject=Contacto desde EspacioBox.com&body=Nombre: ${formData.name}%0AEmail: ${formData.email}%0AMensaje: ${formData.message}`;
+    const mailtoLink = `mailto:contacto.espaciobox@gmail.com?subject=Contacto desde EspacioBox.com&body=Nombre: ${formData.name}%0AEmail: ${formData.email}%0AMensaje: ${formData.message}`;
     // Abre el cliente de correo predeterminado
     window.location.href = mailtoLink;
     setFormData({
