@@ -37,6 +37,7 @@ export default function CreateProfessionalModal({
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
+    console.log(file);
     if (file) {
       setImage(file);
       setNewProfessional({
@@ -49,16 +50,17 @@ export default function CreateProfessionalModal({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      !newProfessional.name ||
-      !newProfessional.paternal_surname ||
-      !newProfessional.title
-    ) {
+    if (!newProfessional.name || !newProfessional.paternal_surname || !newProfessional.title) {
+      
       setShowAlertWarning(true);
       setTimeout(() => {
         setShowAlertWarning(false);
       }, 5000);
       return; // Detener el envío del formulario
+    }
+
+    if (!newProfessional.image) {
+      newProfessional.image = "/assets/img/user.jpg"; // ruta relativa desde public/
     }
 
     setProfessionals([...professionals, newProfessional]);
@@ -157,7 +159,7 @@ export default function CreateProfessionalModal({
                 name="title"
                 value={newProfessional.title || ""}
                 onChange={handleChange}
-                placeholder="Profesional"
+                placeholder="Título profesional"
                 autoComplete="new-title"
               />
             </Form.Group>
