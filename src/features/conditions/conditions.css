@@ -1,0 +1,28 @@
+.conditions h1{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.conditions section {
+    margin-bottom: 4rem;
+}
+
+.conditions article {
+    margin-bottom: 2.5rem;
+}
+
+.conditions article {
+    margin-bottom: 2.5rem;
+}
+
+.conditions article hr {
+    margin: 0.5rem 0 1rem 0
+}
+
+.conditions section h2{
+    text-align: center;
+}
+
+.conditions section a{
+    color: var(--accent-color);
+}
