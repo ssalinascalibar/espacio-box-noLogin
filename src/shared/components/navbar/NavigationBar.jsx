@@ -8,6 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Header from "../header/Header";
 import Image from "react-bootstrap/Image";
+import { ReserveBtn } from "../buttons/Buttons";
 import "./navigationBar.css";
 
 export default function NavigationBar() {
@@ -38,13 +39,7 @@ export default function NavigationBar() {
               <Link to="/condiciones-de-arriendo">Condiciones de arriendo</Link>
               <Link to="/contacto">Contacto</Link>
             </Nav>
-            {/* <Nav className="ms-auto">
-              {isAuth ? (
-                <Nav.Link onClick={logOut}>Logout Admin</Nav.Link>
-              ) : (
-                <Link to="/login">Acceso Admin</Link>
-              )}
-            </Nav> */}
+            <ReserveBtn />
             {isAuthUser && registeredUser ? (
               <NavDropdown
                 title={

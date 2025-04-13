@@ -10,8 +10,20 @@
   margin: 0 0 1rem 0
 }
 
+.navbar .btn {
+  background-color: var(--primary-color);
+  border: none;
+  margin: 0 0 0.5rem 0;
+}
+
 .navbar a{
   color: var(--text-primary);
+}
+
+.navbar .btn:hover {
+  background-color: #fff;
+  color: var(--text-primary);
+  border: 0.2px solid var(--primary-color);
 }
 
 .navbar svg{
@@ -27,4 +39,9 @@
   .navbar .menu-nav a {
     margin: 0 1rem 0 0
   }
+
+  .navbar .btn {
+    margin: 0 1rem 0 0;
+  }
+
 }
