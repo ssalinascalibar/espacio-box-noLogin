@@ -6,7 +6,6 @@ import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
 import { Link } from 'react-router-dom';
 import { FaHandPointRight } from "../../assets/icons/icons"
-// import { ReserveBtn } from "../../shared/components/buttons/Buttons";
 import "./home.css";
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
                 vidas.
               </p>
               <p><Link to="/agendar"><FaHandPointRight />AGENDA AQUÍ</Link> tu espacio y sé parte de nuestra comunidad.</p>
-              {/* <ReserveBtn /> */}
             </div>
           </Container>
         </section>

@@ -53,6 +53,10 @@
     margin-right: 0.3rem;
 }
 
+.hero-text a:hover {
+    color: var(--text-primary);
+}
+
 .style-boxes{
     padding: 1rem;
     margin: 1rem 0 4rem 0;
