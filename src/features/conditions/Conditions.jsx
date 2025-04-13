@@ -5,7 +5,8 @@ export default function Conditions() {
   return (
     <main>
       <Container>
-        <div className="backgroundSection conditions">
+        <div className="backgroundSection">
+            <div className="conditions">
           <h1>Condiciones de Arriendo</h1>
           <section>
             <h2 className="section-titles">Arriendo por hora</h2>
@@ -163,6 +164,7 @@ export default function Conditions() {
       <p>Procuramos siempre evolucionar para entregarte las mejores condiciones. Queremos que sientas nuestra oficina como si fuera tuya, que te sientas como en casa y que de la misma manera procures cuidarla.</p>
       <p>Nuestro sello se basa en la relación de respeto y colaboración entre todos los que compartimos la oficina. Si quieres trabajar con nosotros te pedimos que lo hagas con el mismo espíritu.</p>
     </section>
+    </div>
         </div>
       </Container>
     </main>

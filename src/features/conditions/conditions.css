@@ -1,3 +1,7 @@
+.conditions{
+    padding-top: 4rem;
+}
+
 .conditions h1{
     text-align: center;
     margin-bottom: 3rem;
@@ -25,4 +29,20 @@
 
 .conditions section a{
     color: var(--accent-color);
+}
+
+@media screen and (min-width: 600px) {
+
+    .conditions {
+        margin: 0 auto;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .conditions {
+        margin: 0 auto;
+        width: 70%;
+    }
 }
