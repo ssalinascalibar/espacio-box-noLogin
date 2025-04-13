@@ -34,7 +34,6 @@ export default function NavigationBar() {
             <Nav className="me-auto menu-nav">
               <Link to="/">Home</Link>
               <Link to="/nosotros">Nosotros</Link>
-              <Link to="/agendar">Agendar</Link>
               <Link to="/boxes">Box</Link>
               <Link to="/condiciones-de-arriendo">Condiciones de arriendo</Link>
               <Link to="/contacto">Contacto</Link>
