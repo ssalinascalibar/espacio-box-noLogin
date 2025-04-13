@@ -35,6 +35,7 @@ export default function NavigationBar() {
               <Link to="/nosotros">Nosotros</Link>
               <Link to="/agendar">Agendar</Link>
               <Link to="/boxes">Box</Link>
+              <Link to="/condiciones-de-arriendo">Condiciones de arriendo</Link>
               <Link to="/contacto">Contacto</Link>
             </Nav>
             {/* <Nav className="ms-auto">

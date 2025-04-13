@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './features/home/Home';
 import About from './features/about/About';
 import Boxes from './features/boxes/Boxes';
+import Conditions from './features/conditions/Conditions';
 import Contact from './features/contact/Contact';
 import NavigationBar from './shared/components/navbar/NavigationBar';
 import Footer from './shared/components/footer/Footer';
@@ -29,6 +30,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/boxes" element={<Boxes/>} />
       <Route path="/nosotros" element={<About/>} />
+      <Route path="/condiciones-de-arriendo" element={<Conditions/>} />
       <Route path="/contacto" element={<Contact/>} />
       <Route element={<AuthUserRoutes/>}>
         <Route path="/agendar" element={<Reserve/>} />
