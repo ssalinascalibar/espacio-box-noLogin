@@ -1,10 +1,12 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 import Container from "react-bootstrap/Container";
 import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
 import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
-import { ReserveBtn } from "../../shared/components/buttons/Buttons";
+import { Link } from 'react-router-dom';
+import { FaHandPointRight } from "../../assets/icons/icons"
+// import { ReserveBtn } from "../../shared/components/buttons/Buttons";
 import "./home.css";
 
 export default function Home() {
@@ -15,22 +17,23 @@ export default function Home() {
         <section className="hero">
           <Container>
             <div className="hero-text">
-              <h1>EspacioBox</h1>
-              <h2>Servicio de arriendo de box </h2>
+              {/* <h1>EspacioBox</h1>
+              <h2>Servicio de arriendo de box </h2> */}
+              <h1>Bienvenidos a EspacioBox</h1>
               <p>
-                Bienvenidos a EspacioBox, un lugar construido para generar una
-                comunidad de profesionales que puedan trabajar en un espacio
-                privado, cómodo, acogedor y con una excelente ubicación,
-                favoreciendo la calidad de vida tanto de sus consultantes como
-                de ustedes.
+                Creamos espacios para cuidar a quienes cuidan. Encuentra aquí tu
+                box ideal, seguro, acogedor y funcional, pensado para
+                profesionales de la salud que acompañan, sanan y transforman
+                vidas.
               </p>
-              <ReserveBtn />
+              <p><Link to="/agendar"><FaHandPointRight />AGENDA AQUÍ</Link> tu espacio y sé parte de nuestra comunidad.</p>
+              {/* <ReserveBtn /> */}
             </div>
           </Container>
         </section>
         <section>
           <Container>
-            <InfoCards professionalsRef={professionalsRef}/>
+            <InfoCards professionalsRef={professionalsRef} />
           </Container>
         </section>
         <section>

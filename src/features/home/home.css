@@ -42,6 +42,17 @@
     width: 80%;
 }
 
+.hero-text a svg {
+    margin-right: 0.3rem;
+    font-size: 1.3em;
+}
+
+.hero-text a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    margin-right: 0.3rem;
+}
+
 .style-boxes{
     padding: 1rem;
     margin: 1rem 0 4rem 0;
