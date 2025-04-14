@@ -1,5 +1,5 @@
 .background-row {
-  background-color: #edffff;
+  background-color: var(--background-secondary-color);
   margin: 2rem 0;
   padding: 1rem;
   border-radius: 10px;
