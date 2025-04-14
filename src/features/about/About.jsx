@@ -2,38 +2,46 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import { MdSearch, FaHandHoldingHeart, GiArrowScope } from "../../assets/icons/icons";
+import { Link } from 'react-router-dom';
+import { FaHandPointRight } from "../../assets/icons/icons";
+import {
+  MdSearch,
+  FaHandHoldingHeart,
+  GiArrowScope,
+} from "../../assets/icons/icons";
 import "./about.css";
 
 export default function About() {
   return (
     <main>
       <Container>
-        <section>
+        <section id="aboutUs">
           <div className="backgroundSection">
             <Row>
               <Col lg={7} className="col-style-about">
-                <h2 className="section-titles">Bienvenidos a nuestra comunidad de profesionales</h2>
+                <h2 className="section-titles">Sobre nosotros</h2>
                 <article>
                   <p>
-                    En EspacioBox buscamos ser más que un espacio donde atender
-                    a sus pacientes con comodidad sino también construir una
-                    comunidad de profesionales que puedan apoyarse entre sí.
+                    En EspacioBox creemos que el bienestar comienza con quienes
+                    lo brindan. Más que ofrecer un lugar cómodo para atender,
+                    construimos una comunidad de profesionales de la salud que
+                    se acompañan, se apoyan y crecen juntos.
                   </p>
                   <p>
-                    Sabemos que el trabajo independiente puede ser solitario y
-                    contar con redes de apoyo es fundamental para brindar un
-                    buen servicio centrado en la ética para todos nuestros
-                    consultantes, dónde también consideremos a la persona del
-                    terapeuta o especialista como parte central de nuestro
-                    trabajo.
+                    Sabemos que el ejercicio independiente puede ser solitario.
+                    Por eso, fomentamos redes de contención, colaboración y
+                    derivación, donde el cuidado también incluye a quienes
+                    cuidan.
                   </p>
                   <p>
-                    Invitamos a todos quienes trabajan con nosotros a formar
-                    parte de esta comunidad como una red de apoyo, autocuidado y
-                    derivación.
+                    Si trabajas con nosotros, ya eres parte de esta comunidad.<br/> Y
+                    si aún no lo haces, te invitamos a unirte y descubrir un
+                    espacio donde podrás ejercer con libertad, compartir con
+                    otros profesionales y fortalecer tu práctica desde el
+                    autocuidado y el trabajo en red. Link a agendar
                   </p>
                 </article>
+                <Link to="/agendar"><FaHandPointRight />AGENDA AQUÍ</Link>
               </Col>
               <Col lg={5}>
                 <div className="fluid-image">
@@ -46,21 +54,36 @@ export default function About() {
                 <div className="values-about">
                   <MdSearch />
                   <h5>Visión</h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
+                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
+                    ullam! Quae, quisquam?
+                  </p>
                 </div>
               </Col>
               <Col md={4} lg={4}>
                 <div className="values-about">
                   <FaHandHoldingHeart />
                   <h5>Valores</h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
+                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
+                    ullam! Quae, quisquam?
+                  </p>
                 </div>
               </Col>
               <Col md={4} lg={4}>
                 <div className="values-about">
                   <GiArrowScope />
                   <h5>Misión</h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe atque, tempore necessitatibus cum illum quam a aperiam quaerat iste laborum aliquid rem est mollitia ab nulla rerum ullam! Quae, quisquam?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
+                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
+                    ullam! Quae, quisquam?
+                  </p>
                 </div>
               </Col>
             </Row>

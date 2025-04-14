@@ -24,6 +24,21 @@
   padding: 1rem;
 }
 
+#aboutUs a svg {
+  margin-right: 0.3rem;
+  font-size: 1.3em;
+}
+
+#aboutUs a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  margin: 0 0.3rem 1rem 0;
+}
+
+#aboutUs a:hover {
+  color: var(--accent-color);
+}
+
 @media screen and (min-width: 992px) {
 
   .values-about {
@@ -34,5 +49,13 @@
   .col-style-about {
     padding: 0rem 4rem 0 1rem;
     justify-content: center;
+  }
+
+  #aboutUs a svg {
+    font-size: 1.5em;
+  }
+
+  #aboutUs a {
+    margin: 1rem 0.3rem 1rem 0;
   }
 }
