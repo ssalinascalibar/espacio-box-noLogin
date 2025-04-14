@@ -1,5 +1,5 @@
 .background-row {
-  background-color: var(--background-secondary-color);
+  background-color: #fff;
   margin: 2rem 0;
   padding: 1rem;
   border-radius: 10px;
@@ -42,14 +42,19 @@
 
   .background-row {
     padding: 1rem 0;
-    
+
   }
 
- .values-about {
-  padding: 2rem 3rem 2rem 1rem;
- }
+  .values-about {
+    padding: 1rem 3rem 1rem 1rem;
+  }
+
   .value-title {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 
   .value-title svg {

@@ -52,14 +52,15 @@ export default function About() {
                 </div>
               </Col>
             </Row>
-            <Row className="mt-5 background-row">
-              <Col lg={4}>
+          </div>
+          <Row className="background-row">
+            <Col lg={4}>
               <div className="values-about value-title">
                 <MdSearch />
                 <h5>Visión</h5>
               </div>
-              </Col>
-              <Col lg={8}>
+            </Col>
+            <Col lg={8}>
               <div className="values-about">
                 <p>
                   Construir una comunidad referente en salud integral, donde
@@ -67,18 +68,18 @@ export default function About() {
                   red que impulsa el bienestar desde el trabajo colaborativo y
                   el respeto mutuo.
                 </p>
-                </div>
-              </Col>
-            </Row>
-            <Row className="background-row">
-              <Col lg={4}>
+              </div>
+            </Col>
+          </Row>
+          <Row className="background-row">
+            <Col lg={4}>
               <div className="values-about value-title">
                 <FaHandHoldingHeart />
                 <h5>Valores</h5>
-                </div>
-              </Col>
+              </div>
+            </Col>
 
-              <Col lg={8}>
+            <Col lg={8}>
               <div className="values-about">
                 <h6>Cuidado</h6>
                 <p>
@@ -94,17 +95,17 @@ export default function About() {
                 <p>Construimos relaciones transparentes y responsables.</p>
                 <h6>Bienestar</h6>
                 <p>Creamos espacios cálidos, funcionales y humanos.</p>
-                </div>
-              </Col>
-            </Row>
-            <Row className="background-row">
-              <Col lg={4}>
+              </div>
+            </Col>
+          </Row>
+          <Row className="background-row">
+            <Col lg={4}>
               <div className="values-about value-title">
                 <GiArrowScope />
                 <h5>Misión</h5>
-                </div>
-              </Col>
-              <Col lg={8}>
+              </div>
+            </Col>
+            <Col lg={8}>
               <div className="values-about">
                 <p>
                   Crear espacios pensados para cuidar a quienes cuidan.
@@ -112,10 +113,9 @@ export default function About() {
                   profesionales de la salud, fortaleciendo una comunidad que
                   comparte el propósito de sanar, acompañar y transformar vidas.
                 </p>
-                </div>
-              </Col>
-            </Row>
-          </div>
+              </div>
+            </Col>
+          </Row>
         </section>
       </Container>
     </main>
