@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FaHandPointRight } from "../../assets/icons/icons";
 import {
   MdSearch,
@@ -34,14 +34,17 @@ export default function About() {
                     cuidan.
                   </p>
                   <p>
-                    Si trabajas con nosotros, ya eres parte de esta comunidad.<br/> Y
-                    si aún no lo haces, te invitamos a unirte y descubrir un
-                    espacio donde podrás ejercer con libertad, compartir con
-                    otros profesionales y fortalecer tu práctica desde el
-                    autocuidado y el trabajo en red. Link a agendar
+                    Si trabajas con nosotros, ya eres parte de esta comunidad.
+                    <br /> Y si aún no lo haces, te invitamos a unirte y
+                    descubrir un espacio donde podrás ejercer con libertad,
+                    compartir con otros profesionales y fortalecer tu práctica
+                    desde el autocuidado y el trabajo en red. Link a agendar
                   </p>
                 </article>
-                <Link to="/agendar"><FaHandPointRight />AGENDA AQUÍ</Link>
+                <Link to="/agendar">
+                  <FaHandPointRight />
+                  AGENDA AQUÍ
+                </Link>
               </Col>
               <Col lg={5}>
                 <div className="fluid-image">
@@ -49,41 +52,66 @@ export default function About() {
                 </div>
               </Col>
             </Row>
-            <Row>
-              <Col md={4} lg={4}>
-                <div className="values-about">
-                  <MdSearch />
-                  <h5>Visión</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
-                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
-                    ullam! Quae, quisquam?
-                  </p>
+            <Row className="mt-5 background-row">
+              <Col lg={4}>
+              <div className="values-about value-title">
+                <MdSearch />
+                <h5>Visión</h5>
+              </div>
+              </Col>
+              <Col lg={8}>
+              <div className="values-about">
+                <p>
+                  Construir una comunidad referente en salud integral, donde
+                  cada profesional se sienta valorado, acompañado y parte de una
+                  red que impulsa el bienestar desde el trabajo colaborativo y
+                  el respeto mutuo.
+                </p>
                 </div>
               </Col>
-              <Col md={4} lg={4}>
-                <div className="values-about">
-                  <FaHandHoldingHeart />
-                  <h5>Valores</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
-                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
-                    ullam! Quae, quisquam?
-                  </p>
+            </Row>
+            <Row className="background-row">
+              <Col lg={4}>
+              <div className="values-about value-title">
+                <FaHandHoldingHeart />
+                <h5>Valores</h5>
                 </div>
               </Col>
-              <Col md={4} lg={4}>
-                <div className="values-about">
-                  <GiArrowScope />
-                  <h5>Misión</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Saepe atque, tempore necessitatibus cum illum quam a aperiam
-                    quaerat iste laborum aliquid rem est mollitia ab nulla rerum
-                    ullam! Quae, quisquam?
-                  </p>
+
+              <Col lg={8}>
+              <div className="values-about">
+                <h6>Cuidado</h6>
+                <p>
+                  Ponemos en el centro el bienestar de los profesionales que
+                  trabajan con nosotros.
+                </p>
+                <h6>Colaboración</h6>
+                <p>
+                  Fomentamos una red de apoyo entre profesionales de distintas
+                  áreas.
+                </p>
+                <h6>Confianza</h6>
+                <p>Construimos relaciones transparentes y responsables.</p>
+                <h6>Bienestar</h6>
+                <p>Creamos espacios cálidos, funcionales y humanos.</p>
+                </div>
+              </Col>
+            </Row>
+            <Row className="background-row">
+              <Col lg={4}>
+              <div className="values-about value-title">
+                <GiArrowScope />
+                <h5>Misión</h5>
+                </div>
+              </Col>
+              <Col lg={8}>
+              <div className="values-about">
+                <p>
+                  Crear espacios pensados para cuidar a quienes cuidan.
+                  Brindamos ambientes seguros, acogedores y funcionales para
+                  profesionales de la salud, fortaleciendo una comunidad que
+                  comparte el propósito de sanar, acompañar y transformar vidas.
+                </p>
                 </div>
               </Col>
             </Row>
