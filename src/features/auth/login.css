@@ -1,10 +1,11 @@
 .login-background {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 2rem 1rem;
 }
 
 .login-background::before {
@@ -25,13 +26,6 @@
     color: var(--text-secondary);
 }
 
-.login-container {
-    position: relative;
-    z-index: 2;
-    border-radius: 10px;
-    color: var(--text-secondary);
-}
-
 .login-form {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -40,6 +34,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: var(--text-secondary);
     text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    margin: 2rem auto;
     
 }
 
