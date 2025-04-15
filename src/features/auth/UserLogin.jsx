@@ -100,7 +100,7 @@ export default function UserLogin() {
                     </Alert>
                   )}
                   <Form.Group controlId="email" className="mb-4">
-                    {/* <Form.Label>Correo Electrónico</Form.Label> */}
+                    
                     <Form.Control
                       type="email"
                       name="email"
@@ -111,7 +111,7 @@ export default function UserLogin() {
                     />
                   </Form.Group>
                   <Form.Group controlId="passsword" className="mb-4">
-                    {/* <Form.Label>Contraseña</Form.Label> */}
+                    
                     <Form.Control
                       type="password"
                       name="password"
@@ -130,6 +130,7 @@ export default function UserLogin() {
                     <Button
                       variant="link"
                       onClick={() => setIsRegistering(true)}
+                      style={{ color: '#fff' }}
                     >
                       Regístrate aquí
                     </Button>
