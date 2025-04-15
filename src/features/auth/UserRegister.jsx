@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import AuthContext from "../../context/AuthContext";
 
-export default function UserRegister({ setIsRegistering, setUsers }) {
+
+export default function UserRegister({ setIsRegistering }) {
+
+  const { users, setUsers } = useContext(AuthContext);
+  console.log("users", users);
   const [formData, setFormData] = useState({
     name: "",
     paternal_surname: "",
@@ -38,7 +43,8 @@ export default function UserRegister({ setIsRegistering, setUsers }) {
     }
 
     // Simular agregar el usuario a la lista de usuarios
-    setUsers((prevUsers) => [...prevUsers, formData]);
+    // setUsers((prevUsers) => [...prevUsers, formData]);
+    setUsers([...users, formData])
 
     setSuccessMessage("Registro exitoso. Ahora puedes iniciar sesión.");
     setErrorMessage("");

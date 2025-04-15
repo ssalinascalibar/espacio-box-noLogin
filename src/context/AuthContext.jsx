@@ -9,6 +9,9 @@ const AuthContextProvider = ({ children }) => {
   const [isAuthUser, setIsAuthUser] = useState(false);
   const [registeredUser, setRegisteredUser] = useState({});
 
+  const [users, setUsers] = useState([]);
+  console.log("users", users);
+
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -50,7 +53,9 @@ const AuthContextProvider = ({ children }) => {
         setIsAuthUser,
         logOutUser,
         registeredUser,
-        setRegisteredUser
+        setRegisteredUser,
+        users,
+        setUsers
       }}
     >
       {children}

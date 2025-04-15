@@ -13,23 +13,34 @@ import UserRegister from "./UserRegister";
 import "./login.css";
 
 export default function UserLogin() {
-  const { setIsAuthUser, registeredUser, setRegisteredUser } =
-    useContext(AuthContext);
+  const { setIsAuthUser, registeredUser, setRegisteredUser, users, setUsers } = useContext(AuthContext);
   // const [registeredUser, setRegisteredUser] = useState({});
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  console.log("users", users);
+  console.log("users lenght", users.length);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isRegistering, setIsRegistering] = useState(false); // Estado para alternar entre login y registro
 
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     const data = await fetchUsers();
+  //     setUsers(data);
+  //   };
+  //   getUsers();
+  // }, []);
+
   useEffect(() => {
-    const getUsers = async () => {
-      const data = await fetchUsers();
-      setUsers(data);
-    };
-    getUsers();
-  }, []);
+    if (users.length === 0) {
+      const getUsers = async () => {
+        const data = await fetchUsers();
+        setUsers(data);
+      };
+      getUsers();
+    }
+  }, [users, setUsers]);
 
   const handleChange = async (e) => {
     setRegisteredUser({
@@ -73,7 +84,8 @@ export default function UserLogin() {
               {isRegistering ? (
                 <UserRegister
                   setIsRegistering={setIsRegistering}
-                  setUsers={setUsers}
+                  // setUsers={setUsers}
+                  // users={users}
                 />
               ) : (
                 <Form onSubmit={handleSubmit}>
