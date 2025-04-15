@@ -82,19 +82,19 @@ export default function About() {
             <Col lg={8}>
               <div className="values-about">
                 <h6>Cuidado</h6>
-                <p>
+                <p className="text-medium">
                   Ponemos en el centro el bienestar de los profesionales que
                   trabajan con nosotros.
                 </p>
                 <h6>Colaboración</h6>
-                <p>
+                <p className="text-medium">
                   Fomentamos una red de apoyo entre profesionales de distintas
                   áreas.
                 </p>
                 <h6>Confianza</h6>
-                <p>Construimos relaciones transparentes y responsables.</p>
+                <p className="text-medium">Construimos relaciones transparentes y responsables.</p>
                 <h6>Bienestar</h6>
-                <p>Creamos espacios cálidos, funcionales y humanos.</p>
+                <p className="text-medium">Creamos espacios cálidos, funcionales y humanos.</p>
               </div>
             </Col>
           </Row>
