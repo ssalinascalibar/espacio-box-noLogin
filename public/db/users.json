@@ -2,68 +2,167 @@
     {
         "id": 0,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "paulinaruminot.ps@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "paulinaruminot.ps@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 1,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "erika.veasp@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "erika.veasp@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 2,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "cami.rv4@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "cami.rv4@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 3,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "nta.camir@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "nta.camir@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 4,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "Ps.isidoravaldeslangevin@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "Ps.isidoravaldeslangevin@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 5,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "psi.luciafuentesb@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "psi.luciafuentesb@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 6,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "videla.cristobal@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "videla.cristobal@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 7,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "danitzaastorga5@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "danitzaastorga5@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 8,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "rojas.camila@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "rojas.camila@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 9,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "psiconstanzagc@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "psiconstanzagc@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     },
     {
         "id": 10,
         "name": "",
+        "paternal_surname": "",
+        "maternal_surname": "",
+        "rut": "",
+        "phone": "",
+        "email": "mira.aurora.psi@gmail.com",
+        "hourly_rate": 0,
         "password": "12345678",
-        "email": "mira.aurora.psi@gmail.com"
+        "title": "",
+        "text": "",
+        "image": "",
+        "ispayed": false
     }
    
 ]
