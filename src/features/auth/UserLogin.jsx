@@ -84,8 +84,6 @@ export default function UserLogin() {
               {isRegistering ? (
                 <UserRegister
                   setIsRegistering={setIsRegistering}
-                  // setUsers={setUsers}
-                  // users={users}
                 />
               ) : (
                 <Form onSubmit={handleSubmit}>

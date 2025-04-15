@@ -4,10 +4,9 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import AuthContext from "../../context/AuthContext";
 
-
 export default function UserRegister({ setIsRegistering }) {
-
   const { users, setUsers } = useContext(AuthContext);
+  const [certificate, setCertificate] = useState(null);
   console.log("users", users);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,6 +17,7 @@ export default function UserRegister({ setIsRegistering }) {
     phone: "",
     profession: "",
     rut: "",
+    certificate: null,
   });
 
   console.log("formData", formData);
@@ -33,18 +33,45 @@ export default function UserRegister({ setIsRegistering }) {
     });
   };
 
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Validar el tipo de archivo
+      const allowedTypes = ["application/pdf", "image/jpeg"];
+      if (!allowedTypes.includes(file.type)) {
+        setErrorMessage("Solo se permiten archivos PDF o JPG.");
+        return;
+      }
+
+      setCertificate(file); // Guardar el archivo en el estado
+      setFormData({
+        ...formData,
+        certificate: file, // Guardar el archivo en el objeto formData
+      });
+      setErrorMessage(""); // Limpiar el mensaje de error si el archivo es válido
+    }
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
 
     // Validación simple
-    if (!formData.name || !formData.paternal_surname || !formData.maternal_surname || !formData.email || !formData.password || !formData.phone || !formData.profession || !formData.rut) {
+    if (
+      !formData.name ||
+      !formData.paternal_surname ||
+      !formData.maternal_surname ||
+      !formData.email ||
+      !formData.password ||
+      !formData.phone ||
+      !formData.profession ||
+      !formData.rut ||
+      !formData.certificate
+    ) {
       setErrorMessage("Por favor, completa todos los campos.");
       return;
     }
 
-    // Simular agregar el usuario a la lista de usuarios
-    // setUsers((prevUsers) => [...prevUsers, formData]);
-    setUsers([...users, formData])
+    setUsers([...users, formData]);
 
     setSuccessMessage("Registro exitoso. Ahora puedes iniciar sesión.");
     setErrorMessage("");
@@ -53,23 +80,25 @@ export default function UserRegister({ setIsRegistering }) {
     setFormData({
       name: "",
       paternal_surname: "",
-      maternal_surname: "",  
+      maternal_surname: "",
       email: "",
       password: "",
       phone: "",
       profession: "",
       rut: "",
+      certificate: null,
     });
+    setCertificate(null);
 
     // Volver al formulario de inicio de sesión después de unos segundos
     setTimeout(() => {
       setIsRegistering(false);
-    }, 3000);
+    }, 2000);
   };
 
   return (
     <Form onSubmit={handleRegister}>
-        <h2>EspacioBox</h2>
+      <h2>EspacioBox</h2>
       <h4>Registro de Usuario</h4>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
       {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
@@ -106,7 +135,7 @@ export default function UserRegister({ setIsRegistering }) {
           autoComplete="off"
         />
       </Form.Group>
-      
+
       <Form.Group controlId="rut" className="mb-4">
         <Form.Control
           type="text"
@@ -127,7 +156,6 @@ export default function UserRegister({ setIsRegistering }) {
           placeholder="@email"
           required
           autoComplete="off"
-          
         />
       </Form.Group>
       <Form.Group controlId="password" className="mb-4">
@@ -163,6 +191,24 @@ export default function UserRegister({ setIsRegistering }) {
           autoComplete="off"
         />
       </Form.Group>
+      <Form.Group controlId="certificate" className="mb-4">
+        <Form.Label>Subir certificado (PDF o JPG)</Form.Label>
+        <Form.Control
+          type="file"
+          accept="application/pdf, image/jpeg"
+          onChange={handleFileUpload}
+          required
+        />
+        <Form.Text className="text-muted">
+          Solo se permiten archivos en formato PDF o JPG.
+        </Form.Text>
+        {certificate && (
+          <div className="mt-3">
+            <p>Archivo seleccionado: {certificate.name}</p>
+          </div>
+        )}
+      </Form.Group>
+
       <Button variant="success" type="submit" size="lg">
         Registrarse
       </Button>
