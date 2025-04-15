@@ -9,6 +9,7 @@ import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
 import { GalleryShowBtn } from "./BoxesBtn";
 import { FaImages } from "../../assets/icons/icons";
+import { ReserveLink } from "../../shared/components/links/CustomLinks";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function Boxes() {
@@ -58,20 +59,16 @@ export default function Boxes() {
             <Row>
               <Col xs={12} lg={6}>
                 <h2 style={{ textAlign: "left" }} className="section-titles">
-                  Bienvenidos a nuestra comunidad de profesionales
+                  Todo lo que necesitas para brindar una atención de calidad
                 </h2>
                 <p style={{ textAlign: "justify" }}>
-                  En EspacioBox buscamos ser más que un espacio donde atender a
-                  sus pacientes con comodidad sino también construir una
-                  comunidad de profesionales que puedan apoyarse entre sí.
+                  Espacios diseñados para que tú y tus consultantes vivan una experiencia cómoda, segura y acogedora.
                 </p>
                 <p style={{ textAlign: "justify" }}>
-                  Sabemos que el trabajo independiente puede ser solitario y
-                  contar con redes de apoyo es fundamental para brindar un buen
-                  servicio centrado en la ética para todos nuestros
-                  consultantes, dónde también consideremos a la persona del
-                  terapeuta o especialista como parte central de nuestro
-                  trabajo.
+                  Y sí... ¡con excelente ubicación!
+                </p>
+                <p style={{ textAlign: "justify" }}>
+                  Conoce nuestros box disponibles y encuentra tu espacio ideal para trabajar con tranquilidad. 
                 </p>
                 <div id="show-title-gallery">
                   <FaImages />
@@ -80,6 +77,7 @@ export default function Boxes() {
                 <div id="gallery-show-btn">
                   <GalleryShowBtn boxes={boxes} filterBoxes={filterBoxes} setFilterBoxes={setFilterBoxes} />
                 </div>
+                <ReserveLink color="#4598ac" hoverColor="#37352d" />
               </Col>
               <Col xs={12} lg={6} className="d-lg-flex justify-content-lg-center">
               <div className="gallery">

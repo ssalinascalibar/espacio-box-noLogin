@@ -4,8 +4,7 @@ import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
 import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
-import { Link } from 'react-router-dom';
-import { FaHandPointRight } from "../../assets/icons/icons"
+import { ReserveLink } from "../../shared/components/links/CustomLinks";
 import "./home.css";
 
 export default function Home() {
@@ -16,8 +15,6 @@ export default function Home() {
         <section className="hero">
           <Container>
             <div className="hero-text">
-              {/* <h1>EspacioBox</h1>
-              <h2>Servicio de arriendo de box </h2> */}
               <h1>Bienvenidos a EspacioBox</h1>
               <p>
                 Creamos espacios para cuidar a quienes cuidan. Encuentra aquí tu
@@ -25,7 +22,9 @@ export default function Home() {
                 profesionales de la salud que acompañan, sanan y transforman
                 vidas.
               </p>
-              <p><Link to="/agendar"><FaHandPointRight />AGENDA AQUÍ</Link> tu espacio y sé parte de nuestra comunidad.</p>
+              <div className="hero-link-text">
+                <ReserveLink /><p> tu espacio y sé parte de nuestra comunidad.</p>
+              </div>
             </div>
           </Container>
         </section>

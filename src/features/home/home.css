@@ -42,19 +42,14 @@
     width: 80%;
 }
 
-.hero-text a svg {
-    margin-right: 0.3rem;
-    font-size: 1.3em;
+.hero-link-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.hero-text a {
-    color: var(--text-secondary);
-    text-decoration: underline;
-    margin-right: 0.3rem;
-}
-
-.hero-text a:hover {
-    color: var(--text-primary);
+.hero-link-text p{
+    margin: 0;
 }
 
 .style-boxes{
@@ -72,5 +67,13 @@
     .hero-text p {
         font-size: 1.1em;
         width: 60%;
+    }
+
+    .hero-link-text{
+        flex-direction: row;
+    }
+    
+    .hero-link-text p{
+        margin: 0 0 0 0.7rem;
     }
 }
