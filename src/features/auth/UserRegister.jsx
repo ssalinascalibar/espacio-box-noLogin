@@ -33,8 +33,15 @@ export default function UserRegister({ setIsRegistering }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    const newId =
+      users && users.length > 0
+        ? Math.max(...users.map((p) => p.id)) + 1
+        : 1;
+
     setFormData({
       ...formData,
+      id: newId,
       [name]: value,
     });
   };

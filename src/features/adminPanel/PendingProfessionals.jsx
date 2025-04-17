@@ -1,5 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 //import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { FaCheck, FaTimes } from "../../assets/icons/icons";
@@ -12,13 +13,13 @@ import { fetchUsers } from "../../services/api";
 
 export default function PendingProfessionals() {
   const { users, setUsers } = useContext(AuthContext);
-  console.log("users", users);
-//   const [showCreateModal, setShowCreateModal] = useState(false);
+  const { professionals, setProfessionals } = useContext(UserContext);
+
+  const defaultIUserImage = "/assets/img/user.jpg";
+  //const [showCreateModal, setShowCreateModal] = useState(false);
   //const [showUpdateModal, setShowUpdateModal] = useState(false);
   //const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-  const [selectedProfessional, setSelectedProfessional] = useState({});
-  console.log("selectedProfessional", selectedProfessional);
 
   //const handleCloseUpdateModal = () => setShowUpdateModal(false);
   //const handleShowUpdateModal = () => setShowUpdateModal(true);
@@ -37,15 +38,21 @@ export default function PendingProfessionals() {
       }
     }, [users, setUsers]);
 
-  const selectProfessional = async (selection) => {
-    setSelectedProfessional(selection);
-    addUserToProfessionals()
-  };
+    const addUserToProfessionals = (selection) => {
 
-  const addUserToProfessionals = () => {
-    setUsers([...users, selectedProfessional]);
-    console.log("users", users);
-  }
+      const newId =
+        professionals && professionals.length > 0
+          ? Math.max(...professionals.map((p) => p.id)) + 1
+          : 1;
+  
+      const newProfessional = {
+        ...selection,
+        id: newId,
+        image: selection.image && selection.image.trim() !== "" ? selection.image : defaultIUserImage,
+      };
+
+      setProfessionals([...professionals, newProfessional]);
+    };
 
   return (
     <div id="background-admin">
@@ -105,7 +112,7 @@ export default function PendingProfessionals() {
                     {/* <MdAddCircleOutline /> */}
                     <FaCheck
                       onClick={() => {
-                        selectProfessional(p);
+                        addUserToProfessionals(p);
                         //handleShowUpdateModal();
                       }}
                     />
