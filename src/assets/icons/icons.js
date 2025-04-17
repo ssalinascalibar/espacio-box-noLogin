@@ -8,6 +8,8 @@ import {
   MdCheckCircle,
   MdAddCircleOutline,
   MdSearch,
+  MdOutlineCancel,
+  MdOutlineCheckCircle
 } from "react-icons/md";
 // iconos Font Awesome
 import {
@@ -21,10 +23,6 @@ import {
   FaHandHoldingHeart,
   FaImages,
   FaHandPointRight,
-  FaCheck,
-  FaTimes,
-  FaCheckCircle,
-  FaTimesCircle 
 } from "react-icons/fa";
 
 import { GiArrowScope } from "react-icons/gi";
@@ -50,9 +48,7 @@ export {
   GiArrowScope,
   FaImages,
   FaHandPointRight,
-  FaTimes,
-  FaCheck,
-  FaCheckCircle,
-  FaTimesCircle
+  MdOutlineCancel,
+  MdOutlineCheckCircle
 
 };

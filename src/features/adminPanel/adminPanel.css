@@ -49,6 +49,14 @@
     display: flex;
 }
 
+#actions .approve-pending-btn {
+    font-size: 1.5em;
+}
+
+#actions .cancel-pending-btn {
+    font-size: 1.5em;
+}
+
 #actions .approve-pending-btn:hover {
     color: #197743;
 }
@@ -108,8 +116,15 @@
     }
 
     #admin-table svg {
-        font-size: 1.3em;
-        margin-right: 0.8rem;
+        margin-right: 1rem;
+    }
+
+    #actions .approve-pending-btn {
+        font-size: 1.6em;
+    }
+    
+    #actions .cancel-pending-btn {
+        font-size: 1.6em;
     }
 
     #admin-table th {

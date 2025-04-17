@@ -3,7 +3,7 @@ import AuthContext from "../../context/AuthContext";
 import UserContext from "../../context/UserContext";
 //import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
-import { FaCheckCircle, FaTimesCircle } from "../../assets/icons/icons";
+import { MdOutlineCancel, MdOutlineCheckCircle } from "../../assets/icons/icons";
 //import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 //import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
 //import DeleteProfessionalModal from "../../shared/components/modals/DeleteProfessionalModal";
@@ -110,14 +110,14 @@ export default function PendingProfessionals() {
                 <td>
                   <div id="actions">
                     {/* <MdAddCircleOutline /> */}
-                    <FaCheckCircle
+                    <MdOutlineCheckCircle
                       onClick={() => {
                         addUserToProfessionals(p);
                         //handleShowUpdateModal();
                       }}
                       className="approve-pending-btn"
                     />
-                    <FaTimesCircle
+                    <MdOutlineCancel
                     //   onClick={() => {
                     //     selectProfessional(p);
                     //     handleShowDeleteModal();
