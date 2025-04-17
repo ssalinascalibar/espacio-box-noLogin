@@ -22,7 +22,7 @@ export default function UserRegister({ setIsRegistering }) {
     email: "",
     password: "",
     phone: "",
-    profession: "",
+    title: "",
     rut: "",
     certificate: null,
   });
@@ -69,7 +69,7 @@ export default function UserRegister({ setIsRegistering }) {
       !formData.email ||
       !formData.password ||
       !formData.phone ||
-      !formData.profession ||
+      !formData.title ||
       !formData.rut ||
       !formData.certificate
     ) {
@@ -91,7 +91,7 @@ export default function UserRegister({ setIsRegistering }) {
       email: "",
       password: "",
       phone: "",
-      profession: "",
+      title: "",
       rut: "",
       certificate: null,
     });
@@ -220,7 +220,7 @@ export default function UserRegister({ setIsRegistering }) {
             <Form.Control
               type="text"
               name="profession"
-              value={formData.profession}
+              value={formData.title}
               onChange={handleChange}
               placeholder="Profesión"
               required

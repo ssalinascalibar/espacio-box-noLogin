@@ -7,7 +7,7 @@ import {
   MdVolunteerActivism,
   MdCheckCircle,
   MdAddCircleOutline,
-  MdSearch
+  MdSearch,
 } from "react-icons/md";
 // iconos Font Awesome
 import {
@@ -20,7 +20,9 @@ import {
   FaUserCog,
   FaHandHoldingHeart,
   FaImages,
-  FaHandPointRight 
+  FaHandPointRight,
+  FaCheck,
+  FaTimes 
 } from "react-icons/fa";
 
 import { GiArrowScope } from "react-icons/gi";
@@ -45,5 +47,7 @@ export {
   FaHandHoldingHeart,
   GiArrowScope,
   FaImages,
-  FaHandPointRight 
+  FaHandPointRight,
+  FaTimes,
+  FaCheck 
 };

@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import AdminReservations from "./AdminReservations";
+import PendingProfessionals from "./PendingProfessionals";
 
 export default function AdminPanel() {
 
@@ -25,6 +26,9 @@ export default function AdminPanel() {
           </Tab>
           <Tab eventKey="reservations" title="Admin reservas">
             <AdminReservations professionals={professionals} setProfessionals={setProfessionals} />
+          </Tab>
+          <Tab eventKey="pending-professionals" title="Pendientes aprobación">
+            <PendingProfessionals />
           </Tab>
         </Tabs>
       </div>
