@@ -20,14 +20,16 @@ export default function UserRegister({ setIsRegistering }) {
     paternal_surname: "",
     maternal_surname: "",
     email: "",
+    hourly_rate: 0,
     password: "",
     phone: "",
     title: "",
+    text:"",
+    image: "",
     rut: "",
     certificate: null,
+    ispayed: false
   });
-
-  console.log("formData", formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 //import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
@@ -17,7 +17,8 @@ export default function PendingProfessionals() {
   //const [showUpdateModal, setShowUpdateModal] = useState(false);
   //const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-  //const [selectedProfessional, setSelectedProfessional] = useState({});
+  const [selectedProfessional, setSelectedProfessional] = useState({});
+  console.log("selectedProfessional", selectedProfessional);
 
   //const handleCloseUpdateModal = () => setShowUpdateModal(false);
   //const handleShowUpdateModal = () => setShowUpdateModal(true);
@@ -36,9 +37,15 @@ export default function PendingProfessionals() {
       }
     }, [users, setUsers]);
 
-//   const selectProfessional = async (selection) => {
-//     setSelectedProfessional(selection);
-//   };
+  const selectProfessional = async (selection) => {
+    setSelectedProfessional(selection);
+    addUserToProfessionals()
+  };
+
+  const addUserToProfessionals = () => {
+    setUsers([...users, selectedProfessional]);
+    console.log("users", users);
+  }
 
   return (
     <div id="background-admin">
@@ -97,10 +104,10 @@ export default function PendingProfessionals() {
                   <div id="actions">
                     {/* <MdAddCircleOutline /> */}
                     <FaCheck
-                    //   onClick={() => {
-                    //     selectProfessional(p);
-                    //     handleShowUpdateModal();
-                    //   }}
+                      onClick={() => {
+                        selectProfessional(p);
+                        //handleShowUpdateModal();
+                      }}
                     />
                     <FaTimes
                     //   onClick={() => {
