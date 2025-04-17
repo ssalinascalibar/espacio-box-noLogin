@@ -14,7 +14,7 @@ export default function UserRegister({ setIsRegistering }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [showTerms, setShowTerms] = useState(false); // Estado para mostrar el modal
-  console.log("users", users);
+ 
   const [formData, setFormData] = useState({
     name: "",
     paternal_surname: "",
@@ -40,7 +40,7 @@ export default function UserRegister({ setIsRegistering }) {
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Validar el tipo de archivo
+      
       const allowedTypes = ["application/pdf", "image/jpeg"];
       if (!allowedTypes.includes(file.type)) {
         setErrorMessage("Solo se permiten archivos PDF o JPG.");
