@@ -81,7 +81,17 @@ export default function PendingProfessionals() {
                 <td>{p.phone}</td>
                 <td>{p.email}</td>
                 <td>{p.title}</td>
-                <td>certificado</td>
+                <td>{p.certificate ? (
+                    <a
+                      href={URL.createObjectURL(p.certificate)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver certificado
+                    </a>
+                  ) : (
+                    "No disponible"
+                  )}</td>
                 <td>{p.password}</td>
                 <td>
                   <div id="actions">

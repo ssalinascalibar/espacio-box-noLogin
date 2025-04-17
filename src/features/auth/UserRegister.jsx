@@ -216,10 +216,10 @@ export default function UserRegister({ setIsRegistering }) {
           </Form.Group>
         </Col>
         <Col lg={6}>
-          <Form.Group controlId="profession" className="mb-4">
+          <Form.Group controlId="title" className="mb-4">
             <Form.Control
               type="text"
-              name="profession"
+              name="title"
               value={formData.title}
               onChange={handleChange}
               placeholder="Profesión"
