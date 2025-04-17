@@ -1,19 +1,19 @@
 #background-admin {
-    background-color:#fff;
+    background-color: #fff;
     /* background-color: rgba(255, 255, 255, 0.5); */
     border-radius: 8px;
     padding: 1rem 0;
     margin: 1rem 0;
-  }
+}
 
-#table-title{
+#table-title {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-#table-title-btn{
+#table-title-btn {
     display: flex;
     flex-direction: column;
 
@@ -49,6 +49,14 @@
     display: flex;
 }
 
+#actions .approve-pending-btn:hover {
+    color: #197743;
+}
+
+#actions .cancel-pending-btn:hover {
+    color: #d21e36;
+}
+
 .custom-cell-content {
     max-height: 150px;
     overflow-y: auto;
@@ -58,39 +66,41 @@
 #admin-table .responsive-image {
     width: 100px;
     height: auto;
-    border-radius: 8px; 
-  }
+    border-radius: 8px;
+}
 
-  #filter-reservations {
+#filter-reservations {
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
     margin: 2rem 0;
-  }
+}
 
-  .tabs-wrapper .nav-link {
-    color: var(--gray-dark-color); /* Color de los tabs */
-  }
+.tabs-wrapper .nav-link {
+    color: var(--gray-dark-color);
+    /* Color de los tabs */
+}
 
-  .tabs-wrapper .nav-link.active {
-    color: var(--text-primary); /* Color del tab activo */
-  }
-  
+.tabs-wrapper .nav-link.active {
+    color: var(--text-primary);
+    /* Color del tab activo */
+}
+
 
 
 
 @media screen and (min-width: 992px) {
-    
-    #table-title{
+
+    #table-title {
         flex-direction: row;
         justify-content: space-between;
     }
 
-    #table-title-btn{
+    #table-title-btn {
         display: flex;
         flex-direction: row;
         gap: 10px;
-    
+
     }
 
     #admin-table {

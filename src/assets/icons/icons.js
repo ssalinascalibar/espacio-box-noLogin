@@ -22,7 +22,9 @@ import {
   FaImages,
   FaHandPointRight,
   FaCheck,
-  FaTimes 
+  FaTimes,
+  FaCheckCircle,
+  FaTimesCircle 
 } from "react-icons/fa";
 
 import { GiArrowScope } from "react-icons/gi";
@@ -49,5 +51,8 @@ export {
   FaImages,
   FaHandPointRight,
   FaTimes,
-  FaCheck 
+  FaCheck,
+  FaCheckCircle,
+  FaTimesCircle
+
 };
