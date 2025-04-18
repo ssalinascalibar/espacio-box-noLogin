@@ -10,6 +10,13 @@ import PendingProfessionals from "./PendingProfessionals";
 export default function AdminPanel() {
 
   const { professionals, setProfessionals } = useContext(UserContext);
+  
+  const approvedProfessionals = professionals.filter(
+    (professional) => professional.status === "approved"
+  );
+
+  console.log(approvedProfessionals)
+
   const [key, setKey] = useState("professionals-table");
 
   return (
@@ -22,10 +29,10 @@ export default function AdminPanel() {
           className="mb-3"
         >
           <Tab eventKey="professionals-table" title="Admin profesionales">
-            <AdminProfessionals professionals={professionals} setProfessionals={setProfessionals} />
+            <AdminProfessionals professionals={approvedProfessionals} setProfessionals={setProfessionals} />
           </Tab>
           <Tab eventKey="reservations" title="Admin reservas">
-            <AdminReservations professionals={professionals} setProfessionals={setProfessionals} />
+            <AdminReservations professionals={approvedProfessionals} setProfessionals={setProfessionals} />
           </Tab>
           <Tab eventKey="pending-professionals" title="Pendientes aprobación">
             <PendingProfessionals />

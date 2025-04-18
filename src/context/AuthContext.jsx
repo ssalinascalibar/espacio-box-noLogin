@@ -10,7 +10,6 @@ const AuthContextProvider = ({ children }) => {
   const [registeredUser, setRegisteredUser] = useState({});
 
   const [users, setUsers] = useState([]);
-  console.log("users", users);
 
   const navigate = useNavigate();
 

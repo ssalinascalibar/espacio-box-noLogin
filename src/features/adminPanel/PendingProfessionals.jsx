@@ -49,6 +49,7 @@ export default function PendingProfessionals() {
         ...selection,
         id: newId,
         image: selection.image && selection.image.trim() !== "" ? selection.image : defaultIUserImage,
+        status: "approved",
       };
 
       setProfessionals([...professionals, newProfessional]);
