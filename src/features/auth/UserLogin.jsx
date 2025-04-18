@@ -14,10 +14,6 @@ import "./login.css";
 
 export default function UserLogin() {
   const { setIsAuthUser, registeredUser, setRegisteredUser, users, setUsers } = useContext(AuthContext);
-  // const [registeredUser, setRegisteredUser] = useState({});
-  // const [users, setUsers] = useState([]);
-  console.log("users", users);
-  console.log("users lenght", users.length);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isRegistering, setIsRegistering] = useState(false); // Estado para alternar entre login y registro
