@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { fetchUsers } from "../../services/api";
 import { FaUserCircle } from "../../assets/icons/icons";
@@ -14,11 +15,16 @@ import "./login.css";
 
 export default function UserLogin() {
   const { setIsAuthUser, registeredUser, setRegisteredUser, users, setUsers } = useContext(AuthContext);
+  const { professionals } = useContext(UserContext);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isRegistering, setIsRegistering] = useState(false); // Estado para alternar entre login y registro
 
   const navigate = useNavigate();
+
+  const approvedUsers = professionals.filter(
+    (professional) => professional.status === "approved"
+  );
 
   // useEffect(() => {
   //   const getUsers = async () => {
@@ -48,13 +54,13 @@ export default function UserLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const enabledUser = users.find(
+    const enabledUser = approvedUsers.find(
       (user) =>
         user.email === registeredUser.email &&
         user.password === registeredUser.password
     );
 
-    const validateCorreo = !users.email === !registeredUser.email;
+    const validateCorreo = !approvedUsers.email === !registeredUser.email;
 
     if (enabledUser) {
       setIsAuthUser(true);
