@@ -42,6 +42,7 @@ export default function CreateProfessionalModal({
       setNewProfessional({
         ...newProfessional,
         image: URL.createObjectURL(file),
+        status: "approved",
       });
     }
   };
