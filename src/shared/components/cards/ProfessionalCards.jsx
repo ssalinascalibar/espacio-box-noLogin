@@ -11,6 +11,10 @@ export default function ProfessionalCards() {
   const { professionals } = useContext(UserContext);
   const [selectedCard, setSelectedCard] = useState(null);
 
+  const approvedProfessionals = professionals.filter(
+    (professional) => professional.status === "approved"
+  );
+
   const handleShow = (card) => {
     setSelectedCard(card);
   };
@@ -32,7 +36,7 @@ export default function ProfessionalCards() {
         </div>
         <div className="scroll-container-professionals">
           <Row>
-            {professionals?.map((card) => (
+            {approvedProfessionals?.map((card) => (
               <Col key={card.id} xs={10} md={5} lg={3}>
                 <Card>
                   <Card.Img variant="top" src={card.image} />
