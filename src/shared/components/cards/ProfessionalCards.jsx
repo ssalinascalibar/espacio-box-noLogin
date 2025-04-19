@@ -12,7 +12,7 @@ export default function ProfessionalCards() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const approvedProfessionals = professionals.filter(
-    (professional) => professional.status === "approved"
+    (professional) => professional.status === "Aprobado"
   );
 
   const handleShow = (card) => {

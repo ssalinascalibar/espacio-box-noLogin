@@ -1,9 +1,11 @@
-import { useContext, useEffect } from "react";
+import {useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import UserContext from "../../context/UserContext";
 //import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { MdOutlineCancel, MdOutlineCheckCircle } from "../../assets/icons/icons";
+import ConfirmApprovalModal from "../../shared/components/modals/ConfirmApprovalModal";
+import ConfirmDeleteModal from "../../shared/components/modals/ConfirmDeleteModal";
 //import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
 //import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
 //import DeleteProfessionalModal from "../../shared/components/modals/DeleteProfessionalModal";
@@ -13,26 +15,18 @@ import { fetchUsers } from "../../services/api";
 
 export default function PendingProfessionals() {
   const { users, setUsers } = useContext(AuthContext);
-  console.log(users);
   const { professionals, setProfessionals } = useContext(UserContext);
+
+  const [showApprovalModal, setShowApprovalModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null); 
 
   const defaultIUserImage = "/assets/img/user.jpg";
 
   const pendingUsers = users.filter(
     (user) => user.status === "Pendiente"
   );
-  //const [showCreateModal, setShowCreateModal] = useState(false);
-  //const [showUpdateModal, setShowUpdateModal] = useState(false);
-  //const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-
-  //const handleCloseUpdateModal = () => setShowUpdateModal(false);
-  //const handleShowUpdateModal = () => setShowUpdateModal(true);
-  //const handleCloseCreateModal = () => setShowCreateModal(false);
-  //const handleShowCreateModal = () => setShowCreateModal(true);
-  //const handleShowDeleteModal = () => setShowDeleteModal(true);
-  //const handleCloseDeleteModal = () => setShowDeleteModal(false);
-
+ 
   useEffect(() => {
       if (users.length === 0) {
         const getUsers = async () => {
@@ -69,17 +63,54 @@ export default function PendingProfessionals() {
       setUsers([...users]);
     }
 
+    const deleteUser = (id) => {
+      const updatedUsers = users.filter((user) => user.id !== id);
+      setUsers(updatedUsers);
+  
+      console.log(`Usuario con ID ${id} eliminado.`);
+    };
+  
+    const handleApproveClick = (user) => {
+      setSelectedUser(user);
+      setShowApprovalModal(true); 
+    };
+  
+    const handleDeleteClick = (user) => {
+      setSelectedUser(user);
+      setShowDeleteModal(true); 
+    };
+  
+    const handleConfirmApproval = () => {
+      if (selectedUser) {
+        addUserToProfessionals(selectedUser);
+        changeStatusUser(selectedUser.id);
+      }
+      setShowApprovalModal(false);
+      setSelectedUser(null); 
+    };
+  
+    const handleConfirmDelete = () => {
+      if (selectedUser) {
+        deleteUser(selectedUser.id);
+      }
+      setShowDeleteModal(false);
+      setSelectedUser(null); 
+    };
+  
+    const handleCloseApprovalModal = () => {
+      setShowApprovalModal(false);
+      setSelectedUser(null); 
+    };
+  
+    const handleCloseDeleteModal = () => {
+      setShowDeleteModal(false); 
+      setSelectedUser(null); 
+    };
+
   return (
     <div id="background-admin">
       <div id="table-title">
         <h2>Tabla pendientes aprobación</h2>
-        {/* <Button
-          variant="success"
-          onClick={handleShowCreateModal}
-          className="mb-4"
-        >
-          Agregar profesional
-        </Button> */}
       </div>
       <div id="admin-table">
         <Table striped>
@@ -124,46 +155,30 @@ export default function PendingProfessionals() {
                 <td>{p.password}</td>
                 <td>
                   <div id="actions">
-                    {/* <MdAddCircleOutline /> */}
                     <MdOutlineCheckCircle
-                      onClick={() => {
-                        addUserToProfessionals(p);
-                        changeStatusUser(p.id);
-                      }}
+                      onClick={() => handleApproveClick(p)} 
                       className="approve-pending-btn"
                     />
                     <MdOutlineCancel
-                    //   onClick={() => {
-                    //     selectProfessional(p);
-                    //     handleShowDeleteModal();
-                    //   }}
+                    onClick={() => handleDeleteClick(p)}
                     className="cancel-pending-btn"
                     />
                   </div>
                 </td>
               </tr>
             ))}
-            {/* <CreateProfessionalModal
-              show={showCreateModal}
-              handleClose={handleCloseCreateModal}
-              professionals={professionals}
-              setProfessionals={setProfessionals}
-            /> */}
-            {/* <UpdateProfessionalModal
-              show={showUpdateModal}
-              handleClose={handleCloseUpdateModal}
-              professionals={professionals}
-              setProfessionals={setProfessionals}
-              selectedProfessional={selectedProfessional}
-              setSelectedProfessional={setSelectedProfessional}
-            /> */}
-            {/* <DeleteProfessionalModal 
+             <ConfirmApprovalModal
+              show={showApprovalModal}
+              handleClose={handleCloseApprovalModal}
+              handleConfirm={handleConfirmApproval}
+              user={selectedUser}
+            />
+             <ConfirmDeleteModal
               show={showDeleteModal}
               handleClose={handleCloseDeleteModal}
-              professionals={professionals}
-              setProfessionals={setProfessionals}
-              selectedProfessional={selectedProfessional}
-              /> */}
+              handleConfirm={handleConfirmDelete}
+              user={selectedUser}
+      />
           </tbody>
         </Table>
       </div>

@@ -28,8 +28,11 @@ export default function UserRegister({ setIsRegistering }) {
     image: "",
     rut: "",
     certificate: null,
-    ispayed: false
+    ispayed: false,
+    status: ""
   });
+
+  console.log(formData)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +46,7 @@ export default function UserRegister({ setIsRegistering }) {
       ...formData,
       id: newId,
       [name]: value,
+      status: "Pendiente",
     });
   };
 
