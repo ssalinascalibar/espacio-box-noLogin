@@ -53,6 +53,7 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
               <th>Fono</th>
               <th>Email</th>
               <th>Título</th>
+              <th>Certificado</th>
               <th>Descripción</th>
               <th>Valor hora</th>
               <th>Clave acceso</th>
@@ -71,6 +72,17 @@ export default function AdminProfessionals({ professionals, setProfessionals }) 
                 <td>{p.phone}</td>
                 <td>{p.email}</td>
                 <td>{p.title}</td>
+                <td>{p.certificate ? (
+                    <a
+                      href={URL.createObjectURL(p.certificate)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver certificado
+                    </a>
+                  ) : (
+                    "No disponible"
+                  )}</td>
                 <td>
                   <div className="custom-cell-content">{p.text}</div>
                 </td>
