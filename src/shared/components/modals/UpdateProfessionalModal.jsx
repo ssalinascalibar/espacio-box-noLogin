@@ -24,7 +24,7 @@ export default function UpdateProfessionalModal({
   const handleChange = async (e) => {
     setSelectedProfessional({
       ...selectedProfessional,
-      [e.target.name]: e.target.value.toLowerCase(),
+      [e.target.name]: e.target.value,
     });
   };
 

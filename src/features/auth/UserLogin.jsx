@@ -47,7 +47,7 @@ export default function UserLogin() {
   const handleChange = async (e) => {
     setRegisteredUser({
       ...registeredUser,
-      [e.target.name]: e.target.value.toLowerCase(),
+      [e.target.name]: e.target.value,
     });
   };
 

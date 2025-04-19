@@ -24,6 +24,7 @@ export default function CreateProfessionalModal({
   };
 
   const handleChange = async (e) => {
+    
     const newId =
       professionals && professionals.length > 0
         ? Math.max(...professionals.map((p) => p.id)) + 1
@@ -32,7 +33,7 @@ export default function CreateProfessionalModal({
     setNewProfessional({
       ...newProfessional,
       id: newId,
-      [e.target.name]: e.target.value.toLowerCase(),
+      [e.target.name]: e.target.value,
       status: "Aprobado",
     });
   };
