@@ -13,9 +13,14 @@ import { fetchUsers } from "../../services/api";
 
 export default function PendingProfessionals() {
   const { users, setUsers } = useContext(AuthContext);
+  console.log(users);
   const { professionals, setProfessionals } = useContext(UserContext);
 
   const defaultIUserImage = "/assets/img/user.jpg";
+
+  const pendingUsers = users.filter(
+    (user) => user.status === "Pendiente"
+  );
   //const [showCreateModal, setShowCreateModal] = useState(false);
   //const [showUpdateModal, setShowUpdateModal] = useState(false);
   //const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -49,11 +54,20 @@ export default function PendingProfessionals() {
         ...selection,
         id: newId,
         image: selection.image && selection.image.trim() !== "" ? selection.image : defaultIUserImage,
-        status: "approved",
+        status: "Aprobado",
       };
 
       setProfessionals([...professionals, newProfessional]);
     };
+
+    const changeStatusUser = (id) => {
+      const index = users.findIndex(
+        (user) => user.id === id
+      );
+      console.log(index);
+      users[index].status = users[index].status === "Pendiente" ? "Aprobado" : "Pendiente";
+      setUsers([...users]);
+    }
 
   return (
     <div id="background-admin">
@@ -86,7 +100,7 @@ export default function PendingProfessionals() {
             </tr>
           </thead>
           <tbody>
-            {users.map((p, i) => (
+            {pendingUsers?.map((p, i) => (
               <tr key={i}>
                 <td>{p.id}</td>
                 <td>{p.name}</td>
@@ -114,7 +128,7 @@ export default function PendingProfessionals() {
                     <MdOutlineCheckCircle
                       onClick={() => {
                         addUserToProfessionals(p);
-                        //handleShowUpdateModal();
+                        changeStatusUser(p.id);
                       }}
                       className="approve-pending-btn"
                     />

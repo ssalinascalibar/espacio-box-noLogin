@@ -23,7 +23,7 @@ export default function UserLogin() {
   const navigate = useNavigate();
 
   const approvedUsers = professionals.filter(
-    (professional) => professional.status === "approved"
+    (professional) => professional.status === "Aprobado"
   );
 
   // useEffect(() => {

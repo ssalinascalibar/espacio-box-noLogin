@@ -13,7 +13,7 @@
     "text": "Psicóloga Titulada en la Universidad Diego Portales, Magister (c) en Psicología Clínica de Adultos. Enfoque constructivista cognitivo - Universidad de Chile. Experiencia en trastornos del ánimo, trastornos asiosos, temáticas de vulneración de derechos y VIF. Enfoque de derechos de género.",
     "image": "assets/img/camila-unda.jpg",
     "ispayed": true,
-    "status": "approved"
+    "status": "Aprobado"
   },
   {
     "id": 1,
@@ -29,7 +29,7 @@
     "text": "Psicólogo Titulado en la Pontificia Universidad Católica de Chile. Magister (c) en Psicología Clínica Pontificia Universidad Católica de Chile, Diplomados en Trastornos de personalidad, mindfulness y psicoterapia PUC. Curso General Psychiatric Management (GPM) for Borderline Personality Disorded en la prestigiosa Universidad de Harvard",
     "image": "assets/img/rodrigo-ramos.jpg",
     "ispayed": true,
-    "status": "approved"
+    "status": "Aprobado"
   },
   {
     "id": 2,
@@ -45,7 +45,7 @@
     "text": "Nutricionista Clínica Licenciado en nutrición, mención en gestión y calidad UNAB. Atención a niños, adolecentes y adultos en: enfermedad renal, obesidad, enfermedades metabólicas (diabetes, unsulino resistente, HTA hipotiroidismo) enfermedades autoinmunes, enfermedades inflamatorias, cirugía bariátrica, educación y promoción de salud. Espacio seguro para disidencias.",
     "image": "assets/img/matias-bunster.jpg",
     "ispayed": true,
-    "status": "approved"
+    "status": "Aprobado"
   },
   {
     "id": 3,
@@ -61,7 +61,7 @@
     "text": "Psicóloga Titulada en la Universidad Central de Chile, Diplomado en Psicopatología Psicoanalítica ICHPA. Diplomado en Psicoterapia Psicoanalítica breve para la depresión UCHILE. Enfoque psicoanalítico, experiencia en transtornos del ánimo, transtornos ansiosos, temáticas de imagen corporal, psicosomática y duelos. Enfoque de derechos y género.",
     "image": "assets/img/camila-unda.jpg",
     "ispayed": true,
-    "status": "approved"
+    "status": "Aprobado"
   },
   {
     "id": 4,
@@ -77,7 +77,7 @@
     "text": "Psicóloga titulada de la Universidad Santo Tomás. Atención juvenil y adultos, experiencia en trastornos del ánimo, duelos, trastornos de personalidad, consulta alimentaria y autoimagen. Evaluaciones de personalidad con aplicación de test de rorschach y evaluaciones neuropsicológicas.",
     "image": "assets/img/camila-unda.jpg",
     "ispayed": true,
-    "status": "approved"
+    "status": "Aprobado"
   },
   {
     "id": 5,
@@ -93,6 +93,6 @@
     "text": "Nutricionista titulada de la Universidad de Chile. Diplomado en nutrición deportiva. Atención de adultos y adolescenter que buscan recomposición corportal a partir de nuevos hábitos y actividad física. Experiencia en alimentación vegetariana/vegana, trastornos de alimentación, enfermedades crónicas no transmisibles (diabetes, resistencia a la insulina, hipertensión, cardiovascular) Entrega de pauta nutricional conserjeria y educación alimentaria.",
     "image": "assets/img/camila-unda.jpg",
     "ispayed": false,
-    "status": "approved"
+    "status": "Aprobado"
   }
 ]

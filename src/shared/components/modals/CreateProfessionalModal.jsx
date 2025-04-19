@@ -33,7 +33,7 @@ export default function CreateProfessionalModal({
       ...newProfessional,
       id: newId,
       [e.target.name]: e.target.value.toLowerCase(),
-      status: "approved",
+      status: "Aprobado",
     });
   };
 

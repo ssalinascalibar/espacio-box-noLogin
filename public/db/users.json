@@ -13,7 +13,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 1,
@@ -29,7 +30,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 2,
@@ -45,7 +47,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 3,
@@ -61,7 +64,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 4,
@@ -77,7 +81,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 5,
@@ -93,7 +98,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 6,
@@ -109,7 +115,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 7,
@@ -125,7 +132,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 8,
@@ -141,7 +149,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 9,
@@ -157,7 +166,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     },
     {
         "id": 10,
@@ -173,7 +183,8 @@
         "text": "",
         "image": "",
         "certificate": null,
-        "ispayed": false
+        "ispayed": false,
+        "status": "Pendiente"
     }
    
 ]

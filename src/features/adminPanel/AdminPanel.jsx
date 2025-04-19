@@ -12,7 +12,7 @@ export default function AdminPanel() {
   const { professionals, setProfessionals } = useContext(UserContext);
   
   const approvedProfessionals = professionals.filter(
-    (professional) => professional.status === "approved"
+    (professional) => professional.status === "Aprobado"
   );
 
   console.log(approvedProfessionals)
