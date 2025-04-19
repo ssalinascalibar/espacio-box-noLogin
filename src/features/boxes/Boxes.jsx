@@ -55,21 +55,41 @@ export default function Boxes() {
     <>
       <main>
         <Container>
+          <section>
           <div id="boxes-gallery" className="backgroundSection">
             <Row>
-              <Col xs={12} lg={6}>
+              <Col xs={12} lg={12}>
                 <h2 style={{ textAlign: "left" }} className="section-titles">
                   Todo lo que necesitas para brindar una atención de calidad
                 </h2>
-                <p style={{ textAlign: "justify" }}>
+                <p style={{ textAlign: "left" }}>
                   Espacios diseñados para que tú y tus consultantes vivan una experiencia cómoda, segura y acogedora.
                 </p>
-                <p style={{ textAlign: "justify" }}>
+                <p style={{ textAlign: "left" }}>
                   Y sí... ¡con excelente ubicación!
                 </p>
-                <p style={{ textAlign: "justify" }}>
+                <p style={{ textAlign: "left" }}>
                   Conoce nuestros box disponibles y encuentra tu espacio ideal para trabajar con tranquilidad. 
                 </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+              <div id="box-features">
+                <h2>
+                  Salas completamente equipadas con todo lo necesario para que tu sesión de terapia
+                  sea una gran experiencia.
+                </h2>
+                <p>Y con una excelente ubicación</p>
+              </div>
+              </Col>
+            </Row>
+          </div>
+          </section>
+          <section>
+          <div className="backgroundSection">
+            <Row>
+              <Col>
                 <div id="show-title-gallery">
                   <FaImages />
                   <h4>Ver galería</h4>
@@ -79,6 +99,7 @@ export default function Boxes() {
                 </div>
                 <ReserveLink color="#4598ac" hoverColor="#37352d" />
               </Col>
+             
               <Col xs={12} lg={6} className="d-lg-flex justify-content-lg-center">
               <div className="gallery">
                 <ImageGallery items={filterBoxes.length > 0 ? filterBoxes : boxes} showBullets showIndex />
@@ -86,6 +107,7 @@ export default function Boxes() {
               </Col>
             </Row>
           </div>
+          </section>
           <div id="boxes-video" className="backgroundSection">
             <h2 className="section-titles">Nuestras instalaciones</h2>
             <p>

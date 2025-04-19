@@ -23,11 +23,15 @@ import {
   FaHandHoldingHeart,
   FaImages,
   FaHandPointRight,
+  FaWifi,
+  FaCoffee,
+  FaFan 
 } from "react-icons/fa";
 
+import { FaKitchenSet } from "react-icons/fa6";
 import { GiArrowScope } from "react-icons/gi";
+import { RiSofaFill } from "react-icons/ri"
 
-// Exportar solo los iconos necesarios
 export {
   MdOutlineEmail,
   MdOutlineLocationOn,
@@ -49,6 +53,11 @@ export {
   FaImages,
   FaHandPointRight,
   MdOutlineCancel,
-  MdOutlineCheckCircle
+  MdOutlineCheckCircle,
+  FaWifi,
+  RiSofaFill,
+  FaCoffee,
+  FaFan,
+  FaKitchenSet 
 
 };

@@ -57,6 +57,11 @@
 
 @media screen and (min-width: 992px) {
 
+    #box-features{
+        text-align: center;
+        margin: 1rem 0;
+    }
+
     #show-title-gallery {
         margin-top: 3rem;
     }
