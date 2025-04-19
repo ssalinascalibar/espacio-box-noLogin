@@ -13,7 +13,7 @@ export default function UserRegister({ setIsRegistering }) {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [showTerms, setShowTerms] = useState(false); // Estado para mostrar el modal
+  const [showTerms, setShowTerms] = useState(false);
  
   const [formData, setFormData] = useState({
     name: "",
@@ -31,8 +31,6 @@ export default function UserRegister({ setIsRegistering }) {
     ispayed: false,
     status: ""
   });
-
-  console.log(formData)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -87,13 +85,13 @@ export default function UserRegister({ setIsRegistering }) {
       !formData.certificate
     ) {
       setErrorMessage("Por favor, completa todos los campos.");
-      setShowTerms(false); // Cerrar el modal si hay errores
+      setShowTerms(false);
       return;
     }
 
     setUsers([...users, formData]);
 
-    setSuccessMessage("Registro exitoso. Ahora puedes iniciar sesión.");
+    setSuccessMessage("Registro exitoso. Debes esperar que validemos tus datos.");
     setErrorMessage("");
 
     // Limpiar el formulario
@@ -110,14 +108,14 @@ export default function UserRegister({ setIsRegistering }) {
     });
     setCertificate(null);
 
-    setShowTerms(false); // Cerrar el modal
+    setShowTerms(false);
 
     setTimeout(() => {
       setIsRegistering(false);
     }, 2000);
   };
 
-  const handleCloseTerms = () => setShowTerms(false); // Cerrar el modal
+  const handleCloseTerms = () => setShowTerms(false); 
 
   return (
     <Form onSubmit={handleShowTerms}>
