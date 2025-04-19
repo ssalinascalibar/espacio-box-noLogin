@@ -1,14 +1,10 @@
 import {useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import UserContext from "../../context/UserContext";
-//import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import { MdOutlineCancel, MdOutlineCheckCircle } from "../../assets/icons/icons";
 import ConfirmApprovalModal from "../../shared/components/modals/ConfirmApprovalModal";
 import ConfirmDeleteModal from "../../shared/components/modals/ConfirmDeleteModal";
-//import CreateProfessionalModal from "../../shared/components/modals/CreateProfessionalModal";
-//import UpdateProfessionalModal from "../../shared/components/modals/UpdateProfessionalModal";
-//import DeleteProfessionalModal from "../../shared/components/modals/DeleteProfessionalModal";
 import "./adminPanel.css";
 
 import { fetchUsers } from "../../services/api";
