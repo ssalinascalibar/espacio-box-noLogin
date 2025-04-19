@@ -1,9 +1,32 @@
+#box-features {
+    text-align: center;
+}
+
+#box-features-header{
+    margin: 2rem 0;
+}
+
 #gallery-show-btn {
     display: inline-block;
 }
 
 #gallery-show-btn .btn {
     margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+#box-features .card {
+    border: none;
+}
+
+#box-features .card svg,
+#box-features .card .card-title  {
+    color: var(--primary-color);
+    
+}
+
+#box-features .card .card-subtitle {
+    color: var(--accent-color);
+
 }
 
 #show-title-gallery {
@@ -57,9 +80,8 @@
 
 @media screen and (min-width: 992px) {
 
-    #box-features{
-        text-align: center;
-        margin: 1rem 0;
+    #box-features-header{
+        margin: 4rem 0;
     }
 
     #show-title-gallery {
