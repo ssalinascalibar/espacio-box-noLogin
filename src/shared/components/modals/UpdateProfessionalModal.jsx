@@ -15,6 +15,8 @@ export default function UpdateProfessionalModal({
   setSelectedProfessional,
 }) {
   const [showAlert, setShowAlert] = useState(false);
+  const [certificate, setCertificate] = useState(selectedProfessional.certificate || null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   UpdateProfessionalModal.propTypes = {
     show: PropTypes.bool.isRequired,
@@ -35,6 +37,25 @@ export default function UpdateProfessionalModal({
         ...selectedProfessional,
         image: URL.createObjectURL(file), 
       });
+    }
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      
+      const allowedTypes = ["application/pdf", "image/jpeg"];
+      if (!allowedTypes.includes(file.type)) {
+        setErrorMessage("Solo se permiten archivos PDF o JPG.");
+        return;
+      }
+
+      setCertificate(file);
+      setSelectedProfessional({
+        ...selectedProfessional,
+        certificate: file,
+      });
+      setErrorMessage("");
     }
   };
 
@@ -69,6 +90,7 @@ export default function UpdateProfessionalModal({
           )}
           <Form onSubmit={handleSubmit}>
             <h4>Editar profesional</h4>
+            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
             <Form.Group controlId="rut" className="mb-4">
               <Form.Control
                 type="text"
@@ -128,6 +150,42 @@ export default function UpdateProfessionalModal({
                 placeholder="@tucorreo"
                 autoComplete="email"
               />
+            </Form.Group>
+            <Form.Group controlId="certificate" className="mb-4">
+              <Form.Label>Certificado actual</Form.Label>
+              {certificate && (
+                <div className="mb-3">
+                  {certificate.type === "application/pdf" ? (
+                    <a
+                      href={URL.createObjectURL(certificate)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver certificado (PDF)
+                    </a>
+                  ) : (
+                    <img
+                      src={URL.createObjectURL(certificate)}
+                      alt="Certificado"
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                        borderRadius: "8px",
+                        margin: "0 auto",
+                        display: "block",
+                      }}
+                    />
+                  )}
+                </div>
+              )}
+              <Form.Control
+                type="file"
+                accept="application/pdf, image/jpeg"
+                onChange={handleFileUpload}
+              />
+              <Form.Text className="text-muted">
+                Selecciona un nuevo certificado para reemplazar el actual.
+              </Form.Text>
             </Form.Group>
             <Form.Group controlId="title" className="mb-4">
               <Form.Control
