@@ -29,9 +29,7 @@
     padding-bottom: 1.5rem;
   }
   
-  .gallery-image:hover {
-    transform: scale(1.05);
-  }
+  
   
   .fullscreen-overlay {
     position: fixed;
@@ -82,4 +80,11 @@
   
   .fullscreen-next {
     right: 20px;
+  }
+
+  @media screen and (min-width: 992px) {
+
+    .gallery-image:hover {
+      transform: scale(1.05);
+    }
   }
