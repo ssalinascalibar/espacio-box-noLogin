@@ -26,7 +26,8 @@ import {
   FaWifi,
   FaCoffee,
   FaFan,
-  FaInfoCircle 
+  FaInfoCircle,
+  FaVideo 
 } from "react-icons/fa";
 
 import { FaKitchenSet } from "react-icons/fa6";
@@ -60,6 +61,7 @@ export {
   FaCoffee,
   FaFan,
   FaKitchenSet,
-  FaInfoCircle 
+  FaInfoCircle,
+  FaVideo 
 
 };

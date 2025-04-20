@@ -18,6 +18,7 @@ import {
   MdOutlineLocationOn,
   FaKitchenSet,
   RiSofaFill,
+  FaVideo,
 } from "../../assets/icons/icons";
 import {
   ReserveLink,
@@ -173,7 +174,7 @@ export default function Boxes() {
                 <Col>
                   <div id="show-title-gallery">
                     <FaImages />
-                    <h4>Galería de Boxes</h4>
+                    <h4>Descubre Nuestros Espacios</h4>
                   </div>
                   <Form.Select
                     id="filter-room"
@@ -201,16 +202,23 @@ export default function Boxes() {
               </Row>
             </div>
           </section>
-
+          
+          <section>
           <div id="boxes-video" className="backgroundSection">
+            <Row>
             <h2 className="section-titles">Nuestras instalaciones</h2>
             <p>
               Invitamos a todos quienes trabajan con nosotros a formar parte de
               esta comunidad como una red de apoyo, autocuidado y derivación.
             </p>
+            <div id="show-title-gallery">
+              <FaVideo />
+              <h4>Conoce más a través de nuestros videos</h4>
+            </div>
+            </Row>
             <Row>
               {videoBoxes?.map((videoBox, i) => (
-                <Col xs={12} md={6} lg={6} key={i}>
+                <Col xs={12} md={6} lg={3} key={i}>
                   <div className="player-wrapper">
                     <ReactPlayer
                       className="react-player"
@@ -231,6 +239,7 @@ export default function Boxes() {
               ))}
             </Row>
           </div>
+          </section>
         </Container>
       </main>
     </>
