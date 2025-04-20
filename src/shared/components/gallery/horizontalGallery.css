@@ -1,11 +1,10 @@
 .horizontal-gallery {
-    display: flex;
-    overflow-x: auto;
+    white-space: nowrap;
+    overflow-x: scroll;
     overflow-y: hidden;
-    gap: 10px;
-    margin: 0 0 2rem 0;
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-color, #ccc) transparent;
+    scroll-snap-type: x mandatory;
   }
 
   .horizontal-gallery::-webkit-scrollbar {
@@ -26,10 +25,10 @@
     border-radius: 8px;
     transition: transform 0.2s ease-in-out;
     background-clip: content-box; /* Asegura que el padding no pinte fondo */
-    padding-bottom: 1.5rem;
+    scroll-snap-align: none start;
+    margin: 0 0.5rem;
+    
   }
-  
-  
   
   .fullscreen-overlay {
     position: fixed;

@@ -192,10 +192,10 @@ export default function Boxes() {
 
               <Row className="mt-4">
                 <h4>Instalaciones</h4>
-                <Col>
+                <Col className="horizontal-gallery-wrapper">
                   <HorizontalGallery
                     items={filteredBoxes}
-                    height="65vh"
+                    height="96%"
                     scrollbarColor="#4598ac"
                   />
                 </Col>

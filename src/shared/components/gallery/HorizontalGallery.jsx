@@ -4,7 +4,7 @@ import "./horizontalGallery.css";
 
 export default function HorizontalGallery({
   items,
-  height = "200px",
+  height = "100%",
   width = "auto",
   scrollbarColor = "#ccc",
   onImageClick,
