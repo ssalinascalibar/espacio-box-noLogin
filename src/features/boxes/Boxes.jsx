@@ -174,7 +174,7 @@ export default function Boxes() {
                 <Col>
                   <div id="show-title-gallery">
                     <FaImages />
-                    <h4>Galería</h4>
+                    <h4>Galería de Boxes</h4>
                   </div>
                   <Form.Select
                     id="filter-room"
@@ -191,6 +191,7 @@ export default function Boxes() {
               </Row>
 
               <Row className="mt-4">
+                <h4>Instalaciones</h4>
                 <Col>
                   <HorizontalGallery
                     items={filteredBoxes}

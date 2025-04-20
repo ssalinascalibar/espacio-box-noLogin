@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./HorizontalGallery.css";
 
@@ -26,6 +26,25 @@ export default function HorizontalGallery({
       setFullscreenIndex(newIndex);
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (fullscreenIndex !== null) {
+        if (e.key === "ArrowLeft") {
+          navigateFullscreen(-1);
+        } else if (e.key === "ArrowRight") {
+          navigateFullscreen(1);
+        } else if (e.key === "Escape") {
+          closeFullscreen();
+        }
+      }
+    };
+  
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [fullscreenIndex]);
 
   return (
     <>

@@ -42,7 +42,7 @@
 #show-title-gallery {
     display: flex;
     align-items: center;
-    margin: 2rem 0 0.5rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 #show-title-gallery h4 {
@@ -105,11 +105,7 @@
     }
 
     #show-title-gallery {
-        margin-top: 3rem;
-    }
-
-    #show-title-gallery {
-        margin-bottom: 0.5rem;
+        margin: 1rem 0;
     }
     
     .gallery {
