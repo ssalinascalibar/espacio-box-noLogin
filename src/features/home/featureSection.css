@@ -1,32 +1,32 @@
-.features {
-    display: flex;
-    flex-direction: column;
+.features-content h4 {
+    margin: 2rem 0 0.5rem 0;
 }
 
-.features-content {
-    display: flex;
-    flex-direction: column;
+.features-content p {
+    padding: 0;
 }
 
 .image-features {
-    margin: 0 auto;
+    margin: 1rem 0;
+}
+
+.image-features img {
+    border-radius: 10px;
 }
 
 /* Media query para desktop (pantallas desde 992px) */
 @media screen and (min-width: 992px) {
-    .features {
-        flex-direction: row;   
-    }
-
-    .features-content{
-        justify-content: center;
-        padding: 0 4rem 0 4rem;
-    }
-
+    
     .features-content p{
         color: var(--text-primary);
         font-size: 1.1em;
         
     }
+
+    .image-features {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
 
 }
