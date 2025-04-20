@@ -11,10 +11,9 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
-
-  console.log(formData)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,12 +26,13 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const mailtoLink = `mailto:contacto.espaciobox@gmail.com?subject=Contacto desde EspacioBox.com&body=Nombre: ${formData.name}%0AEmail: ${formData.email}%0AMensaje: ${formData.message}`;
+    const mailtoLink = `mailto:contacto.espaciobox@gmail.com?subject=Contacto desde EspacioBox.com&body=Nombre: ${formData.name}%0AEmail: ${formData.email}%0AFono: ${formData.phone}%0AMensaje: ${formData.message}`;
     // Abre el cliente de correo predeterminado
     window.location.href = mailtoLink;
     setFormData({
       name: "",
       email: "",
+      phone: "",
       message: "",
     });
   };
@@ -80,6 +80,17 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Ingresa tu correo electrónico"
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formPhone" className="mb-3">
+                    <Form.Label>Fono</Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Ingresa tu número de teléfono"
                       required
                     />
                   </Form.Group>
