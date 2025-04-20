@@ -4,8 +4,7 @@ import "./horizontalGallery.css";
 
 export default function HorizontalGallery({
   items,
-  height = "100%",
-  width = "auto",
+  height = "200px",
   scrollbarColor = "#ccc",
   onImageClick,
 }) {
@@ -82,7 +81,7 @@ export default function HorizontalGallery({
             src={item.original}
             alt={`Imagen ${index + 1}`}
             className="gallery-image"
-            style={{ height, width }}
+            style={{ height}}
             onClick={() => {
               openFullscreen(index);
               if (onImageClick) onImageClick(item);

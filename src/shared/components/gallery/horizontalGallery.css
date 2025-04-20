@@ -5,6 +5,10 @@
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-color, #ccc) transparent;
     scroll-snap-type: x mandatory;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    
+    
   }
 
   .horizontal-gallery::-webkit-scrollbar {
@@ -26,8 +30,8 @@
     transition: transform 0.2s ease-in-out;
     background-clip: content-box; /* Asegura que el padding no pinte fondo */
     scroll-snap-align: none start;
-    margin: 0 0.5rem;
-    
+    margin: 0 1rem 0 0;
+    width: 90%;
   }
   
   .fullscreen-overlay {
@@ -83,7 +87,19 @@
 
   @media screen and (min-width: 992px) {
 
+    .horizontal-gallery {
+      margin-left: 1rem;
+      padding-left: 0;
+      
+    }
+
+    .gallery-image {
+      margin: 0 0.5rem 0 0.5rem; 
+      width: 30%; 
+    }
+
     .gallery-image:hover {
       transform: scale(1.05);
     }
+    
   }
