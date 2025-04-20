@@ -28,7 +28,8 @@ import {
   FaFan,
   FaInfoCircle,
   FaVideo,
-  FaSun  
+  FaSun,
+  FaEye  
 } from "react-icons/fa";
 
 import { FaKitchenSet, FaPanorama } from "react-icons/fa6";
@@ -65,5 +66,6 @@ export {
   FaInfoCircle,
   FaVideo ,
   FaSun,
-  FaPanorama 
+  FaPanorama,
+  FaEye 
 };

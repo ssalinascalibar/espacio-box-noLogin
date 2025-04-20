@@ -12,6 +12,7 @@ import {
   FaPanorama 
 } from "../../assets/icons/icons";
 import "./videoSection.css";
+import { BoxLink } from "../../shared/components/links/CustomLinks";
 
 export default function VideoSection() {
   const iconData = [
@@ -103,10 +104,9 @@ export default function VideoSection() {
             <Col>
               <div id="room-features-header">
                 <h2 className="section-titles">
-                  Salas completamente equipadas con todo lo necesario para que
-                  tu sesión de terapia sea una gran experiencia.
+                  Espacios que lo tienen todo
                 </h2>
-                <p>Y con una excelente ubicación</p>
+                <p>Diseñados para que puedas trabajar con tranquilidad, enfocado en lo que realmente importa: tus sesiones.</p>
               </div>
             </Col>
           </Row>
@@ -124,6 +124,12 @@ export default function VideoSection() {
                 </Card>
               </Col>
             ))}
+            <Col>
+          <div id="room-link">
+          <h4>Te invitamos a conocer nuestro espacio</h4>
+          <BoxLink color="var(--primary-color)" hoverColor="var(--accent-color)"/>
+          </div>
+            </Col>
           </Row>
         </section>
       </div>
