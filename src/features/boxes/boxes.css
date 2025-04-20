@@ -16,6 +16,10 @@
     margin: 0.5rem 0;
 }
 
+.background-gray {
+    background-color: var(--background-secondary-color);
+}
+
 #gallery-show-btn {
     display: inline-block;
 }
@@ -26,6 +30,8 @@
 
 #box-features .card {
     border: none;
+    background-color: var(--background-secondary-color);
+    padding: 1rem;
 }
 
 #box-features .card svg,

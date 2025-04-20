@@ -120,7 +120,7 @@ export default function Boxes() {
           <section id="box-features">
             <div id="boxes-gallery" className="backgroundSection">
               <Row>
-                <Col xs={12} lg={12}>
+                <Col xs={12} lg={12} className="background-gray">
                   <h2 className="section-titles mt-4">
                     Todo lo que necesitas para brindar una atención de calidad
                   </h2>
@@ -152,7 +152,7 @@ export default function Boxes() {
               </Row>
               <Row className="g-4">
                 {iconData.map((card) => (
-                  <Col key={card.id} xs={6} lg={4}>
+                  <Col key={card.id} xs={12} lg={4}>
                     <Card className="text-left h-100">
                       <Card.Body className="d-flex flex-column justify-content-center">
                         <div className="mb-3">{card.icon}</div>
