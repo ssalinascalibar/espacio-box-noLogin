@@ -1,14 +1,14 @@
-.reserveLink {
+.customLink {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: underline;
 }
 
-.reserveLink svg{
+.customLink svg{
     font-size: 1.3em;
 }
     
-.reserveLink:hover svg {
+.customLink:hover svg {
     transform: translateX(5px);
 }

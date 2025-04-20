@@ -10,7 +10,7 @@ import ReactPlayer from "react-player";
 import ImageGallery from "react-image-gallery";
 import { GalleryShowBtn } from "./BoxesBtn";
 import { FaImages, FaWifi, FaCoffee, FaFan, MdOutlineLocationOn, FaKitchenSet, RiSofaFill } from "../../assets/icons/icons";
-import { ReserveLink } from "../../shared/components/links/CustomLinks";
+import { ReserveLink, ContactLink } from "../../shared/components/links/CustomLinks";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function Boxes() {
@@ -111,6 +111,11 @@ export default function Boxes() {
                 <p>
                   Conoce nuestros box disponibles y encuentra tu espacio ideal para trabajar con tranquilidad. 
                 </p>
+                <div className="box-features-link">
+                  <ContactLink color="#4598ac" hoverColor="#37352d" />
+                  <ReserveLink color="#4598ac" hoverColor="#37352d" />
+
+                </div>
               </Col>
             </Row>
             <Row>
@@ -154,7 +159,7 @@ export default function Boxes() {
                 <div id="gallery-show-btn">
                   <GalleryShowBtn boxes={boxes} filterBoxes={filterBoxes} setFilterBoxes={setFilterBoxes} />
                 </div>
-                <ReserveLink color="#4598ac" hoverColor="#37352d" />
+                
               </Col>
              
               <Col xs={12} lg={6} className="d-lg-flex justify-content-lg-center">
