@@ -102,7 +102,7 @@ export default function VideoSection() {
           <Row>
             <Col>
               <div id="room-features-header">
-                <h2>
+                <h2 className="section-titles">
                   Salas completamente equipadas con todo lo necesario para que
                   tu sesión de terapia sea una gran experiencia.
                 </h2>
