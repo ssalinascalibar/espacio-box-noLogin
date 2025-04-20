@@ -10,6 +10,8 @@ export default function HorizontalGallery({
   onImageClick,
 }) {
   const [fullscreenIndex, setFullscreenIndex] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
 
   const openFullscreen = (index) => {
     setFullscreenIndex(index);
@@ -47,6 +49,30 @@ export default function HorizontalGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullscreenIndex]);
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      // Swipe hacia la izquierda
+      navigateFullscreen(1);
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      // Swipe hacia la derecha
+      navigateFullscreen(-1);
+    }
+
+    // Reiniciar valores de touch
+    setTouchStartX(0);
+    setTouchEndX(0);
+  };
+
   return (
     <>
       <div className="horizontal-gallery" style={{ height, "--scrollbar-color": scrollbarColor }}>
@@ -66,7 +92,12 @@ export default function HorizontalGallery({
       </div>
 
       {fullscreenIndex !== null && (
-        <div className="fullscreen-overlay" onClick={closeFullscreen}>
+        <div className="fullscreen-overlay" 
+          onClick={closeFullscreen} 
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <span className="fullscreen-close" onClick={closeFullscreen}>
             ×
           </span>
