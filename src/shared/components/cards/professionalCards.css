@@ -1,10 +1,5 @@
-/* .professional-title {
-  padding: 0 1rem 0 1rem;
-} */
-
 .scroll-container-professionals {
     overflow-x: auto;
-    /* white-space: nowrap; */
     white-space: normal;
     padding: 1rem 1rem 1rem 0;
     margin:  1rem 0 0 0;
@@ -17,7 +12,6 @@
   }
   
   .scroll-container-professionals .card {
-    /* height: 80vh; */
     height: 100%;
     background-color: var(--primary-color);
     color: var(--text-secondary);
