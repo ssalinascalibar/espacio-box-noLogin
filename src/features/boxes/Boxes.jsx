@@ -195,7 +195,7 @@ export default function Boxes() {
                 <Col>
                   <HorizontalGallery
                     items={filteredBoxes}
-                    height="70vh"
+                    height="65vh"
                     scrollbarColor="#4598ac"
                   />
                 </Col>
