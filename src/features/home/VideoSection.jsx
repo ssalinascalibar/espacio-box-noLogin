@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import {
-  // MdCheckCircle,
   FaWifi,
   FaCoffee,
   FaFan,
@@ -81,24 +80,6 @@ export default function VideoSection() {
               profesional, permitiéndote concentrarte en lo más importante: tu
               trabajo y el bienestar de quienes te visitan.
             </p>
-            {/* <ul>
-              <li>
-                <MdCheckCircle />
-                Luz natural
-              </li>
-              <li>
-                <MdCheckCircle />
-                Hermosa vista
-              </li>
-              <li>
-                <MdCheckCircle />
-                Ambiente Silencioso
-              </li>
-              <li>
-                <MdCheckCircle />
-                Baño privado
-              </li>
-            </ul> */}
           </Col>
           <Col xs={12} md={12} xl={6}>
             <div className="player-wrapper">
