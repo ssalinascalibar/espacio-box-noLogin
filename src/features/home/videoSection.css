@@ -7,9 +7,33 @@
   color: var(--secondary-color);
 }
 
+#room-features {
+  margin: 1rem 0;
+}
+
+#room-features-header{
+  margin:  2rem 0 1rem 0;
+}
+
+#room-features .card {
+  border: none;
+  background-color: var(--background-secondary-color);
+  padding: 0 1rem;
+}
+
+#room-features .card svg,
+#room-features .card .card-title  {
+    color: var(--primary-color);  
+}
+
+#room-features .card .card-subtitle {
+  color: var(--accent-color);
+}
+
 @media screen and (min-width: 992px) {
 
   .col-style-videoSection{
     padding: 0 4rem 0 1rem;
   }
+
 }
