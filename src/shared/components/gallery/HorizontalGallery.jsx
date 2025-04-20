@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "./HorizontalGallery.css";
+import "./horizontalGallery.css";
 
 export default function HorizontalGallery({
   items,
