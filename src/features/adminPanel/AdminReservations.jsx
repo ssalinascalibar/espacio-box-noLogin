@@ -9,12 +9,35 @@ export default function AdminReservations({ professionals, setProfessionals }) {
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredProfessionals, setFilteredProfessionals] = useState([]);
 
+  // const addPayment = (id) => {
+  //   const index = professionals.findIndex(
+  //     (professional) => professional.id === id
+  //   );
+  //   professionals[index].ispayed = !professionals[index].ispayed;
+  //   setProfessionals([...professionals]);
+  // };
+
   const addPayment = (id) => {
-    const index = professionals.findIndex(
-      (professional) => professional.id === id
+    const updatedProfessionals = professionals.map((p) =>
+      p.id === id ? { ...p, ispayed: !p.ispayed } : p
     );
-    professionals[index].ispayed = !professionals[index].ispayed;
-    setProfessionals([...professionals]);
+    setProfessionals(updatedProfessionals);
+  
+    let updatedFiltered = updatedProfessionals;
+  
+    if (selectedUser) {
+      updatedFiltered = updatedFiltered.filter(
+        (p) => p.name + p.paternal_surname === selectedUser
+      );
+    }
+  
+    if (selectedRoom) {
+      updatedFiltered = updatedFiltered.filter(
+        (p) => p.room === selectedRoom
+      );
+    }
+  
+    setFilteredProfessionals(updatedFiltered);
   };
 
   const handleFilter = () => {
@@ -36,9 +59,22 @@ export default function AdminReservations({ professionals, setProfessionals }) {
     setSelectedRoom("");
   };
 
+  
   useEffect(() => {
-    setFilteredProfessionals(professionals);
-  }, [professionals]);
+    let updatedList = professionals;
+  
+    if (selectedUser) {
+      updatedList = updatedList.filter(
+        (p) => p.name + p.paternal_surname === selectedUser
+      );
+    }
+  
+    if (selectedRoom) {
+      updatedList = updatedList.filter((p) => p.room === selectedRoom);
+    }
+  
+    setFilteredProfessionals(updatedList);
+  }, [professionals, selectedUser, selectedRoom]);
 
   return (
     <div id="background-admin">
