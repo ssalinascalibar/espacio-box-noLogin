@@ -6,9 +6,7 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Image from "react-bootstrap/Image";
 import { FaArrowLeft, FaArrowRight } from "../../assets/icons/icons";
-// import HorizontalGallery from "../../shared/components/gallery/HorizontalGallery";
 import "./reserve.css";
 
 export default function Reserve() {
@@ -29,17 +27,27 @@ export default function Reserve() {
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
 
   useEffect(() => {
-      const getBoxes = async () => {
-        const data = await fetchBoxes();
-        setBoxes(data);
-      };
-      getBoxes();
-    }, []);
+    const getBoxes = async () => {
+      const data = await fetchBoxes();
+      setBoxes(data);
+    };
+    getBoxes();
+  }, []);
 
-    useEffect(() => {
-      const filtered = boxes.filter((box) => box.location === selectedRoom);
-      setFilteredBoxes(filtered);
-    }, [selectedRoom, boxes]);
+  useEffect(() => {
+    let allowedIds = [];
+
+    if (selectedRoom === "Providencia") {
+      allowedIds = [5, 7, 12];
+    } else if (selectedRoom === "Las Condes") {
+      allowedIds = [];
+    }
+
+    const filtered = boxes.filter(
+      (box) => box.location === selectedRoom && allowedIds.includes(box.id)
+    );
+    setFilteredBoxes(filtered);
+  }, [selectedRoom, boxes]);
 
   return (
     <Container>
@@ -55,42 +63,28 @@ export default function Reserve() {
           <option value="Providencia">Sede Providencia</option>
           <option value="Las Condes">Sede Las Condes</option>
         </Form.Select>
-        
 
         <Row className="mt-4">
-                <h4>Boxes</h4>
-                <Col >
-                <div id="wrapper-gallery-boxes">
-                {filteredBoxes.map((box, index) => (
-                  <img
-                    key={index}
-                    src={box.original}
-                    alt={`Box ${index}`}
-                    className="me-2"
-                    // style={{ height: '60%', objectFit: 'cover' }}
-                  />
-                ))}
-                </div>
-                </Col>
-              </Row>
+          <h4>Selecciona un box</h4>
+          <Col>
+            <div id="wrapper-gallery-boxes">
+              {filteredBoxes.length > 0 ? (
+                filteredBoxes.map((box, index) => (
+                  <div key={index} className="boxes-content">
+                    <img
+                      src={box.original}
+                      alt={`Box ${index}`}
+                    />
+                    <h5 style={{ marginTop: "0.2rem" }}>{box.originalTitle}</h5>
+                  </div>
+                ))
+              ) : (
+                <p>Imágenes no disponibles.</p>
+              )}
+            </div>
+          </Col>
+        </Row>
 
-
-
-        <h4>Selecciona un box</h4>
-        <div id="boxes">
-          <div className="boxes-img">
-            <Image src="/assets/img/box1-agendar.jpg" fluid />
-            <h5>Box 1</h5>
-          </div>
-          <div className="boxes-img">
-            <Image src="/assets/img/box2-agendar.jpg" fluid />
-            <h5>Box 2</h5>
-          </div>
-          <div className="boxes-img">
-            <Image src="/assets/img/box3-agendar.jpg" fluid />
-            <h5>Box 3</h5>
-          </div>
-        </div>
         <div id="calendar">
           <h2>Agenda</h2>
           <div id="calendar-options">
