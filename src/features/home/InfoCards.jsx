@@ -19,7 +19,7 @@ const iconMap = {
   MdOutlineLocationOn: <MdOutlineLocationOn />,
 };
 
-export default function InfoCards({ professionalsRef }) {
+export default function InfoCards({ professionalsRef, howItWorksRef }) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,14 @@ export default function InfoCards({ professionalsRef }) {
     };
     getCards();
   }, []);
+
+  const handleScroll = (title) => {
+    if (title === "Cómo funcionamos") {
+      howItWorksRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (title === "Nuestros Profesionales") {
+      professionalsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="scroll-container">
@@ -45,7 +53,7 @@ export default function InfoCards({ professionalsRef }) {
                 {card.link !== "" ? (
                 <Link to={card.link} target={card.title !== "Como funcionamos" && card.title !== "Nuestros Profesionales" && card.title !== "¿Cómo Agendar?" ? "_blank" : undefined} rel="noopener noreferrer">{card.link_text}</Link>
                 ) : (
-                <Link onClick={() => professionalsRef.current?.scrollIntoView() }>
+                <Link onClick={() => handleScroll(card.title) }>
                   Ver más
                 </Link>
                 )}

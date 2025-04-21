@@ -9,6 +9,7 @@ import "./home.css";
 
 export default function Home() {
   const professionalsRef = useRef(null);
+  const howItWorksRef = useRef(null);
   return (
     <>
       <main>
@@ -30,7 +31,7 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <InfoCards professionalsRef={professionalsRef} />
+            <InfoCards professionalsRef={professionalsRef} howItWorksRef={howItWorksRef} />
           </Container>
         </section>
         <section>
@@ -43,7 +44,7 @@ export default function Home() {
             <ProfessionalCards />
           </Container>
         </section>
-        <section>
+        <section ref={howItWorksRef} id="how-it-works-section">
           <Container>
             <FeatureSection />
           </Container>
