@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+.features-content hr {
+    margin: 0.5rem 0 0.7rem 0;
+}
+
 .image-features {
     margin: 1rem 0;
 }
