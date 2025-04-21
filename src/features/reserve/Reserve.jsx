@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { FaArrowLeft, FaArrowRight } from "../../assets/icons/icons";
+import { FaArrowLeft, FaArrowRight, FaRegTrashAlt } from "../../assets/icons/icons";
 import "./reserve.css";
 
 export default function Reserve() {
@@ -14,8 +14,11 @@ export default function Reserve() {
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
   const [filteredBoxes, setFilteredBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState({});
-  console.log("Selected Box:", selectedBox);
-
+  const [selectedBoxes, setSelectedBoxes] = useState([]);
+  
+  const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
+  const [reservations, setReservations] = useState([]); // Reservas realizadas
+  
   const days = [
     "Lunes",
     "Martes",
@@ -30,7 +33,7 @@ export default function Reserve() {
 
   const handleSelectBox = (box) => {
     setSelectedBox(box);
-    console.log("Box seleccionado:", box);
+    setSelectedBoxes([...selectedBoxes, selectedBox]);
   };
 
   useEffect(() => {
@@ -59,6 +62,55 @@ export default function Reserve() {
   useEffect(() => {
     setSelectedBox("");
   }, [selectedRoom]);
+
+  const handleRemoveReservation = (resToRemove) => {
+    const updatedReservations = reservations.filter(
+      (res) =>
+        !(
+          res.day === resToRemove.day &&
+          res.hour === resToRemove.hour &&
+          res.selectedBox?.id === resToRemove.selectedBox?.id
+        )
+    );
+    setReservations(updatedReservations);
+  };
+
+  const handleSelectTime = (day, hour) => {
+    // Verificar si ya está reservada
+    const isReserved = reservations.some(
+      (res) => res.day === day && res.hour === hour
+    );
+
+    if (isReserved) {
+      // Si ya está reservada, eliminarla del historial
+      const updatedReservations = reservations.filter(
+        (res) => !(res.day === day && res.hour === hour)
+      );
+      setReservations(updatedReservations);
+    } else {
+      // Si no está reservada, agregarla al historial
+      let newReservations = [];
+      if (reservationType === "option1") {
+        // Por hora
+        newReservations = [{ day, hour, selectedBox }];
+      } else if (reservationType === "option2") {
+        // Jornada AM (8:00 - 12:00)
+        newReservations = hours
+          .filter((h) => parseInt(h) >= 8 && parseInt(h) < 12)
+          .map((h) => ({ day, hour: h, selectedBox }));
+      } else if (reservationType === "option3") {
+        // Jornada PM (12:00 - 18:00)
+        newReservations = hours
+          .filter((h) => parseInt(h) >= 12 && parseInt(h) < 18)
+          .map((h) => ({ day, hour: h, selectedBox }));
+      } else if (reservationType === "option4") {
+        // Día completo (8:00 - 18:00)
+        newReservations = hours.map((h) => ({ day, hour: h, selectedBox }));
+      }
+
+      setReservations([...reservations, ...newReservations]);
+    }
+  };
 
   return (
     <Container>
@@ -114,6 +166,8 @@ export default function Reserve() {
                   name="options"
                   value="option1"
                   id="option1"
+                  checked={reservationType === "option1"}
+                  onChange={(e) => setReservationType(e.target.value)}
                 />
                 <Form.Check
                   type="radio"
@@ -121,6 +175,8 @@ export default function Reserve() {
                   name="options"
                   value="option2"
                   id="option2"
+                  checked={reservationType === "option2"}
+                  onChange={(e) => setReservationType(e.target.value)}
                 />
                 <Form.Check
                   type="radio"
@@ -128,6 +184,8 @@ export default function Reserve() {
                   name="options"
                   value="option3"
                   id="option3"
+                  checked={reservationType === "option3"}
+                  onChange={(e) => setReservationType(e.target.value)}
                 />
                 <Form.Check
                   type="radio"
@@ -135,6 +193,8 @@ export default function Reserve() {
                   name="options"
                   value="option4"
                   id="option4"
+                  checked={reservationType === "option4"}
+                  onChange={(e) => setReservationType(e.target.value)}
                 />
               </div>
             </Form>
@@ -166,15 +226,60 @@ export default function Reserve() {
               {hours.map((hour) => (
                 <tr key={hour}>
                   <td className="bold-td">{hour}</td>
-                  {days.map((i) => (
-                    <td key={i} className="text-center hover-td">
-                      {hour}
-                    </td>
-                  ))}
+                  {days.map((day) => {
+                    const isReserved = reservations.some(
+                      (res) => res.day === day && res.hour === hour
+                    );
+
+                    return (
+                      <td
+                        key={day}
+                        className={`text-center hover-td ${
+                          isReserved ? "reserved" : ""
+                        }`}
+                        onClick={() => handleSelectTime(day, hour)}
+                      >
+                        {isReserved ? (
+                          <>
+                            {hour}
+                            <br />
+                            <span style={{ fontSize: "0.75rem" }}>
+                              Reservado
+                            </span>
+                          </>
+                        ) : (
+                          hour
+                        )}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>
           </Table>
+          <Row>
+            <Col lg={5}>
+          <div id="historyList">
+            <h5>Horas seleccionadas</h5>
+            <ul>
+              {reservations.map((res, index) => (
+                <li key={index}>
+                  {res.day} - {res.hour} —{" "}
+                  {res.selectedBox?.originalTitle || "Box no asignado"} (
+                  {res.selectedBox?.location || "Ubicación desconocida"})
+                  <FaRegTrashAlt
+                    onClick={() => handleRemoveReservation(res)}
+                    style={{ cursor: "pointer", color: "red", marginLeft: "10px" }}
+                    title="Eliminar reserva"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+          </Col>
+          <Col lg={7}>
+          </Col>
+          </Row>
           <div id="calendar-footer">
             <Button variant="success" className="mt-2">
               Reservar

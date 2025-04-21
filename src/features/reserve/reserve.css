@@ -79,6 +79,16 @@
 .hover-td:hover {
     background-color: var(--primary-color);
     color: var(--text-secondary);
+    cursor: pointer;
+}
+
+td.reserved {
+    background-color: var(--background-tertiary-color);
+    color: var(--text-primary);
+    font-weight: bold;
+    /* pointer-events: none; */
+    opacity: 0.85;
+
 }
 
 .bold-td {
@@ -94,6 +104,21 @@
 #calendar #calendar-footer .btn {
     width: 100%;
 
+}
+
+#historyList {
+    margin: 2rem 0;
+}
+
+#historyList ul{
+    padding: 0 0.5rem;
+    max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px; /* Para que no corte texto con el scroll */
+}
+
+#historyList li{
+   margin: 1rem 0;
 }
 
 @media screen and (min-width: 992px) {
