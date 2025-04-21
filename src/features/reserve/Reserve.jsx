@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import TermsModal from "../../shared/components/modals/TermsModal";
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -23,6 +24,8 @@ export default function Reserve() {
   const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
   const [reservations, setReservations] = useState([]); // Reservas realizadas
 
+  const [showTerms, setShowTerms] = useState(false);
+
   const days = [
     "Lunes",
     "Martes",
@@ -34,6 +37,14 @@ export default function Reserve() {
   ];
 
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
+
+  const handleCloseTerms = () => setShowTerms(false);
+
+  const handleAcceptTerms = () => {
+    alert("Reserva exitosa");
+
+    setShowTerms(false);
+  };
 
   const handleSelectBox = (box) => {
     setSelectedBox(box);
@@ -293,10 +304,15 @@ export default function Reserve() {
             <Col lg={7}></Col>
           </Row>
           <div id="calendar-footer">
-            <Button variant="success" className="mt-2">
+            <Button variant="success" className="mt-2" onClick={() => setShowTerms(true)}>
               Reservar
             </Button>
           </div>
+          <TermsModal
+            show={showTerms}
+            handleClose={handleCloseTerms}
+            handleAccept={handleAcceptTerms}
+          />
         </div>
       </div>
     </Container>
