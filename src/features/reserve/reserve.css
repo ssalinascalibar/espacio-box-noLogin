@@ -26,7 +26,7 @@
 
 /* WebKit browsers (Chrome, Safari) */
 #wrapper-gallery-boxes::-webkit-scrollbar {
-    height: 12px;
+    height: 8px;
 }
 
 #wrapper-gallery-boxes::-webkit-scrollbar-track {
@@ -120,6 +120,11 @@
     #wrapper-gallery-boxes img {
         height: 300px;
 
+    }
+
+    /* WebKit browsers (Chrome, Safari) */
+    #wrapper-gallery-boxes::-webkit-scrollbar {
+        height: 12px;
     }
 
 
