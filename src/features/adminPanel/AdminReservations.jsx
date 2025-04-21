@@ -9,14 +9,6 @@ export default function AdminReservations({ professionals, setProfessionals }) {
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredProfessionals, setFilteredProfessionals] = useState([]);
 
-  // const addPayment = (id) => {
-  //   const index = professionals.findIndex(
-  //     (professional) => professional.id === id
-  //   );
-  //   professionals[index].ispayed = !professionals[index].ispayed;
-  //   setProfessionals([...professionals]);
-  // };
-
   const addPayment = (id) => {
     const updatedProfessionals = professionals.map((p) =>
       p.id === id ? { ...p, ispayed: !p.ispayed } : p
@@ -31,27 +23,9 @@ export default function AdminReservations({ professionals, setProfessionals }) {
       );
     }
   
-    if (selectedRoom) {
-      updatedFiltered = updatedFiltered.filter(
-        (p) => p.room === selectedRoom
-      );
-    }
-  
     setFilteredProfessionals(updatedFiltered);
   };
 
-  const handleFilter = () => {
-    if (!selectedUser) {
-      alert("No hay selección");
-      return;
-    }
-
-    const filtered = professionals.filter(
-      (p) => p.name + p.paternal_surname === selectedUser
-    );
-
-    setFilteredProfessionals(filtered);
-  };
 
   const clean = () => {
     setFilteredProfessionals(professionals);
@@ -59,7 +33,6 @@ export default function AdminReservations({ professionals, setProfessionals }) {
     setSelectedRoom("");
   };
 
-  
   useEffect(() => {
     let updatedList = professionals;
   
@@ -69,9 +42,6 @@ export default function AdminReservations({ professionals, setProfessionals }) {
       );
     }
   
-    if (selectedRoom) {
-      updatedList = updatedList.filter((p) => p.room === selectedRoom);
-    }
   
     setFilteredProfessionals(updatedList);
   }, [professionals, selectedUser, selectedRoom]);
@@ -112,9 +82,9 @@ export default function AdminReservations({ professionals, setProfessionals }) {
           <Button variant="secondary" className="mb-4" onClick={clean}>
             Limpiar
           </Button>
-          <Button variant="primary" className="mb-4" onClick={handleFilter}>
+          {/* <Button variant="primary" className="mb-4" onClick={handleFilter}>
             Filtrar
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div id="admin-table">
