@@ -52,29 +52,31 @@ export default function Reserve() {
   return (
     <Container>
       <div className="backgroundSection">
-        <Form.Select
-          id="filter-room"
-          name="filterRoom"
-          aria-label="Filtrar por sede"
-          value={selectedRoom}
-          onChange={(e) => setSelectedRoom(e.target.value)}
-        >
-          <option>Filtrar por sede</option>
-          <option value="Providencia">Sede Providencia</option>
-          <option value="Las Condes">Sede Las Condes</option>
-        </Form.Select>
+        <Row className="my-4">
+        <h4>Selecciona una sede</h4>
+          <Col>
+            <Form.Select
+              id="filter-room"
+              name="filterRoom"
+              aria-label="Filtrar por sede"
+              value={selectedRoom}
+              onChange={(e) => setSelectedRoom(e.target.value)}
+            >
+              <option>Filtrar por sede</option>
+              <option value="Providencia">Sede Providencia</option>
+              <option value="Las Condes">Sede Las Condes</option>
+            </Form.Select>
+          </Col>
+        </Row>
 
-        <Row className="mt-4">
+        <Row className="my-4">
           <h4>Selecciona un box</h4>
           <Col>
             <div id="wrapper-gallery-boxes">
               {filteredBoxes.length > 0 ? (
                 filteredBoxes.map((box, index) => (
                   <div key={index} className="boxes-content">
-                    <img
-                      src={box.original}
-                      alt={`Box ${index}`}
-                    />
+                    <img src={box.original} alt={`Box ${index}`} />
                     <h5 style={{ marginTop: "0.2rem" }}>{box.originalTitle}</h5>
                   </div>
                 ))
