@@ -27,6 +27,19 @@ admin@gmail.com
 seba@gmail.com
 123456
 
+## Acceso al panel de Usuario
+
+Estos son los usuarios predefinos que pueden iniciar sesión.
+Si hay usuarios nuevos, deben registrarse y esperar la aprobación de Admin.
+
+public/db/professionals.json
+
+camila@gmail.com
+123456
+
+matias@gmail.com
+123456
+
 ## CRUD usuarios (profesionales)
 
 - Las imagenes de usuarios nuevos deben medir 800x600px, optimizado para web.
