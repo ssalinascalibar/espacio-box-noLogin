@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { ReserveLink } from "../links/CustomLinks";
 import ProfessionalCardModal from "../modals/ProfessionalCardModal";
 import "./professionalCards.css";
 
@@ -33,6 +34,7 @@ export default function ProfessionalCards() {
             altamente calificados, incluyendo psicólogos, nutricionistas y otros
             especialistas.
           </p>
+          
         </div>
         <div className="scroll-container-professionals">
           <Row>
@@ -64,6 +66,10 @@ export default function ProfessionalCards() {
             )}
           </Row>
         </div>
+        <div id="professional-link">
+          <h4>Regístrate para acceder a la comunidad de profesionales</h4>
+         <ReserveLink color="var(--primary-color)" hoverColor="var(--accent-color)" text="IR A LA COMUNIDAD" /> 
+         </div>
       </div>
     </>
   );

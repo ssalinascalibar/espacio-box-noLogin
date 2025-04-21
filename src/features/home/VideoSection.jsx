@@ -126,8 +126,8 @@ export default function VideoSection() {
             ))}
             <Col>
           <div id="room-link">
-          <h4>Te invitamos a conocer nuestro espacio</h4>
-          <BoxLink color="var(--primary-color)" hoverColor="var(--accent-color)"/>
+            <h4>Te invitamos a conocer nuestro espacio</h4>
+            <BoxLink color="var(--primary-color)" hoverColor="var(--accent-color)"/>
           </div>
             </Col>
           </Row>

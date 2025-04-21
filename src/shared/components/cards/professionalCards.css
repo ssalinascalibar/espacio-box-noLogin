@@ -1,3 +1,11 @@
+#professional-link{
+  display: flex;
+  flex-direction: column;
+  margin: 4rem 0 1rem 0;
+}
+
+
+
 .scroll-container-professionals {
     overflow-x: auto;
     white-space: normal;
@@ -56,6 +64,20 @@
 
   .professional-title {
     width: 60%;
+  }
+
+  #professional-link{
+    text-align: center;
+    align-items: center;
+    font-size: 1.2em;
+  }
+
+  #professional-link h4{
+    font-size: 1.5em;
+  }
+
+  #professional-link a{
+    font-size: 1.1em;
   }
   
 }
