@@ -13,6 +13,8 @@ export default function Reserve() {
   const [boxes, setBoxes] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
   const [filteredBoxes, setFilteredBoxes] = useState([]);
+  const [selectedBox, setSelectedBox] = useState({});
+  console.log("Selected Box:", selectedBox);
 
   const days = [
     "Lunes",
@@ -25,6 +27,11 @@ export default function Reserve() {
   ];
 
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
+
+  const handleSelectBox = (box) => {
+    setSelectedBox(box);
+    console.log("Box seleccionado:", box);
+  };
 
   useEffect(() => {
     const getBoxes = async () => {
@@ -49,11 +56,15 @@ export default function Reserve() {
     setFilteredBoxes(filtered);
   }, [selectedRoom, boxes]);
 
+  useEffect(() => {
+    setSelectedBox("");
+  }, [selectedRoom]);
+
   return (
     <Container>
       <div className="backgroundSection">
         <Row className="my-4">
-        <h4>Selecciona una sede</h4>
+          <h4>Selecciona una sede</h4>
           <Col>
             <Form.Select
               id="filter-room"
@@ -75,7 +86,11 @@ export default function Reserve() {
             <div id="wrapper-gallery-boxes">
               {filteredBoxes.length > 0 ? (
                 filteredBoxes.map((box, index) => (
-                  <div key={index} className="boxes-content">
+                  <div
+                    key={index}
+                    className="boxes-content"
+                    onClick={() => handleSelectBox(box)}
+                  >
                     <img src={box.original} alt={`Box ${index}`} />
                     <h5 style={{ marginTop: "0.2rem" }}>{box.originalTitle}</h5>
                   </div>
