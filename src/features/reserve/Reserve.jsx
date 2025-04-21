@@ -6,7 +6,11 @@ import Col from "react-bootstrap/Col";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { FaArrowLeft, FaArrowRight, FaRegTrashAlt } from "../../assets/icons/icons";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaRegTrashAlt,
+} from "../../assets/icons/icons";
 import "./reserve.css";
 
 export default function Reserve() {
@@ -15,10 +19,10 @@ export default function Reserve() {
   const [filteredBoxes, setFilteredBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState({});
   const [selectedBoxes, setSelectedBoxes] = useState([]);
-  
+
   const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
   const [reservations, setReservations] = useState([]); // Reservas realizadas
-  
+
   const days = [
     "Lunes",
     "Martes",
@@ -76,6 +80,11 @@ export default function Reserve() {
   };
 
   const handleSelectTime = (day, hour) => {
+    // Verificar si se ha seleccionado un box
+    if (!selectedBox || Object.keys(selectedBox).length === 0) {
+      alert("Por favor, selecciona un box antes de agendar.");
+      return;
+    }
     // Verificar si ya está reservada
     const isReserved = reservations.some(
       (res) => res.day === day && res.hour === hour
@@ -259,26 +268,29 @@ export default function Reserve() {
           </Table>
           <Row>
             <Col lg={5}>
-          <div id="historyList">
-            <h5>Horas seleccionadas</h5>
-            <ul>
-              {reservations.map((res, index) => (
-                <li key={index}>
-                  {res.day} - {res.hour} —{" "}
-                  {res.selectedBox?.originalTitle || "Box no asignado"} (
-                  {res.selectedBox?.location || "Ubicación desconocida"})
-                  <FaRegTrashAlt
-                    onClick={() => handleRemoveReservation(res)}
-                    style={{ cursor: "pointer", color: "red", marginLeft: "10px" }}
-                    title="Eliminar reserva"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-          </Col>
-          <Col lg={7}>
-          </Col>
+              <div id="historyList">
+                <h5>Horas seleccionadas</h5>
+                <ul>
+                  {reservations.map((res, index) => (
+                    <li key={index}>
+                      {res.day} - {res.hour} —{" "}
+                      {res.selectedBox?.originalTitle || "Box no asignado"} (
+                      {res.selectedBox?.location || "Ubicación desconocida"})
+                      <FaRegTrashAlt
+                        onClick={() => handleRemoveReservation(res)}
+                        style={{
+                          cursor: "pointer",
+                          color: "red",
+                          marginLeft: "10px",
+                        }}
+                        title="Eliminar reserva"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Col>
+            <Col lg={7}></Col>
           </Row>
           <div id="calendar-footer">
             <Button variant="success" className="mt-2">
