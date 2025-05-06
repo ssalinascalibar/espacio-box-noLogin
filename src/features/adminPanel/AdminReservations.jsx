@@ -70,6 +70,10 @@ export default function AdminReservations({ professionals }) {
       );
     }
 
+    if (selectedRoom) {
+      updatedList = updatedList.filter((p) => p.room === selectedRoom);
+    }
+
     setFilteredReservations(updatedList);
   }, [reservations, selectedUser, selectedRoom]);
 
@@ -105,9 +109,9 @@ export default function AdminReservations({ professionals }) {
           onChange={(e) => setSelectedRoom(e.target.value)}
         >
           <option>Filtrar por sala</option>
-          <option value="1">Sala 1</option>
-          <option value="2">Sala 2</option>
-          <option value="3">Sala 3</option>
+          <option value="Sala 1">Sala 1</option>
+          <option value="Sala 2">Sala 2</option>
+          <option value="Sala 3">Sala 3</option>
         </Form.Select>
         <Form.Select
           id="filter-user"
