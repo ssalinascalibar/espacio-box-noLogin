@@ -98,6 +98,7 @@ export default function AdminReservations({ professionals, setProfessionals }) {
               <th>Hora Inicio</th>
               <th>Valor</th>
               <th>Pagados</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -130,6 +131,9 @@ export default function AdminReservations({ professionals, setProfessionals }) {
                     checked={p.ispayed}
                     onChange={() => addPayment(p.id)}
                   />
+                </td>
+                <td>
+                  <Button variant="success" className="mb-4">Reservar</Button>
                 </td>
               </tr>
             ))}
