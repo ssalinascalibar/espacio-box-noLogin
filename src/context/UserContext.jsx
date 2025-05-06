@@ -1,11 +1,14 @@
 import { createContext, useState, useEffect, useRef } from "react";
 import { fetchProfessionals } from "../services/api";
+import { fetchReservations } from "../services/api";
 
 const UserContext = createContext({});
 
 const UserContextProvider = ({ children }) => {
   const [professionals, setProfessionals] = useState([]);
+  const [reservations, setReservations] = useState([]);
   const prevProfessionalsRef = useRef();
+  const prevReservationsRef = useRef();
 
   useEffect(() => {
     const getUsers = async () => {
@@ -18,6 +21,18 @@ const UserContextProvider = ({ children }) => {
     };
     getUsers();
   }, []);
+
+  useEffect(() => {
+    const getReservations = async () => {
+      const data = await fetchReservations();
+
+      if (!prevReservationsRef.current || prevReservationsRef.current !== data) {
+        setReservations(data);
+        prevReservationsRef.current = data; 
+      }
+    };
+    getReservations();
+  }, []);
   
 //   useEffect(() => {
 //     const getUsers = async () => {
@@ -29,7 +44,7 @@ const UserContextProvider = ({ children }) => {
   
 
   return (
-    <UserContext.Provider value={{ professionals, setProfessionals }}>
+    <UserContext.Provider value={{ professionals, setProfessionals, reservations, setReservations }}>
       {children}
     </UserContext.Provider>
   );

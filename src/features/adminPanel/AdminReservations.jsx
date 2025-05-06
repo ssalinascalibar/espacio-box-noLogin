@@ -1,50 +1,99 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../../context/UserContext";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import CreateReserveModal from "../../shared/components/modals/CreateReserveModal";
 import "./adminPanel.css";
 
-export default function AdminReservations({ professionals, setProfessionals }) {
+export default function AdminReservations({ professionals }) {
+  const { reservations, setReservations } = useContext(UserContext);
+
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredProfessionals, setFilteredProfessionals] = useState([]);
+  const [filteredReservations, setFilteredReservations] = useState([]);
+  console.log(filteredProfessionals);
+
+  const [showModal, setShowModal] = useState(false);
 
   const addPayment = (id) => {
-    const updatedProfessionals = professionals.map((p) =>
+    const updatedProfessionals = reservations.map((p) =>
       p.id === id ? { ...p, ispayed: !p.ispayed } : p
     );
-    setProfessionals(updatedProfessionals);
-  
+    setReservations(updatedProfessionals);
+
     let updatedFiltered = updatedProfessionals;
-  
+
     if (selectedUser) {
       updatedFiltered = updatedFiltered.filter(
         (p) => p.name + p.paternal_surname === selectedUser
       );
     }
-  
+
     setFilteredProfessionals(updatedFiltered);
   };
 
-
   const clean = () => {
-    setFilteredProfessionals(professionals);
+    setFilteredProfessionals(reservations);
     setSelectedUser("");
     setSelectedRoom("");
   };
 
+  const handleCreateReservation = (newReservation) => {
+    const newId =
+      reservations && reservations.length > 0
+        ? Math.max(...reservations.map((r) => r.id)) + 1
+        : 1;
+
+    // Crear un nuevo registro con las propiedades necesarias
+    const newRecord = {
+      id: newId,
+      room: newReservation.room,
+      name: newReservation.professional.name,
+      paternal_surname: newReservation.professional.paternal_surname || "",
+      date: newReservation.date,
+      start_time: newReservation.start_time,
+      hourly_rate: newReservation.professional.hourly_rate,
+      ispayed: newReservation.ispayed,
+    };
+
+    // Actualizar el estado con el nuevo registro
+    setReservations([...reservations, newRecord]);
+  };
+
   useEffect(() => {
-    let updatedList = professionals;
-  
+    let updatedList = reservations;
+
     if (selectedUser) {
       updatedList = updatedList.filter(
         (p) => p.name + p.paternal_surname === selectedUser
       );
     }
-  
-  
-    setFilteredProfessionals(updatedList);
-  }, [professionals, selectedUser, selectedRoom]);
+
+    setFilteredReservations(updatedList);
+  }, [reservations, selectedUser, selectedRoom]);
+
+  const handleDateChange = (id, newDate) => {
+    const newReservations = reservations.map((reserve) =>
+      reserve.id === id ? { ...reserve, date: newDate } : reserve
+    );
+    setReservations(newReservations);
+  };
+
+  const handleTimeChange = (id, newTime) => {
+    const newReservations = reservations.map((reserve) =>
+      reserve.id === id ? { ...reserve, start_time: newTime } : reserve
+    );
+    setReservations(newReservations);
+  };
+
+  const handleRoomChange = (id, newRoom) => {
+    const newReservations = reservations.map((res) =>
+      res.id === id ? { ...res, room: newRoom } : res
+    );
+    setReservations(newReservations);
+  };
 
   return (
     <div id="background-admin">
@@ -69,7 +118,7 @@ export default function AdminReservations({ professionals, setProfessionals }) {
           onChange={(e) => setSelectedUser(e.target.value)}
         >
           <option>Filtrar por usuario</option>
-          {professionals.map((p, i) => (
+          {reservations.map((p, i) => (
             <option key={i} value={p.name + p.paternal_surname}>
               {p.name} {p.paternal_surname}
             </option>
@@ -82,9 +131,13 @@ export default function AdminReservations({ professionals, setProfessionals }) {
           <Button variant="secondary" className="mb-4" onClick={clean}>
             Limpiar
           </Button>
-          {/* <Button variant="primary" className="mb-4" onClick={handleFilter}>
-            Filtrar
-          </Button> */}
+          <Button
+            variant="success"
+            className="mb-4"
+            onClick={() => setShowModal(true)}
+          >
+            Nueva reserva
+          </Button>
         </div>
       </div>
       <div id="admin-table">
@@ -98,29 +151,42 @@ export default function AdminReservations({ professionals, setProfessionals }) {
               <th>Hora Inicio</th>
               <th>Valor</th>
               <th>Pagados</th>
-              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {filteredProfessionals?.map((p, i) => (
+            {filteredReservations?.map((p, i) => (
               <tr key={i}>
                 <td>{p.id}</td>
                 <td>
-                  <Form.Select aria-label="Seleccionar sala tabla" id={`row-sala-${p.id}`} name={`rowSala${p.id}`}>
-                    <option>Salas</option>
-                    <option value="1">Sala 1</option>
-                    <option value="2">Sala 2</option>
-                    <option value="3">Sala 3</option>
+                  <Form.Select
+                    aria-label="Seleccionar sala"
+                    id={`row-sala-${p.id}`}
+                    name={`rowSala${p.id}`}
+                    value={p.room || ""}
+                    onChange={(e) => handleRoomChange(p.id, e.target.value)}
+                  >
+                    <option value="">Salas</option>
+                    <option value="Sala 1">Sala 1</option>
+                    <option value="Sala 2">Sala 2</option>
+                    <option value="Sala 3">Sala 3</option>
                   </Form.Select>
                 </td>
                 <td>
                   {p.name} {p.paternal_surname} {p.maternal_surname}
                 </td>
                 <td>
-                  <Form.Control type="date" />
+                  <Form.Control
+                    type="date"
+                    value={p.date}
+                    onChange={(e) => handleDateChange(p.id, e.target.value)}
+                  />
                 </td>
                 <td>
-                  <Form.Control type="time" />
+                  <Form.Control
+                    type="time"
+                    value={p.start_time}
+                    onChange={(e) => handleTimeChange(p.id, e.target.value)}
+                  />
                 </td>
                 <td>{p.hourly_rate}</td>
                 <td>
@@ -132,14 +198,17 @@ export default function AdminReservations({ professionals, setProfessionals }) {
                     onChange={() => addPayment(p.id)}
                   />
                 </td>
-                <td>
-                  <Button variant="success" className="mb-4">Reservar</Button>
-                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
+      <CreateReserveModal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        professionals={professionals}
+        onCreateReservation={handleCreateReservation}
+      />
     </div>
   );
 }

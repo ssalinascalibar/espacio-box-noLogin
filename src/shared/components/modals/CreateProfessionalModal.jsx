@@ -13,7 +13,6 @@ export default function CreateProfessionalModal({
   setProfessionals,
 }) {
   const [newProfessional, setNewProfessional] = useState({});
-  console.log(newProfessional);
   const [image, setImage] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [showAlertWarning, setShowAlertWarning] = useState(false);

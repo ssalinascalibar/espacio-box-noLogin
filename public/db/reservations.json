@@ -1,0 +1,68 @@
+[
+    {
+      "id": 0,
+      "room": "Sala 1",
+      "name": "Camila",
+      "paternal_surname": "Unda",
+      "maternal_surname": "",
+      "date": "2025-05-05",
+      "start_time": "14:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    },
+    {
+      "id": 1,
+      "room": "Sala 1",
+      "name": "Rodrigo",
+      "paternal_surname": "Ramos",
+      "maternal_surname": "",
+      "date": "2025-05-05",
+      "start_time": "14:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    },
+    {
+      "id": 2,
+      "room": "Sala 3",
+      "name": "Matías",
+      "paternal_surname": "Bunster",
+      "maternal_surname": "",
+      "date": "2025-05-05",
+      "start_time": "14:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    },
+    {
+      "id": 3,
+      "room": "Sala 2",
+      "name": "Silvia",
+      "paternal_surname": "Pedreros",
+      "maternal_surname": "",
+      "date": "2025-05-05",
+      "start_time": "09:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    },
+    {
+      "id": 4,
+      "room": "Sala 2",
+      "name": "María Ignacia",
+      "paternal_surname": "Munster",
+      "maternal_surname": "",
+      "date": "2025-05-05",
+      "start_time": "14:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    },
+    {
+      "id": 5,
+      "room": "Sala 1",
+      "name": "Emilia",
+      "paternal_surname": "Espino",
+      "maternal_surname": "López",
+      "date": "2025-05-05",
+      "start_time": "16:00",
+      "hourly_rate": 6000,
+      "ispayed": true
+    }
+  ]
