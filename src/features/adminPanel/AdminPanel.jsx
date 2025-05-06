@@ -15,8 +15,6 @@ export default function AdminPanel() {
     (professional) => professional.status === "Aprobado"
   );
 
-  console.log(approvedProfessionals)
-
   const [key, setKey] = useState("professionals-table");
 
   return (

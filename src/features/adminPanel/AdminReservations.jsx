@@ -11,19 +11,18 @@ export default function AdminReservations({ professionals }) {
 
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
-  const [filteredProfessionals, setFilteredProfessionals] = useState([]);
   const [filteredReservations, setFilteredReservations] = useState([]);
-  console.log(filteredProfessionals);
+  
 
   const [showModal, setShowModal] = useState(false);
 
   const addPayment = (id) => {
-    const updatedProfessionals = reservations.map((p) =>
+    const updatedReservations = reservations.map((p) =>
       p.id === id ? { ...p, ispayed: !p.ispayed } : p
     );
-    setReservations(updatedProfessionals);
+    setReservations(updatedReservations);
 
-    let updatedFiltered = updatedProfessionals;
+    let updatedFiltered = updatedReservations;
 
     if (selectedUser) {
       updatedFiltered = updatedFiltered.filter(
@@ -31,11 +30,11 @@ export default function AdminReservations({ professionals }) {
       );
     }
 
-    setFilteredProfessionals(updatedFiltered);
+    setFilteredReservations(updatedFiltered);
   };
 
   const clean = () => {
-    setFilteredProfessionals(reservations);
+    setFilteredReservations(reservations);
     setSelectedUser("");
     setSelectedRoom("");
   };
