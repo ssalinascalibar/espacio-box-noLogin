@@ -1,3 +1,11 @@
+.selected-box {
+    text-align: center;
+    transition: all 0.3s ease; /* Animación suave */
+    background-color: var( --primary-color);
+    border-radius: 10px;
+    color: var(--text-secondary);
+  } 
+
 #wrapper-gallery-boxes {
     width: 100%;
     overflow-x: scroll;

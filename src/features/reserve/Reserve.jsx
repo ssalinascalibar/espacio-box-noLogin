@@ -160,7 +160,9 @@ export default function Reserve() {
                 filteredBoxes.map((box, index) => (
                   <div
                     key={index}
-                    className="boxes-content"
+                    className={`boxes-content ${
+                      selectedBox?.id === box.id ? "selected-box" : ""
+                    }`} // Agregar clase condicional
                     onClick={() => handleSelectBox(box)}
                   >
                     <img src={box.original} alt={`Box ${index}`} />
