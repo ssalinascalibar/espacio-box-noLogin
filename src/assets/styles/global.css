@@ -29,6 +29,13 @@ a {
   margin: 1rem 0 2rem 0;
 }
 
+.backgroundSectionAdmin {
+  background-color:#fff;
+  border-radius: 8px;
+  padding: 2rem 0.8rem;
+  margin: 1rem 0 2rem 0;
+}
+
 .section-titles {
   margin: 0 0 0.7rem 0;
 }
