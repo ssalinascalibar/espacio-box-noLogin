@@ -7,6 +7,7 @@ const UserContext = createContext({});
 const UserContextProvider = ({ children }) => {
   const [professionals, setProfessionals] = useState([]);
   const [reservations, setReservations] = useState([]);
+  console.log("reservations", reservations)
   const prevProfessionalsRef = useRef();
   const prevReservationsRef = useRef();
 

@@ -53,17 +53,17 @@ export default function CreateReserveModal({
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3">
-            <Form.Label>Sala</Form.Label>
+            <Form.Label>Box</Form.Label>
             <Form.Select
               value={newReservation.room}
               onChange={(e) =>
                 setNewReservation({ ...newReservation, room: e.target.value })
               }
             >
-              <option value="">Seleccionar sala</option>
-              <option value="Sala 1">Sala 1</option>
-              <option value="Sala 2">Sala 2</option>
-              <option value="Sala 3">Sala 3</option>
+              <option value="">Seleccionar box</option>
+              <option value="Box 1">Box 1</option>
+              <option value="Box 2">Box 2</option>
+              <option value="Box 3">Box 3</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">

@@ -39,18 +39,27 @@ export default function AdminReservations({ professionals }) {
     setSelectedRoom("");
   };
 
+  const seenNames = new Set();
+const uniqueUsers = reservations.filter((res) => {
+  if (seenNames.has(res.name)) return false;
+  seenNames.add(res.name);
+  return true;
+});
+
   const handleCreateReservation = (newReservation) => {
     const newId =
       reservations && reservations.length > 0
         ? Math.max(...reservations.map((r) => r.id)) + 1
         : 1;
 
-    // Crear un nuevo registro con las propiedades necesarias
+    // Crear un nuevo registro 
     const newRecord = {
       id: newId,
       room: newReservation.room,
       name: newReservation.professional.name,
       paternal_surname: newReservation.professional.paternal_surname || "",
+      maternal_surname: newReservation.professional.maternal_surname || "",
+      email: newReservation.professional.email || "",
       date: newReservation.date,
       start_time: newReservation.start_time,
       hourly_rate: newReservation.professional.hourly_rate,
@@ -71,7 +80,7 @@ export default function AdminReservations({ professionals }) {
     }
 
     if (selectedRoom) {
-      updatedList = updatedList.filter((p) => p.room === selectedRoom);
+      updatedList = updatedList.filter((p) => p.room === selectedRoom || p.selectedBox?.description === selectedRoom);
     }
 
     setFilteredReservations(updatedList);
@@ -104,14 +113,14 @@ export default function AdminReservations({ professionals }) {
         <Form.Select
           id="filter-room"
           name="filterRoom"
-          aria-label="Filtrar por sala"
+          aria-label="Filtrar por box"
           value={selectedRoom}
           onChange={(e) => setSelectedRoom(e.target.value)}
         >
-          <option>Filtrar por sala</option>
-          <option value="Sala 1">Sala 1</option>
-          <option value="Sala 2">Sala 2</option>
-          <option value="Sala 3">Sala 3</option>
+          <option>Filtrar por box</option>
+          <option value="Box 1">Box 1</option>
+          <option value="Box 2">Box 2</option>
+          <option value="Box 3">Box 3</option>
         </Form.Select>
         <Form.Select
           id="filter-user"
@@ -121,7 +130,7 @@ export default function AdminReservations({ professionals }) {
           onChange={(e) => setSelectedUser(e.target.value)}
         >
           <option>Filtrar por usuario</option>
-          {reservations.map((p, i) => (
+          {uniqueUsers.map((p, i) => (
             <option key={i} value={p.name + p.paternal_surname}>
               {p.name} {p.paternal_surname}
             </option>
@@ -148,7 +157,7 @@ export default function AdminReservations({ professionals }) {
           <thead>
             <tr>
               <th>Id</th>
-              <th style={{ minWidth: "180px" }}>Sala</th>
+              <th style={{ minWidth: "180px" }}>Box</th>
               <th>Usuario</th>
               <th>Fecha</th>
               <th>Hora Inicio</th>
@@ -162,16 +171,16 @@ export default function AdminReservations({ professionals }) {
                 <td>{p.id}</td>
                 <td>
                   <Form.Select
-                    aria-label="Seleccionar sala"
+                    aria-label="Seleccionar box"
                     id={`row-sala-${p.id}`}
                     name={`rowSala${p.id}`}
-                    value={p.room || ""}
+                    value={p.room || p.selectedBox?.description}
                     onChange={(e) => handleRoomChange(p.id, e.target.value)}
                   >
-                    <option value="">Salas</option>
-                    <option value="Sala 1">Sala 1</option>
-                    <option value="Sala 2">Sala 2</option>
-                    <option value="Sala 3">Sala 3</option>
+                    <option value="">Box</option>
+                    <option value="Box 1">Box 1</option>
+                    <option value="Box 2">Box 2</option>
+                    <option value="Box 3">Box 3</option>
                   </Form.Select>
                 </td>
                 <td>
@@ -187,7 +196,7 @@ export default function AdminReservations({ professionals }) {
                 <td>
                   <Form.Control
                     type="time"
-                    value={p.start_time}
+                    value={p.start_time || p.hour}
                     onChange={(e) => handleTimeChange(p.id, e.target.value)}
                   />
                 </td>

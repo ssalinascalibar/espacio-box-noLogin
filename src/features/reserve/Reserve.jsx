@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../../context/UserContext";
+import AuthContext from "../../context/AuthContext";
 import { fetchBoxes } from "../../services/api";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,16 +17,44 @@ import {
 import "./reserve.css";
 
 export default function Reserve() {
+
+  const { reservations, setReservations } = useContext(UserContext);
+  console.log("reservatiosn", reservations)
+  const { registeredUser } = useContext(AuthContext);
+  console.log(registeredUser)
   const [boxes, setBoxes] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
   const [filteredBoxes, setFilteredBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState({});
   const [selectedBoxes, setSelectedBoxes] = useState([]);
 
+  const [currentUser, setCurrentUser] = useState({});
+
   const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
-  const [reservations, setReservations] = useState([]); // Reservas realizadas
+  // const [reservations, setReservations] = useState([]); // Reservas realizadas
 
   const [showTerms, setShowTerms] = useState(false);
+
+  const[userReservations, setUserReservations] = useState([]);
+  console.log("userReservations", userReservations)
+  
+  const[selectedReservations, setSelectedReservations] = useState([]);
+  console.log("selectedReservations", selectedReservations)
+  
+  
+  useEffect(() => {
+    const userBooking = reservations.filter((r) => r.email === registeredUser.email)
+    setUserReservations(userBooking);
+    console.log(userBooking)
+    
+  }, [registeredUser.email, reservations]);
+
+  useEffect(() => {
+    const user = reservations.find((r) => r.email === registeredUser.email)
+    setCurrentUser(user)
+    console.log(user)
+    
+  }, [registeredUser.email, reservations]);
 
   const days = [
     "Lunes",
@@ -40,9 +70,51 @@ export default function Reserve() {
 
   const handleCloseTerms = () => setShowTerms(false);
 
-  const handleAcceptTerms = () => {
-    alert("Reserva exitosa");
+  // const handleAcceptTerms = () => {
+  //   setReservations([...reservations, ...userReservations])
+  //   setUserReservations([...userReservations, ...selectedReservations])
 
+  //   // Limpiar las reservas seleccionadas
+  //   setSelectedReservations([]);
+  //   alert("Reserva exitosa");
+  //   console.log("reservations modal", reservations)
+  //   setShowTerms(false);
+  // };
+
+  const handleAcceptTerms = () => {
+    const newId =
+      reservations && reservations.length > 0
+        ? Math.max(...reservations.map((r) => r.id || 0)) + 1
+        : 1;
+  
+    // Filtrar solo las nuevas reservas que no estén en userReservations
+    const filteredNewReservations = selectedReservations.filter((newRes) => {
+      return !userReservations.some((existingRes) =>
+        existingRes.room === newRes.selectedBox?.description &&
+        existingRes.start_time === newRes.hour &&
+        existingRes.location === newRes.selectedBox?.location
+      );
+    });
+  
+    // Asignar IDs correlativos a las nuevas reservas válidas
+    const selectedReservationsWithIds = filteredNewReservations.map((res, index) => ({
+      ...res,
+      id: newId + index,
+      name: currentUser.name,
+      paternal_surname: currentUser.paternal_surname,
+      email: registeredUser.email,
+      hourly_rate: 6000,
+      ispayed: false
+    }));
+  
+    // Actualizar estado global y del usuario
+    setReservations([...reservations, ...selectedReservationsWithIds]);
+  
+    setUserReservations([...userReservations, ...selectedReservationsWithIds]);
+  
+    setSelectedReservations([]);
+    alert("Reserva exitosa");
+    console.log("reservations modal", reservations);
     setShowTerms(false);
   };
 
@@ -79,7 +151,7 @@ export default function Reserve() {
   }, [selectedRoom]);
 
   const handleRemoveReservation = (resToRemove) => {
-    const updatedReservations = reservations.filter(
+    const updatedReservations = userReservations.filter(
       (res) =>
         !(
           res.day === resToRemove.day &&
@@ -87,7 +159,7 @@ export default function Reserve() {
           res.selectedBox?.id === resToRemove.selectedBox?.id
         )
     );
-    setReservations(updatedReservations);
+    setSelectedReservations(updatedReservations);
   };
 
   const handleSelectTime = (day, hour) => {
@@ -97,16 +169,16 @@ export default function Reserve() {
       return;
     }
     // Verificar si ya está reservada
-    const isReserved = reservations.some(
+    const isReserved = selectedReservations.some(
       (res) => res.day === day && res.hour === hour
     );
 
     if (isReserved) {
       // Si ya está reservada, eliminarla del historial
-      const updatedReservations = reservations.filter(
+      const updatedReservations = selectedReservations.filter(
         (res) => !(res.day === day && res.hour === hour)
       );
-      setReservations(updatedReservations);
+      setSelectedReservations(updatedReservations);
     } else {
       // Si no está reservada, agregarla al historial
       let newReservations = [];
@@ -128,7 +200,8 @@ export default function Reserve() {
         newReservations = hours.map((h) => ({ day, hour: h, selectedBox }));
       }
 
-      setReservations([...reservations, ...newReservations]);
+      setSelectedReservations([...selectedReservations, ...newReservations]);
+      // setUserBooking([...userBooking, ...newReservations])
     }
   };
 
@@ -162,7 +235,7 @@ export default function Reserve() {
                     key={index}
                     className={`boxes-content ${
                       selectedBox?.id === box.id ? "selected-box" : ""
-                    }`} // Agregar clase condicional
+                    }`} 
                     onClick={() => handleSelectBox(box)}
                   >
                     <img src={box.original} alt={`Box ${index}`} />
@@ -249,7 +322,7 @@ export default function Reserve() {
                 <tr key={hour}>
                   <td className="bold-td">{hour}</td>
                   {days.map((day) => {
-                    const isReserved = reservations.some(
+                    const isReserved = selectedReservations.some(
                       (res) => res.day === day && res.hour === hour
                     );
 
@@ -284,11 +357,11 @@ export default function Reserve() {
               <div id="historyList">
                 <h5>Horas seleccionadas</h5>
                 <ul>
-                  {reservations.map((res, index) => (
+                  {selectedReservations.map((res, index) => (
                     <li key={index}>
-                      {res.day} - {res.hour} —{" "}
-                      {res.selectedBox?.originalTitle || "Box no asignado"} (
-                      {res.selectedBox?.location || "Ubicación desconocida"})
+                      {res.day || res.date} - {res.hour || res.start_time} —{" "}
+                      {res.selectedBox?.originalTitle || res.room || "Box no asignado"} (
+                      {res.selectedBox?.location || res.location || "Ubicación desconocida"})
                       <FaRegTrashAlt
                         onClick={() => handleRemoveReservation(res)}
                         style={{
@@ -303,7 +376,28 @@ export default function Reserve() {
                 </ul>
               </div>
             </Col>
-            <Col lg={7}></Col>
+            <Col lg={7}>
+            <div id="historyList">
+                <h5>Historial reservas {userReservations.length}</h5>
+                <ul>
+                  {userReservations.map((res, index) => (
+                    <li key={index}>
+                      {res.day || res.date} - {res.hour || res.start_time} —{" "}
+                      {res.selectedBox?.originalTitle || res.room || "Box no asignado"} (
+                      {res.selectedBox?.location || res.location || "Ubicación desconocida"})
+                      <FaRegTrashAlt
+                        onClick={() => handleRemoveReservation(res)}
+                        style={{
+                          cursor: "pointer",
+                          color: "red",
+                          marginLeft: "10px",
+                        }}
+                        title="Eliminar reserva"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div></Col>
           </Row>
           <div id="calendar-footer">
             <Button variant="success" className="mt-2" onClick={() => setShowTerms(true)}>
