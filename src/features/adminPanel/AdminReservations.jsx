@@ -12,9 +12,7 @@ export default function AdminReservations({ professionals }) {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredReservations, setFilteredReservations] = useState([]);
-  console.log("filteredReservations",filteredReservations)
   
-
   const [showModal, setShowModal] = useState(false);
 
   const addPayment = (id) => {
@@ -40,7 +38,7 @@ export default function AdminReservations({ professionals }) {
     setSelectedRoom("");
   };
 
-  const seenNames = new Set();
+const seenNames = new Set();
 const uniqueUsers = reservations.filter((res) => {
   if (seenNames.has(res.name)) return false;
   seenNames.add(res.name);
@@ -48,7 +46,6 @@ const uniqueUsers = reservations.filter((res) => {
 });
 
   const handleCreateReservation = (newReservation) => {
-    console.log(newReservation)
     const newId =
       reservations && reservations.length > 0
         ? Math.max(...reservations.map((r) => r.id)) + 1
@@ -199,7 +196,7 @@ const uniqueUsers = reservations.filter((res) => {
                 <td>
                   <Form.Control
                     type="time"
-                    value={p.start_time || p.hour || ""}
+                    value={p.start_time || p?.hour || ""}
                     onChange={(e) => handleTimeChange(p.id, e.target.value)}
                   />
                 </td>

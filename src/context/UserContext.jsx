@@ -7,7 +7,6 @@ const UserContext = createContext({});
 const UserContextProvider = ({ children }) => {
   const [professionals, setProfessionals] = useState([]);
   const [reservations, setReservations] = useState([]);
-  console.log("reservations", reservations)
   const prevProfessionalsRef = useRef();
   const prevReservationsRef = useRef();
 
@@ -34,15 +33,6 @@ const UserContextProvider = ({ children }) => {
     };
     getReservations();
   }, []);
-  
-//   useEffect(() => {
-//     const getUsers = async () => {
-//       const data = await fetchProfessionals();
-//       setProfessionals(data);
-//     };
-//     getUsers();
-//   }, []);
-  
 
   return (
     <UserContext.Provider value={{ professionals, setProfessionals, reservations, setReservations }}>

@@ -18,28 +18,18 @@ import "./reserve.css";
 
 export default function Reserve() {
 
-  const { reservations, setReservations } = useContext(UserContext);
-  console.log("reservatiosn", reservations)
+  const { reservations, setReservations, professionals } = useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
-  console.log(registeredUser)
   const [boxes, setBoxes] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
   const [filteredBoxes, setFilteredBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState({});
   const [selectedBoxes, setSelectedBoxes] = useState([]);
-
   const [currentUser, setCurrentUser] = useState({});
-
   const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
-  // const [reservations, setReservations] = useState([]); // Reservas realizadas
-
   const [showTerms, setShowTerms] = useState(false);
-
   const[userReservations, setUserReservations] = useState([]);
-  console.log("userReservations", userReservations)
-  
   const[selectedReservations, setSelectedReservations] = useState([]);
-  console.log("selectedReservations", selectedReservations)
   
   
   useEffect(() => {
@@ -70,17 +60,6 @@ export default function Reserve() {
 
   const handleCloseTerms = () => setShowTerms(false);
 
-  // const handleAcceptTerms = () => {
-  //   setReservations([...reservations, ...userReservations])
-  //   setUserReservations([...userReservations, ...selectedReservations])
-
-  //   // Limpiar las reservas seleccionadas
-  //   setSelectedReservations([]);
-  //   alert("Reserva exitosa");
-  //   console.log("reservations modal", reservations)
-  //   setShowTerms(false);
-  // };
-
   const handleAcceptTerms = () => {
     const newId =
       reservations && reservations.length > 0
@@ -95,11 +74,12 @@ export default function Reserve() {
         existingRes.location === newRes.selectedBox?.location
       );
     });
-
-    console.log(filteredNewReservations)
   
     const selectedReservationsWithIds = filteredNewReservations.map((res, index) => {
       const { selectedBox, ...rest } = res;
+      console.log(rest)
+
+      const professional = professionals?.find((p) => p.email === currentUser.email)
     
       return {
         ...rest,
@@ -107,7 +87,7 @@ export default function Reserve() {
         name: currentUser.name,
         paternal_surname: currentUser.paternal_surname,
         email: registeredUser.email,
-        hourly_rate: 6000,
+        hourly_rate: professional.hourly_rate,
         ispayed: false,
         room: selectedBox?.description,
         location: selectedBox?.location,
