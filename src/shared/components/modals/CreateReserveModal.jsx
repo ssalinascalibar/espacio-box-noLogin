@@ -16,6 +16,7 @@ export default function CreateReserveModal({
     start_time: "",
     hourly_rate: "",
     ispayed: true,
+    location: ""
   });
 
   const handleCreateReservation = () => {
@@ -24,7 +25,8 @@ export default function CreateReserveModal({
       !newReservation.room ||
       !newReservation.professional ||
       !newReservation.date ||
-      !newReservation.start_time
+      !newReservation.start_time ||
+      !newReservation.location
     ) {
       alert("Por favor, completa todos los campos.");
       return;
@@ -41,6 +43,7 @@ export default function CreateReserveModal({
       start_time: "",
       hourly_rate: "",
       ispayed: false,
+      location: ""
     });
     handleClose();
   };
@@ -52,6 +55,19 @@ export default function CreateReserveModal({
       </Modal.Header>
       <Modal.Body>
         <Form>
+          <Form.Group className="mb-3">
+            <Form.Label>Sede</Form.Label>
+            <Form.Select
+              value={newReservation.location}
+              onChange={(e) =>
+                setNewReservation({ ...newReservation, location: e.target.value })
+              }
+            >
+              <option value="">Seleccionar sede</option>
+              <option value="Providencia">Providencia</option>
+              <option value="Las Condes">Las Condes</option>
+            </Form.Select>
+          </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Box</Form.Label>
             <Form.Select

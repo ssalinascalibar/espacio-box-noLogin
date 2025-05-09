@@ -12,6 +12,7 @@ export default function AdminReservations({ professionals }) {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredReservations, setFilteredReservations] = useState([]);
+  console.log("filteredReservations",filteredReservations)
   
 
   const [showModal, setShowModal] = useState(false);
@@ -47,6 +48,7 @@ const uniqueUsers = reservations.filter((res) => {
 });
 
   const handleCreateReservation = (newReservation) => {
+    console.log(newReservation)
     const newId =
       reservations && reservations.length > 0
         ? Math.max(...reservations.map((r) => r.id)) + 1
@@ -61,9 +63,10 @@ const uniqueUsers = reservations.filter((res) => {
       maternal_surname: newReservation.professional.maternal_surname || "",
       email: newReservation.professional.email || "",
       date: newReservation.date,
-      start_time: newReservation.start_time,
+      start_time: newReservation.start_time || "",
       hourly_rate: newReservation.professional.hourly_rate,
       ispayed: newReservation.ispayed,
+      location: newReservation.location
     };
 
     // Actualizar el estado con el nuevo registro
@@ -196,7 +199,7 @@ const uniqueUsers = reservations.filter((res) => {
                 <td>
                   <Form.Control
                     type="time"
-                    value={p.start_time || p.hour}
+                    value={p.start_time || p.hour || ""}
                     onChange={(e) => handleTimeChange(p.id, e.target.value)}
                   />
                 </td>

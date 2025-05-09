@@ -95,17 +95,24 @@ export default function Reserve() {
         existingRes.location === newRes.selectedBox?.location
       );
     });
+
+    console.log(filteredNewReservations)
   
-    // Asignar IDs correlativos a las nuevas reservas válidas
-    const selectedReservationsWithIds = filteredNewReservations.map((res, index) => ({
-      ...res,
-      id: newId + index,
-      name: currentUser.name,
-      paternal_surname: currentUser.paternal_surname,
-      email: registeredUser.email,
-      hourly_rate: 6000,
-      ispayed: false
-    }));
+    const selectedReservationsWithIds = filteredNewReservations.map((res, index) => {
+      const { selectedBox, ...rest } = res;
+    
+      return {
+        ...rest,
+        id: newId + index,
+        name: currentUser.name,
+        paternal_surname: currentUser.paternal_surname,
+        email: registeredUser.email,
+        hourly_rate: 6000,
+        ispayed: false,
+        room: selectedBox?.description,
+        location: selectedBox?.location,
+      };
+    });
   
     // Actualizar estado global y del usuario
     setReservations([...reservations, ...selectedReservationsWithIds]);
