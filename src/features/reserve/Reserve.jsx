@@ -35,14 +35,12 @@ export default function Reserve() {
   useEffect(() => {
     const userBooking = reservations.filter((r) => r.email === registeredUser.email)
     setUserReservations(userBooking);
-    console.log(userBooking)
     
   }, [registeredUser.email, reservations]);
 
   useEffect(() => {
     const user = reservations.find((r) => r.email === registeredUser.email)
     setCurrentUser(user)
-    console.log(user)
     
   }, [registeredUser.email, reservations]);
 
@@ -77,7 +75,6 @@ export default function Reserve() {
   
     const selectedReservationsWithIds = filteredNewReservations.map((res, index) => {
       const { selectedBox, ...rest } = res;
-      console.log(rest)
 
       const professional = professionals?.find((p) => p.email === currentUser.email)
     
@@ -101,7 +98,6 @@ export default function Reserve() {
   
     setSelectedReservations([]);
     alert("Reserva exitosa");
-    console.log("reservations modal", reservations);
     setShowTerms(false);
   };
 
