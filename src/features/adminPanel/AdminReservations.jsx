@@ -112,6 +112,12 @@ const uniqueUsers = reservations.filter((res) => {
     setReservations(newReservations);
   };
 
+  const formatTime = (time) => {
+    if (!time) return "";
+    const [hh, mm] = time.split(":");
+    return `${hh.padStart(2, "0")}:${mm || "00"}`;
+  };
+
   return (
     <div id="background-admin">
       <div id="filter-reservations">
@@ -209,7 +215,8 @@ const uniqueUsers = reservations.filter((res) => {
                   <td>
                     <Form.Control
                       type="time"
-                      value={p.start_time || p?.hour || ""}
+                      // value={p.start_time || ""}
+                      value={formatTime(p.start_time)}
                       onChange={(e) => handleTimeChange(p.id, e.target.value)}
                     />
                   </td>
