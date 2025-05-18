@@ -1,0 +1,11 @@
+.rbc-event {
+    white-space: pre-wrap; /* Permite saltos de línea */
+    word-wrap: break-word; /* Ajusta texto largo */
+    height: auto; /* Ajusta la altura automáticamente */
+    padding: 5px; /* Espaciado interno */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+  
+  .rbc-day-slot .rbc-event {
+    min-height: 40px; /* Altura mínima para eventos */
+  }

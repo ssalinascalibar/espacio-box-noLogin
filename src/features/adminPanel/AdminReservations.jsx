@@ -3,6 +3,7 @@ import UserContext from "../../context/UserContext";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import ReservationCalendar from "./components/ReservationCalendar";
 import CreateReserveModal from "../../shared/components/modals/CreateReserveModal";
 import "./adminPanel.css";
 
@@ -12,6 +13,10 @@ export default function AdminReservations({ professionals }) {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredReservations, setFilteredReservations] = useState([]);
+  
+  console.log(filteredReservations)
+
+  const [view, setView] = useState("tabla");
   
   const [showModal, setShowModal] = useState(false);
 
@@ -140,6 +145,12 @@ const uniqueUsers = reservations.filter((res) => {
       <div id="table-title">
         <h2>Reservas</h2>
         <div id="table-title-btn">
+          <Button variant="info" className="mb-4"  onClick={() => setView("tabla")}>
+            Ver Tabla
+          </Button>
+          <Button variant="info" className="mb-4" onClick={() => setView("calendario")}>
+            Ver Calendario
+          </Button>
           <Button variant="secondary" className="mb-4" onClick={clean}>
             Limpiar
           </Button>
@@ -152,69 +163,74 @@ const uniqueUsers = reservations.filter((res) => {
           </Button>
         </div>
       </div>
-      <div id="admin-table">
-        <Table striped>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th style={{ minWidth: "180px" }}>Box</th>
-              <th>Usuario</th>
-              <th>Fecha</th>
-              <th>Hora Inicio</th>
-              <th>Valor</th>
-              <th>Pagados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredReservations?.map((p, i) => (
-              <tr key={i}>
-                <td>{p.id}</td>
-                <td>
-                  <Form.Select
-                    aria-label="Seleccionar box"
-                    id={`row-sala-${p.id}`}
-                    name={`rowSala${p.id}`}
-                    value={p.room || p.selectedBox?.description}
-                    onChange={(e) => handleRoomChange(p.id, e.target.value)}
-                  >
-                    <option value="">Box</option>
-                    <option value="Box 1">Box 1</option>
-                    <option value="Box 2">Box 2</option>
-                    <option value="Box 3">Box 3</option>
-                  </Form.Select>
-                </td>
-                <td>
-                  {p.name} {p.paternal_surname} {p.maternal_surname}
-                </td>
-                <td>
-                  <Form.Control
-                    type="date"
-                    value={p.date}
-                    onChange={(e) => handleDateChange(p.id, e.target.value)}
-                  />
-                </td>
-                <td>
-                  <Form.Control
-                    type="time"
-                    value={p.start_time || p?.hour || ""}
-                    onChange={(e) => handleTimeChange(p.id, e.target.value)}
-                  />
-                </td>
-                <td>{p.hourly_rate}</td>
-                <td>
-                  <Form.Check
-                    type="checkbox"
-                    id={`payment-${p.id}`}
-                    name={`payment-${p.id}`}
-                    checked={p.ispayed}
-                    onChange={() => addPayment(p.id)}
-                  />
-                </td>
+      
+      {view === "tabla" && (
+        <div id="admin-table">
+          <Table striped>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th style={{ minWidth: "180px" }}>Box</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Hora Inicio</th>
+                <th>Valor</th>
+                <th>Pagados</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
+            </thead>
+            <tbody>
+              {filteredReservations?.map((p, i) => (
+                <tr key={i}>
+                  <td>{p.id}</td>
+                  <td>
+                    <Form.Select
+                      aria-label="Seleccionar box"
+                      id={`row-sala-${p.id}`}
+                      name={`rowSala${p.id}`}
+                      value={p.room || p.selectedBox?.description}
+                      onChange={(e) => handleRoomChange(p.id, e.target.value)}
+                    >
+                      <option value="">Box</option>
+                      <option value="Box 1">Box 1</option>
+                      <option value="Box 2">Box 2</option>
+                      <option value="Box 3">Box 3</option>
+                    </Form.Select>
+                  </td>
+                  <td>
+                    {p.name} {p.paternal_surname} {p.maternal_surname}
+                  </td>
+                  <td>
+                    <Form.Control
+                      type="date"
+                      value={p.date}
+                      onChange={(e) => handleDateChange(p.id, e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <Form.Control
+                      type="time"
+                      value={p.start_time || p?.hour || ""}
+                      onChange={(e) => handleTimeChange(p.id, e.target.value)}
+                    />
+                  </td>
+                  <td>{p.hourly_rate}</td>
+                  <td>
+                    <Form.Check
+                      type="checkbox"
+                      id={`payment-${p.id}`}
+                      name={`payment-${p.id}`}
+                      checked={p.ispayed}
+                      onChange={() => addPayment(p.id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
+        )}
+
+      {view === "calendario" && <ReservationCalendar bookings={filteredReservations}/>}
       <CreateReserveModal
         show={showModal}
         handleClose={() => setShowModal(false)}
