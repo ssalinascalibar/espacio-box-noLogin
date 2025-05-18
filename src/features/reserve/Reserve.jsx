@@ -21,12 +21,14 @@ import {
   subWeeks,
   addWeeks,
   format,
-  parseISO
+  parseISO,
+  endOfWeek,
 } from "date-fns";
 import { es } from "date-fns/locale"; // Para mostrar los días en español
 
 export default function Reserve() {
-  const { reservations, setReservations, professionals } = useContext(UserContext);
+  const { reservations, setReservations, professionals } =
+    useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
   const [boxes, setBoxes] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
@@ -70,7 +72,6 @@ export default function Reserve() {
     const user = reservations.find((r) => r.email === registeredUser.email);
     setCurrentUser(user);
   }, [registeredUser.email, reservations]);
-
 
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
 
@@ -318,11 +319,25 @@ export default function Reserve() {
               <FaArrowLeft />
             </button>
             <button className="navigation-button" onClick={goToToday}>
-              <h5>{format(currentWeekStart, "MMMM yyyy", { locale: es })}</h5>
+              <h5>
+                Semana del {format(currentWeekStart, "dd-MM-yyyy")} al{" "}
+                {format(
+                  endOfWeek(currentWeekStart, { weekStartsOn: 1 }),
+                  "dd-MM-yyyy"
+                )}
+              </h5>
             </button>
             <button className="navigation-button" onClick={goToNextWeek}>
               <FaArrowRight />
             </button>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <h5>
+              {format(currentWeekStart, "MMMM yyyy", { locale: es }).replace(
+                /^./,
+                (c) => c.toUpperCase()
+              )}
+            </h5>
           </div>
           <Table striped responsive>
             <thead>
@@ -388,7 +403,8 @@ export default function Reserve() {
                 <ul>
                   {selectedReservations.map((res, index) => (
                     <li key={index}>
-                      {format(parseISO(res.date), "dd-MM-yyyy")} - {res.start_time} —{" "}
+                      {format(parseISO(res.date), "dd-MM-yyyy")} -{" "}
+                      {res.start_time} —{" "}
                       {res.selectedBox?.originalTitle ||
                         res.room ||
                         "Box no asignado"}{" "}
@@ -417,7 +433,8 @@ export default function Reserve() {
                 <ul>
                   {userReservations.map((res, index) => (
                     <li key={index}>
-                      {format(parseISO(res.date), "dd-MM-yyyy")} - {res.start_time} —{" "}
+                      {format(parseISO(res.date), "dd-MM-yyyy")} -{" "}
+                      {res.start_time} —{" "}
                       {res.selectedBox?.originalTitle ||
                         res.room ||
                         "Box no asignado"}{" "}
