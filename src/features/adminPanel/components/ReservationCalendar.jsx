@@ -22,7 +22,7 @@ const localizer = dateFnsLocalizer({
 const mapBookingToEvents = (bookings) => {
     return bookings.map((booking) => {
       const start = new Date(`${booking.date}T${booking.start_time}`);
-      const end = new Date(start.getTime() + 60 * 60 * 1000); // +1h, ajusta si lo necesitas
+      const end = new Date(start.getTime() + 60 * 60 * 1000);
   
       return {
         id: booking.id,

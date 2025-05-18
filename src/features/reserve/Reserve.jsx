@@ -15,9 +15,17 @@ import {
   FaRegTrashAlt,
 } from "../../assets/icons/icons";
 import "./reserve.css";
+import {
+  startOfWeek,
+  addDays,
+  subWeeks,
+  addWeeks,
+  format,
+  parseISO
+} from "date-fns";
+import { es } from "date-fns/locale"; // Para mostrar los días en español
 
 export default function Reserve() {
-
   const { reservations, setReservations, professionals } = useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
   const [boxes, setBoxes] = useState([]);
@@ -28,31 +36,41 @@ export default function Reserve() {
   const [currentUser, setCurrentUser] = useState({});
   const [reservationType, setReservationType] = useState("option1"); // Tipo de reserva
   const [showTerms, setShowTerms] = useState(false);
-  const[userReservations, setUserReservations] = useState([]);
-  const[selectedReservations, setSelectedReservations] = useState([]);
-  
-  
+  const [userReservations, setUserReservations] = useState([]);
+  const [selectedReservations, setSelectedReservations] = useState([]);
+
+  const [currentWeekStart, setCurrentWeekStart] = useState(
+    startOfWeek(new Date(), { weekStartsOn: 1 })
+  );
+
+  const weekDays = Array.from({ length: 7 }).map((_, index) =>
+    addDays(currentWeekStart, index)
+  );
+
+  const goToPreviousWeek = () => {
+    setCurrentWeekStart((prev) => subWeeks(prev, 1));
+  };
+
+  const goToNextWeek = () => {
+    setCurrentWeekStart((prev) => addWeeks(prev, 1));
+  };
+
+  const goToToday = () => {
+    setCurrentWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
+  };
+
   useEffect(() => {
-    const userBooking = reservations.filter((r) => r.email === registeredUser.email)
+    const userBooking = reservations.filter(
+      (r) => r.email === registeredUser.email
+    );
     setUserReservations(userBooking);
-    
   }, [registeredUser.email, reservations]);
 
   useEffect(() => {
-    const user = reservations.find((r) => r.email === registeredUser.email)
-    setCurrentUser(user)
-    
+    const user = reservations.find((r) => r.email === registeredUser.email);
+    setCurrentUser(user);
   }, [registeredUser.email, reservations]);
 
-  const days = [
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-    "Domingo",
-  ];
 
   const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
 
@@ -63,39 +81,44 @@ export default function Reserve() {
       reservations && reservations.length > 0
         ? Math.max(...reservations.map((r) => r.id || 0)) + 1
         : 1;
-  
+
     // Filtrar solo las nuevas reservas que no estén en userReservations
     const filteredNewReservations = selectedReservations.filter((newRes) => {
-      return !userReservations.some((existingRes) =>
-        existingRes.room === newRes.selectedBox?.description &&
-        existingRes.start_time === newRes.hour &&
-        existingRes.location === newRes.selectedBox?.location
+      return !userReservations.some(
+        (existingRes) =>
+          existingRes.room === newRes.selectedBox?.description &&
+          existingRes.start_time === newRes.hour &&
+          existingRes.location === newRes.selectedBox?.location
       );
     });
-  
-    const selectedReservationsWithIds = filteredNewReservations.map((res, index) => {
-      const { selectedBox, ...rest } = res;
 
-      const professional = professionals?.find((p) => p.email === currentUser.email)
-    
-      return {
-        ...rest,
-        id: newId + index,
-        name: currentUser.name,
-        paternal_surname: currentUser.paternal_surname,
-        email: registeredUser.email,
-        hourly_rate: professional.hourly_rate,
-        ispayed: false,
-        room: selectedBox?.description,
-        location: selectedBox?.location,
-      };
-    });
-  
+    const selectedReservationsWithIds = filteredNewReservations.map(
+      (res, index) => {
+        const { selectedBox, ...rest } = res;
+
+        const professional = professionals?.find(
+          (p) => p.email === currentUser.email
+        );
+
+        return {
+          ...rest,
+          id: newId + index,
+          name: currentUser.name,
+          paternal_surname: currentUser.paternal_surname,
+          email: registeredUser.email,
+          hourly_rate: professional.hourly_rate,
+          ispayed: false,
+          room: selectedBox?.description,
+          location: selectedBox?.location,
+        };
+      }
+    );
+
     // Actualizar estado global y del usuario
     setReservations([...reservations, ...selectedReservationsWithIds]);
-  
+
     setUserReservations([...userReservations, ...selectedReservationsWithIds]);
-  
+
     setSelectedReservations([]);
     alert("Reserva exitosa");
     setShowTerms(false);
@@ -134,57 +157,69 @@ export default function Reserve() {
   }, [selectedRoom]);
 
   const handleRemoveReservation = (resToRemove) => {
-    const updatedReservations = userReservations.filter(
+    const updatedReservations = selectedReservations.filter(
       (res) =>
         !(
-          res.day === resToRemove.day &&
-          res.hour === resToRemove.hour &&
+          res.date === resToRemove.date &&
+          res.start_time === resToRemove.start_time &&
           res.selectedBox?.id === resToRemove.selectedBox?.id
         )
     );
     setSelectedReservations(updatedReservations);
   };
 
-  const handleSelectTime = (day, hour) => {
+  const handleSelectTime = (date, start_time) => {
     // Verificar si se ha seleccionado un box
     if (!selectedBox || Object.keys(selectedBox).length === 0) {
       alert("Por favor, selecciona un box antes de agendar.");
       return;
     }
-    // Verificar si ya está reservada
+
+    const dateStr = format(date, "yyyy-MM-dd");
+
+    const isAlreadyConfirmed = userReservations.some(
+      (res) => res.date === dateStr && res.start_time === start_time
+    );
+    if (isAlreadyConfirmed) {
+      alert("Esta hora ya está reservada y no se puede volver a seleccionar.");
+      return;
+    }
+
     const isReserved = selectedReservations.some(
-      (res) => res.day === day && res.hour === hour
+      (res) => res.date === dateStr && res.start_time === start_time
     );
 
     if (isReserved) {
-      // Si ya está reservada, eliminarla del historial
       const updatedReservations = selectedReservations.filter(
-        (res) => !(res.day === day && res.hour === hour)
+        (res) => !(res.date === dateStr && res.start_time === start_time)
       );
       setSelectedReservations(updatedReservations);
     } else {
-      // Si no está reservada, agregarla al historial
       let newReservations = [];
+
+      const reservationBlock = (start, end) =>
+        hours
+          .filter((h) => {
+            const hourInt = parseInt(h);
+            return hourInt >= start && hourInt < end;
+          })
+          .map((h) => ({ date: dateStr, start_time: h, selectedBox }));
+
       if (reservationType === "option1") {
-        // Por hora
-        newReservations = [{ day, hour, selectedBox }];
+        newReservations = [{ date: dateStr, start_time, selectedBox }];
       } else if (reservationType === "option2") {
-        // Jornada AM (8:00 - 12:00)
-        newReservations = hours
-          .filter((h) => parseInt(h) >= 8 && parseInt(h) < 12)
-          .map((h) => ({ day, hour: h, selectedBox }));
+        newReservations = reservationBlock(8, 12);
       } else if (reservationType === "option3") {
-        // Jornada PM (12:00 - 18:00)
-        newReservations = hours
-          .filter((h) => parseInt(h) >= 12 && parseInt(h) < 18)
-          .map((h) => ({ day, hour: h, selectedBox }));
+        newReservations = reservationBlock(12, 18);
       } else if (reservationType === "option4") {
-        // Día completo (8:00 - 18:00)
-        newReservations = hours.map((h) => ({ day, hour: h, selectedBox }));
+        newReservations = hours.map((h) => ({
+          date: dateStr,
+          start_time: h,
+          selectedBox,
+        }));
       }
 
       setSelectedReservations([...selectedReservations, ...newReservations]);
-      // setUserBooking([...userBooking, ...newReservations])
     }
   };
 
@@ -218,7 +253,7 @@ export default function Reserve() {
                     key={index}
                     className={`boxes-content ${
                       selectedBox?.id === box.id ? "selected-box" : ""
-                    }`} 
+                    }`}
                     onClick={() => handleSelectBox(box)}
                   >
                     <img src={box.original} alt={`Box ${index}`} />
@@ -279,13 +314,13 @@ export default function Reserve() {
           </div>
           <h4>Selecciona una hora en el calendario</h4>
           <div id="navigation-calendar">
-            <button className="navigation-button">
+            <button className="navigation-button" onClick={goToPreviousWeek}>
               <FaArrowLeft />
             </button>
-            <button className="navigation-button">
-              <h5>Hoy</h5>
+            <button className="navigation-button" onClick={goToToday}>
+              <h5>{format(currentWeekStart, "MMMM yyyy", { locale: es })}</h5>
             </button>
-            <button className="navigation-button">
+            <button className="navigation-button" onClick={goToNextWeek}>
               <FaArrowRight />
             </button>
           </div>
@@ -293,40 +328,51 @@ export default function Reserve() {
             <thead>
               <tr>
                 <th>Horas</th>
-                {days.map((day) => (
-                  <th key={day} className="text-center">
-                    {day}
+                {weekDays.map((date) => (
+                  <th key={format(date, "yyyy-MM-dd")} className="text-center">
+                    {format(date, "EEEE dd/MM", { locale: es })}
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {hours.map((hour) => (
-                <tr key={hour}>
-                  <td className="bold-td">{hour}</td>
-                  {days.map((day) => {
-                    const isReserved = selectedReservations.some(
-                      (res) => res.day === day && res.hour === hour
-                    );
+              {hours.map((start_time) => (
+                <tr key={start_time}>
+                  <td className="bold-td">{start_time}</td>
+                  {weekDays.map((date) => {
+                    const dateStr = format(date, "yyyy-MM-dd");
+                    // const isReserved = selectedReservations.some(
+                    //   (res) =>
+                    //     res.date === dateStr && res.start_time === start_time
+                    // );
+                    const isReserved =
+                      selectedReservations.some(
+                        (res) =>
+                          res.date === dateStr && res.start_time === start_time
+                      ) ||
+                      userReservations.some(
+                        (res) =>
+                          res.date === dateStr && res.start_time === start_time
+                      );
 
                     return (
                       <td
-                        key={day}
+                        key={dateStr}
                         className={`text-center hover-td ${
                           isReserved ? "reserved" : ""
                         }`}
-                        onClick={() => handleSelectTime(day, hour)}
+                        onClick={() => handleSelectTime(date, start_time)}
                       >
                         {isReserved ? (
                           <>
-                            {hour}
+                            {start_time}
                             <br />
                             <span style={{ fontSize: "0.75rem" }}>
                               Reservado
                             </span>
                           </>
                         ) : (
-                          hour
+                          start_time
                         )}
                       </td>
                     );
@@ -342,9 +388,15 @@ export default function Reserve() {
                 <ul>
                   {selectedReservations.map((res, index) => (
                     <li key={index}>
-                      {res.day || res.date} - {res.hour || res.start_time} —{" "}
-                      {res.selectedBox?.originalTitle || res.room || "Box no asignado"} (
-                      {res.selectedBox?.location || res.location || "Ubicación desconocida"})
+                      {format(parseISO(res.date), "dd-MM-yyyy")} - {res.start_time} —{" "}
+                      {res.selectedBox?.originalTitle ||
+                        res.room ||
+                        "Box no asignado"}{" "}
+                      (
+                      {res.selectedBox?.location ||
+                        res.location ||
+                        "Ubicación desconocida"}
+                      )
                       <FaRegTrashAlt
                         onClick={() => handleRemoveReservation(res)}
                         style={{
@@ -360,15 +412,21 @@ export default function Reserve() {
               </div>
             </Col>
             <Col lg={7}>
-            <div id="historyList">
-                <h5>Historial reservas {userReservations.length}</h5>
+              <div id="historyList">
+                <h5>Mis reservas {userReservations.length}</h5>
                 <ul>
                   {userReservations.map((res, index) => (
                     <li key={index}>
-                      {res.day || res.date} - {res.hour || res.start_time} —{" "}
-                      {res.selectedBox?.originalTitle || res.room || "Box no asignado"} (
-                      {res.selectedBox?.location || res.location || "Ubicación desconocida"})
-                      <FaRegTrashAlt
+                      {format(parseISO(res.date), "dd-MM-yyyy")} - {res.start_time} —{" "}
+                      {res.selectedBox?.originalTitle ||
+                        res.room ||
+                        "Box no asignado"}{" "}
+                      (
+                      {res.selectedBox?.location ||
+                        res.location ||
+                        "Ubicación desconocida"}
+                      )
+                      {/* <FaRegTrashAlt
                         onClick={() => handleRemoveReservation(res)}
                         style={{
                           cursor: "pointer",
@@ -376,14 +434,19 @@ export default function Reserve() {
                           marginLeft: "10px",
                         }}
                         title="Eliminar reserva"
-                      />
+                      /> */}
                     </li>
                   ))}
                 </ul>
-              </div></Col>
+              </div>
+            </Col>
           </Row>
           <div id="calendar-footer">
-            <Button variant="success" className="mt-2" onClick={() => setShowTerms(true)}>
+            <Button
+              variant="success"
+              className="mt-2"
+              onClick={() => setShowTerms(true)}
+            >
               Reservar
             </Button>
           </div>
