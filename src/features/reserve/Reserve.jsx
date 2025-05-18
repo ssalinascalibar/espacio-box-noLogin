@@ -61,6 +61,8 @@ export default function Reserve() {
     setCurrentWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
   };
 
+  const isReservationReady = selectedBox?.id && selectedReservations.length > 0;
+
   useEffect(() => {
     const userBooking = reservations.filter(
       (r) => r.email === registeredUser.email
@@ -463,6 +465,7 @@ export default function Reserve() {
               variant="success"
               className="mt-2"
               onClick={() => setShowTerms(true)}
+              disabled={!isReservationReady}
             >
               Reservar
             </Button>
