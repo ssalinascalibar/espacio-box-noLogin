@@ -11,6 +11,17 @@
     text-align: center;
 }
 
+#table-title-icons {
+    
+    display: flex;
+    justify-content: center;
+}
+
+#table-title-icons svg {
+    font-size: 1.5em;
+    margin: 0.5rem;
+}
+
 #table-title-btn {
     display: flex;
     flex-direction: column;

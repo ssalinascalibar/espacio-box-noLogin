@@ -29,10 +29,11 @@ import {
   FaInfoCircle,
   FaVideo,
   FaSun,
-  FaEye  
+  FaEye,
+  FaRegCalendarAlt   
 } from "react-icons/fa";
 
-import { FaKitchenSet, FaPanorama } from "react-icons/fa6";
+import { FaKitchenSet, FaPanorama, FaTableList } from "react-icons/fa6";
 import { GiArrowScope } from "react-icons/gi";
 import { RiSofaFill } from "react-icons/ri"
 
@@ -67,5 +68,7 @@ export {
   FaVideo ,
   FaSun,
   FaPanorama,
-  FaEye 
+  FaEye,
+  FaTableList,
+  FaRegCalendarAlt   
 };

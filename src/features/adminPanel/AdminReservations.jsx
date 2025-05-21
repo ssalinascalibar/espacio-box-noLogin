@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ReservationCalendar from "./components/ReservationCalendar";
 import CreateReserveModal from "../../shared/components/modals/CreateReserveModal";
+import {FaTableList, FaRegCalendarAlt } from "../../assets/icons/icons"
 import "./adminPanel.css";
 
 export default function AdminReservations({ professionals }) {
@@ -150,13 +151,18 @@ const uniqueUsers = reservations.filter((res) => {
       </div>
       <div id="table-title">
         <h2>Reservas</h2>
+          <div id="table-title-icons">
+            <FaTableList className="mb-4" onClick={() => setView("tabla")} />
+            <FaRegCalendarAlt className="mb-4" onClick={() => setView("calendario")} />
+
+          </div>
         <div id="table-title-btn">
-          <Button variant="info" className="mb-4"  onClick={() => setView("tabla")}>
+          {/* <Button variant="info" className="mb-4"  onClick={() => setView("tabla")}>
             Ver Tabla
-          </Button>
-          <Button variant="info" className="mb-4" onClick={() => setView("calendario")}>
+          </Button> */}
+          {/* <Button variant="info" className="mb-4" onClick={() => setView("calendario")}>
             Ver Calendario
-          </Button>
+          </Button> */}
           <Button variant="secondary" className="mb-4" onClick={clean}>
             Limpiar
           </Button>
