@@ -1,11 +1,79 @@
+.rbc-header {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  background-color: var(--background-secondary-color);
+}
+
 .rbc-event {
-    white-space: pre-wrap; /* Permite saltos de línea */
-    word-wrap: break-word; /* Ajusta texto largo */
-    height: auto; /* Ajusta la altura automáticamente */
-    padding: 5px; /* Espaciado interno */
-    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  border-radius: 5px;
+  display: block;
+  font-size: 0.9em;
+}
+
+.custom-event {
+
+  height: 100%;
+  display: block;
+
+
+  border-radius: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-event-color-1 {
+  background-color: #FFC697;
+
+
+}
+
+.custom-event-color-2 {
+  background-color: #C8CEEE;
+}
+
+.rbc-event,
+.rbc-background-event {
+  z-index: 2;
+  padding: 0;
+  border: none;
+}
+
+.rbc-events-container {
+  width: 100%;
+}
+
+.rbc-allday-cell {
+  display: none;
+}
+
+.rbc-time-header-cell .rbc-today {
+  background-color: var(--primary-color);
+  color: var(--text-secondary);
+}
+
+.rbc-event-label {
+  display: none;
+}
+
+.rbc-day-slot .rbc-event,
+.rbc-day-slot .rbc-background-event {
+  border: 1px solid var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+
+  .rbc-event {
+    font-size: 1em;
+
+
   }
-  
-  .rbc-day-slot .rbc-event {
-    min-height: 40px; /* Altura mínima para eventos */
+
+  .custom-event {
+
+    padding: 0.2rem 0 0 0.3rem;
   }
+}

@@ -21,7 +21,7 @@
       "maternal_surname": "",
       "email": "",
       "date": "2025-05-05",
-      "start_time": "14:00",
+      "start_time": "15:00",
       "hourly_rate": 6000,
       "ispayed": true
     },
@@ -34,7 +34,7 @@
       "maternal_surname": "",
       "email": "matias@gmail.com",
       "date": "2025-05-05",
-      "start_time": "14:00",
+      "start_time": "17:00",
       "hourly_rate": 6000,
       "ispayed": true
     },
@@ -46,7 +46,7 @@
       "paternal_surname": "Pedreros",
       "maternal_surname": "",
       "email": "",
-      "date": "2025-05-05",
+      "date": "2025-05-20",
       "start_time": "09:00",
       "hourly_rate": 6000,
       "ispayed": true
@@ -59,7 +59,7 @@
       "paternal_surname": "Munster",
       "maternal_surname": "",
       "email": "",
-      "date": "2025-05-05",
+      "date": "2025-05-30",
       "start_time": "14:00",
       "hourly_rate": 6000,
       "ispayed": true
@@ -67,12 +67,12 @@
     {
       "id": 5,
       "room": "Box 1",
-      "location": "Providencia",
+      "location": "Las Condes",
       "name": "Emilia",
       "paternal_surname": "Espino",
       "maternal_surname": "López",
       "email": "",
-      "date": "2025-05-05",
+      "date": "2025-05-22",
       "start_time": "16:00",
       "hourly_rate": 6000,
       "ispayed": true
