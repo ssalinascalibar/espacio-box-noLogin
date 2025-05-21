@@ -121,34 +121,36 @@ const uniqueUsers = reservations.filter((res) => {
 
   return (
     <div id="background-admin">
-      <div id="filter-reservations">
-        <Form.Select
-          id="filter-room"
-          name="filterRoom"
-          aria-label="Filtrar por box"
-          value={selectedRoom}
-          onChange={(e) => setSelectedRoom(e.target.value)}
-        >
-          <option>Filtrar por box</option>
-          <option value="Box 1">Box 1</option>
-          <option value="Box 2">Box 2</option>
-          <option value="Box 3">Box 3</option>
-        </Form.Select>
-        <Form.Select
-          id="filter-user"
-          name="filterUser"
-          aria-label="Filtrar por usuario"
-          value={selectedUser}
-          onChange={(e) => setSelectedUser(e.target.value)}
-        >
-          <option>Filtrar por usuario</option>
-          {uniqueUsers.map((p, i) => (
-            <option key={i} value={p.name + p.paternal_surname}>
-              {p.name} {p.paternal_surname}
-            </option>
-          ))}
-        </Form.Select>
-      </div>
+      {view !== "calendario" && (
+        <div id="filter-reservations">
+          <Form.Select
+            id="filter-room"
+            name="filterRoom"
+            aria-label="Filtrar por box"
+            value={selectedRoom}
+            onChange={(e) => setSelectedRoom(e.target.value)}
+          >
+            <option>Filtrar por box</option>
+            <option value="Box 1">Box 1</option>
+            <option value="Box 2">Box 2</option>
+            <option value="Box 3">Box 3</option>
+          </Form.Select>
+          <Form.Select
+            id="filter-user"
+            name="filterUser"
+            aria-label="Filtrar por usuario"
+            value={selectedUser}
+            onChange={(e) => setSelectedUser(e.target.value)}
+          >
+            <option>Filtrar por usuario</option>
+            {uniqueUsers.map((p, i) => (
+              <option key={i} value={p.name + p.paternal_surname}>
+                {p.name} {p.paternal_surname}
+              </option>
+            ))}
+          </Form.Select>
+        </div>
+      )}
       <div id="table-title">
         <h2>Reservas</h2>
           <div id="table-title-icons">
