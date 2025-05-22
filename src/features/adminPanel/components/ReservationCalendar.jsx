@@ -8,13 +8,12 @@ import esES from "date-fns/locale/es";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./reservationCalendar.css";
 
-
 export default function ReservationCalendar({ bookings = [] }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentView, setCurrentView] = useState("month"); //  controla la vista
-  
+
   const locales = { es: esES };
-  
+
   const localizer = dateFnsLocalizer({
     format: (date, formatStr, options) =>
       format(date, formatStr, { ...options, locale: esES }),
@@ -24,12 +23,12 @@ export default function ReservationCalendar({ bookings = [] }) {
     getDay,
     locales,
   });
-  
+
   const mapBookingToEvents = (bookings) => {
     return bookings.map((booking) => {
       const start = new Date(`${booking.date}T${booking.start_time}`);
       const end = new Date(start.getTime() + 60 * 60 * 1000);
-  
+
       return {
         id: booking.id,
         title: `${booking.room}`,
@@ -45,33 +44,38 @@ export default function ReservationCalendar({ bookings = [] }) {
 
   const components = {
     event: (props) => {
-      console.log(props);
-      const eventType =  props?.event?.location;
+      
+      const eventType = props?.event?.location;
 
       const startTime = new Date(props?.event?.start).toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
+        hour: "2-digit",
+        minute: "2-digit",
         hour12: false,
       });
-  
+
       const endTime = new Date(props?.event?.end).toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
+        hour: "2-digit",
+        minute: "2-digit",
         hour12: false,
       });
       switch (eventType) {
-        case 'Providencia':
-          return <div className="custom-event custom-event-color-1">
-              {props.event.title} | {props.event.location} {startTime}-{endTime} | {props.event.name} 
+        case "Providencia":
+          return (
+            <div className="custom-event custom-event-color-1">
+              {props.event.title} | {props.event.location} {startTime}-{endTime}{" "}
+              | {props.event.name}
             </div>
-        case 'Las Condes':
-          return <div className="custom-event custom-event-color-2">
-              {props.event.title} | {props.event.location} {startTime}-{endTime} | {props.event.name} 
+          );
+        case "Las Condes":
+          return (
+            <div className="custom-event custom-event-color-2">
+              {props.event.title} | {props.event.location} {startTime}-{endTime}{" "}
+              | {props.event.name}
             </div>
-          
-    }
-    }
-  }
+          );
+      }
+    },
+  };
 
   return (
     <div style={{ height: "100%", width: "100%" }}>
