@@ -27,8 +27,7 @@ import {
 import { es } from "date-fns/locale"; // Para mostrar los días en español
 
 export default function Reserve() {
-  const { reservations, setReservations, professionals } =
-    useContext(UserContext);
+  const { reservations, setReservations, professionals } = useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
   const [boxes, setBoxes] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState("Providencia");
@@ -108,6 +107,7 @@ export default function Reserve() {
           id: newId + index,
           name: currentUser.name,
           paternal_surname: currentUser.paternal_surname,
+          maternal_surname: currentUser.maternal_surname || "",
           email: registeredUser.email,
           hourly_rate: professional.hourly_rate,
           ispayed: false,

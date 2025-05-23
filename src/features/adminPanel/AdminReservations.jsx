@@ -159,12 +159,6 @@ const uniqueUsers = reservations.filter((res) => {
 
           </div>
         <div id="table-title-btn">
-          {/* <Button variant="info" className="mb-4"  onClick={() => setView("tabla")}>
-            Ver Tabla
-          </Button> */}
-          {/* <Button variant="info" className="mb-4" onClick={() => setView("calendario")}>
-            Ver Calendario
-          </Button> */}
           <Button variant="secondary" className="mb-4" onClick={clean}>
             Limpiar
           </Button>
@@ -221,13 +215,35 @@ const uniqueUsers = reservations.filter((res) => {
                     />
                   </td>
                   <td>
+  <Form.Select
+    style={{
+      width: '120px', // ancho fijo suficiente para mostrar la hora
+      maxWidth: '100%',
+    }}
+    value={formatTime(p.start_time || '08:00')}
+    onChange={(e) => handleTimeChange(p.id, e.target.value)}
+  >
+    <option value="">Selecciona una hora</option>
+    {[
+      '08:00', '09:00', '10:00', '11:00',
+      '12:00', '13:00', '14:00', '15:00',
+      '16:00', '17:00', '18:00', '19:00',
+      '20:00'
+    ].map((hour) => (
+      <option key={hour} value={hour}>
+        {hour}
+      </option>
+    ))}
+  </Form.Select>
+</td>
+                  {/* <td>
                     <Form.Control
                       type="time"
                       // value={p.start_time || ""}
                       value={formatTime(p.start_time)}
                       onChange={(e) => handleTimeChange(p.id, e.target.value)}
                     />
-                  </td>
+                  </td> */}
                   <td>{p.hourly_rate}</td>
                   <td>
                     <Form.Check
