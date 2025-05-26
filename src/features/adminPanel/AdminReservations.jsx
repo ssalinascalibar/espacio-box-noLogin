@@ -215,27 +215,27 @@ const uniqueUsers = reservations.filter((res) => {
                     />
                   </td>
                   <td>
-  <Form.Select
-    style={{
-      width: '120px', // ancho fijo suficiente para mostrar la hora
-      maxWidth: '100%',
-    }}
-    value={formatTime(p.start_time || '08:00')}
-    onChange={(e) => handleTimeChange(p.id, e.target.value)}
-  >
-    <option value="">Selecciona una hora</option>
-    {[
-      '08:00', '09:00', '10:00', '11:00',
-      '12:00', '13:00', '14:00', '15:00',
-      '16:00', '17:00', '18:00', '19:00',
-      '20:00'
-    ].map((hour) => (
-      <option key={hour} value={hour}>
-        {hour}
-      </option>
-    ))}
-  </Form.Select>
-</td>
+                    <Form.Select
+                      style={{
+                        width: '120px', 
+                        maxWidth: '100%',
+                      }}
+                      value={formatTime(p.start_time || '08:00')}
+                      onChange={(e) => handleTimeChange(p.id, e.target.value)}
+                    >
+                      <option value="">Selecciona una hora</option>
+                      {[
+                        '08:00', '09:00', '10:00', '11:00',
+                        '12:00', '13:00', '14:00', '15:00',
+                        '16:00', '17:00', '18:00', '19:00',
+                        '20:00', '21:00'
+                      ].map((hour) => (
+                        <option key={hour} value={hour}>
+                          {hour}
+                        </option>
+                      ))}
+                    </Form.Select>
+                  </td>
                   {/* <td>
                     <Form.Control
                       type="time"
