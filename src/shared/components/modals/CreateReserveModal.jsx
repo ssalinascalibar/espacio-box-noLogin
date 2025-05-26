@@ -19,6 +19,12 @@ export default function CreateReserveModal({
     location: ""
   });
 
+  const availableHours = [
+  '08:00', '09:00', '10:00', '11:00', '12:00',
+  '13:00', '14:00', '15:00', '16:00', '17:00',
+  '18:00', '19:00', '20:00', '21:00',
+  ];
+
   const handleCreateReservation = () => {
     // Validar que todos los campos estén completos
     if (
@@ -117,7 +123,7 @@ export default function CreateReserveModal({
               }
             />
           </Form.Group>
-          <Form.Group className="mb-3">
+          {/* <Form.Group className="mb-3">
             <Form.Label>Hora inicio</Form.Label>
             <Form.Control
               type="time"
@@ -129,6 +135,25 @@ export default function CreateReserveModal({
                 })
               }
             />
+          </Form.Group> */}
+          <Form.Group className="mb-3">
+            <Form.Label>Hora inicio</Form.Label>
+            <Form.Select
+              value={newReservation.start_time}
+              onChange={(e) =>
+                setNewReservation({
+                  ...newReservation,
+                  start_time: e.target.value,
+                })
+              }
+            >
+              <option value="">Selecciona una hora</option>
+              {availableHours.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Pagado</Form.Label>
