@@ -26,7 +26,9 @@ export default function Home() {
               <div className="hero-link-text">
                 <ReserveLink /><p> tu espacio y sé parte de nuestra comunidad.</p>
               </div>
-              <ReviewCalendarLink />
+              <div className="hero-link-text">
+                <ReviewCalendarLink />
+              </div>
             </div>
           </Container>
         </section>
