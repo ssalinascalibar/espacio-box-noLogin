@@ -4,7 +4,7 @@ import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
 import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
-import { ReserveLink } from "../../shared/components/links/CustomLinks";
+import { ReserveLink, ReviewCalendarLink } from "../../shared/components/links/CustomLinks";
 import "./home.css";
 
 export default function Home() {
@@ -26,6 +26,7 @@ export default function Home() {
               <div className="hero-link-text">
                 <ReserveLink /><p> tu espacio y sé parte de nuestra comunidad.</p>
               </div>
+              <ReviewCalendarLink />
             </div>
           </Container>
         </section>

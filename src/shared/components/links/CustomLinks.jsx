@@ -17,6 +17,21 @@ export function ReserveLink({ color = "#fcfcfc", hoverColor = "#4598ac", text = 
   );
 }
 
+export function ReviewCalendarLink({ color = "#fcfcfc", hoverColor = "#4598ac", text = "VER DISPONIBILIDAD" }) {
+  return (
+      <Link
+        to="/agendar"
+        className="customLink"
+        onMouseEnter={(e) => (e.target.style.color = hoverColor)}
+        onMouseLeave={(e) => (e.target.style.color = color)}
+        style={{ hoverColor: hoverColor, color: color }}
+      >
+        <FaEye />
+        {text}
+      </Link>
+  );
+}
+
 export function ContactLink({ color = "#fcfcfc", hoverColor = "#4598ac" }) {
   return (
       <Link
