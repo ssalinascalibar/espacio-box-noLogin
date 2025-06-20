@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaHandPointRight, FaInfoCircle, FaEye, FaRegCalendarAlt  } from "../../../assets/icons/icons";
+import { FaHandPointRight, FaInfoCircle, FaEye } from "../../../assets/icons/icons";
 import "./custom-links.css";
 
 export function ReserveLink({ color = "#fcfcfc", hoverColor = "#4598ac", text = "AGENDA AQUÍ" }) {
@@ -12,21 +12,6 @@ export function ReserveLink({ color = "#fcfcfc", hoverColor = "#4598ac", text = 
         style={{ hoverColor: hoverColor, color: color }}
       >
         <FaHandPointRight />
-        {text}
-      </Link>
-  );
-}
-
-export function ReviewCalendarLink({ color = "#fcfcfc", hoverColor = "#4598ac", text = "REVISAR DISPONIBILIDAD" }) {
-  return (
-      <Link
-        to="/agendar"
-        className="customLink"
-        onMouseEnter={(e) => (e.target.style.color = hoverColor)}
-        onMouseLeave={(e) => (e.target.style.color = color)}
-        style={{ hoverColor: hoverColor, color: color }}
-      >
-        <FaRegCalendarAlt />
         {text}
       </Link>
   );
