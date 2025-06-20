@@ -1,15 +1,23 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
 import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
 import { ReserveLink, ReviewCalendarLink } from "../../shared/components/links/CustomLinks";
+import ReviewCalendarModal from "../../shared/components/modals/ReviewCalendarModal";
 import "./home.css";
 
 export default function Home() {
   const professionalsRef = useRef(null);
   const howItWorksRef = useRef(null);
+
+  // Estado para controlar el modal
+  const [showModal, setShowModal] = useState(false);
+
+  // Funciones para abrir y cerrar el modal
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
   return (
     <>
       <main>
@@ -26,8 +34,13 @@ export default function Home() {
               <div className="hero-link-text">
                 <ReserveLink /><p> tu espacio y sé parte de nuestra comunidad.</p>
               </div>
-              <div className="hero-link-text">
+              {/* <div className="hero-link-text">
                 <ReviewCalendarLink />
+              </div> */}
+              <div className="hero-link-text">
+                <button className="btn btn-link" onClick={handleOpenModal}>
+                  Ver calendario de reservas
+                </button>
               </div>
             </div>
           </Container>
@@ -53,6 +66,7 @@ export default function Home() {
           </Container>
         </section>
       </main>
+      <ReviewCalendarModal show={showModal} handleClose={handleCloseModal} />
     </>
   );
 }

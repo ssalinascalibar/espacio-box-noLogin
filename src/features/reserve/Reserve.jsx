@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom"; 
 import UserContext from "../../context/UserContext";
 import AuthContext from "../../context/AuthContext";
 import { fetchBoxes } from "../../services/api";
@@ -26,7 +27,7 @@ import {
 } from "date-fns";
 import { es } from "date-fns/locale"; // Para mostrar los días en español
 
-export default function Reserve() {
+export default function Reserve({ isGuest = false }) {
   const { reservations, setReservations, professionals } = useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
   const [boxes, setBoxes] = useState([]);
@@ -39,6 +40,8 @@ export default function Reserve() {
   const [showTerms, setShowTerms] = useState(false);
   const [userReservations, setUserReservations] = useState([]);
   const [selectedReservations, setSelectedReservations] = useState([]);
+
+  const navigate = useNavigate();
 
   const [currentWeekStart, setCurrentWeekStart] = useState(
     startOfWeek(new Date(), { weekStartsOn: 1 })
@@ -63,11 +66,23 @@ export default function Reserve() {
   const isReservationReady = selectedBox?.id && selectedReservations.length > 0;
 
   useEffect(() => {
-    const userBooking = reservations.filter(
-      (r) => r.email === registeredUser.email
-    );
-    setUserReservations(userBooking);
-  }, [registeredUser.email, reservations]);
+    if (isGuest) {
+      // Mostrar TODAS las reservas al invitado
+      setUserReservations(reservations);
+    } else {
+      const userBooking = reservations.filter(
+        (r) => r.email === registeredUser.email
+      );
+      setUserReservations(userBooking);
+    }
+  }, [isGuest, registeredUser.email, reservations]);
+
+  // useEffect(() => {
+  //   const userBooking = reservations.filter(
+  //     (r) => r.email === registeredUser.email
+  //   );
+  //   setUserReservations(userBooking);
+  // }, [registeredUser.email, reservations]);
 
   useEffect(() => {
     const user = reservations.find((r) => r.email === registeredUser.email);
@@ -226,6 +241,15 @@ export default function Reserve() {
     }
   };
 
+  const handleReserveClick = () => {
+    if (isGuest) {
+      alert("Debes estar registrado para realizar una reserva. Te redirigiremos ");
+      navigate("/userlogin");
+      return;
+    }
+    setShowTerms(true);
+  };
+
   return (
     <Container>
       <div className="backgroundSection">
@@ -256,10 +280,12 @@ export default function Reserve() {
                     key={index}
                     className={`boxes-content ${
                       selectedBox?.id === box.id ? "selected-box" : ""
-                    }`}
+                    } ${isGuest ? "guest-box" : ""}`}
                     onClick={() => handleSelectBox(box)}
                   >
+                    {!isGuest && (
                     <img src={box.original} alt={`Box ${index}`} />
+                    )}
                     <h5 style={{ marginTop: "0.2rem" }}>{box.originalTitle}</h5>
                   </div>
                 ))
@@ -341,6 +367,11 @@ export default function Reserve() {
               )}
             </h5>
           </div>
+          {isGuest && (
+            <p style={{ fontStyle: "italic", color: "gray" }}>
+              Estás viendo el calendario como invitado. Puedes visualizar reservas, pero debes iniciar sesión para agendar.
+            </p>
+          )}
           <Table striped responsive>
             <thead>
               <tr>
@@ -429,6 +460,7 @@ export default function Reserve() {
                 </ul>
               </div>
             </Col>
+            {!isGuest && (
             <Col lg={7}>
               <div id="historyList">
                 <h5>Mis reservas {userReservations.length}</h5>
@@ -459,12 +491,13 @@ export default function Reserve() {
                 </ul>
               </div>
             </Col>
+            )}
           </Row>
           <div id="calendar-footer">
             <Button
               variant="success"
               className="mt-2"
-              onClick={() => setShowTerms(true)}
+              onClick={handleReserveClick}
               disabled={!isReservationReady}
             >
               Reservar
