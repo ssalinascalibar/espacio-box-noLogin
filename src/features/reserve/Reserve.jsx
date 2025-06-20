@@ -477,15 +477,6 @@ export default function Reserve({ isGuest = false }) {
                         res.location ||
                         "Ubicación desconocida"}
                       )
-                      {/* <FaRegTrashAlt
-                        onClick={() => handleRemoveReservation(res)}
-                        style={{
-                          cursor: "pointer",
-                          color: "red",
-                          marginLeft: "10px",
-                        }}
-                        title="Eliminar reserva"
-                      /> */}
                     </li>
                   ))}
                 </ul>
