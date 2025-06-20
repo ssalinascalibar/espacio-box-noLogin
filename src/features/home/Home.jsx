@@ -35,18 +35,10 @@ export default function Home() {
               <div className="hero-link-text">
                 <ReserveLink /><p> tu espacio y sé parte de nuestra comunidad.</p>
               </div>
-              {/* <div className="hero-link-text">
-                <ReviewCalendarLink />
-              </div> */}
-              
-                {/* <button className="btn btn-link" onClick={handleOpenModal}>
-                  Ver calendario de reservas
-                </button> */}
                 <button id="hero-guest-btn" onClick={handleOpenModal}>
-    <FaRegCalendarAlt />
-    <span>REVISAR DISPONIBILIDAD</span>
-  </button>
-              
+                  <FaRegCalendarAlt />
+                  <span>REVISAR DISPONIBILIDAD</span>
+                </button> 
             </div>
           </Container>
         </section>
