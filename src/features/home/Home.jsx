@@ -4,8 +4,9 @@ import InfoCards from "./InfoCards";
 import FeatureSection from "./FeatureSection";
 import ProfessionalCards from "../../shared/components/cards/ProfessionalCards";
 import VideoSection from "./VideoSection";
-import { ReserveLink, ReviewCalendarLink } from "../../shared/components/links/CustomLinks";
+import { ReserveLink } from "../../shared/components/links/CustomLinks";
 import ReviewCalendarModal from "../../shared/components/modals/ReviewCalendarModal";
+import { FaRegCalendarAlt } from "../../assets/icons/icons";
 import "./home.css";
 
 export default function Home() {
@@ -37,11 +38,15 @@ export default function Home() {
               {/* <div className="hero-link-text">
                 <ReviewCalendarLink />
               </div> */}
-              <div className="hero-link-text">
-                <button className="btn btn-link" onClick={handleOpenModal}>
+              
+                {/* <button className="btn btn-link" onClick={handleOpenModal}>
                   Ver calendario de reservas
-                </button>
-              </div>
+                </button> */}
+                <button id="hero-guest-btn" onClick={handleOpenModal}>
+    <FaRegCalendarAlt />
+    <span>REVISAR DISPONIBILIDAD</span>
+  </button>
+              
             </div>
           </Container>
         </section>

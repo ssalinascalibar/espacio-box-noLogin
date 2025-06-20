@@ -58,6 +58,28 @@
     margin: 1rem 0 4rem 0;
 }
 
+
+/* botón revisar disponiblidad (como invitado) */
+#hero-guest-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;  
+}
+
+#hero-guest-btn svg {
+    font-size: 1.1em;
+}
+
+#hero-guest-btn:hover  {
+    color: var(--primary-color);   
+}
+
+
 /* Media query para desktop (pantallas desde 992px) */
 @media screen and (min-width: 992px) {
 
