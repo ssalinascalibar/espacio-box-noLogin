@@ -14,8 +14,6 @@ export default function AdminReservations({ professionals }) {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedRoom, setSelectedRoom] = useState("");
   const [filteredReservations, setFilteredReservations] = useState([]);
-  
-  console.log(filteredReservations)
 
   const [view, setView] = useState("tabla");
   
