@@ -4,6 +4,7 @@
       "icon": "MdVolunteerActivism",
       "title": "Cómo funcionamos",
       "text": "¿Cómo funcionamos? Reserva, paga y atiende en un espacio pensado para ti.",
+      "text_1": "",
       "link_text": "Vísitanos",
       "link": ""
     },
@@ -12,6 +13,7 @@
       "icon": "MdOutlineBadge",
       "title": "Nuestros Profesionales",
       "text": "Trabajamos con profesionales certificados e inscritos en la superintendencia de salud.",
+      "text_1": "",
       "link_text": "Ver más",
       "link": ""
     },
@@ -20,15 +22,17 @@
       "icon": "MdDateRange",
       "title": "¿Cómo Agendar?",
       "text": "Accede a nuestro calendario para agendar con mayor facilidad.",
+      "text_1": "",
       "link_text": "Agendar",
       "link": "/agendar"
     },
     {
       "id": 3,
       "icon": "MdOutlineLocationOn",
-      "title": "Ubicación",
-      "text": "Guardia Vieja #255, Of 1803 Providencia, Metro Los Leones.",
+      "title": "Ubicaciones",
+      "text": "Guardia Vieja 255, Of 1803 Providencia, Metro Los Leones.",
+      "text_1": "Avenida Providencia 2370.",
       "link_text": "Ir Google maps",
-      "link": "https://maps.app.goo.gl/ypGUB89ns1bEr2LY7"
+      "link": "https://www.google.com/maps/d/u/0/edit?mid=1d_LkKTNp7NCaJKRj425vP-4tu77umQQ&usp=sharing"
     }
   ]

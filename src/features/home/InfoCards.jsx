@@ -48,6 +48,7 @@ export default function InfoCards({ professionalsRef, howItWorksRef }) {
                 {iconMap[card.icon]}
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>{card.text}</Card.Text>
+                <Card.Text>{card.text_1}</Card.Text>
               </Card.Body>
               <Card.Footer>
                 {card.link !== "" ? (
