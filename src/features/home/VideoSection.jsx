@@ -12,7 +12,7 @@ import {
   FaPanorama 
 } from "../../assets/icons/icons";
 import "./videoSection.css";
-import { BoxLink } from "../../shared/components/links/CustomLinks";
+import { BoxLink, ContactLink } from "../../shared/components/links/CustomLinks";
 
 export default function VideoSection() {
   const iconData = [
@@ -68,19 +68,15 @@ export default function VideoSection() {
       <div className="videoSection backgroundSection">
         <Row>
           <Col xs={12} md={12} xl={6} className="col-style-videoSection">
+          <div id="room-link">
             <h2 className="section-titles">
-              Te invitamos a descubrir nuestros espacios, diseñados para brindar
-              confort y funcionalidad.
+              Te invitamos a conocer <br/>nuestras sedes
             </h2>
             <p>
-              Contamos con 3 box amoblados, equipados con todo lo necesario para
-              que puedas atender a tus pacientes con la máxima comodidad.
+              Coordina una cita por algunos <br/> de nuestros canales
             </p>
-            <p>
-              Cada espacio ha sido pensado para ofrecer un ambiente acogedor y
-              profesional, permitiéndote concentrarte en lo más importante: tu
-              trabajo y el bienestar de quienes te visitan.
-            </p>
+            < ContactLink  color="var(--primary-color)" hoverColor="var(--accent-color)"/>
+            </div>
           </Col>
           <Col xs={12} md={12} xl={6}>
             <div className="player-wrapper">
