@@ -20,14 +20,14 @@ export default function FeatureSection() {
               <h4>Pagos</h4>
               <hr />
               <p>
-                Una vez selecionada las horas podras realizar el pago mediante
-                transferencia y confirmar tu reserva
+                Una vez selecionadas las horas podrás realizar el pago mediante
+                transferencia y confirmar tu reserva.
               </p>
               <h4>Cancelar horas y reembolso</h4>
               <hr />
               <p>
-                Podras anular tus reservas con un minimo de 24hrs de
-                anticipacion para poder reagendar sin volver apagar.
+                Podrás anular tus reservas con un mínimo de 24hrs de
+                anticipación para poder reagendar sin volver a pagar.
               </p>
               <h4>Acceso a la oficina </h4>
               <hr />
