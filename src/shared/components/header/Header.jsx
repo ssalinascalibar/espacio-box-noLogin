@@ -20,6 +20,10 @@ export default function Header() {
             <MdOutlineLocationOn />
             Guardia Vieja 255, Of.1803 Providencia - Metro los Leones
           </p>
+          <p className="ubicacion">
+            <MdOutlineLocationOn />
+            Avenida Providencia 2370
+          </p>
         </Container>
       </header>
     </>
