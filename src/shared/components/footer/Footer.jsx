@@ -24,6 +24,7 @@ export default function Footer() {
           <div className="footer-info">
             <h3>Ubicación</h3>
             <p>Guardia Vieja 255, Of.1803 Providencia - Metro los Leones</p>
+            <p>Avenida Providencia 2370</p>
           </div>
           <div className="footer-info">
             <h3>Contacto</h3>
