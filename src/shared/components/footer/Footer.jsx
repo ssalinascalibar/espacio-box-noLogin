@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
         <hr />
         <div className="footer-copyright">
-          <a href="https://www.instagram.com/espaciobox_/#"
+          <a href="https://www.instagram.com/espaciobox_/"
           target="_blank"
           rel="noopener noreferrer"
           >
