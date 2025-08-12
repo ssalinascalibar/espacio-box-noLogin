@@ -113,9 +113,6 @@ export default function VideoSection() {
                   <Card.Body className="d-flex flex-column justify-content-center">
                     <div className="mb-3">{card.icon}</div>
                     <Card.Title>{card.title}</Card.Title>
-                    <Card.Subtitle className="card-subtitle">
-                      {card.description}
-                    </Card.Subtitle>
                   </Card.Body>
                 </Card>
               </Col>
