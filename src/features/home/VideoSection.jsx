@@ -9,16 +9,20 @@ import {
   MdOutlineLocationOn,
   FaKitchenSet,
   FaSun,
-  FaPanorama 
+  RiSofaFill,
+  FaPanorama,
 } from "../../assets/icons/icons";
 import "./videoSection.css";
-import { BoxLink, ContactLink } from "../../shared/components/links/CustomLinks";
+import {
+  BoxLink,
+  ContactLink,
+} from "../../shared/components/links/CustomLinks";
 
 export default function VideoSection() {
   const iconData = [
     {
       id: 0,
-      icon: <FaSun  size={40} />,
+      icon: <FaSun size={40} />,
       title: "Luz natural",
       description: "Para que tus pacientes puedan esperar cómodamente",
     },
@@ -32,15 +36,13 @@ export default function VideoSection() {
       id: 2,
       icon: <FaWifi size={40} />,
       title: "Conectividad asegurada WIFI",
-      description:
-        "Internet inalámbrico disponible en toda la oficina",
+      description: "Internet inalámbrico disponible en toda la oficina",
     },
     {
       id: 3,
       icon: <FaCoffee size={40} />,
       title: "Café e infusiones siempre disponibles",
-      description:
-        "Libre disposición para ti y tus pacientes",
+      description: "Libre disposición para ti y tus pacientes",
     },
     {
       id: 4,
@@ -53,13 +55,20 @@ export default function VideoSection() {
       id: 5,
       icon: <FaKitchenSet size={40} />,
       title: "Kitchenette para tus pausas",
-      description: "Un espacio para preparar tu comida y descansar entre tus sesiones",
+      description:
+        "Un espacio para preparar tu comida y descansar entre tus sesiones",
     },
     {
       id: 6,
       icon: <MdOutlineLocationOn size={40} />,
       title: "Ubicación estratégica en Providencia",
       description: "Literalmente a pasos de Metro Los Leones",
+    },
+    {
+      id: 7,
+      icon: <RiSofaFill size={40} />,
+      title: "Sala de espera",
+      description: "Para que tus pacientes puedan esperar cómodamente",
     },
   ];
 
@@ -68,14 +77,18 @@ export default function VideoSection() {
       <div className="videoSection backgroundSection">
         <Row>
           <Col xs={12} md={12} xl={6} className="col-style-videoSection">
-          <div id="room-link">
-            <h2 className="section-titles">
-              Te invitamos a conocer <br/>nuestras sedes
-            </h2>
-            <p>
-              Coordina una cita por algunos <br/> de nuestros canales
-            </p>
-            < ContactLink  color="var(--primary-color)" hoverColor="var(--accent-color)"/>
+            <div id="room-link">
+              <h2 className="section-titles">
+                Te invitamos a conocer <br />
+                nuestras sedes
+              </h2>
+              <p>
+                Coordina una cita por algunos <br /> de nuestros canales
+              </p>
+              <ContactLink
+                color="var(--primary-color)"
+                hoverColor="var(--accent-color)"
+              />
             </div>
           </Col>
           <Col xs={12} md={12} xl={6}>
@@ -99,10 +112,11 @@ export default function VideoSection() {
           <Row>
             <Col>
               <div id="room-features-header">
-                <h2 className="section-titles">
-                  Espacios que lo tienen todo
-                </h2>
-                <p>Diseñados para que puedas trabajar con tranquilidad, enfocado en lo que realmente importa: tus sesiones.</p>
+                <h2 className="section-titles">Espacios que lo tienen todo</h2>
+                <p>
+                  Diseñados para que puedas trabajar con tranquilidad, enfocado
+                  en lo que realmente importa: tus sesiones.
+                </p>
               </div>
             </Col>
           </Row>
@@ -118,10 +132,13 @@ export default function VideoSection() {
               </Col>
             ))}
             <Col>
-          <div id="room-link">
-            <h4>Te invitamos a conocer nuestro espacio</h4>
-            <BoxLink color="var(--primary-color)" hoverColor="var(--accent-color)"/>
-          </div>
+              <div id="room-link">
+                <h4>Te invitamos a conocer nuestro espacio</h4>
+                <BoxLink
+                  color="var(--primary-color)"
+                  hoverColor="var(--accent-color)"
+                />
+              </div>
             </Col>
           </Row>
         </section>
