@@ -12,11 +12,13 @@ import ReactPlayer from "react-player";
 import HorizontalGallery from "../../shared/components/gallery/HorizontalGallery";
 import {
   FaImages,
+  FaSun,
+  FaPanorama,
   FaWifi,
   FaCoffee,
   FaFan,
-  MdOutlineLocationOn,
   FaKitchenSet,
+  MdOutlineLocationOn,
   RiSofaFill,
   FaVideo,
 } from "../../assets/icons/icons";
@@ -47,42 +49,53 @@ export default function Boxes() {
   const iconData = [
     {
       id: 0,
-      icon: <RiSofaFill size={40} />,
-      title: "Sala de espera",
+      icon: <FaSun size={40} />,
+      title: "Luz natural",
       description: "Para que tus pacientes puedan esperar cómodamente",
     },
     {
       id: 1,
-      icon: <FaWifi size={40} />,
-      title: "WIFI",
-      description: "Internet inalámbrico disponible en toda la oficina",
+      icon: <FaPanorama size={40} />,
+      title: "Vista panorámica",
+      description: "Hermosas vistas para disfrutar mientras trabajas",
     },
     {
       id: 2,
-      icon: <FaCoffee size={40} />,
-      title: "Servicio de cafetería",
-      description:
-        "Café, té e infusiones a libre disposición para ti y tus pacientes",
+      icon: <FaWifi size={40} />,
+      title: "Conectividad asegurada WIFI",
+      description: "Internet inalámbrico disponible en toda la oficina",
     },
     {
       id: 3,
+      icon: <FaCoffee size={40} />,
+      title: "Café e infusiones siempre disponibles",
+      description: "Libre disposición para ti y tus pacientes",
+    },
+    {
+      id: 4,
       icon: <FaFan size={40} />,
-      title: "Climatización",
+      title: "Ambientes climatizados todo el año",
       description:
         "Ventiladores, aire acondicionado y calefactores para todas las temporadas",
     },
     {
-      id: 4,
+      id: 5,
       icon: <FaKitchenSet size={40} />,
-      title: "Cocina",
+      title: "Kitchenette para tus pausas",
       description:
         "Un espacio para preparar tu comida y descansar entre tus sesiones",
     },
     {
-      id: 5,
+      id: 6,
       icon: <MdOutlineLocationOn size={40} />,
-      title: "Excelente ubicación",
+      title: "Ubicación estratégica en Providencia",
       description: "Literalmente a pasos de Metro Los Leones",
+    },
+    {
+      id: 7,
+      icon: <RiSofaFill size={40} />,
+      title: "Sala de espera",
+      description: "Para que tus pacientes puedan esperar cómodamente",
     },
   ];
 
@@ -152,14 +165,11 @@ export default function Boxes() {
               </Row>
               <Row className="g-4">
                 {iconData.map((card) => (
-                  <Col key={card.id} xs={12} lg={4}>
+                  <Col key={card.id} xs={12} lg={3}>
                     <Card className="text-left h-100">
                       <Card.Body className="d-flex flex-column justify-content-center">
                         <div className="mb-3">{card.icon}</div>
                         <Card.Title>{card.title}</Card.Title>
-                        <Card.Subtitle className="card-subtitle">
-                          {card.description}
-                        </Card.Subtitle>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -202,43 +212,44 @@ export default function Boxes() {
               </Row>
             </div>
           </section>
-          
+
           <section>
-          <div id="boxes-video" className="backgroundSection">
-            <Row>
-            <h2 className="section-titles">Nuestras instalaciones</h2>
-            <p>
-              Invitamos a todos quienes trabajan con nosotros a formar parte de
-              esta comunidad como una red de apoyo, autocuidado y derivación.
-            </p>
-            <div id="show-title-gallery">
-              <FaVideo />
-              <h4>Conoce más a través de nuestros videos</h4>
+            <div id="boxes-video" className="backgroundSection">
+              <Row>
+                <h2 className="section-titles">Nuestras instalaciones</h2>
+                <p>
+                  Invitamos a todos quienes trabajan con nosotros a formar parte
+                  de esta comunidad como una red de apoyo, autocuidado y
+                  derivación.
+                </p>
+                <div id="show-title-gallery">
+                  <FaVideo />
+                  <h4>Conoce más a través de nuestros videos</h4>
+                </div>
+              </Row>
+              <Row>
+                {videoBoxes?.map((videoBox, i) => (
+                  <Col xs={12} md={6} lg={3} key={i}>
+                    <div className="player-wrapper">
+                      <ReactPlayer
+                        className="react-player"
+                        url={videoBox.url}
+                        loop={true}
+                        playing={false}
+                        muted={false}
+                        controls={true}
+                        volume={1}
+                        light={videoBox.thumb}
+                        width="100%"
+                        height="100%"
+                        type="video/mp4"
+                      />
+                    </div>
+                    <h5>{videoBox.title}</h5>
+                  </Col>
+                ))}
+              </Row>
             </div>
-            </Row>
-            <Row>
-              {videoBoxes?.map((videoBox, i) => (
-                <Col xs={12} md={6} lg={3} key={i}>
-                  <div className="player-wrapper">
-                    <ReactPlayer
-                      className="react-player"
-                      url={videoBox.url}
-                      loop={true}
-                      playing={false}
-                      muted={false}
-                      controls={true}
-                      volume={1}
-                      light={videoBox.thumb}
-                      width="100%"
-                      height="100%"
-                      type="video/mp4"
-                    />
-                  </div>
-                  <h5>{videoBox.title}</h5>
-                </Col>
-              ))}
-            </Row>
-          </div>
           </section>
         </Container>
       </main>
