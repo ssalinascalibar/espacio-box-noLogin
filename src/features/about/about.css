@@ -22,6 +22,10 @@
   padding: 1rem;
 }
 
+#aboutUs {
+  text-align: justify;
+}
+
 #aboutUs a svg {
   margin-right: 0.3rem;
   font-size: 1.3em;
