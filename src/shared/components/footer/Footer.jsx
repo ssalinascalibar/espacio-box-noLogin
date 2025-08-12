@@ -11,17 +11,6 @@ export default function Footer() {
       <Container>
         <div className="footer-content">
           <div className="footer-info">
-            <h3>Servicios</h3>
-            <ul>
-              <li>Psicología Clínica Adultos</li>
-              <li>Psicoterapia Psicoanalítica</li>
-              <li>Evaluaciones Psicológicas y Neuropsicológicas</li>
-              <li>Nutrición Clínica Integral</li>
-              <li>Nutrición Deportiva y Alimentación Vegetariana/Vegana</li>
-              <li>Atención en Trastornos del Ánimo y Ansiedad</li>
-            </ul>
-          </div>
-          <div className="footer-info">
             <h3>Ubicación</h3>
             <p>Guardia Vieja 255, Of.1803 Providencia - Metro los Leones</p>
             <p>Avenida Providencia 2370</p>
