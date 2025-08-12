@@ -170,6 +170,7 @@ export default function Boxes() {
                       <Card.Body className="d-flex flex-column justify-content-center">
                         <div className="mb-3">{card.icon}</div>
                         <Card.Title>{card.title}</Card.Title>
+                        {/* <Card.Text>{card.description}</Card.Text> */}
                       </Card.Body>
                     </Card>
                   </Col>
