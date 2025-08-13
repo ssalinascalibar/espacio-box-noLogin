@@ -3,6 +3,7 @@ import "./header.css";
 import {
   MdOutlineEmail,
   MdOutlineLocationOn,
+  FaInstagram
 } from "../../../assets/icons/icons";
 
 export default function Header() {
@@ -24,6 +25,14 @@ export default function Header() {
             <MdOutlineLocationOn />
             Avenida Providencia 2370
           </p>
+          <a href="https://www.instagram.com/espaciobox_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+            <p className="ubicacion">
+              <FaInstagram /> Instagram
+            </p>
+          </a>
         </Container>
       </header>
     </>
