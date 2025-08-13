@@ -45,7 +45,7 @@ export default function Contact() {
             <Col>
               <h2 className="section-titles">Nuestra Ubicación</h2>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3329.951108172711!2d-70.61011!3d-33.424519!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf65ed610889%3A0x5e1c3a2ae09bffe7!2sGuardia%20Vieja%20255%2C%207510186%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1741215291211!5m2!1ses!2scl"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1d_LkKTNp7NCaJKRj425vP-4tu77umQQ&ehbc=2E312F"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
