@@ -182,11 +182,11 @@ export default function Boxes() {
           <section>
             <div className="backgroundSection">
               <Row>
+                <div id="show-title-gallery">
+                  <FaImages />
+                  <h4>Descubre Nuestros Espacios</h4>
+                </div>
                 <Col>
-                  <div id="show-title-gallery">
-                    <FaImages />
-                    <h4>Descubre Nuestros Espacios</h4>
-                  </div>
                   <Form.Select
                     id="filter-room"
                     name="filterRoom"
