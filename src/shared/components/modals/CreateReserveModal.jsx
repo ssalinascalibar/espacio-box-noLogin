@@ -70,8 +70,8 @@ export default function CreateReserveModal({
               }
             >
               <option value="">Seleccionar sede</option>
-              <option value="Providencia">Providencia</option>
-              <option value="Las Condes">Las Condes</option>
+              <option value="Guardia Vieja">Guardia Vieja</option>
+              <option value="Avenida Providencia">Avenida Providencia</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
