@@ -89,7 +89,8 @@ export default function Reserve({ isGuest = false }) {
     setCurrentUser(user);
   }, [registeredUser.email, reservations]);
 
-  const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
+  // const hours = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
+  const hours = Array.from({ length: 14 }, (_, i) => `${String(i + 8).padStart(2, "0")}:00`);
 
   const handleCloseTerms = () => setShowTerms(false);
 
@@ -221,7 +222,11 @@ export default function Reserve({ isGuest = false }) {
             const hourInt = parseInt(h);
             return hourInt >= start && hourInt < end;
           })
-          .map((h) => ({ date: dateStr, start_time: h, selectedBox }));
+          .map((h) => ({
+            date: dateStr,
+            start_time: `${String(parseInt(h)).padStart(2, "0")}:00`,
+            selectedBox,
+          }));
 
       if (reservationType === "option1") {
         newReservations = [{ date: dateStr, start_time, selectedBox }];
