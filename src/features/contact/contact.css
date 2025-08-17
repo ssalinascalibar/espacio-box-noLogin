@@ -2,6 +2,12 @@
     margin: 3rem 0 0 0;
 }
 
+#contact a{
+    margin: 0 0 0 0.3rem;
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
 #contact form {
     background-color: var(--background-secondary-color);
     padding: 1rem;

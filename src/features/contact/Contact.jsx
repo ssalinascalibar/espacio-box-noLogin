@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { FaInstagram } from "../../assets/icons/icons";
 import Image from "react-bootstrap/Image";
 import "./contact.css";
 
@@ -60,6 +61,17 @@ export default function Contact() {
             <Row>
               <Col lg={6}>
                 <h3>Contáctanos</h3>
+                <p>Escríbenos a nuestro
+                  <a
+                    href="https://www.instagram.com/espaciobox_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                  Instagram
+                  <FaInstagram />
+                  </a>
+                </p>
+                <p> O completa el siguiente formulario:</p>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group controlId="formName" className="mb-3">
                     <Form.Label>Nombre</Form.Label>
