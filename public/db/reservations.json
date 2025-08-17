@@ -2,7 +2,7 @@
     {
       "id": 0,
       "room": "Box 1",
-      "location": "Providencia",
+      "location": "Guardia Vieja",
       "name": "Camila",
       "paternal_surname": "Unda",
       "maternal_surname": "",
@@ -15,7 +15,7 @@
     {
       "id": 1,
       "room": "Box 1",
-      "location": "Providencia",
+      "location": "Guardia Vieja",
       "name": "Rodrigo",
       "paternal_surname": "Ramos",
       "maternal_surname": "",
@@ -28,7 +28,7 @@
     {
       "id": 2,
       "room": "Box 3",
-      "location": "Providencia",
+      "location": "Guardia Vieja",
       "name": "Matías",
       "paternal_surname": "Bunster",
       "maternal_surname": "",
@@ -41,7 +41,7 @@
     {
       "id": 3,
       "room": "Box 2",
-      "location": "Providencia",
+      "location": "Guardia Vieja",
       "name": "Silvia",
       "paternal_surname": "Pedreros",
       "maternal_surname": "",
@@ -54,7 +54,7 @@
     {
       "id": 4,
       "room": "Box 2",
-      "location": "Providencia",
+      "location": "Guardia Vieja",
       "name": "María Ignacia",
       "paternal_surname": "Munster",
       "maternal_surname": "",
@@ -67,7 +67,7 @@
     {
       "id": 5,
       "room": "Box 1",
-      "location": "Las Condes",
+      "location": "Avenida Providencia",
       "name": "Emilia",
       "paternal_surname": "Espino",
       "maternal_surname": "López",
