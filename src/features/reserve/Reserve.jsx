@@ -31,7 +31,7 @@ export default function Reserve({ isGuest = false }) {
   const { reservations, setReservations, professionals } = useContext(UserContext);
   const { registeredUser } = useContext(AuthContext);
   const [boxes, setBoxes] = useState([]);
-  const [selectedRoom, setSelectedRoom] = useState("Providencia");
+  const [selectedRoom, setSelectedRoom] = useState("Guardia Vieja");
   const [filteredBoxes, setFilteredBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState({});
   const [selectedBoxes, setSelectedBoxes] = useState([]);
@@ -158,9 +158,9 @@ export default function Reserve({ isGuest = false }) {
   useEffect(() => {
     let allowedIds = [];
 
-    if (selectedRoom === "Providencia") {
+    if (selectedRoom === "Guardia Vieja") {
       allowedIds = [5, 7, 12];
-    } else if (selectedRoom === "Las Condes") {
+    } else if (selectedRoom === "Avenida Providencia") {
       allowedIds = [];
     }
 
@@ -264,8 +264,8 @@ export default function Reserve({ isGuest = false }) {
               onChange={(e) => setSelectedRoom(e.target.value)}
             >
               <option>Filtrar por sede</option>
-              <option value="Providencia">Sede Providencia</option>
-              <option value="Las Condes">Sede Las Condes</option>
+              <option value="Guardia Vieja">Sede Guardia Vieja</option>
+              <option value="Avenida Providencia">Sede Avenida Providencia</option>
             </Form.Select>
           </Col>
         </Row>
