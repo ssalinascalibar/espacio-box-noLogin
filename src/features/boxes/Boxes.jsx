@@ -7,8 +7,6 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./boxes.css";
 import ReactPlayer from "react-player";
-// import ImageGallery from "react-image-gallery";
-// import { GalleryShowBtn } from "./BoxesBtn";
 import HorizontalGallery from "../../shared/components/gallery/HorizontalGallery";
 import {
   FaImages,
@@ -30,7 +28,8 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function Boxes() {
   const [boxes, setBoxes] = useState([]);
-  const [selectedRoom, setSelectedRoom] = useState("Providencia");
+  const [selectedRoom, setSelectedRoom] = useState("Guardia Vieja");
+  const [selectedType, setSelectedType] = useState("");  // tipo (Box / Instalaciones)
   const [filteredBoxes, setFilteredBoxes] = useState([]);
 
   useEffect(() => {
@@ -41,10 +40,27 @@ export default function Boxes() {
     getBoxes();
   }, []);
 
+  // useEffect(() => {
+  //   const filtered = boxes.filter((box) => box.location === selectedRoom);
+  //   setFilteredBoxes(filtered);
+  // }, [selectedRoom, boxes]);
+
   useEffect(() => {
-    const filtered = boxes.filter((box) => box.location === selectedRoom);
+    const filtered = boxes.filter((box) => {
+      const matchRoom = selectedRoom === "" || box.location === selectedRoom;
+  
+      let matchType = true; // por defecto no filtra nada
+      if (selectedType === "Box") {
+        matchType = box.originalTitle.startsWith("Box");
+      } else if (selectedType === "Instalaciones") {
+        matchType = box.originalTitle === "Instalaciones";
+      }
+  
+      return matchRoom && matchType;
+    });
+  
     setFilteredBoxes(filtered);
-  }, [selectedRoom, boxes]);
+  }, [selectedRoom, selectedType, boxes]);
 
   const iconData = [
     {
@@ -186,7 +202,7 @@ export default function Boxes() {
                   <FaImages />
                   <h4>Descubre Nuestros Espacios</h4>
                 </div>
-                <Col>
+                <Col lg ={6} md={12} className="mb-3">
                   <Form.Select
                     id="filter-room"
                     name="filterRoom"
@@ -195,8 +211,21 @@ export default function Boxes() {
                     onChange={(e) => setSelectedRoom(e.target.value)}
                   >
                     <option>Filtrar por sede</option>
-                    <option value="Providencia">Sede Providencia</option>
-                    <option value="Las Condes">Sede Las Condes</option>
+                    <option value="Guardia Vieja">Sede Guardia Vieja</option>
+                    <option value="Avenida Providencia">Sede Avenida Providencia</option>
+                  </Form.Select>
+                </Col>
+                <Col lg ={6} md={12}>
+                  <Form.Select
+                    id="filter-type"
+                    name="filterType"
+                    aria-label="Filtrar por tipo"
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                  >
+                    <option>Todos los espacios</option>
+                    <option value="Box">Boxes</option>
+                    <option value="Instalaciones">Espacios comúnes</option>
                   </Form.Select>
                 </Col>
               </Row>
