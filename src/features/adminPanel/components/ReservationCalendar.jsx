@@ -59,14 +59,14 @@ export default function ReservationCalendar({ bookings = [] }) {
         hour12: false,
       });
       switch (eventType) {
-        case "Providencia":
+        case "Guardia Vieja":
           return (
             <div className="custom-event custom-event-color-1">
               {props.event.title} | {props.event.location} {startTime}-{endTime}{" "}
               | {props.event.name}
             </div>
           );
-        case "Las Condes":
+        case "Avenida Providencia":
           return (
             <div className="custom-event custom-event-color-2">
               {props.event.title} | {props.event.location} {startTime}-{endTime}{" "}
